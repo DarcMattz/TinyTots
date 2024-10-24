@@ -177,7 +177,7 @@ class _KulayScreenState extends State<KulayScreen> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 5, right: 5),
+            margin: const EdgeInsets.only(top: 5, right: 5),
             child: CircleButton(
                 color: Colors.purpleAccent,
                 shadowColor: Colors.purple,
@@ -187,12 +187,12 @@ class _KulayScreenState extends State<KulayScreen> {
                 }),
           ),
           Expanded(
-              child: Container(
+              child: SizedBox(
                   width: double.infinity,
                   child: Center(
                     child: Image.asset(kulay.imagePath),
                   ))),
-          Gap(20)
+          const Gap(20)
         ],
       ),
     );

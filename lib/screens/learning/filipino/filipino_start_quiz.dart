@@ -51,15 +51,15 @@ class FilipinoStartQuizScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               minHeight: 250,
                               minWidth: double.infinity,
                             ),
-                            margin: EdgeInsets.only(top: 15.0),
+                            margin: const EdgeInsets.only(top: 15.0),
                             width: double.infinity,
-                            padding: EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0),
                             decoration: BoxDecoration(
-                              color: Color(0xFF95E9FF),
+                              color: const Color(0xFF95E9FF),
                               borderRadius: BorderRadius.circular(7.0),
                             ),
                             child: Column(
@@ -67,18 +67,18 @@ class FilipinoStartQuizScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   title,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'Poetsen One',
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFFA659FE),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   instruction,
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'Poetsen One',
                                     fontSize: 15,
                                     color: Colors.black,

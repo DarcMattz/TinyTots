@@ -90,10 +90,10 @@ class AndroidWelcome extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Column(
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             'Welcome,',
                             style: TextStyle(
                               fontSize: 24,
@@ -101,15 +101,15 @@ class AndroidWelcome extends StatelessWidget {
                               color: Color(0xff6F53FD),
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          const Text(
+                          SizedBox(height: 10),
+                          Text(
                             'Explore a world of fun learning\nwith our interactive activities.\nJoin us on an exciting journey\nof discovery and growth. Let’s\nlearn together!',
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10),
                         ],
                       ),
                     ),
@@ -136,7 +136,7 @@ class AndroidWelcome extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => AbcQuizScreen()),
+                                  builder: (_) => const AbcQuizScreen()),
                             );
                           },
                         ),

@@ -77,7 +77,7 @@ class _LetterTraceCardState extends State<LetterTraceCard> {
                 icon: Icons.arrow_back_rounded,
                 method: widget.prevCallback,
               ),
-              Gap(10),
+              const Gap(10),
               CircleButton(
                 color: Colors.amberAccent,
                 shadowColor: Colors.yellow,

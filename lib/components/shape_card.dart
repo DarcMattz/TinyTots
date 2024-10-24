@@ -11,6 +11,7 @@ class ShapeCard extends StatefulWidget {
   final bool isFirst;
 
   const ShapeCard({
+    super.key,
     required this.shape,
     required this.nextCallback,
     required this.prevCallback,

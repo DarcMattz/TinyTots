@@ -9,6 +9,7 @@ class SenseCard extends StatefulWidget {
   final void Function() soundCallback;
 
   const SenseCard({
+    super.key,
     required this.sense,
     required this.nextCallback,
     required this.prevCallback,

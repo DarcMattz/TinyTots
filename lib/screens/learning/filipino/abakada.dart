@@ -290,7 +290,7 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 5, right: 5),
+            margin: const EdgeInsets.only(top: 5, right: 5),
             child: CircleButton(
                 color: Colors.purpleAccent,
                 shadowColor: Colors.purple,
@@ -300,27 +300,27 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
                 }),
           ),
           Expanded(
-              child: Container(
+              child: SizedBox(
                   width: double.infinity,
                   child: Center(
                       child: (abakada.mainContent != "")
                           ? Text(
                               abakada.mainContent,
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontFamily: 'Poetsen One',
                                   fontSize: 120,
                                   color: Color(0xff6F53FD)),
                             )
                           : GridView.builder(
                               gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 childAspectRatio: 1.4,
                                 mainAxisSpacing: 2.0,
                                 crossAxisSpacing: 2.0,
                               ),
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: abakada.subContent!.length + 1,
                               itemBuilder: (context, index) {
@@ -341,7 +341,7 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
                                 }
                                 if (index == 5) {
                                   if (abakada.imagePath == "") {
-                                    return Text("");
+                                    return const Text("");
                                   }
                                   return Center(
                                     child: Image.asset(
@@ -351,7 +351,7 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
                                   );
                                 }
                                 return Container(
-                                    margin: EdgeInsets.all(5),
+                                    margin: const EdgeInsets.all(5),
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       border: Border.all(
@@ -363,7 +363,7 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
                                       child: Text(
                                         abakada.subContent![index],
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontFamily: 'Poetsen One',
                                             fontSize: 40,
                                             color: Colors.white),

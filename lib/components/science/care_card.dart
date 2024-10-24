@@ -73,14 +73,14 @@ class _CareCardState extends State<CareCard> {
                               ),
                             ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Expanded(
                             child: Image.asset(
                               widget.care.imagePath,
                               fit: BoxFit.contain,
                             ),
                           ),
-                          Gap(10),
+                          const Gap(10),
                         ],
                       ),
                     ),
@@ -109,7 +109,7 @@ class _CareCardState extends State<CareCard> {
                     icon: Icons.arrow_back_rounded,
                     method: widget.prevCallback,
                   ),
-                  Gap(10),
+                  const Gap(10),
                   CircleButton(
                     color: Colors.amberAccent,
                     shadowColor: Colors.yellow,
