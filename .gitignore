@@ -1,0 +1,27 @@
+# Dart/Flutter related ignores
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Build output directories
+build/
+
+# iOS generated files
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Android generated files
+.gradle/
+.idea/
+android/app/*.keystore
+
+# Dependency lock files
+pubspec.lock
+
+# IDE settings
+.vscode/
+.idea/
