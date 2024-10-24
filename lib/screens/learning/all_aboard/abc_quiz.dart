@@ -38,19 +38,6 @@ class AndroidWelcome extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: Image.asset(
-          //         'assets/images/sun.png',
-          //         width: 120,
-          //         height: 120,
-          //       ),
-          //     ),
-          //   ],
-          // ),
           const TopBar(),
           const Spacer(),
           Stack(
