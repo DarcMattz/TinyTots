@@ -83,6 +83,7 @@ flutter:
     - assets/images/filipino/
     - assets/images/letters/guide/
     - assets/images/letters/sample/
+    - assets/images/quizes/alphabet/
     - assets/models/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

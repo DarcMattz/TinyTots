@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/quizes/abc.dart';
 
@@ -26,7 +27,7 @@ class AndroidWelcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      // width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.lightBlueAccent,
         image: DecorationImage(
@@ -37,26 +38,27 @@ class AndroidWelcome extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  'assets/images/sun.png',
-                  width: 120,
-                  height: 120,
-                ),
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: Image.asset(
+          //         'assets/images/sun.png',
+          //         width: 120,
+          //         height: 120,
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          const TopBar(),
           const Spacer(),
           Stack(
             clipBehavior: Clip.none,
             alignment: Alignment.topCenter,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(30, 100, 30, 10),
+                margin: const EdgeInsets.all(30),
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -90,29 +92,35 @@ class AndroidWelcome extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            'Welcome,',
+                          const Text(
+                            'LETTER MATCHING',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff6F53FD),
                             ),
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            'Explore a world of fun learning\nwith our interactive activities.\nJoin us on an exciting journey\nof discovery and growth. Let’s\nlearn together!',
+                          const SizedBox(height: 10),
+                          const Text(
+                            'Tap the correct picture that matches the letter shown.',
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black,
                             ),
+                            textAlign: TextAlign.center,
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
+                          Image.asset(
+                            'assets/images/quizes/alphabet/letter_matching.png',
+                            height: constraints.maxHeight * 0.2,
+                          )
                         ],
                       ),
                     ),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -143,14 +151,6 @@ class AndroidWelcome extends StatelessWidget {
                       ],
                     ),
                   ],
-                ),
-              ),
-              Positioned(
-                top: -40,
-                child: Image.asset(
-                  'assets/images/koala.png',
-                  width: 200,
-                  height: 200,
                 ),
               ),
             ],
