@@ -98,6 +98,9 @@ flutter:
     - family: Poetsen One
       fonts:
         - asset: assets/fonts/PoetsenOne-Regular.ttf
+    - family: Jua
+      fonts:
+        - asset: assets/fonts/Jua-Regular.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
