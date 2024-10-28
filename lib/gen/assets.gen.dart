@@ -15,12 +15,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/LOGO.png
   AssetGenImage get logo => const AssetGenImage('assets/images/LOGO.png');
 
-  /// File path: assets/images/abc.png
-  AssetGenImage get abc => const AssetGenImage('assets/images/abc.png');
-
-  /// File path: assets/images/all_aboard.png
-  AssetGenImage get allAboard =>
-      const AssetGenImage('assets/images/all_aboard.png');
+  /// Directory path: assets/images/all_aboard
+  $AssetsImagesAllAboardGen get allAboard => const $AssetsImagesAllAboardGen();
 
   /// File path: assets/images/background.png
   AssetGenImage get background =>
@@ -35,9 +31,6 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/care.png
   AssetGenImage get care => const AssetGenImage('assets/images/care.png');
-
-  /// File path: assets/images/circle.png
-  AssetGenImage get circle => const AssetGenImage('assets/images/circle.png');
 
   /// File path: assets/images/cow.png
   AssetGenImage get cow => const AssetGenImage('assets/images/cow.png');
@@ -61,10 +54,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/koala.png
   AssetGenImage get koala => const AssetGenImage('assets/images/koala.png');
 
-  /// File path: assets/images/learn_abc.png
-  AssetGenImage get learnAbc =>
-      const AssetGenImage('assets/images/learn_abc.png');
-
   /// File path: assets/images/learn_body.png
   AssetGenImage get learnBody =>
       const AssetGenImage('assets/images/learn_body.png');
@@ -77,10 +66,6 @@ class $AssetsImagesGen {
   AssetGenImage get learnSenses =>
       const AssetGenImage('assets/images/learn_senses.png');
 
-  /// File path: assets/images/learn_shapes.png
-  AssetGenImage get learnShapes =>
-      const AssetGenImage('assets/images/learn_shapes.png');
-
   /// File path: assets/images/learn_vowels.png
   AssetGenImage get learnVowels =>
       const AssetGenImage('assets/images/learn_vowels.png');
@@ -89,18 +74,12 @@ class $AssetsImagesGen {
   AssetGenImage get learning =>
       const AssetGenImage('assets/images/learning.png');
 
-  /// Directory path: assets/images/letters
-  $AssetsImagesLettersGen get letters => const $AssetsImagesLettersGen();
-
   /// File path: assets/images/lion.png
   AssetGenImage get lion => const AssetGenImage('assets/images/lion.png');
 
   /// Directory path: assets/images/mathematics
   $AssetsImagesMathematicsGen get mathematics =>
       const $AssetsImagesMathematicsGen();
-
-  /// File path: assets/images/oval.png
-  AssetGenImage get oval => const AssetGenImage('assets/images/oval.png');
 
   /// File path: assets/images/panda.png
   AssetGenImage get panda => const AssetGenImage('assets/images/panda.png');
@@ -114,19 +93,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
 
-  /// File path: assets/images/quiz.png
-  AssetGenImage get quiz => const AssetGenImage('assets/images/quiz.png');
-
-  /// File path: assets/images/quiz_lock.png
-  AssetGenImage get quizLock =>
-      const AssetGenImage('assets/images/quiz_lock.png');
+  /// File path: assets/images/quiz_pic.png
+  AssetGenImage get quizPic =>
+      const AssetGenImage('assets/images/quiz_pic.png');
 
   /// File path: assets/images/rabbit.png
   AssetGenImage get rabbit => const AssetGenImage('assets/images/rabbit.png');
-
-  /// File path: assets/images/rectangle.png
-  AssetGenImage get rectangle =>
-      const AssetGenImage('assets/images/rectangle.png');
 
   /// File path: assets/images/ribbon.png
   AssetGenImage get ribbon => const AssetGenImage('assets/images/ribbon.png');
@@ -141,9 +113,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/senses.png
   AssetGenImage get senses => const AssetGenImage('assets/images/senses.png');
 
-  /// File path: assets/images/shapes.png
-  AssetGenImage get shapes => const AssetGenImage('assets/images/shapes.png');
-
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -151,18 +120,8 @@ class $AssetsImagesGen {
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/splash_screen.png');
 
-  /// File path: assets/images/square.png
-  AssetGenImage get square => const AssetGenImage('assets/images/square.png');
-
-  /// File path: assets/images/star.png
-  AssetGenImage get star => const AssetGenImage('assets/images/star.png');
-
   /// File path: assets/images/sun.png
   AssetGenImage get sun => const AssetGenImage('assets/images/sun.png');
-
-  /// File path: assets/images/triangle.png
-  AssetGenImage get triangle =>
-      const AssetGenImage('assets/images/triangle.png');
 
   /// Directory path: assets/images/vowels
   $AssetsImagesVowelsGen get vowels => const $AssetsImagesVowelsGen();
@@ -174,46 +133,34 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         logo,
-        abc,
-        allAboard,
         background,
         backgroundRoad,
         body,
         care,
-        circle,
         cow,
         dog,
         explore,
         geography,
         giraffe,
         koala,
-        learnAbc,
         learnBody,
         learnCare,
         learnSenses,
-        learnShapes,
         learnVowels,
         learning,
         lion,
-        oval,
         panda,
         phonics,
         play,
         profile,
-        quiz,
-        quizLock,
+        quizPic,
         rabbit,
-        rectangle,
         ribbon,
         scienceAndHealth,
         senses,
-        shapes,
         splash,
         splashScreen,
-        square,
-        star,
         sun,
-        triangle,
         vowelsPng
       ];
 }
@@ -255,6 +202,33 @@ class $AssetsSoundsGen {
 
   /// List of all assets
   List<String> get values => [ready];
+}
+
+class $AssetsImagesAllAboardGen {
+  const $AssetsImagesAllAboardGen();
+
+  /// File path: assets/images/all_aboard/allaboard_pic.png
+  AssetGenImage get allaboardPic =>
+      const AssetGenImage('assets/images/all_aboard/allaboard_pic.png');
+
+  /// File path: assets/images/all_aboard/alphabet_pic.png
+  AssetGenImage get alphabetPic =>
+      const AssetGenImage('assets/images/all_aboard/alphabet_pic.png');
+
+  /// Directory path: assets/images/all_aboard/letters
+  $AssetsImagesAllAboardLettersGen get letters =>
+      const $AssetsImagesAllAboardLettersGen();
+
+  /// Directory path: assets/images/all_aboard/shapes
+  $AssetsImagesAllAboardShapesGen get shapes =>
+      const $AssetsImagesAllAboardShapesGen();
+
+  /// File path: assets/images/all_aboard/shapes_pic.png
+  AssetGenImage get shapesPic =>
+      const AssetGenImage('assets/images/all_aboard/shapes_pic.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [allaboardPic, alphabetPic, shapesPic];
 }
 
 class $AssetsImagesFilipinoGen {
@@ -473,25 +447,6 @@ class $AssetsImagesFilipinoGen {
         pamilyaNanay,
         pamilyaTatay
       ];
-}
-
-class $AssetsImagesLettersGen {
-  const $AssetsImagesLettersGen();
-
-  /// Directory path: assets/images/letters/guide
-  $AssetsImagesLettersGuideGen get guide =>
-      const $AssetsImagesLettersGuideGen();
-
-  /// File path: assets/images/letters/letter_matching.png
-  AssetGenImage get letterMatching =>
-      const AssetGenImage('assets/images/letters/letter_matching.png');
-
-  /// Directory path: assets/images/letters/sample
-  $AssetsImagesLettersSampleGen get sample =>
-      const $AssetsImagesLettersSampleGen();
-
-  /// List of all assets
-  List<AssetGenImage> get values => [letterMatching];
 }
 
 class $AssetsImagesMathematicsGen {
@@ -1210,280 +1165,63 @@ class $AssetsSoundsVowelsGen {
       ];
 }
 
-class $AssetsImagesLettersGuideGen {
-  const $AssetsImagesLettersGuideGen();
+class $AssetsImagesAllAboardLettersGen {
+  const $AssetsImagesAllAboardLettersGen();
 
-  /// File path: assets/images/letters/guide/A.png
-  AssetGenImage get a =>
-      const AssetGenImage('assets/images/letters/guide/A.png');
+  /// Directory path: assets/images/all_aboard/letters/guide
+  $AssetsImagesAllAboardLettersGuideGen get guide =>
+      const $AssetsImagesAllAboardLettersGuideGen();
 
-  /// File path: assets/images/letters/guide/B.png
-  AssetGenImage get b =>
-      const AssetGenImage('assets/images/letters/guide/B.png');
+  /// File path: assets/images/all_aboard/letters/learn_abc.png
+  AssetGenImage get learnAbc =>
+      const AssetGenImage('assets/images/all_aboard/letters/learn_abc.png');
 
-  /// File path: assets/images/letters/guide/C.png
-  AssetGenImage get c =>
-      const AssetGenImage('assets/images/letters/guide/C.png');
+  /// File path: assets/images/all_aboard/letters/letter_matching.png
+  AssetGenImage get letterMatching => const AssetGenImage(
+      'assets/images/all_aboard/letters/letter_matching.png');
 
-  /// File path: assets/images/letters/guide/D.png
-  AssetGenImage get d =>
-      const AssetGenImage('assets/images/letters/guide/D.png');
-
-  /// File path: assets/images/letters/guide/E.png
-  AssetGenImage get e =>
-      const AssetGenImage('assets/images/letters/guide/E.png');
-
-  /// File path: assets/images/letters/guide/F.png
-  AssetGenImage get f =>
-      const AssetGenImage('assets/images/letters/guide/F.png');
-
-  /// File path: assets/images/letters/guide/G.png
-  AssetGenImage get g =>
-      const AssetGenImage('assets/images/letters/guide/G.png');
-
-  /// File path: assets/images/letters/guide/H.png
-  AssetGenImage get h =>
-      const AssetGenImage('assets/images/letters/guide/H.png');
-
-  /// File path: assets/images/letters/guide/I.png
-  AssetGenImage get i =>
-      const AssetGenImage('assets/images/letters/guide/I.png');
-
-  /// File path: assets/images/letters/guide/J.png
-  AssetGenImage get j =>
-      const AssetGenImage('assets/images/letters/guide/J.png');
-
-  /// File path: assets/images/letters/guide/K.png
-  AssetGenImage get k =>
-      const AssetGenImage('assets/images/letters/guide/K.png');
-
-  /// File path: assets/images/letters/guide/L.png
-  AssetGenImage get l =>
-      const AssetGenImage('assets/images/letters/guide/L.png');
-
-  /// File path: assets/images/letters/guide/M.png
-  AssetGenImage get m =>
-      const AssetGenImage('assets/images/letters/guide/M.png');
-
-  /// File path: assets/images/letters/guide/N.png
-  AssetGenImage get n =>
-      const AssetGenImage('assets/images/letters/guide/N.png');
-
-  /// File path: assets/images/letters/guide/O.png
-  AssetGenImage get o =>
-      const AssetGenImage('assets/images/letters/guide/O.png');
-
-  /// File path: assets/images/letters/guide/P.png
-  AssetGenImage get p =>
-      const AssetGenImage('assets/images/letters/guide/P.png');
-
-  /// File path: assets/images/letters/guide/Q.png
-  AssetGenImage get q =>
-      const AssetGenImage('assets/images/letters/guide/Q.png');
-
-  /// File path: assets/images/letters/guide/R.png
-  AssetGenImage get r =>
-      const AssetGenImage('assets/images/letters/guide/R.png');
-
-  /// File path: assets/images/letters/guide/S.png
-  AssetGenImage get s =>
-      const AssetGenImage('assets/images/letters/guide/S.png');
-
-  /// File path: assets/images/letters/guide/T.png
-  AssetGenImage get t =>
-      const AssetGenImage('assets/images/letters/guide/T.png');
-
-  /// File path: assets/images/letters/guide/U.png
-  AssetGenImage get u =>
-      const AssetGenImage('assets/images/letters/guide/U.png');
-
-  /// File path: assets/images/letters/guide/V.png
-  AssetGenImage get v =>
-      const AssetGenImage('assets/images/letters/guide/V.png');
-
-  /// File path: assets/images/letters/guide/W.png
-  AssetGenImage get w =>
-      const AssetGenImage('assets/images/letters/guide/W.png');
-
-  /// File path: assets/images/letters/guide/X.png
-  AssetGenImage get x =>
-      const AssetGenImage('assets/images/letters/guide/X.png');
-
-  /// File path: assets/images/letters/guide/Y.png
-  AssetGenImage get y =>
-      const AssetGenImage('assets/images/letters/guide/Y.png');
-
-  /// File path: assets/images/letters/guide/Z.png
-  AssetGenImage get z =>
-      const AssetGenImage('assets/images/letters/guide/Z.png');
+  /// Directory path: assets/images/all_aboard/letters/sample
+  $AssetsImagesAllAboardLettersSampleGen get sample =>
+      const $AssetsImagesAllAboardLettersSampleGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        a,
-        b,
-        c,
-        d,
-        e,
-        f,
-        g,
-        h,
-        i,
-        j,
-        k,
-        l,
-        m,
-        n,
-        o,
-        p,
-        q,
-        r,
-        s,
-        t,
-        u,
-        v,
-        w,
-        x,
-        y,
-        z
-      ];
+  List<AssetGenImage> get values => [learnAbc, letterMatching];
 }
 
-class $AssetsImagesLettersSampleGen {
-  const $AssetsImagesLettersSampleGen();
+class $AssetsImagesAllAboardShapesGen {
+  const $AssetsImagesAllAboardShapesGen();
 
-  /// File path: assets/images/letters/sample/apple.png
-  AssetGenImage get apple =>
-      const AssetGenImage('assets/images/letters/sample/apple.png');
+  /// File path: assets/images/all_aboard/shapes/circle.png
+  AssetGenImage get circle =>
+      const AssetGenImage('assets/images/all_aboard/shapes/circle.png');
 
-  /// File path: assets/images/letters/sample/ball.png
-  AssetGenImage get ball =>
-      const AssetGenImage('assets/images/letters/sample/ball.png');
+  /// File path: assets/images/all_aboard/shapes/learn_shapes.png
+  AssetGenImage get learnShapes =>
+      const AssetGenImage('assets/images/all_aboard/shapes/learn_shapes.png');
 
-  /// File path: assets/images/letters/sample/cat.png
-  AssetGenImage get cat =>
-      const AssetGenImage('assets/images/letters/sample/cat.png');
+  /// File path: assets/images/all_aboard/shapes/oval.png
+  AssetGenImage get oval =>
+      const AssetGenImage('assets/images/all_aboard/shapes/oval.png');
 
-  /// File path: assets/images/letters/sample/doll.png
-  AssetGenImage get doll =>
-      const AssetGenImage('assets/images/letters/sample/doll.png');
+  /// File path: assets/images/all_aboard/shapes/rectangle.png
+  AssetGenImage get rectangle =>
+      const AssetGenImage('assets/images/all_aboard/shapes/rectangle.png');
 
-  /// File path: assets/images/letters/sample/egg.png
-  AssetGenImage get egg =>
-      const AssetGenImage('assets/images/letters/sample/egg.png');
+  /// File path: assets/images/all_aboard/shapes/square.png
+  AssetGenImage get square =>
+      const AssetGenImage('assets/images/all_aboard/shapes/square.png');
 
-  /// File path: assets/images/letters/sample/fan.png
-  AssetGenImage get fan =>
-      const AssetGenImage('assets/images/letters/sample/fan.png');
+  /// File path: assets/images/all_aboard/shapes/star.png
+  AssetGenImage get star =>
+      const AssetGenImage('assets/images/all_aboard/shapes/star.png');
 
-  /// File path: assets/images/letters/sample/goat.png
-  AssetGenImage get goat =>
-      const AssetGenImage('assets/images/letters/sample/goat.png');
-
-  /// File path: assets/images/letters/sample/hand.png
-  AssetGenImage get hand =>
-      const AssetGenImage('assets/images/letters/sample/hand.png');
-
-  /// File path: assets/images/letters/sample/ice.png
-  AssetGenImage get ice =>
-      const AssetGenImage('assets/images/letters/sample/ice.png');
-
-  /// File path: assets/images/letters/sample/jam.png
-  AssetGenImage get jam =>
-      const AssetGenImage('assets/images/letters/sample/jam.png');
-
-  /// File path: assets/images/letters/sample/kite.png
-  AssetGenImage get kite =>
-      const AssetGenImage('assets/images/letters/sample/kite.png');
-
-  /// File path: assets/images/letters/sample/lamb.png
-  AssetGenImage get lamb =>
-      const AssetGenImage('assets/images/letters/sample/lamb.png');
-
-  /// File path: assets/images/letters/sample/monkey.png
-  AssetGenImage get monkey =>
-      const AssetGenImage('assets/images/letters/sample/monkey.png');
-
-  /// File path: assets/images/letters/sample/noodle.png
-  AssetGenImage get noodle =>
-      const AssetGenImage('assets/images/letters/sample/noodle.png');
-
-  /// File path: assets/images/letters/sample/octopus.png
-  AssetGenImage get octopus =>
-      const AssetGenImage('assets/images/letters/sample/octopus.png');
-
-  /// File path: assets/images/letters/sample/penguin.png
-  AssetGenImage get penguin =>
-      const AssetGenImage('assets/images/letters/sample/penguin.png');
-
-  /// File path: assets/images/letters/sample/queen.png
-  AssetGenImage get queen =>
-      const AssetGenImage('assets/images/letters/sample/queen.png');
-
-  /// File path: assets/images/letters/sample/ramp.png
-  AssetGenImage get ramp =>
-      const AssetGenImage('assets/images/letters/sample/ramp.png');
-
-  /// File path: assets/images/letters/sample/sun.png
-  AssetGenImage get sun =>
-      const AssetGenImage('assets/images/letters/sample/sun.png');
-
-  /// File path: assets/images/letters/sample/tail.png
-  AssetGenImage get tail =>
-      const AssetGenImage('assets/images/letters/sample/tail.png');
-
-  /// File path: assets/images/letters/sample/umbrella.png
-  AssetGenImage get umbrella =>
-      const AssetGenImage('assets/images/letters/sample/umbrella.png');
-
-  /// File path: assets/images/letters/sample/vase.png
-  AssetGenImage get vase =>
-      const AssetGenImage('assets/images/letters/sample/vase.png');
-
-  /// File path: assets/images/letters/sample/wagon.png
-  AssetGenImage get wagon =>
-      const AssetGenImage('assets/images/letters/sample/wagon.png');
-
-  /// File path: assets/images/letters/sample/xylophone.png
-  AssetGenImage get xylophone =>
-      const AssetGenImage('assets/images/letters/sample/xylophone.png');
-
-  /// File path: assets/images/letters/sample/yarn.png
-  AssetGenImage get yarn =>
-      const AssetGenImage('assets/images/letters/sample/yarn.png');
-
-  /// File path: assets/images/letters/sample/zoo.png
-  AssetGenImage get zoo =>
-      const AssetGenImage('assets/images/letters/sample/zoo.png');
+  /// File path: assets/images/all_aboard/shapes/triangle.png
+  AssetGenImage get triangle =>
+      const AssetGenImage('assets/images/all_aboard/shapes/triangle.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        apple,
-        ball,
-        cat,
-        doll,
-        egg,
-        fan,
-        goat,
-        hand,
-        ice,
-        jam,
-        kite,
-        lamb,
-        monkey,
-        noodle,
-        octopus,
-        penguin,
-        queen,
-        ramp,
-        sun,
-        tail,
-        umbrella,
-        vase,
-        wagon,
-        xylophone,
-        yarn,
-        zoo
-      ];
+  List<AssetGenImage> get values =>
+      [circle, learnShapes, oval, rectangle, square, star, triangle];
 }
 
 class $AssetsImagesScienceBodyGen {
@@ -2002,6 +1740,282 @@ class $AssetsSoundsScienceSensesGen {
 
   /// List of all assets
   List<String> get values => [hearing, learnSenses, sight, smell, taste, touch];
+}
+
+class $AssetsImagesAllAboardLettersGuideGen {
+  const $AssetsImagesAllAboardLettersGuideGen();
+
+  /// File path: assets/images/all_aboard/letters/guide/A.png
+  AssetGenImage get a =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/A.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/B.png
+  AssetGenImage get b =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/B.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/C.png
+  AssetGenImage get c =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/C.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/D.png
+  AssetGenImage get d =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/D.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/E.png
+  AssetGenImage get e =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/E.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/F.png
+  AssetGenImage get f =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/F.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/G.png
+  AssetGenImage get g =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/G.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/H.png
+  AssetGenImage get h =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/H.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/I.png
+  AssetGenImage get i =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/I.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/J.png
+  AssetGenImage get j =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/J.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/K.png
+  AssetGenImage get k =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/K.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/L.png
+  AssetGenImage get l =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/L.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/M.png
+  AssetGenImage get m =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/M.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/N.png
+  AssetGenImage get n =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/N.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/O.png
+  AssetGenImage get o =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/O.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/P.png
+  AssetGenImage get p =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/P.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/Q.png
+  AssetGenImage get q =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/Q.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/R.png
+  AssetGenImage get r =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/R.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/S.png
+  AssetGenImage get s =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/S.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/T.png
+  AssetGenImage get t =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/T.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/U.png
+  AssetGenImage get u =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/U.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/V.png
+  AssetGenImage get v =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/V.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/W.png
+  AssetGenImage get w =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/W.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/X.png
+  AssetGenImage get x =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/X.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/Y.png
+  AssetGenImage get y =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/Y.png');
+
+  /// File path: assets/images/all_aboard/letters/guide/Z.png
+  AssetGenImage get z =>
+      const AssetGenImage('assets/images/all_aboard/letters/guide/Z.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        a,
+        b,
+        c,
+        d,
+        e,
+        f,
+        g,
+        h,
+        i,
+        j,
+        k,
+        l,
+        m,
+        n,
+        o,
+        p,
+        q,
+        r,
+        s,
+        t,
+        u,
+        v,
+        w,
+        x,
+        y,
+        z
+      ];
+}
+
+class $AssetsImagesAllAboardLettersSampleGen {
+  const $AssetsImagesAllAboardLettersSampleGen();
+
+  /// File path: assets/images/all_aboard/letters/sample/apple.png
+  AssetGenImage get apple =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/apple.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/ball.png
+  AssetGenImage get ball =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/ball.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/cat.png
+  AssetGenImage get cat =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/cat.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/doll.png
+  AssetGenImage get doll =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/doll.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/egg.png
+  AssetGenImage get egg =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/egg.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/fan.png
+  AssetGenImage get fan =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/fan.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/goat.png
+  AssetGenImage get goat =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/goat.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/hand.png
+  AssetGenImage get hand =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/hand.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/ice.png
+  AssetGenImage get ice =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/ice.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/jam.png
+  AssetGenImage get jam =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/jam.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/kite.png
+  AssetGenImage get kite =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/kite.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/lamb.png
+  AssetGenImage get lamb =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/lamb.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/monkey.png
+  AssetGenImage get monkey =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/monkey.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/noodle.png
+  AssetGenImage get noodle =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/noodle.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/octopus.png
+  AssetGenImage get octopus => const AssetGenImage(
+      'assets/images/all_aboard/letters/sample/octopus.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/penguin.png
+  AssetGenImage get penguin => const AssetGenImage(
+      'assets/images/all_aboard/letters/sample/penguin.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/queen.png
+  AssetGenImage get queen =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/queen.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/ramp.png
+  AssetGenImage get ramp =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/ramp.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/sun.png
+  AssetGenImage get sun =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/sun.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/tail.png
+  AssetGenImage get tail =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/tail.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/umbrella.png
+  AssetGenImage get umbrella => const AssetGenImage(
+      'assets/images/all_aboard/letters/sample/umbrella.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/vase.png
+  AssetGenImage get vase =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/vase.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/wagon.png
+  AssetGenImage get wagon =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/wagon.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/xylophone.png
+  AssetGenImage get xylophone => const AssetGenImage(
+      'assets/images/all_aboard/letters/sample/xylophone.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/yarn.png
+  AssetGenImage get yarn =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/yarn.png');
+
+  /// File path: assets/images/all_aboard/letters/sample/zoo.png
+  AssetGenImage get zoo =>
+      const AssetGenImage('assets/images/all_aboard/letters/sample/zoo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        apple,
+        ball,
+        cat,
+        doll,
+        egg,
+        fan,
+        goat,
+        hand,
+        ice,
+        jam,
+        kite,
+        lamb,
+        monkey,
+        noodle,
+        octopus,
+        penguin,
+        queen,
+        ramp,
+        sun,
+        tail,
+        umbrella,
+        vase,
+        wagon,
+        xylophone,
+        yarn,
+        zoo
+      ];
 }
 
 class Assets {

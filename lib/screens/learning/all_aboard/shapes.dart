@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
@@ -23,32 +24,32 @@ class _ShapesScreenState extends State<ShapesScreen> {
   final List<Shape> shapes = [
     Shape(
       label: 'Circle',
-      imagePath: 'assets/images/circle.png',
+      imagePath: Assets.images.allAboard.shapes.circle.path,
       soundPath: 'sounds/shapes/circle.m4a',
     ),
     Shape(
       label: 'Square',
-      imagePath: 'assets/images/square.png',
+      imagePath: Assets.images.allAboard.shapes.square.path,
       soundPath: 'sounds/shapes/square.m4a',
     ),
     Shape(
       label: 'Triangle',
-      imagePath: 'assets/images/triangle.png',
+      imagePath: Assets.images.allAboard.shapes.triangle.path,
       soundPath: 'sounds/shapes/triangle.m4a',
     ),
     Shape(
       label: 'Star',
-      imagePath: 'assets/images/star.png',
+      imagePath: Assets.images.allAboard.shapes.star.path,
       soundPath: 'sounds/shapes/star.m4a',
     ),
     Shape(
       label: 'Rectangle',
-      imagePath: 'assets/images/rectangle.png',
+      imagePath: Assets.images.allAboard.shapes.rectangle.path,
       soundPath: 'sounds/shapes/rectangle.m4a',
     ),
     Shape(
       label: 'Oval',
-      imagePath: 'assets/images/oval.png',
+      imagePath: Assets.images.allAboard.shapes.oval.path,
       soundPath: 'sounds/shapes/oval.m4a',
     ),
   ];

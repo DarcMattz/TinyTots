@@ -29,20 +29,22 @@ class ModuleCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(constraints.maxHeight * .04),
-                    ),
-                  ),
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.all(
+                  //     Radius.circular(constraints.maxHeight * .04),
+                  //   ),
+                  // ),
                   height: constraints.maxHeight * .75,
+                  width: constraints.maxWidth * .9,
                   child: Image.asset(
                     module.imagePath,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 NiceButton(
                   label: module.type == 'learning' ? 'Learn' : "Explore",
-                  color: Color(0xff4EC307),
-                  shadowColor: Color(0xff4EC307),
+                  color: const Color(0xff4EC307),
+                  shadowColor: const Color(0xff4EC307),
                   icon: Icons.play_arrow_rounded,
                   iconSize: 30,
                   method: () {
@@ -53,7 +55,7 @@ class ModuleCard extends StatelessWidget {
                   },
                   isIconRight: true,
                   height: constraints.maxHeight * .15,
-                  width: constraints.maxWidth * .8,
+                  width: constraints.maxWidth * .9,
                 )
               ],
             ),

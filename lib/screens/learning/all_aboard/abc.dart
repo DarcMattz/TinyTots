@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_example_card.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_trace_card.dart';
@@ -24,7 +25,6 @@ class _AbcScreenState extends State<AbcScreen> {
   final AudioService _audioService = AudioService();
   final CarouselSliderController _mainCarCon = CarouselSliderController();
   int colCurIndex = 0;
-
   final List<Alphabet> alphabet = [
     Alphabet(
       letter: Letter(
@@ -33,11 +33,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Apple',
-        imagePath: 'assets/images/letters/sample/LETTER_A.png',
+        imagePath: Assets.images.allAboard.letters.sample.apple.path,
         sampleSoundPath: 'sounds/alphabet/example/apple.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/A.png',
+        imagePath: Assets.images.allAboard.letters.guide.a.path,
       ),
     ),
     Alphabet(
@@ -47,11 +47,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Ball',
-        imagePath: 'assets/images/letters/sample/LETTER_B.png',
+        imagePath: Assets.images.allAboard.letters.sample.ball.path,
         sampleSoundPath: 'sounds/alphabet/example/ball.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/B.png',
+        imagePath: Assets.images.allAboard.letters.guide.b.path,
       ),
     ),
     Alphabet(
@@ -61,11 +61,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Cat',
-        imagePath: 'assets/images/letters/sample/LETTER_C.png',
+        imagePath: Assets.images.allAboard.letters.sample.cat.path,
         sampleSoundPath: 'sounds/alphabet/example/cat.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/C.png',
+        imagePath: Assets.images.allAboard.letters.guide.c.path,
       ),
     ),
     Alphabet(
@@ -75,11 +75,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Doll',
-        imagePath: 'assets/images/letters/sample/LETTER_D.png',
+        imagePath: Assets.images.allAboard.letters.sample.doll.path,
         sampleSoundPath: 'sounds/alphabet/example/doll.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/D.png',
+        imagePath: Assets.images.allAboard.letters.guide.d.path,
       ),
     ),
     Alphabet(
@@ -89,11 +89,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Egg',
-        imagePath: 'assets/images/letters/sample/LETTER_E.png',
+        imagePath: Assets.images.allAboard.letters.sample.egg.path,
         sampleSoundPath: 'sounds/alphabet/example/egg.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/E.png',
+        imagePath: Assets.images.allAboard.letters.guide.e.path,
       ),
     ),
     Alphabet(
@@ -103,11 +103,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Fan',
-        imagePath: 'assets/images/letters/sample/LETTER_F.png',
+        imagePath: Assets.images.allAboard.letters.sample.fan.path,
         sampleSoundPath: 'sounds/alphabet/example/fan.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/F.png',
+        imagePath: Assets.images.allAboard.letters.guide.f.path,
       ),
     ),
     Alphabet(
@@ -117,11 +117,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Goat',
-        imagePath: 'assets/images/letters/sample/LETTER_G.png',
+        imagePath: Assets.images.allAboard.letters.sample.goat.path,
         sampleSoundPath: 'sounds/alphabet/example/goat.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/G.png',
+        imagePath: Assets.images.allAboard.letters.guide.g.path,
       ),
     ),
     Alphabet(
@@ -131,11 +131,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Hand',
-        imagePath: 'assets/images/letters/sample/LETTER_H.png',
+        imagePath: Assets.images.allAboard.letters.sample.hand.path,
         sampleSoundPath: 'sounds/alphabet/example/hand.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/H.png',
+        imagePath: Assets.images.allAboard.letters.guide.h.path,
       ),
     ),
     Alphabet(
@@ -145,11 +145,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Ice',
-        imagePath: 'assets/images/letters/sample/LETTER_I.png',
+        imagePath: Assets.images.allAboard.letters.sample.ice.path,
         sampleSoundPath: 'sounds/alphabet/example/ice.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/I.png',
+        imagePath: Assets.images.allAboard.letters.guide.i.path,
       ),
     ),
     Alphabet(
@@ -159,11 +159,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Jam',
-        imagePath: 'assets/images/letters/sample/LETTER_J.png',
+        imagePath: Assets.images.allAboard.letters.sample.jam.path,
         sampleSoundPath: 'sounds/alphabet/example/jam.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/J.png',
+        imagePath: Assets.images.allAboard.letters.guide.j.path,
       ),
     ),
     Alphabet(
@@ -173,11 +173,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Kite',
-        imagePath: 'assets/images/letters/sample/LETTER_K.png',
+        imagePath: Assets.images.allAboard.letters.sample.kite.path,
         sampleSoundPath: 'sounds/alphabet/example/kite.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/K.png',
+        imagePath: Assets.images.allAboard.letters.guide.k.path,
       ),
     ),
     Alphabet(
@@ -187,11 +187,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Lamb',
-        imagePath: 'assets/images/letters/sample/LETTER_L.png',
+        imagePath: Assets.images.allAboard.letters.sample.lamb.path,
         sampleSoundPath: 'sounds/alphabet/example/lamb.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/L.png',
+        imagePath: Assets.images.allAboard.letters.guide.l.path,
       ),
     ),
     Alphabet(
@@ -201,11 +201,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Monkey',
-        imagePath: 'assets/images/letters/sample/LETTER_M.png',
+        imagePath: Assets.images.allAboard.letters.sample.monkey.path,
         sampleSoundPath: 'sounds/alphabet/example/monkey.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/M.png',
+        imagePath: Assets.images.allAboard.letters.guide.m.path,
       ),
     ),
     Alphabet(
@@ -215,11 +215,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Noodle',
-        imagePath: 'assets/images/letters/sample/LETTER_N.png',
+        imagePath: Assets.images.allAboard.letters.sample.noodle.path,
         sampleSoundPath: 'sounds/alphabet/example/noodle.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/N.png',
+        imagePath: Assets.images.allAboard.letters.guide.n.path,
       ),
     ),
     Alphabet(
@@ -229,11 +229,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Octopus',
-        imagePath: 'assets/images/letters/sample/LETTER_O.png',
+        imagePath: Assets.images.allAboard.letters.sample.octopus.path,
         sampleSoundPath: 'sounds/alphabet/example/octopus.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/O.png',
+        imagePath: Assets.images.allAboard.letters.guide.o.path,
       ),
     ),
     Alphabet(
@@ -243,11 +243,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Penguin',
-        imagePath: 'assets/images/letters/sample/LETTER_P.png',
+        imagePath: Assets.images.allAboard.letters.sample.penguin.path,
         sampleSoundPath: 'sounds/alphabet/example/penguin.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/P.png',
+        imagePath: Assets.images.allAboard.letters.guide.p.path,
       ),
     ),
     Alphabet(
@@ -257,11 +257,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Queen',
-        imagePath: 'assets/images/letters/sample/LETTER_Q.png',
+        imagePath: Assets.images.allAboard.letters.sample.queen.path,
         sampleSoundPath: 'sounds/alphabet/example/queen.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/Q.png',
+        imagePath: Assets.images.allAboard.letters.guide.q.path,
       ),
     ),
     Alphabet(
@@ -271,11 +271,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Ramp',
-        imagePath: 'assets/images/letters/sample/LETTER_R.png',
+        imagePath: Assets.images.allAboard.letters.sample.ramp.path,
         sampleSoundPath: 'sounds/alphabet/example/ramp.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/R.png',
+        imagePath: Assets.images.allAboard.letters.guide.r.path,
       ),
     ),
     Alphabet(
@@ -285,11 +285,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Sun',
-        imagePath: 'assets/images/letters/sample/LETTER_S.png',
+        imagePath: Assets.images.allAboard.letters.sample.sun.path,
         sampleSoundPath: 'sounds/alphabet/example/sun.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/S.png',
+        imagePath: Assets.images.allAboard.letters.guide.s.path,
       ),
     ),
     Alphabet(
@@ -299,11 +299,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Tail',
-        imagePath: 'assets/images/letters/sample/LETTER_T.png',
-        sampleSoundPath: 'sounds/alphabet/example/tail.m4a',
+        imagePath: Assets.images.allAboard.letters.sample.tail.path,
+        sampleSoundPath: 'sounds/alphabet/example/tiger.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/T.png',
+        imagePath: Assets.images.allAboard.letters.guide.t.path,
       ),
     ),
     Alphabet(
@@ -313,11 +313,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Umbrella',
-        imagePath: 'assets/images/letters/sample/LETTER_U.png',
+        imagePath: Assets.images.allAboard.letters.sample.umbrella.path,
         sampleSoundPath: 'sounds/alphabet/example/umbrella.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/U.png',
+        imagePath: Assets.images.allAboard.letters.guide.u.path,
       ),
     ),
     Alphabet(
@@ -327,11 +327,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Vase',
-        imagePath: 'assets/images/letters/sample/LETTER_V.png',
-        sampleSoundPath: 'sounds/alphabet/example/vase.m4a',
+        imagePath: Assets.images.allAboard.letters.sample.vase.path,
+        sampleSoundPath: 'sounds/alphabet/example/van.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/V.png',
+        imagePath: Assets.images.allAboard.letters.guide.v.path,
       ),
     ),
     Alphabet(
@@ -341,11 +341,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Wagon',
-        imagePath: 'assets/images/letters/sample/LETTER_W.png',
-        sampleSoundPath: 'sounds/alphabet/example/wagon.m4a',
+        imagePath: Assets.images.allAboard.letters.sample.wagon.path,
+        sampleSoundPath: 'sounds/alphabet/example/whale.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/W.png',
+        imagePath: Assets.images.allAboard.letters.guide.w.path,
       ),
     ),
     Alphabet(
@@ -355,11 +355,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Xylophone',
-        imagePath: 'assets/images/letters/sample/LETTER_X.png',
+        imagePath: Assets.images.allAboard.letters.sample.xylophone.path,
         sampleSoundPath: 'sounds/alphabet/example/xylophone.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/X.png',
+        imagePath: Assets.images.allAboard.letters.guide.x.path,
       ),
     ),
     Alphabet(
@@ -369,11 +369,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Yarn',
-        imagePath: 'assets/images/letters/sample/LETTER_Y.png',
-        sampleSoundPath: 'sounds/alphabet/example/yarn.m4a',
+        imagePath: Assets.images.allAboard.letters.sample.yarn.path,
+        sampleSoundPath: 'sounds/alphabet/example/yak.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/Y.png',
+        imagePath: Assets.images.allAboard.letters.guide.y.path,
       ),
     ),
     Alphabet(
@@ -383,11 +383,11 @@ class _AbcScreenState extends State<AbcScreen> {
       ),
       letterSample: LetterExample(
         label: 'Zoo',
-        imagePath: 'assets/images/letters/sample/LETTER_Z.png',
-        sampleSoundPath: 'sounds/alphabet/example/zoo.m4a',
+        imagePath: Assets.images.allAboard.letters.sample.zoo.path,
+        sampleSoundPath: 'sounds/alphabet/example/zebra.m4a',
       ),
       traceImage: Trace(
-        imagePath: 'assets/images/letters/guide/Z.png',
+        imagePath: Assets.images.allAboard.letters.guide.z.path,
       ),
     ),
   ];

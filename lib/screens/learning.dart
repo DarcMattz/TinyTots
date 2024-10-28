@@ -21,25 +21,30 @@ class _LearningListScreenState extends State<LearningListScreen> {
 
   final List<Module> modules = [
     Module(
-        type: "learning",
-        imagePath: 'assets/images/all_aboard.png',
-        route: const AllAboardScreen()),
+      type: "learning",
+      imagePath: Assets.images.allAboard.allaboardPic.path,
+      route: const AllAboardScreen(),
+    ),
     Module(
-        type: "learning",
-        imagePath: 'assets/images/phonics.png',
-        route: const PhonicsScreen()),
+      type: "learning",
+      imagePath: 'assets/images/phonics.png',
+      route: const PhonicsScreen(),
+    ),
     Module(
-        type: "learning",
-        imagePath: 'assets/images/science_and_health.png',
-        route: const ScienceHealthScreen()),
+      type: "learning",
+      imagePath: 'assets/images/science_and_health.png',
+      route: const ScienceHealthScreen(),
+    ),
     Module(
-        type: "learning",
-        imagePath: 'assets/images/mathematics/mathematics.png',
-        route: const MathematicsScreen()),
+      type: "learning",
+      imagePath: 'assets/images/mathematics/mathematics.png',
+      route: const MathematicsScreen(),
+    ),
     Module(
-        type: "learning",
-        imagePath: 'assets/images/filipino/filipino.png',
-        route: const FilipinoScreen()),
+      type: "learning",
+      imagePath: 'assets/images/filipino/filipino.png',
+      route: const FilipinoScreen(),
+    ),
   ];
 
   @override

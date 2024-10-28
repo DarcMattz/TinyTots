@@ -36,7 +36,7 @@ class AndroidWelcome extends StatefulWidget {
 }
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
-  final image = Assets.images.letters.sample;
+  final image = Assets.images.allAboard.letters.sample;
   late final List<Question> questions;
 
   int currentQuestionIndex = 0;
@@ -84,6 +84,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         correctAnswerIndex: 1,
       ),
       // Add more questions here
+      // kulang pa!
     ];
 
     randomizeCurrentQuestion();

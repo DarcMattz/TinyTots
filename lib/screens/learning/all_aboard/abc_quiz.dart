@@ -102,8 +102,10 @@ class AndroidWelcome extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 10),
-                            Assets.images.letters.letterMatching
-                                .image(width: constraints.maxWidth * .3),
+                            Assets.images.allAboard.letters.letterMatching
+                                .image(
+                              width: constraints.maxWidth * .3,
+                            ),
                           ],
                         ),
                       ),

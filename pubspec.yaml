@@ -76,17 +76,18 @@ flutter:
     - assets/sounds/science/senses/
     - assets/sounds/
     - assets/images/
+    - assets/images/all_aboard/
+    - assets/images/all_aboard/letters/
+    - assets/images/all_aboard/letters/guide/
+    - assets/images/all_aboard/letters/sample/
+    - assets/images/all_aboard/shapes/
     - assets/images/science/care/
     - assets/images/science/face/
     - assets/images/science/body/
     - assets/images/science/senses/
     - assets/images/vowels/
-    - assets/images/letters/
     - assets/images/mathematics/
     - assets/images/filipino/
-    - assets/images/letters/guide/
-    - assets/images/letters/sample/
-    - assets/images/letters/
     - assets/models/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
