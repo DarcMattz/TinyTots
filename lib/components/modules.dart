@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/utils/nice_button.dart';
 
 class Module {
   final String type;
@@ -19,68 +20,45 @@ class ModuleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-            offset: Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(6)),
-                child: Image.asset(
-                  module.imagePath,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.all(10.0),
+    return Card(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return Padding(
+            padding: EdgeInsets.all(constraints.maxHeight * .04),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: () {
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(constraints.maxHeight * .04),
+                    ),
+                  ),
+                  height: constraints.maxHeight * .75,
+                  child: Image.asset(
+                    module.imagePath,
+                  ),
+                ),
+                NiceButton(
+                  label: module.type == 'learning' ? 'Learn' : "Explore",
+                  color: Color(0xff4EC307),
+                  shadowColor: Color(0xff4EC307),
+                  icon: Icons.play_arrow_rounded,
+                  iconSize: 30,
+                  method: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => module.route),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      module.type == 'learning'
-                          ? const Text('Learn')
-                          : const Text("Explore"),
-                      const Icon(Icons.play_arrow_rounded),
-                    ],
-                  ),
-                ),
+                  isIconRight: true,
+                  height: constraints.maxHeight * .15,
+                  width: constraints.maxWidth * .8,
+                )
               ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

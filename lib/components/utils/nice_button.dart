@@ -85,12 +85,6 @@ class _NiceButtonState extends State<NiceButton> {
                     color: Colors.white,
                     width: 4,
                   ),
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //     color: widget.shadowColor,
-                  //     offset: Offset(0, _position),
-                  //   ),
-                  // ],
                 ),
                 child: Row(
                   mainAxisAlignment: widget.isIconRight
