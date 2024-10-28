@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/screens/home.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -33,10 +34,10 @@ class AndroidWelcome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.lightBlueAccent,
         image: DecorationImage(
-          image: AssetImage('assets/images/background.png'),
+          image: Assets.images.background.provider(),
           fit: BoxFit.cover,
         ),
       ),
@@ -48,11 +49,7 @@ class AndroidWelcome extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  'assets/images/sun.png',
-                  width: 120,
-                  height: 120,
-                ),
+                child: Assets.images.sun.image(height: 120),
               ),
             ],
           ),
@@ -140,11 +137,7 @@ class AndroidWelcome extends StatelessWidget {
               ),
               Positioned(
                 top: -40,
-                child: Image.asset(
-                  'assets/images/koala.png',
-                  width: 200,
-                  height: 200,
-                ),
+                child: Assets.images.koala.image(height: 200),
               ),
             ],
           ),
@@ -154,11 +147,7 @@ class AndroidWelcome extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0, right: 30),
-                child: Image.asset(
-                  'assets/images/cow.png',
-                  width: 200,
-                  height: 200,
-                ),
+                child: Assets.images.cow.image(height: 200),
               ),
             ],
           ),

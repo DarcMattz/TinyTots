@@ -32,6 +32,7 @@ dependencies:
   auto_size_text: ^3.0.0
   camera: ^0.11.0+2
   carousel_slider: ^5.0.0
+  confetti: ^0.8.0
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
@@ -47,6 +48,8 @@ flutter_native_splash:
   image: assets/images/LOGO.png
 
 dev_dependencies:
+  build_runner: ^2.4.13
+  flutter_gen_runner: ^5.8.0
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
@@ -83,7 +86,7 @@ flutter:
     - assets/images/filipino/
     - assets/images/letters/guide/
     - assets/images/letters/sample/
-    - assets/images/quizes/alphabet/
+    - assets/images/letters/
     - assets/models/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

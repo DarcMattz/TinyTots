@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/audioplayer/audio_service.dart';
+import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/mathematics/add_subtract_card.dart';
 import 'package:flutter_application_1/models/mathematics/number_only.dart';
 import 'package:gap/gap.dart';
@@ -104,7 +104,7 @@ class _AddSubtractScreenState extends State<AddSubtractScreen> {
                           });
 
                           _stop();
-                          
+
                           _play(_numbers[index].numberSound);
                         },
                       ),

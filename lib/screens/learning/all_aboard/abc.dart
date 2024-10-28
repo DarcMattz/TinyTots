@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/audioplayer/audio_service.dart';
+import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_example_card.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_trace_card.dart';
 import 'package:flutter_application_1/components/finish_module_dialog.dart';

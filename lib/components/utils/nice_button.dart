@@ -11,6 +11,7 @@ class NiceButton extends StatefulWidget {
   final double iconSize;
   final VoidCallback? method;
   final bool isIconRight;
+  final bool enabled;
 
   const NiceButton({
     super.key,
@@ -18,6 +19,7 @@ class NiceButton extends StatefulWidget {
     this.width = 100,
     this.fontSize = 20,
     this.isIconRight = false,
+    this.enabled = true,
     required this.label,
     required this.color,
     required this.shadowColor,
@@ -66,7 +68,7 @@ class _NiceButtonState extends State<NiceButton> {
                 height: widget.height,
                 width: widget.width,
                 decoration: BoxDecoration(
-                  color: widget.shadowColor,
+                  color: widget.enabled ? widget.color : Colors.grey,
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
@@ -77,7 +79,7 @@ class _NiceButtonState extends State<NiceButton> {
                 height: widget.height,
                 width: widget.width,
                 decoration: BoxDecoration(
-                  color: widget.color,
+                  color: widget.enabled ? widget.color : Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
                     color: Colors.white,
