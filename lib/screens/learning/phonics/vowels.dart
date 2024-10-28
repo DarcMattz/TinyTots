@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
@@ -24,31 +25,31 @@ class _VowelsScreenState extends State<VowelsScreen> {
     [
       Vowel(
         vowel: 'Fa',
-        imagePath: 'assets/images/vowels/fan.png',
+        imagePath: Assets.images.phonics.vowels.fan.path,
         imageName: 'Fan',
         soundPath: 'sounds/vowels/fafan.m4a',
       ),
       Vowel(
         vowel: 'Ca',
-        imagePath: 'assets/images/vowels/cat.png',
+        imagePath: Assets.images.phonics.vowels.cat.path,
         imageName: 'Cat',
         soundPath: 'sounds/vowels/cacat.m4a',
       ),
       Vowel(
         vowel: 'La',
-        imagePath: 'assets/images/vowels/lamp.png',
+        imagePath: Assets.images.phonics.vowels.lamp.path,
         imageName: 'Lamp',
         soundPath: 'sounds/vowels/lalamp.m4a',
       ),
       Vowel(
         vowel: 'Ma',
-        imagePath: 'assets/images/vowels/mat.png',
+        imagePath: Assets.images.phonics.vowels.mat.path,
         imageName: 'Mat',
         soundPath: 'sounds/vowels/mamat.m4a',
       ),
       Vowel(
         vowel: 'Va',
-        imagePath: 'assets/images/vowels/van.png',
+        imagePath: Assets.images.phonics.vowels.van.path,
         imageName: 'Van',
         soundPath: 'sounds/vowels/vavan.m4a',
       ),
@@ -56,31 +57,31 @@ class _VowelsScreenState extends State<VowelsScreen> {
     [
       Vowel(
         vowel: 'Be',
-        imagePath: 'assets/images/vowels/bed.png',
+        imagePath: Assets.images.phonics.vowels.bed.path,
         imageName: 'Bed',
         soundPath: 'sounds/vowels/bebed.m4a',
       ),
       Vowel(
         vowel: 'He',
-        imagePath: 'assets/images/vowels/hen.png',
+        imagePath: Assets.images.phonics.vowels.hen.path,
         imageName: 'Hen',
         soundPath: 'sounds/vowels/hehen.m4a',
       ),
       Vowel(
         vowel: 'Pe',
-        imagePath: 'assets/images/vowels/pen.png',
+        imagePath: Assets.images.phonics.vowels.pen.path,
         imageName: 'Pen',
         soundPath: 'sounds/vowels/pepen.m4a',
       ),
       Vowel(
         vowel: 'Ne',
-        imagePath: 'assets/images/vowels/net.png',
+        imagePath: Assets.images.phonics.vowels.net.path,
         imageName: 'Net',
         soundPath: 'sounds/vowels/nenet.m4a',
       ),
       Vowel(
         vowel: 'We',
-        imagePath: 'assets/images/vowels/web.png',
+        imagePath: Assets.images.phonics.vowels.web.path,
         imageName: 'Web',
         soundPath: 'sounds/vowels/weweb.m4a',
       ),
@@ -88,31 +89,31 @@ class _VowelsScreenState extends State<VowelsScreen> {
     [
       Vowel(
         vowel: 'Fi',
-        imagePath: 'assets/images/vowels/fish.png',
+        imagePath: Assets.images.phonics.vowels.fish.path,
         imageName: 'Fish',
         soundPath: 'sounds/vowels/fifish.m4a',
       ),
       Vowel(
         vowel: 'Bi',
-        imagePath: 'assets/images/vowels/bib.png',
+        imagePath: Assets.images.phonics.vowels.bib.path,
         imageName: 'Bib',
         soundPath: 'sounds/vowels/bibib.m4a',
       ),
       Vowel(
         vowel: 'Gi',
-        imagePath: 'assets/images/vowels/gift.png',
+        imagePath: Assets.images.phonics.vowels.gift.path,
         imageName: 'Gift',
         soundPath: 'sounds/vowels/gigift.m4a',
       ),
       Vowel(
         vowel: 'Pi',
-        imagePath: 'assets/images/vowels/pig.png',
+        imagePath: Assets.images.phonics.vowels.pig.path,
         imageName: 'Pig',
         soundPath: 'sounds/vowels/pipig.m4a',
       ),
       Vowel(
         vowel: 'Ri',
-        imagePath: 'assets/images/vowels/ring.png',
+        imagePath: Assets.images.phonics.vowels.ring.path,
         imageName: 'Ring',
         soundPath: 'sounds/vowels/riring.m4a',
       ),
@@ -120,31 +121,31 @@ class _VowelsScreenState extends State<VowelsScreen> {
     [
       Vowel(
         vowel: 'Co',
-        imagePath: 'assets/images/vowels/cot.png',
+        imagePath: Assets.images.phonics.vowels.cot.path,
         imageName: 'Cot',
         soundPath: 'sounds/vowels/cocot.m4a',
       ),
       Vowel(
         vowel: 'Do',
-        imagePath: 'assets/images/vowels/dog.png',
+        imagePath: Assets.images.phonics.vowels.dog.path,
         imageName: 'Dog',
         soundPath: 'sounds/vowels/dodog.m4a',
       ),
       Vowel(
         vowel: 'Ho',
-        imagePath: 'assets/images/vowels/hog.png',
+        imagePath: Assets.images.phonics.vowels.hog.path,
         imageName: 'Hog',
         soundPath: 'sounds/vowels/hohog.m4a',
       ),
       Vowel(
         vowel: 'Po',
-        imagePath: 'assets/images/vowels/pot.png',
+        imagePath: Assets.images.phonics.vowels.pot.path,
         imageName: 'Pot',
         soundPath: 'sounds/vowels/popot.m4a',
       ),
       Vowel(
         vowel: 'To',
-        imagePath: 'assets/images/vowels/top.png',
+        imagePath: Assets.images.phonics.vowels.top.path,
         imageName: 'Top',
         soundPath: 'sounds/vowels/totop.m4a',
       ),
@@ -152,31 +153,31 @@ class _VowelsScreenState extends State<VowelsScreen> {
     [
       Vowel(
         vowel: 'Bu',
-        imagePath: 'assets/images/vowels/bus.png',
+        imagePath: Assets.images.phonics.vowels.bus.path,
         imageName: 'Bus',
         soundPath: 'sounds/vowels/bubus.m4a',
       ),
       Vowel(
         vowel: 'Gu',
-        imagePath: 'assets/images/vowels/gum.png',
+        imagePath: Assets.images.phonics.vowels.gum.path,
         imageName: 'Gum',
         soundPath: 'sounds/vowels/gugum.m4a',
       ),
       Vowel(
         vowel: 'Hu',
-        imagePath: 'assets/images/vowels/hut.png',
+        imagePath: Assets.images.phonics.vowels.hut.path,
         imageName: 'Hut',
         soundPath: 'sounds/vowels/huhut.m4a',
       ),
       Vowel(
         vowel: 'Nu',
-        imagePath: 'assets/images/vowels/nut.png',
+        imagePath: Assets.images.phonics.vowels.nut.path,
         imageName: 'Nut',
         soundPath: 'sounds/vowels/nunut.m4a',
       ),
       Vowel(
         vowel: 'Su',
-        imagePath: 'assets/images/vowels/sun.png',
+        imagePath: Assets.images.phonics.vowels.sun.path,
         imageName: 'Sun',
         soundPath: 'sounds/vowels/susun.m4a',
       ),
@@ -254,69 +255,53 @@ class _VowelsScreenState extends State<VowelsScreen> {
                         CarouselSliderController();
                     int rowCurIndex = 0;
 
-                    return GestureDetector(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text(
-                                vowels[colCurIndex][index].imageName,
-                                textAlign: TextAlign.center,
-                              ),
-                            );
+                    return CarouselSlider.builder(
+                      carouselController: childCarCon,
+                      itemCount: vowels[index].length,
+                      options: CarouselOptions(
+                        height: 400,
+                        enlargeCenterPage: true,
+                        enableInfiniteScroll: false,
+                        initialPage: 0,
+                        autoPlay: false,
+                        viewportFraction: 0.8,
+                        onPageChanged: (index, reason) {
+                          rowCurIndex = index;
+                          _stop();
+                        },
+                      ),
+                      itemBuilder: (context, sampleIndex, sampleRealIndex) {
+                        return VowelCard(
+                          vowel: vowels[index][sampleIndex],
+                          nextCallback: () {
+                            if (colCurIndex == vowels.length - 1 &&
+                                rowCurIndex == 4) {
+                              showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) => const FinishModuleDialog(
+                                  route: VowelsQuizScreen(),
+                                ),
+                              );
+                            } else if (rowCurIndex == 4) {
+                              _mainCarCon.nextPage();
+                              childCarCon.animateToPage(0);
+                            } else {
+                              childCarCon.nextPage();
+                            }
+                          },
+                          prevCallback: () {
+                            if (rowCurIndex == 0) {
+                              _mainCarCon.previousPage();
+                            } else {
+                              childCarCon.previousPage();
+                            }
+                          },
+                          soundCallback: () {
+                            _play(vowels[index][sampleIndex].soundPath);
                           },
                         );
                       },
-                      child: CarouselSlider.builder(
-                        carouselController: childCarCon,
-                        itemCount: vowels[index].length,
-                        options: CarouselOptions(
-                          height: 400,
-                          enlargeCenterPage: true,
-                          enableInfiniteScroll: false,
-                          initialPage: 0,
-                          autoPlay: false,
-                          viewportFraction: 0.8,
-                          onPageChanged: (index, reason) {
-                            rowCurIndex = index;
-                            _stop();
-                          },
-                        ),
-                        itemBuilder: (context, sampleIndex, sampleRealIndex) {
-                          return VowelCard(
-                            vowel: vowels[index][sampleIndex],
-                            nextCallback: () {
-                              if (colCurIndex == vowels.length - 1 &&
-                                  rowCurIndex == 4) {
-                                showDialog(
-                                  context: context,
-                                  barrierDismissible: false,
-                                  builder: (context) =>
-                                      const FinishModuleDialog(
-                                    route: VowelsQuizScreen(),
-                                  ),
-                                );
-                              } else if (rowCurIndex == 4) {
-                                _mainCarCon.nextPage();
-                                childCarCon.animateToPage(0);
-                              } else {
-                                childCarCon.nextPage();
-                              }
-                            },
-                            prevCallback: () {
-                              if (rowCurIndex == 0) {
-                                _mainCarCon.previousPage();
-                              } else {
-                                childCarCon.previousPage();
-                              }
-                            },
-                            soundCallback: () {
-                              _play(vowels[index][sampleIndex].soundPath);
-                            },
-                          );
-                        },
-                      ),
                     );
                   },
                 ),

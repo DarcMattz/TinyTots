@@ -66,10 +66,6 @@ class $AssetsImagesGen {
   AssetGenImage get learnSenses =>
       const AssetGenImage('assets/images/learn_senses.png');
 
-  /// File path: assets/images/learn_vowels.png
-  AssetGenImage get learnVowels =>
-      const AssetGenImage('assets/images/learn_vowels.png');
-
   /// File path: assets/images/learning.png
   AssetGenImage get learning =>
       const AssetGenImage('assets/images/learning.png');
@@ -84,8 +80,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/panda.png
   AssetGenImage get panda => const AssetGenImage('assets/images/panda.png');
 
-  /// File path: assets/images/phonics.png
-  AssetGenImage get phonics => const AssetGenImage('assets/images/phonics.png');
+  /// Directory path: assets/images/phonics
+  $AssetsImagesPhonicsGen get phonics => const $AssetsImagesPhonicsGen();
 
   /// File path: assets/images/play.png
   AssetGenImage get play => const AssetGenImage('assets/images/play.png');
@@ -123,13 +119,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/sun.png
   AssetGenImage get sun => const AssetGenImage('assets/images/sun.png');
 
-  /// Directory path: assets/images/vowels
-  $AssetsImagesVowelsGen get vowels => const $AssetsImagesVowelsGen();
-
-  /// File path: assets/images/vowels.png
-  AssetGenImage get vowelsPng =>
-      const AssetGenImage('assets/images/vowels.png');
-
   /// List of all assets
   List<AssetGenImage> get values => [
         logo,
@@ -146,11 +135,9 @@ class $AssetsImagesGen {
         learnBody,
         learnCare,
         learnSenses,
-        learnVowels,
         learning,
         lion,
         panda,
-        phonics,
         play,
         profile,
         quizPic,
@@ -160,8 +147,7 @@ class $AssetsImagesGen {
         senses,
         splash,
         splashScreen,
-        sun,
-        vowelsPng
+        sun
       ];
 }
 
@@ -707,6 +693,29 @@ class $AssetsImagesMathematicsGen {
       ];
 }
 
+class $AssetsImagesPhonicsGen {
+  const $AssetsImagesPhonicsGen();
+
+  /// File path: assets/images/phonics/learn_vowels.png
+  AssetGenImage get learnVowels =>
+      const AssetGenImage('assets/images/phonics/learn_vowels.png');
+
+  /// File path: assets/images/phonics/phonics_pic.png
+  AssetGenImage get phonicsPic =>
+      const AssetGenImage('assets/images/phonics/phonics_pic.png');
+
+  /// Directory path: assets/images/phonics/vowels
+  $AssetsImagesPhonicsVowelsGen get vowels =>
+      const $AssetsImagesPhonicsVowelsGen();
+
+  /// File path: assets/images/phonics/vowels_pic.png
+  AssetGenImage get vowelsPic =>
+      const AssetGenImage('assets/images/phonics/vowels_pic.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [learnVowels, phonicsPic, vowelsPic];
+}
+
 class $AssetsImagesScienceGen {
   const $AssetsImagesScienceGen();
 
@@ -722,122 +731,6 @@ class $AssetsImagesScienceGen {
   /// Directory path: assets/images/science/senses
   $AssetsImagesScienceSensesGen get senses =>
       const $AssetsImagesScienceSensesGen();
-}
-
-class $AssetsImagesVowelsGen {
-  const $AssetsImagesVowelsGen();
-
-  /// File path: assets/images/vowels/TinyTots (Copy).zip
-  String get tinyTotsCopy => 'assets/images/vowels/TinyTots (Copy).zip';
-
-  /// File path: assets/images/vowels/bed.png
-  AssetGenImage get bed => const AssetGenImage('assets/images/vowels/bed.png');
-
-  /// File path: assets/images/vowels/bib.png
-  AssetGenImage get bib => const AssetGenImage('assets/images/vowels/bib.png');
-
-  /// File path: assets/images/vowels/bus.png
-  AssetGenImage get bus => const AssetGenImage('assets/images/vowels/bus.png');
-
-  /// File path: assets/images/vowels/cat.png
-  AssetGenImage get cat => const AssetGenImage('assets/images/vowels/cat.png');
-
-  /// File path: assets/images/vowels/cot.png
-  AssetGenImage get cot => const AssetGenImage('assets/images/vowels/cot.png');
-
-  /// File path: assets/images/vowels/dog.png
-  AssetGenImage get dog => const AssetGenImage('assets/images/vowels/dog.png');
-
-  /// File path: assets/images/vowels/fan.png
-  AssetGenImage get fan => const AssetGenImage('assets/images/vowels/fan.png');
-
-  /// File path: assets/images/vowels/fish.png
-  AssetGenImage get fish =>
-      const AssetGenImage('assets/images/vowels/fish.png');
-
-  /// File path: assets/images/vowels/gift.png
-  AssetGenImage get gift =>
-      const AssetGenImage('assets/images/vowels/gift.png');
-
-  /// File path: assets/images/vowels/gum.png
-  AssetGenImage get gum => const AssetGenImage('assets/images/vowels/gum.png');
-
-  /// File path: assets/images/vowels/hen.png
-  AssetGenImage get hen => const AssetGenImage('assets/images/vowels/hen.png');
-
-  /// File path: assets/images/vowels/hog.png
-  AssetGenImage get hog => const AssetGenImage('assets/images/vowels/hog.png');
-
-  /// File path: assets/images/vowels/hut.png
-  AssetGenImage get hut => const AssetGenImage('assets/images/vowels/hut.png');
-
-  /// File path: assets/images/vowels/lamp.png
-  AssetGenImage get lamp =>
-      const AssetGenImage('assets/images/vowels/lamp.png');
-
-  /// File path: assets/images/vowels/mat.png
-  AssetGenImage get mat => const AssetGenImage('assets/images/vowels/mat.png');
-
-  /// File path: assets/images/vowels/net.png
-  AssetGenImage get net => const AssetGenImage('assets/images/vowels/net.png');
-
-  /// File path: assets/images/vowels/nut.png
-  AssetGenImage get nut => const AssetGenImage('assets/images/vowels/nut.png');
-
-  /// File path: assets/images/vowels/pen.png
-  AssetGenImage get pen => const AssetGenImage('assets/images/vowels/pen.png');
-
-  /// File path: assets/images/vowels/pig.png
-  AssetGenImage get pig => const AssetGenImage('assets/images/vowels/pig.png');
-
-  /// File path: assets/images/vowels/pot.png
-  AssetGenImage get pot => const AssetGenImage('assets/images/vowels/pot.png');
-
-  /// File path: assets/images/vowels/ring.png
-  AssetGenImage get ring =>
-      const AssetGenImage('assets/images/vowels/ring.png');
-
-  /// File path: assets/images/vowels/sun.png
-  AssetGenImage get sun => const AssetGenImage('assets/images/vowels/sun.png');
-
-  /// File path: assets/images/vowels/top.png
-  AssetGenImage get top => const AssetGenImage('assets/images/vowels/top.png');
-
-  /// File path: assets/images/vowels/van.png
-  AssetGenImage get van => const AssetGenImage('assets/images/vowels/van.png');
-
-  /// File path: assets/images/vowels/web.png
-  AssetGenImage get web => const AssetGenImage('assets/images/vowels/web.png');
-
-  /// List of all assets
-  List<dynamic> get values => [
-        tinyTotsCopy,
-        bed,
-        bib,
-        bus,
-        cat,
-        cot,
-        dog,
-        fan,
-        fish,
-        gift,
-        gum,
-        hen,
-        hog,
-        hut,
-        lamp,
-        mat,
-        net,
-        nut,
-        pen,
-        pig,
-        pot,
-        ring,
-        sun,
-        top,
-        van,
-        web
-      ];
 }
 
 class $AssetsSoundsAlphabetGen {
@@ -1222,6 +1115,139 @@ class $AssetsImagesAllAboardShapesGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [circle, learnShapes, oval, rectangle, square, star, triangle];
+}
+
+class $AssetsImagesPhonicsVowelsGen {
+  const $AssetsImagesPhonicsVowelsGen();
+
+  /// File path: assets/images/phonics/vowels/bed.png
+  AssetGenImage get bed =>
+      const AssetGenImage('assets/images/phonics/vowels/bed.png');
+
+  /// File path: assets/images/phonics/vowels/bib.png
+  AssetGenImage get bib =>
+      const AssetGenImage('assets/images/phonics/vowels/bib.png');
+
+  /// File path: assets/images/phonics/vowels/bus.png
+  AssetGenImage get bus =>
+      const AssetGenImage('assets/images/phonics/vowels/bus.png');
+
+  /// File path: assets/images/phonics/vowels/cat.png
+  AssetGenImage get cat =>
+      const AssetGenImage('assets/images/phonics/vowels/cat.png');
+
+  /// File path: assets/images/phonics/vowels/cot.png
+  AssetGenImage get cot =>
+      const AssetGenImage('assets/images/phonics/vowels/cot.png');
+
+  /// File path: assets/images/phonics/vowels/dog.png
+  AssetGenImage get dog =>
+      const AssetGenImage('assets/images/phonics/vowels/dog.png');
+
+  /// File path: assets/images/phonics/vowels/fan.png
+  AssetGenImage get fan =>
+      const AssetGenImage('assets/images/phonics/vowels/fan.png');
+
+  /// File path: assets/images/phonics/vowels/fish.png
+  AssetGenImage get fish =>
+      const AssetGenImage('assets/images/phonics/vowels/fish.png');
+
+  /// File path: assets/images/phonics/vowels/gift.png
+  AssetGenImage get gift =>
+      const AssetGenImage('assets/images/phonics/vowels/gift.png');
+
+  /// File path: assets/images/phonics/vowels/gum.png
+  AssetGenImage get gum =>
+      const AssetGenImage('assets/images/phonics/vowels/gum.png');
+
+  /// File path: assets/images/phonics/vowels/hen.png
+  AssetGenImage get hen =>
+      const AssetGenImage('assets/images/phonics/vowels/hen.png');
+
+  /// File path: assets/images/phonics/vowels/hog.png
+  AssetGenImage get hog =>
+      const AssetGenImage('assets/images/phonics/vowels/hog.png');
+
+  /// File path: assets/images/phonics/vowels/hut.png
+  AssetGenImage get hut =>
+      const AssetGenImage('assets/images/phonics/vowels/hut.png');
+
+  /// File path: assets/images/phonics/vowels/lamp.png
+  AssetGenImage get lamp =>
+      const AssetGenImage('assets/images/phonics/vowels/lamp.png');
+
+  /// File path: assets/images/phonics/vowels/mat.png
+  AssetGenImage get mat =>
+      const AssetGenImage('assets/images/phonics/vowels/mat.png');
+
+  /// File path: assets/images/phonics/vowels/net.png
+  AssetGenImage get net =>
+      const AssetGenImage('assets/images/phonics/vowels/net.png');
+
+  /// File path: assets/images/phonics/vowels/nut.png
+  AssetGenImage get nut =>
+      const AssetGenImage('assets/images/phonics/vowels/nut.png');
+
+  /// File path: assets/images/phonics/vowels/pen.png
+  AssetGenImage get pen =>
+      const AssetGenImage('assets/images/phonics/vowels/pen.png');
+
+  /// File path: assets/images/phonics/vowels/pig.png
+  AssetGenImage get pig =>
+      const AssetGenImage('assets/images/phonics/vowels/pig.png');
+
+  /// File path: assets/images/phonics/vowels/pot.png
+  AssetGenImage get pot =>
+      const AssetGenImage('assets/images/phonics/vowels/pot.png');
+
+  /// File path: assets/images/phonics/vowels/ring.png
+  AssetGenImage get ring =>
+      const AssetGenImage('assets/images/phonics/vowels/ring.png');
+
+  /// File path: assets/images/phonics/vowels/sun.png
+  AssetGenImage get sun =>
+      const AssetGenImage('assets/images/phonics/vowels/sun.png');
+
+  /// File path: assets/images/phonics/vowels/top.png
+  AssetGenImage get top =>
+      const AssetGenImage('assets/images/phonics/vowels/top.png');
+
+  /// File path: assets/images/phonics/vowels/van.png
+  AssetGenImage get van =>
+      const AssetGenImage('assets/images/phonics/vowels/van.png');
+
+  /// File path: assets/images/phonics/vowels/web.png
+  AssetGenImage get web =>
+      const AssetGenImage('assets/images/phonics/vowels/web.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        bed,
+        bib,
+        bus,
+        cat,
+        cot,
+        dog,
+        fan,
+        fish,
+        gift,
+        gum,
+        hen,
+        hog,
+        hut,
+        lamp,
+        mat,
+        net,
+        nut,
+        pen,
+        pig,
+        pot,
+        ring,
+        sun,
+        top,
+        van,
+        web
+      ];
 }
 
 class $AssetsImagesScienceBodyGen {

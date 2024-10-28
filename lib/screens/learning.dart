@@ -27,7 +27,7 @@ class _LearningListScreenState extends State<LearningListScreen> {
     ),
     Module(
       type: "learning",
-      imagePath: 'assets/images/phonics.png',
+      imagePath: Assets.images.phonics.phonicsPic.path,
       route: const PhonicsScreen(),
     ),
     Module(

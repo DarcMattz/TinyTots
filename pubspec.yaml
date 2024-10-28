@@ -81,11 +81,12 @@ flutter:
     - assets/images/all_aboard/letters/guide/
     - assets/images/all_aboard/letters/sample/
     - assets/images/all_aboard/shapes/
+    - assets/images/phonics/
+    - assets/images/phonics/vowels/
     - assets/images/science/care/
     - assets/images/science/face/
     - assets/images/science/body/
     - assets/images/science/senses/
-    - assets/images/vowels/
     - assets/images/mathematics/
     - assets/images/filipino/
     - assets/models/
