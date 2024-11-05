@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/modules.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz.dart';
+import 'package:flutter_application_1/globals.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/abc_start.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/shapes_start.dart';
 
 class AllAboardScreen extends StatefulWidget {
@@ -17,32 +18,51 @@ class AllAboardScreen extends StatefulWidget {
 
 class _AllAboardScreenState extends State<AllAboardScreen> {
   int _currentIndex = 0;
+  bool _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
+  bool _isAlphabeFinished = prefs.getBool('alphabets_quiz_unlocked') ?? false;
 
-  final List<Module> allAboard = [
-    Module(
-      type: "all_aboard",
-      imagePath: Assets.images.allAboard.shapesPic.path,
-      route: const ShapesStartScreen(),
-    ),
-    Module(
-      type: "all_aboard",
-      imagePath: Assets.images.quizPic.path,
-      route: ShapesQuizScreen(),
-    ),
-    Module(
-      type: "all_aboard",
-      imagePath: Assets.images.allAboard.alphabetPic.path,
-      route: AbcStartScreen(),
-    ),
-    Module(
-      type: "all_aboard ",
-      imagePath: Assets.images.quizPic.path,
-      route: AbcQuizStart(),
-    ),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _loadQuizStatus(); // Load the quiz status when the widget is initialized
+  }
+
+  Future<void> _loadQuizStatus() async {
+    // Retrieve the saved quiz status from shared preferences
+    _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
+    _isAlphabeFinished = prefs.getBool('alphabets_quiz_unlocked') ?? false;
+    setState(() {}); // Update the UI after loading the data
+  }
 
   @override
   Widget build(BuildContext context) {
+    final List<Module> allAboard = [
+      Module(
+        type: "all_aboard",
+        imagePath: Assets.images.allAboard.shapesPic.path,
+        route: const ShapesStartScreen(),
+      ),
+      Module(
+        type: "all_aboard",
+        imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isShapesFinished,
+        route: const ShapesQuizStart(),
+      ),
+      Module(
+        type: "all_aboard",
+        imagePath: Assets.images.allAboard.alphabetPic.path,
+        route: const AbcStartScreen(),
+      ),
+      Module(
+        type: "all_aboard ",
+        imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isAlphabeFinished,
+        route: const AbcQuizStart(),
+      ),
+    ];
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -102,18 +122,16 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: List.generate(allAboard.length, (index) {
-                              return GestureDetector(
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
-                                  width: 10,
-                                  height: 10,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: _currentIndex == index
-                                        ? Colors.blueAccent
-                                        : Colors.grey,
-                                  ),
+                              return Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: _currentIndex == index
+                                      ? Colors.blueAccent
+                                      : Colors.grey,
                                 ),
                               );
                             }),

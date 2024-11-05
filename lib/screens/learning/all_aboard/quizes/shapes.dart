@@ -81,16 +81,6 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         ],
         correctAnswerIndex: 1,
       ),
-      Question(
-        questionText: "Dd",
-        imageOptions: [
-          image.doll.path,
-          image.hand.path,
-          image.kite.path,
-          image.umbrella.path,
-        ],
-        correctAnswerIndex: 0,
-      ),
       // Add more questions here
       // kulang pa!
     ];

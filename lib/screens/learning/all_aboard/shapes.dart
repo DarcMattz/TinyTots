@@ -1,12 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/shape_card.dart';
 import 'package:flutter_application_1/models/all_aboard/shape.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz_start.dart';
 import 'package:gap/gap.dart';
 
 class ShapesScreen extends StatefulWidget {
@@ -18,8 +19,9 @@ class ShapesScreen extends StatefulWidget {
 
 class _ShapesScreenState extends State<ShapesScreen> {
   final AudioService _audioService = AudioService();
-  int _currentIndex = 0;
   final CarouselSliderController _carCon = CarouselSliderController();
+  int? _currentIndex = prefs.getInt('shapes_current_index');
+  // int _currentIndex = 0;
 
   final List<Shape> shapes = [
     Shape(
@@ -57,6 +59,8 @@ class _ShapesScreenState extends State<ShapesScreen> {
   @override
   void initState() {
     super.initState();
+    print(_currentIndex);
+
     _audioService.setOnComplete(() {});
   }
 
@@ -76,11 +80,13 @@ class _ShapesScreenState extends State<ShapesScreen> {
 
   void _nextCard() {
     if (_currentIndex == shapes.length - 1) {
+      prefs.setBool('shapes_quiz_unlocked', true);
+      prefs.setInt('shapes_current_index', 0);
       showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) => const FinishModuleDialog(
-          route: ShapesQuizScreen(),
+          route: ShapesQuizStart(),
         ),
       );
     } else {
@@ -127,13 +133,15 @@ class _ShapesScreenState extends State<ShapesScreen> {
                     height: 400,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
-                    initialPage: 0,
+                    initialPage: _currentIndex ?? 0,
                     autoPlay: false,
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
                       setState(() {
                         _currentIndex = index;
                         _stop();
+                        prefs.setInt('shapes_current_index', index);
+                        print(prefs.getInt('shapes_current_index'));
                       });
                     },
                   ),

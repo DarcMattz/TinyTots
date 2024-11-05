@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_example_card.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_trace_card.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_application_1/models/all_aboard/alphabet.dart';
 import 'package:flutter_application_1/models/all_aboard/letter.dart';
 import 'package:flutter_application_1/models/all_aboard/letter_example.dart';
 import 'package:flutter_application_1/models/all_aboard/letter_trace.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
 import 'package:gap/gap.dart';
 
 class AbcScreen extends StatefulWidget {
@@ -24,7 +25,8 @@ class AbcScreen extends StatefulWidget {
 class _AbcScreenState extends State<AbcScreen> {
   final AudioService _audioService = AudioService();
   final CarouselSliderController _mainCarCon = CarouselSliderController();
-  int colCurIndex = 0;
+  int? colCurIndex = prefs.getInt('alphabets_current_index');
+  // int colCurIndex = 0;
   final List<Alphabet> alphabet = [
     Alphabet(
       letter: Letter(
@@ -476,11 +478,13 @@ class _AbcScreenState extends State<AbcScreen> {
                     height: 400,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
-                    initialPage: 0,
+                    initialPage: colCurIndex ?? 0,
                     autoPlay: false,
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
                       colCurIndex = index;
+                      prefs.setInt('alphabets_current_index', index);
+                      print(colCurIndex);
                       _stop();
                     },
                   ),

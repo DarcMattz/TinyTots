@@ -103,11 +103,11 @@ class AndroidWelcome extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      const Text(
+                      Text(
                         'Explore a world of fun learning\nwith our interactive activities.\nJoin us on an exciting journey\nof discovery and growth. Let’s\nlearn together!',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: constraints.maxHeight * .019,
                           color: Colors.black,
                         ),
                       ),

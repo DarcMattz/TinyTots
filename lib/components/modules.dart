@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/lock_quiz_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 
 class Module {
   final String type;
   final String imagePath;
   final Widget route;
+  final bool isFinished;
+  final bool isQuiz;
 
   Module({
+    this.isFinished = false,
+    this.isQuiz = false,
     required this.type,
     required this.imagePath,
     required this.route,
@@ -29,11 +34,6 @@ class ModuleCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.all(
-                  //     Radius.circular(constraints.maxHeight * .04),
-                  //   ),
-                  // ),
                   height: constraints.maxHeight * .75,
                   width: constraints.maxWidth * .9,
                   child: Image.asset(
@@ -48,10 +48,25 @@ class ModuleCard extends StatelessWidget {
                   icon: Icons.play_arrow_rounded,
                   iconSize: 30,
                   method: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => module.route),
-                    );
+                    if (module.isQuiz) {
+                      if (module.isFinished) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => module.route),
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => const LockQuizDialog(),
+                        );
+                      }
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => module.route),
+                      );
+                    }
                   },
                   isIconRight: true,
                   height: constraints.maxHeight * .15,

@@ -55,6 +55,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/lion.png
   AssetGenImage get lion => const AssetGenImage('assets/images/lion.png');
 
+  /// File path: assets/images/lock_dog.png
+  AssetGenImage get lockDog =>
+      const AssetGenImage('assets/images/lock_dog.png');
+
   /// Directory path: assets/images/mathematics
   $AssetsImagesMathematicsGen get mathematics =>
       const $AssetsImagesMathematicsGen();
@@ -107,6 +111,7 @@ class $AssetsImagesGen {
         koala,
         learning,
         lion,
+        lockDog,
         panda,
         play,
         profile,
@@ -716,6 +721,10 @@ class $AssetsImagesAllAboardShapesGen {
   AssetGenImage get circle =>
       const AssetGenImage('assets/images/all_aboard/shapes/circle.png');
 
+  /// File path: assets/images/all_aboard/shapes/find_oddshape.png
+  AssetGenImage get findOddshape =>
+      const AssetGenImage('assets/images/all_aboard/shapes/find_oddshape.png');
+
   /// File path: assets/images/all_aboard/shapes/learn_shapes.png
   AssetGenImage get learnShapes =>
       const AssetGenImage('assets/images/all_aboard/shapes/learn_shapes.png');
@@ -741,8 +750,16 @@ class $AssetsImagesAllAboardShapesGen {
       const AssetGenImage('assets/images/all_aboard/shapes/triangle.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [circle, learnShapes, oval, rectangle, square, star, triangle];
+  List<AssetGenImage> get values => [
+        circle,
+        findOddshape,
+        learnShapes,
+        oval,
+        rectangle,
+        square,
+        star,
+        triangle
+      ];
 }
 
 class $AssetsImagesMathematicsGuidesGen {
