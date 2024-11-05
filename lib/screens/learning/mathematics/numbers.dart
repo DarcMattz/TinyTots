@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/mathematics/number_card.dart';
 import 'package:flutter_application_1/components/mathematics/number_with_example_card.dart';
@@ -22,115 +25,135 @@ class _NumbersScreenState extends State<NumbersScreen> {
   final List<List> number = [
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/1_example.png',
-          numberImage: 'assets/images/mathematics/1.png',
-          numberSound: 'sounds/mathematics/1.m4a',
-          numberSampleSound: 'sounds/mathematics/1_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_1.png'),
+        numberImage: Assets.images.mathematics.numbers.a1.path,
+        numberExample: Assets.images.mathematics.sample.a1Example.path,
+        numberSound: "sounds/mathematics/1.m4a",
+        numberSampleSound: "sounds/mathematics/1_sample.m4a",
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace1.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/2_example.png',
-          numberImage: 'assets/images/mathematics/2.png',
-          numberSound: 'sounds/mathematics/2.m4a',
-          numberSampleSound: 'sounds/mathematics/2_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_2.png'),
+        numberImage: Assets.images.mathematics.numbers.a2.path,
+        numberExample: Assets.images.mathematics.sample.a2Example.path,
+        numberSound: 'sounds/mathematics/2.m4a',
+        numberSampleSound: 'sounds/mathematics/2_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace2.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/3_example.png',
-          numberImage: 'assets/images/mathematics/3.png',
-          numberSound: 'sounds/mathematics/3.m4a',
-          numberSampleSound: 'sounds/mathematics/3_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_3.png'),
+        numberImage: Assets.images.mathematics.numbers.a3.path,
+        numberExample: Assets.images.mathematics.sample.a3Example.path,
+        numberSound: 'sounds/mathematics/3.m4a',
+        numberSampleSound: 'sounds/mathematics/3_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace3.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/4_example.png',
-          numberImage: 'assets/images/mathematics/4.png',
-          numberSound: 'sounds/mathematics/4.m4a',
-          numberSampleSound: 'sounds/mathematics/4_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_4.png'),
+        numberImage: Assets.images.mathematics.numbers.a4.path,
+        numberExample: Assets.images.mathematics.sample.a4Example.path,
+        numberSound: 'sounds/mathematics/4.m4a',
+        numberSampleSound: 'sounds/mathematics/4_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace4.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/5_example.png',
-          numberImage: 'assets/images/mathematics/5.png',
-          numberSound: 'sounds/mathematics/5.m4a',
-          numberSampleSound: 'sounds/mathematics/5_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_5.png'),
+        numberImage: Assets.images.mathematics.numbers.a5.path,
+        numberExample: Assets.images.mathematics.sample.a5Example.path,
+        numberSound: 'sounds/mathematics/5.m4a',
+        numberSampleSound: 'sounds/mathematics/5_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace5.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/6_example.png',
-          numberImage: 'assets/images/mathematics/6.png',
-          numberSound: 'sounds/mathematics/6.m4a',
-          numberSampleSound: 'sounds/mathematics/6_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_6.png'),
+        numberImage: Assets.images.mathematics.numbers.a6.path,
+        numberExample: Assets.images.mathematics.sample.a6Example.path,
+        numberSound: 'sounds/mathematics/6.m4a',
+        numberSampleSound: 'sounds/mathematics/6_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace6.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/7_example.png',
-          numberImage: 'assets/images/mathematics/7.png',
-          numberSound: 'sounds/mathematics/7.m4a',
-          numberSampleSound: 'sounds/mathematics/7_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_7.png'),
+        numberImage: Assets.images.mathematics.numbers.a7.path,
+        numberExample: Assets.images.mathematics.sample.a7Example.path,
+        numberSound: 'sounds/mathematics/7.m4a',
+        numberSampleSound: 'sounds/mathematics/7_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace7.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/8_example.png',
-          numberImage: 'assets/images/mathematics/8.png',
-          numberSound: 'sounds/mathematics/8.m4a',
-          numberSampleSound: 'sounds/mathematics/8_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_8.png'),
+        numberImage: Assets.images.mathematics.numbers.a8.path,
+        numberExample: Assets.images.mathematics.sample.a8Example.path,
+        numberSound: 'sounds/mathematics/8.m4a',
+        numberSampleSound: 'sounds/mathematics/8_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace8.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/9_example.png',
-          numberImage: 'assets/images/mathematics/9.png',
-          numberSound: 'sounds/mathematics/9.m4a',
-          numberSampleSound: 'sounds/mathematics/9_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_9.png'),
+        numberImage: Assets.images.mathematics.numbers.a9.path,
+        numberExample: Assets.images.mathematics.sample.a9Example.path,
+        numberSound: 'sounds/mathematics/9.m4a',
+        numberSampleSound: 'sounds/mathematics/9_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace9.path),
     ],
     [
       NumberExample(
-          numberExample: 'assets/images/mathematics/10_example.png',
-          numberImage: 'assets/images/mathematics/10.png',
-          numberSound: 'sounds/mathematics/10.m4a',
-          numberSampleSound: 'sounds/mathematics/10_sample.m4a'),
-      NumberOnly(numberImage: 'assets/images/mathematics/trace_10.png'),
+        numberImage: Assets.images.mathematics.numbers.a10.path,
+        numberExample: Assets.images.mathematics.sample.a10Example.path,
+        numberSound: 'sounds/mathematics/10.m4a',
+        numberSampleSound: 'sounds/mathematics/10_sample.m4a',
+      ),
+      NumberOnly(numberImage: Assets.images.mathematics.guides.trace10.path),
     ],
     [
       NumberOnly(
-          numberImage: 'assets/images/mathematics/11.png',
-          numberSound: "sounds/mathematics/11.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a11.path,
+        numberSound: 'sounds/mathematics/11.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/12.png',
-          numberSound: "sounds/mathematics/12.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a12.path,
+        numberSound: 'sounds/mathematics/12.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/13.png',
-          numberSound: "sounds/mathematics/13.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a13.path,
+        numberSound: 'sounds/mathematics/13.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/14.png',
-          numberSound: "sounds/mathematics/14.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a14.path,
+        numberSound: 'sounds/mathematics/14.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/15.png',
-          numberSound: "sounds/mathematics/15.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a15.path,
+        numberSound: 'sounds/mathematics/15.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/16.png',
-          numberSound: "sounds/mathematics/16.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a16.path,
+        numberSound: 'sounds/mathematics/16.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/17.png',
-          numberSound: "sounds/mathematics/17.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a17.path,
+        numberSound: 'sounds/mathematics/17.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/18.png',
-          numberSound: "sounds/mathematics/18.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a18.path,
+        numberSound: 'sounds/mathematics/18.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/19.png',
-          numberSound: "sounds/mathematics/19.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a19.path,
+        numberSound: 'sounds/mathematics/19.m4a',
+      ),
       NumberOnly(
-          numberImage: 'assets/images/mathematics/20.png',
-          numberSound: "sounds/mathematics/20.m4a"),
+        numberImage: Assets.images.mathematics.numbers.a20.path,
+        numberSound: 'sounds/mathematics/20.m4a',
+      ),
     ],
   ];
 
@@ -159,6 +182,8 @@ class _NumbersScreenState extends State<NumbersScreen> {
         _audioService.stop();
       });
     });
+
+    print(numberSound);
   }
 
   void _stop() async {

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/science/body_card.dart';
 import 'package:flutter_application_1/components/finish_module_dialog.dart';
@@ -23,85 +24,85 @@ class _BodyScreenState extends State<BodyScreen> {
     [
       Body(
         label: '',
-        imagePath: 'assets/images/science/body/parts_of_body.png',
+        imagePath: Assets.images.science.body.partsOfBody.path,
         soundPath: 'sounds/science/body/parts_of_the_body.m4a',
       ),
       Body(
         label: 'Human Body',
-        imagePath: 'assets/images/science/body/body_1.png',
+        imagePath: Assets.images.science.body.body1.path,
         soundPath: 'sounds/science/body/human_body.m4a',
       ),
       Body(
         label: 'Head',
-        imagePath: 'assets/images/science/body/body_2.png',
+        imagePath: Assets.images.science.body.body2.path,
         soundPath: 'sounds/science/body/head.m4a',
       ),
       Body(
         label: 'Neck',
-        imagePath: 'assets/images/science/body/body_3.png',
+        imagePath: Assets.images.science.body.body3.path,
         soundPath: 'sounds/science/body/neck.m4a',
       ),
       Body(
         label: 'Stomach',
-        imagePath: 'assets/images/science/body/body_4.png',
+        imagePath: Assets.images.science.body.body4.path,
         soundPath: 'sounds/science/body/stomach.m4a',
       ),
       Body(
         label: 'Hands',
-        imagePath: 'assets/images/science/body/body_5.png',
+        imagePath: Assets.images.science.body.body5.path,
         soundPath: 'sounds/science/body/hands.m4a',
       ),
       Body(
         label: 'Knee',
-        imagePath: 'assets/images/science/body/body_6.png',
+        imagePath: Assets.images.science.body.body6.path,
         soundPath: 'sounds/science/body/knee.m4a',
       ),
       Body(
         label: 'Feet',
-        imagePath: 'assets/images/science/body/body_7.png',
+        imagePath: Assets.images.science.body.body7.path,
         soundPath: 'sounds/science/body/feet.m4a',
       ),
     ],
     [
       Body(
         label: '',
-        imagePath: 'assets/images/science/face/parts_of_face.png',
-        soundPath: 'sounds/science/body/face.m4a',
+        imagePath: Assets.images.science.face.partsOfFace.path,
+        soundPath: 'sounds/science/face/parts_of_face.m4a',
       ),
       Body(
         label: 'Human Face',
-        imagePath: 'assets/images/science/body/body_2.png',
-        soundPath: 'sounds/science/body/.m4a',
+        imagePath: Assets.images.science.body.body2.path,
+        soundPath: 'sounds/science/face/human_face.m4a',
       ),
       Body(
         label: 'Ears',
-        imagePath: 'assets/images/science/face/face_1.png',
-        soundPath: 'sounds/science/body/ears.m4a',
+        imagePath: Assets.images.science.face.face1.path,
+        soundPath: 'sounds/science/face/ears.m4a',
       ),
       Body(
         label: 'Eyebrows',
-        imagePath: 'assets/images/science/face/face_2.png',
-        soundPath: 'sounds/science/body/eyebrows.m4a',
+        imagePath: Assets.images.science.face.face2.path,
+        soundPath: 'sounds/science/face/eyebrows.m4a',
       ),
       Body(
         label: 'Eyes',
-        imagePath: 'assets/images/science/face/face_3.png',
-        soundPath: 'sounds/science/body/eyes.m4a',
+        imagePath: Assets.images.science.face.face3.path,
+        soundPath: 'sounds/science/face/eyes.m4a',
       ),
       Body(
         label: 'Nose',
-        imagePath: 'assets/images/science/face/face_4.png',
-        soundPath: 'sounds/science/body/nose.m4a',
+        imagePath: Assets.images.science.face.face4.path,
+        soundPath: 'sounds/science/face/nose.m4a',
       ),
       Body(
         label: 'Lips and Teeth',
-        imagePath: 'assets/images/science/face/face_5.png',
-        soundPath: 'sounds/science/body/lips_teeth.m4a',
+        imagePath: Assets.images.science.face.face5.path,
+        soundPath: 'sounds/science/face/lips_teeth.m4a',
       ),
       Body(
         label: 'Tongue',
-        imagePath: 'assets/images/science/face/face_6.png',
-        soundPath: 'sounds/science/body/tongue.m4a',
+        imagePath: Assets.images.science.face.face6.path,
+        soundPath: 'sounds/science/face/tongue.m4a',
       ),
     ],
   ];

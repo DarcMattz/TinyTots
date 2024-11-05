@@ -83,11 +83,16 @@ flutter:
     - assets/images/all_aboard/shapes/
     - assets/images/phonics/
     - assets/images/phonics/vowels/
+    - assets/images/science/
     - assets/images/science/care/
     - assets/images/science/face/
     - assets/images/science/body/
     - assets/images/science/senses/
     - assets/images/mathematics/
+    - assets/images/mathematics/numbers/
+    - assets/images/mathematics/sample/
+    - assets/images/mathematics/guides/
+    - assets/images/mathematics/lesson_3/
     - assets/images/filipino/
     - assets/models/
   # An image asset can refer to one or more resolution-specific "variants", see

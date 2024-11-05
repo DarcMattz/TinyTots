@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/building.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 // import 'package:flutter_application_1/screens/learning/filipino/abakada_quiz.dart';
 // import 'package:flutter_application_1/screens/learning/filipino/abakada_start.dart';
 import 'package:flutter_application_1/screens/learning/filipino/abakada.dart';
@@ -23,12 +24,12 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
 
   final List<Building> buildings = [
     //First Lesson
-    const Building(
+    Building(
         module: "filipino",
-        imagePath: 'assets/images/filipino/abakada.png',
+        imagePath: Assets.images.filipino.abakadaPic.path,
         route: FilipinoStartLessonScreen(
-          imagePath: "assets/images/filipino/learn_abakada.png",
-          route: AbakadaScreen(
+          imagePath: Assets.images.filipino.learnAbakada.path,
+          route: const AbakadaScreen(
               quizScreen: FilipinoStartQuizScreen(
             route: Scaffold(
               body: Center(
@@ -41,10 +42,10 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
         )),
 
     //First Quiz
-    const Building(
+    Building(
       module: "filipino ",
-      imagePath: 'assets/images/quiz.png',
-      route: FilipinoStartQuizScreen(
+      imagePath: Assets.images.quizPic.path,
+      route: const FilipinoStartQuizScreen(
         route: Scaffold(
           body: Center(
             child: Text("Quiz1"),
@@ -56,12 +57,12 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
     ),
 
     //Second Lesson
-    const Building(
+    Building(
         module: "filipino",
-        imagePath: 'assets/images/filipino/pamilya.png',
+        imagePath: Assets.images.filipino.pamilyaPic.path,
         route: FilipinoStartLessonScreen(
-          imagePath: "assets/images/filipino/learn_pamilya.png",
-          route: PamilyaScreen(
+          imagePath: Assets.images.filipino.learnPamilya.path,
+          route: const PamilyaScreen(
             quizScreen: FilipinoStartQuizScreen(
               route: Scaffold(
                 body: Center(
@@ -75,10 +76,10 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
         )),
 
     //Second Quiz
-    const Building(
+    Building(
       module: "filipino ",
-      imagePath: 'assets/images/quiz.png',
-      route: FilipinoStartQuizScreen(
+      imagePath: Assets.images.quizPic.path,
+      route: const FilipinoStartQuizScreen(
         route: Scaffold(
           body: Center(
             child: Text("Quiz2"),
@@ -90,12 +91,12 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
     ),
 
     //Third Lesson
-    const Building(
+    Building(
         module: "filipino",
-        imagePath: 'assets/images/filipino/kulay.png',
+        imagePath: Assets.images.filipino.kulayPic.path,
         route: FilipinoStartLessonScreen(
-          imagePath: "assets/images/filipino/learn_kulay.png",
-          route: KulayScreen(
+          imagePath: Assets.images.filipino.learnKulay.path,
+          route: const KulayScreen(
             quizScreen: FilipinoStartQuizScreen(
               route: Scaffold(
                 body: Center(
@@ -109,10 +110,10 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
         )),
 
     //Third Quiz
-    const Building(
+    Building(
       module: "filipino ",
-      imagePath: 'assets/images/quiz.png',
-      route: FilipinoStartQuizScreen(
+      imagePath: Assets.images.quizPic.path,
+      route: const FilipinoStartQuizScreen(
         route: Scaffold(
           body: Center(
             child: Text("Quiz3"),
@@ -124,12 +125,12 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
     ),
 
     //Fourth Lesson
-    const Building(
+    Building(
         module: "filipino",
-        imagePath: 'assets/images/filipino/hugis.png',
+        imagePath: Assets.images.filipino.hugisPic.path,
         route: FilipinoStartLessonScreen(
-          imagePath: "assets/images/filipino/learn_hugis.png",
-          route: HugisScreen(
+          imagePath: Assets.images.filipino.learnHugis.path,
+          route: const HugisScreen(
             quizScreen: FilipinoStartQuizScreen(
               route: Scaffold(
                 body: Center(
@@ -143,10 +144,10 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
         )),
 
     //Fourth Quiz
-    const Building(
+    Building(
       module: "filipino ",
-      imagePath: 'assets/images/quiz.png',
-      route: FilipinoStartQuizScreen(
+      imagePath: Assets.images.quizPic.path,
+      route: const FilipinoStartQuizScreen(
         route: Scaffold(
           body: Center(
             child: Text("Quiz4"),
@@ -163,10 +164,10 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.lightBlueAccent,
           image: DecorationImage(
-            image: AssetImage('assets/images/background_road.png'),
+            image: Assets.images.background.provider(),
             fit: BoxFit.cover,
           ),
         ),

@@ -26,12 +26,6 @@ class $AssetsImagesGen {
   AssetGenImage get backgroundRoad =>
       const AssetGenImage('assets/images/background_road.png');
 
-  /// File path: assets/images/body.png
-  AssetGenImage get body => const AssetGenImage('assets/images/body.png');
-
-  /// File path: assets/images/care.png
-  AssetGenImage get care => const AssetGenImage('assets/images/care.png');
-
   /// File path: assets/images/cow.png
   AssetGenImage get cow => const AssetGenImage('assets/images/cow.png');
 
@@ -53,18 +47,6 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/koala.png
   AssetGenImage get koala => const AssetGenImage('assets/images/koala.png');
-
-  /// File path: assets/images/learn_body.png
-  AssetGenImage get learnBody =>
-      const AssetGenImage('assets/images/learn_body.png');
-
-  /// File path: assets/images/learn_care.png
-  AssetGenImage get learnCare =>
-      const AssetGenImage('assets/images/learn_care.png');
-
-  /// File path: assets/images/learn_senses.png
-  AssetGenImage get learnSenses =>
-      const AssetGenImage('assets/images/learn_senses.png');
 
   /// File path: assets/images/learning.png
   AssetGenImage get learning =>
@@ -102,13 +84,6 @@ class $AssetsImagesGen {
   /// Directory path: assets/images/science
   $AssetsImagesScienceGen get science => const $AssetsImagesScienceGen();
 
-  /// File path: assets/images/science_and_health.png
-  AssetGenImage get scienceAndHealth =>
-      const AssetGenImage('assets/images/science_and_health.png');
-
-  /// File path: assets/images/senses.png
-  AssetGenImage get senses => const AssetGenImage('assets/images/senses.png');
-
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
@@ -124,17 +99,12 @@ class $AssetsImagesGen {
         logo,
         background,
         backgroundRoad,
-        body,
-        care,
         cow,
         dog,
         explore,
         geography,
         giraffe,
         koala,
-        learnBody,
-        learnCare,
-        learnSenses,
         learning,
         lion,
         panda,
@@ -143,8 +113,6 @@ class $AssetsImagesGen {
         quizPic,
         rabbit,
         ribbon,
-        scienceAndHealth,
-        senses,
         splash,
         splashScreen,
         sun
@@ -220,129 +188,21 @@ class $AssetsImagesAllAboardGen {
 class $AssetsImagesFilipinoGen {
   const $AssetsImagesFilipinoGen();
 
-  /// File path: assets/images/filipino/abakada.png
-  AssetGenImage get abakada =>
-      const AssetGenImage('assets/images/filipino/abakada.png');
+  /// File path: assets/images/filipino/abakada_pic.png
+  AssetGenImage get abakadaPic =>
+      const AssetGenImage('assets/images/filipino/abakada_pic.png');
 
-  /// File path: assets/images/filipino/abakada_Aa.png
-  AssetGenImage get abakadaAa =>
-      const AssetGenImage('assets/images/filipino/abakada_Aa.png');
+  /// File path: assets/images/filipino/filipino_pic.png
+  AssetGenImage get filipinoPic =>
+      const AssetGenImage('assets/images/filipino/filipino_pic.png');
 
-  /// File path: assets/images/filipino/abakada_Ba.png
-  AssetGenImage get abakadaBa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ba.png');
+  /// File path: assets/images/filipino/hugis_pic.png
+  AssetGenImage get hugisPic =>
+      const AssetGenImage('assets/images/filipino/hugis_pic.png');
 
-  /// File path: assets/images/filipino/abakada_Da.png
-  AssetGenImage get abakadaDa =>
-      const AssetGenImage('assets/images/filipino/abakada_Da.png');
-
-  /// File path: assets/images/filipino/abakada_Ga.png
-  AssetGenImage get abakadaGa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ga.png');
-
-  /// File path: assets/images/filipino/abakada_Ha.png
-  AssetGenImage get abakadaHa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ha.png');
-
-  /// File path: assets/images/filipino/abakada_Ka.png
-  AssetGenImage get abakadaKa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ka.png');
-
-  /// File path: assets/images/filipino/abakada_La.png
-  AssetGenImage get abakadaLa =>
-      const AssetGenImage('assets/images/filipino/abakada_La.png');
-
-  /// File path: assets/images/filipino/abakada_Ma.png
-  AssetGenImage get abakadaMa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ma.png');
-
-  /// File path: assets/images/filipino/abakada_Na.png
-  AssetGenImage get abakadaNa =>
-      const AssetGenImage('assets/images/filipino/abakada_Na.png');
-
-  /// File path: assets/images/filipino/abakada_Nga.png
-  AssetGenImage get abakadaNga =>
-      const AssetGenImage('assets/images/filipino/abakada_Nga.png');
-
-  /// File path: assets/images/filipino/abakada_Pa.png
-  AssetGenImage get abakadaPa =>
-      const AssetGenImage('assets/images/filipino/abakada_Pa.png');
-
-  /// File path: assets/images/filipino/abakada_Ra.png
-  AssetGenImage get abakadaRa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ra.png');
-
-  /// File path: assets/images/filipino/abakada_Sa.png
-  AssetGenImage get abakadaSa =>
-      const AssetGenImage('assets/images/filipino/abakada_Sa.png');
-
-  /// File path: assets/images/filipino/abakada_Ta.png
-  AssetGenImage get abakadaTa =>
-      const AssetGenImage('assets/images/filipino/abakada_Ta.png');
-
-  /// File path: assets/images/filipino/abakada_Wa.png
-  AssetGenImage get abakadaWa =>
-      const AssetGenImage('assets/images/filipino/abakada_Wa.png');
-
-  /// File path: assets/images/filipino/abakada_Yo.png
-  AssetGenImage get abakadaYo =>
-      const AssetGenImage('assets/images/filipino/abakada_Yo.png');
-
-  /// File path: assets/images/filipino/filipino.png
-  AssetGenImage get filipino =>
-      const AssetGenImage('assets/images/filipino/filipino.png');
-
-  /// File path: assets/images/filipino/hugis.png
-  AssetGenImage get hugis =>
-      const AssetGenImage('assets/images/filipino/hugis.png');
-
-  /// File path: assets/images/filipino/hugis_bilog.png
-  AssetGenImage get hugisBilog =>
-      const AssetGenImage('assets/images/filipino/hugis_bilog.png');
-
-  /// File path: assets/images/filipino/hugis_oblong.png
-  AssetGenImage get hugisOblong =>
-      const AssetGenImage('assets/images/filipino/hugis_oblong.png');
-
-  /// File path: assets/images/filipino/hugis_parihaba.png
-  AssetGenImage get hugisParihaba =>
-      const AssetGenImage('assets/images/filipino/hugis_parihaba.png');
-
-  /// File path: assets/images/filipino/hugis_parisukat.png
-  AssetGenImage get hugisParisukat =>
-      const AssetGenImage('assets/images/filipino/hugis_parisukat.png');
-
-  /// File path: assets/images/filipino/hugis_tatsulok.png
-  AssetGenImage get hugisTatsulok =>
-      const AssetGenImage('assets/images/filipino/hugis_tatsulok.png');
-
-  /// File path: assets/images/filipino/kulay.png
-  AssetGenImage get kulay =>
-      const AssetGenImage('assets/images/filipino/kulay.png');
-
-  /// File path: assets/images/filipino/kulay_asul.png
-  AssetGenImage get kulayAsul =>
-      const AssetGenImage('assets/images/filipino/kulay_asul.png');
-
-  /// File path: assets/images/filipino/kulay_berde.png
-  AssetGenImage get kulayBerde =>
-      const AssetGenImage('assets/images/filipino/kulay_berde.png');
-
-  /// File path: assets/images/filipino/kulay_dilaw.png
-  AssetGenImage get kulayDilaw =>
-      const AssetGenImage('assets/images/filipino/kulay_dilaw.png');
-
-  /// File path: assets/images/filipino/kulay_kahel.png
-  AssetGenImage get kulayKahel =>
-      const AssetGenImage('assets/images/filipino/kulay_kahel.png');
-
-  /// File path: assets/images/filipino/kulay_lila.png
-  AssetGenImage get kulayLila =>
-      const AssetGenImage('assets/images/filipino/kulay_lila.png');
-
-  /// File path: assets/images/filipino/kulay_pula.png
-  AssetGenImage get kulayPula =>
-      const AssetGenImage('assets/images/filipino/kulay_pula.png');
+  /// File path: assets/images/filipino/kulay_pic.png
+  AssetGenImage get kulayPic =>
+      const AssetGenImage('assets/images/filipino/kulay_pic.png');
 
   /// File path: assets/images/filipino/learn_abakada.png
   AssetGenImage get learnAbakada =>
@@ -360,337 +220,66 @@ class $AssetsImagesFilipinoGen {
   AssetGenImage get learnPamilya =>
       const AssetGenImage('assets/images/filipino/learn_pamilya.png');
 
-  /// File path: assets/images/filipino/pamilya.png
-  AssetGenImage get pamilya =>
-      const AssetGenImage('assets/images/filipino/pamilya.png');
-
-  /// File path: assets/images/filipino/pamilya_ate.png
-  AssetGenImage get pamilyaAte =>
-      const AssetGenImage('assets/images/filipino/pamilya_ate.png');
-
-  /// File path: assets/images/filipino/pamilya_kuya.png
-  AssetGenImage get pamilyaKuya =>
-      const AssetGenImage('assets/images/filipino/pamilya_kuya.png');
-
-  /// File path: assets/images/filipino/pamilya_lola.png
-  AssetGenImage get pamilyaLola =>
-      const AssetGenImage('assets/images/filipino/pamilya_lola.png');
-
-  /// File path: assets/images/filipino/pamilya_lolo.png
-  AssetGenImage get pamilyaLolo =>
-      const AssetGenImage('assets/images/filipino/pamilya_lolo.png');
-
-  /// File path: assets/images/filipino/pamilya_nanay.png
-  AssetGenImage get pamilyaNanay =>
-      const AssetGenImage('assets/images/filipino/pamilya_nanay.png');
-
-  /// File path: assets/images/filipino/pamilya_tatay.png
-  AssetGenImage get pamilyaTatay =>
-      const AssetGenImage('assets/images/filipino/pamilya_tatay.png');
+  /// File path: assets/images/filipino/pamilya_pic.png
+  AssetGenImage get pamilyaPic =>
+      const AssetGenImage('assets/images/filipino/pamilya_pic.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        abakada,
-        abakadaAa,
-        abakadaBa,
-        abakadaDa,
-        abakadaGa,
-        abakadaHa,
-        abakadaKa,
-        abakadaLa,
-        abakadaMa,
-        abakadaNa,
-        abakadaNga,
-        abakadaPa,
-        abakadaRa,
-        abakadaSa,
-        abakadaTa,
-        abakadaWa,
-        abakadaYo,
-        filipino,
-        hugis,
-        hugisBilog,
-        hugisOblong,
-        hugisParihaba,
-        hugisParisukat,
-        hugisTatsulok,
-        kulay,
-        kulayAsul,
-        kulayBerde,
-        kulayDilaw,
-        kulayKahel,
-        kulayLila,
-        kulayPula,
+        abakadaPic,
+        filipinoPic,
+        hugisPic,
+        kulayPic,
         learnAbakada,
         learnHugis,
         learnKulay,
         learnPamilya,
-        pamilya,
-        pamilyaAte,
-        pamilyaKuya,
-        pamilyaLola,
-        pamilyaLolo,
-        pamilyaNanay,
-        pamilyaTatay
+        pamilyaPic
       ];
 }
 
 class $AssetsImagesMathematicsGen {
   const $AssetsImagesMathematicsGen();
 
-  /// File path: assets/images/mathematics/1.png
-  AssetGenImage get a1 =>
-      const AssetGenImage('assets/images/mathematics/1.png');
+  /// File path: assets/images/mathematics/addsubtr_pic.png
+  AssetGenImage get addsubtrPic =>
+      const AssetGenImage('assets/images/mathematics/addsubtr_pic.png');
 
-  /// File path: assets/images/mathematics/10.png
-  AssetGenImage get a10 =>
-      const AssetGenImage('assets/images/mathematics/10.png');
+  /// Directory path: assets/images/mathematics/guides
+  $AssetsImagesMathematicsGuidesGen get guides =>
+      const $AssetsImagesMathematicsGuidesGen();
 
-  /// File path: assets/images/mathematics/10_example.png
-  AssetGenImage get a10Example =>
-      const AssetGenImage('assets/images/mathematics/10_example.png');
+  /// File path: assets/images/mathematics/learn_add_subtract.png
+  AssetGenImage get learnAddSubtract =>
+      const AssetGenImage('assets/images/mathematics/learn_add_subtract.png');
 
-  /// File path: assets/images/mathematics/11.png
-  AssetGenImage get a11 =>
-      const AssetGenImage('assets/images/mathematics/11.png');
+  /// File path: assets/images/mathematics/learn_numbers.png
+  AssetGenImage get learnNumbers =>
+      const AssetGenImage('assets/images/mathematics/learn_numbers.png');
 
-  /// File path: assets/images/mathematics/12.png
-  AssetGenImage get a12 =>
-      const AssetGenImage('assets/images/mathematics/12.png');
+  /// Directory path: assets/images/mathematics/lesson_3
+  $AssetsImagesMathematicsLesson3Gen get lesson3 =>
+      const $AssetsImagesMathematicsLesson3Gen();
 
-  /// File path: assets/images/mathematics/13.png
-  AssetGenImage get a13 =>
-      const AssetGenImage('assets/images/mathematics/13.png');
+  /// File path: assets/images/mathematics/mathematics_pic.png
+  AssetGenImage get mathematicsPic =>
+      const AssetGenImage('assets/images/mathematics/mathematics_pic.png');
 
-  /// File path: assets/images/mathematics/14.png
-  AssetGenImage get a14 =>
-      const AssetGenImage('assets/images/mathematics/14.png');
+  /// Directory path: assets/images/mathematics/numbers
+  $AssetsImagesMathematicsNumbersGen get numbers =>
+      const $AssetsImagesMathematicsNumbersGen();
 
-  /// File path: assets/images/mathematics/15.png
-  AssetGenImage get a15 =>
-      const AssetGenImage('assets/images/mathematics/15.png');
+  /// File path: assets/images/mathematics/numbers_pic.png
+  AssetGenImage get numbersPic =>
+      const AssetGenImage('assets/images/mathematics/numbers_pic.png');
 
-  /// File path: assets/images/mathematics/16.png
-  AssetGenImage get a16 =>
-      const AssetGenImage('assets/images/mathematics/16.png');
-
-  /// File path: assets/images/mathematics/17.png
-  AssetGenImage get a17 =>
-      const AssetGenImage('assets/images/mathematics/17.png');
-
-  /// File path: assets/images/mathematics/18.png
-  AssetGenImage get a18 =>
-      const AssetGenImage('assets/images/mathematics/18.png');
-
-  /// File path: assets/images/mathematics/19.png
-  AssetGenImage get a19 =>
-      const AssetGenImage('assets/images/mathematics/19.png');
-
-  /// File path: assets/images/mathematics/1_example.png
-  AssetGenImage get a1Example =>
-      const AssetGenImage('assets/images/mathematics/1_example.png');
-
-  /// File path: assets/images/mathematics/2.png
-  AssetGenImage get a2 =>
-      const AssetGenImage('assets/images/mathematics/2.png');
-
-  /// File path: assets/images/mathematics/20.png
-  AssetGenImage get a20 =>
-      const AssetGenImage('assets/images/mathematics/20.png');
-
-  /// File path: assets/images/mathematics/2_example.png
-  AssetGenImage get a2Example =>
-      const AssetGenImage('assets/images/mathematics/2_example.png');
-
-  /// File path: assets/images/mathematics/3.png
-  AssetGenImage get a3 =>
-      const AssetGenImage('assets/images/mathematics/3.png');
-
-  /// File path: assets/images/mathematics/3_example.png
-  AssetGenImage get a3Example =>
-      const AssetGenImage('assets/images/mathematics/3_example.png');
-
-  /// File path: assets/images/mathematics/4.png
-  AssetGenImage get a4 =>
-      const AssetGenImage('assets/images/mathematics/4.png');
-
-  /// File path: assets/images/mathematics/4_example.png
-  AssetGenImage get a4Example =>
-      const AssetGenImage('assets/images/mathematics/4_example.png');
-
-  /// File path: assets/images/mathematics/5.png
-  AssetGenImage get a5 =>
-      const AssetGenImage('assets/images/mathematics/5.png');
-
-  /// File path: assets/images/mathematics/5_example.png
-  AssetGenImage get a5Example =>
-      const AssetGenImage('assets/images/mathematics/5_example.png');
-
-  /// File path: assets/images/mathematics/6.png
-  AssetGenImage get a6 =>
-      const AssetGenImage('assets/images/mathematics/6.png');
-
-  /// File path: assets/images/mathematics/6_example.png
-  AssetGenImage get a6Example =>
-      const AssetGenImage('assets/images/mathematics/6_example.png');
-
-  /// File path: assets/images/mathematics/7.png
-  AssetGenImage get a7 =>
-      const AssetGenImage('assets/images/mathematics/7.png');
-
-  /// File path: assets/images/mathematics/7_example.png
-  AssetGenImage get a7Example =>
-      const AssetGenImage('assets/images/mathematics/7_example.png');
-
-  /// File path: assets/images/mathematics/8.png
-  AssetGenImage get a8 =>
-      const AssetGenImage('assets/images/mathematics/8.png');
-
-  /// File path: assets/images/mathematics/8_example.png
-  AssetGenImage get a8Example =>
-      const AssetGenImage('assets/images/mathematics/8_example.png');
-
-  /// File path: assets/images/mathematics/9.png
-  AssetGenImage get a9 =>
-      const AssetGenImage('assets/images/mathematics/9.png');
-
-  /// File path: assets/images/mathematics/9_example.png
-  AssetGenImage get a9Example =>
-      const AssetGenImage('assets/images/mathematics/9_example.png');
-
-  /// File path: assets/images/mathematics/add_subtract.png
-  AssetGenImage get addSubtract =>
-      const AssetGenImage('assets/images/mathematics/add_subtract.png');
-
-  /// File path: assets/images/mathematics/lesson_3-1.png
-  AssetGenImage get lesson31 =>
-      const AssetGenImage('assets/images/mathematics/lesson_3-1.png');
-
-  /// File path: assets/images/mathematics/lesson_3-2.png
-  AssetGenImage get lesson32 =>
-      const AssetGenImage('assets/images/mathematics/lesson_3-2.png');
-
-  /// File path: assets/images/mathematics/lesson_3-3.png
-  AssetGenImage get lesson33 =>
-      const AssetGenImage('assets/images/mathematics/lesson_3-3.png');
-
-  /// File path: assets/images/mathematics/lesson_3-4.png
-  AssetGenImage get lesson34 =>
-      const AssetGenImage('assets/images/mathematics/lesson_3-4.png');
-
-  /// File path: assets/images/mathematics/lesson_3-5.png
-  AssetGenImage get lesson35 =>
-      const AssetGenImage('assets/images/mathematics/lesson_3-5.png');
-
-  /// File path: assets/images/mathematics/math_start_mascot.png
-  AssetGenImage get mathStartMascot =>
-      const AssetGenImage('assets/images/mathematics/math_start_mascot.png');
-
-  /// File path: assets/images/mathematics/math_start_mascot_3.png
-  AssetGenImage get mathStartMascot3 =>
-      const AssetGenImage('assets/images/mathematics/math_start_mascot_3.png');
-
-  /// File path: assets/images/mathematics/mathematics.png
-  AssetGenImage get mathematics =>
-      const AssetGenImage('assets/images/mathematics/mathematics.png');
-
-  /// File path: assets/images/mathematics/numbers.png
-  AssetGenImage get numbers =>
-      const AssetGenImage('assets/images/mathematics/numbers.png');
-
-  /// File path: assets/images/mathematics/trace_1.png
-  AssetGenImage get trace1 =>
-      const AssetGenImage('assets/images/mathematics/trace_1.png');
-
-  /// File path: assets/images/mathematics/trace_10.png
-  AssetGenImage get trace10 =>
-      const AssetGenImage('assets/images/mathematics/trace_10.png');
-
-  /// File path: assets/images/mathematics/trace_2.png
-  AssetGenImage get trace2 =>
-      const AssetGenImage('assets/images/mathematics/trace_2.png');
-
-  /// File path: assets/images/mathematics/trace_3.png
-  AssetGenImage get trace3 =>
-      const AssetGenImage('assets/images/mathematics/trace_3.png');
-
-  /// File path: assets/images/mathematics/trace_4.png
-  AssetGenImage get trace4 =>
-      const AssetGenImage('assets/images/mathematics/trace_4.png');
-
-  /// File path: assets/images/mathematics/trace_5.png
-  AssetGenImage get trace5 =>
-      const AssetGenImage('assets/images/mathematics/trace_5.png');
-
-  /// File path: assets/images/mathematics/trace_6.png
-  AssetGenImage get trace6 =>
-      const AssetGenImage('assets/images/mathematics/trace_6.png');
-
-  /// File path: assets/images/mathematics/trace_7.png
-  AssetGenImage get trace7 =>
-      const AssetGenImage('assets/images/mathematics/trace_7.png');
-
-  /// File path: assets/images/mathematics/trace_8.png
-  AssetGenImage get trace8 =>
-      const AssetGenImage('assets/images/mathematics/trace_8.png');
-
-  /// File path: assets/images/mathematics/trace_9.png
-  AssetGenImage get trace9 =>
-      const AssetGenImage('assets/images/mathematics/trace_9.png');
+  /// Directory path: assets/images/mathematics/sample
+  $AssetsImagesMathematicsSampleGen get sample =>
+      const $AssetsImagesMathematicsSampleGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        a1,
-        a10,
-        a10Example,
-        a11,
-        a12,
-        a13,
-        a14,
-        a15,
-        a16,
-        a17,
-        a18,
-        a19,
-        a1Example,
-        a2,
-        a20,
-        a2Example,
-        a3,
-        a3Example,
-        a4,
-        a4Example,
-        a5,
-        a5Example,
-        a6,
-        a6Example,
-        a7,
-        a7Example,
-        a8,
-        a8Example,
-        a9,
-        a9Example,
-        addSubtract,
-        lesson31,
-        lesson32,
-        lesson33,
-        lesson34,
-        lesson35,
-        mathStartMascot,
-        mathStartMascot3,
-        mathematics,
-        numbers,
-        trace1,
-        trace10,
-        trace2,
-        trace3,
-        trace4,
-        trace5,
-        trace6,
-        trace7,
-        trace8,
-        trace9
-      ];
+  List<AssetGenImage> get values =>
+      [addsubtrPic, learnAddSubtract, learnNumbers, mathematicsPic, numbersPic];
 }
 
 class $AssetsImagesPhonicsGen {
@@ -722,15 +311,54 @@ class $AssetsImagesScienceGen {
   /// Directory path: assets/images/science/body
   $AssetsImagesScienceBodyGen get body => const $AssetsImagesScienceBodyGen();
 
+  /// File path: assets/images/science/body_pic.png
+  AssetGenImage get bodyPic =>
+      const AssetGenImage('assets/images/science/body_pic.png');
+
   /// Directory path: assets/images/science/care
   $AssetsImagesScienceCareGen get care => const $AssetsImagesScienceCareGen();
+
+  /// File path: assets/images/science/care_pic.png
+  AssetGenImage get carePic =>
+      const AssetGenImage('assets/images/science/care_pic.png');
 
   /// Directory path: assets/images/science/face
   $AssetsImagesScienceFaceGen get face => const $AssetsImagesScienceFaceGen();
 
+  /// File path: assets/images/science/learn_body.png
+  AssetGenImage get learnBody =>
+      const AssetGenImage('assets/images/science/learn_body.png');
+
+  /// File path: assets/images/science/learn_care.png
+  AssetGenImage get learnCare =>
+      const AssetGenImage('assets/images/science/learn_care.png');
+
+  /// File path: assets/images/science/learn_senses.png
+  AssetGenImage get learnSenses =>
+      const AssetGenImage('assets/images/science/learn_senses.png');
+
+  /// File path: assets/images/science/science_pic.png
+  AssetGenImage get sciencePic =>
+      const AssetGenImage('assets/images/science/science_pic.png');
+
   /// Directory path: assets/images/science/senses
   $AssetsImagesScienceSensesGen get senses =>
       const $AssetsImagesScienceSensesGen();
+
+  /// File path: assets/images/science/senses_pic.png
+  AssetGenImage get sensesPic =>
+      const AssetGenImage('assets/images/science/senses_pic.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        bodyPic,
+        carePic,
+        learnBody,
+        learnCare,
+        learnSenses,
+        sciencePic,
+        sensesPic
+      ];
 }
 
 class $AssetsSoundsAlphabetGen {
@@ -1115,6 +743,258 @@ class $AssetsImagesAllAboardShapesGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [circle, learnShapes, oval, rectangle, square, star, triangle];
+}
+
+class $AssetsImagesMathematicsGuidesGen {
+  const $AssetsImagesMathematicsGuidesGen();
+
+  /// File path: assets/images/mathematics/guides/trace_1.png
+  AssetGenImage get trace1 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_1.png');
+
+  /// File path: assets/images/mathematics/guides/trace_10.png
+  AssetGenImage get trace10 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_10.png');
+
+  /// File path: assets/images/mathematics/guides/trace_2.png
+  AssetGenImage get trace2 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_2.png');
+
+  /// File path: assets/images/mathematics/guides/trace_3.png
+  AssetGenImage get trace3 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_3.png');
+
+  /// File path: assets/images/mathematics/guides/trace_4.png
+  AssetGenImage get trace4 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_4.png');
+
+  /// File path: assets/images/mathematics/guides/trace_5.png
+  AssetGenImage get trace5 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_5.png');
+
+  /// File path: assets/images/mathematics/guides/trace_6.png
+  AssetGenImage get trace6 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_6.png');
+
+  /// File path: assets/images/mathematics/guides/trace_7.png
+  AssetGenImage get trace7 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_7.png');
+
+  /// File path: assets/images/mathematics/guides/trace_8.png
+  AssetGenImage get trace8 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_8.png');
+
+  /// File path: assets/images/mathematics/guides/trace_9.png
+  AssetGenImage get trace9 =>
+      const AssetGenImage('assets/images/mathematics/guides/trace_9.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        trace1,
+        trace10,
+        trace2,
+        trace3,
+        trace4,
+        trace5,
+        trace6,
+        trace7,
+        trace8,
+        trace9
+      ];
+}
+
+class $AssetsImagesMathematicsLesson3Gen {
+  const $AssetsImagesMathematicsLesson3Gen();
+
+  /// File path: assets/images/mathematics/lesson_3/lesson_3-1.png
+  AssetGenImage get lesson31 =>
+      const AssetGenImage('assets/images/mathematics/lesson_3/lesson_3-1.png');
+
+  /// File path: assets/images/mathematics/lesson_3/lesson_3-2.png
+  AssetGenImage get lesson32 =>
+      const AssetGenImage('assets/images/mathematics/lesson_3/lesson_3-2.png');
+
+  /// File path: assets/images/mathematics/lesson_3/lesson_3-3.png
+  AssetGenImage get lesson33 =>
+      const AssetGenImage('assets/images/mathematics/lesson_3/lesson_3-3.png');
+
+  /// File path: assets/images/mathematics/lesson_3/lesson_3-4.png
+  AssetGenImage get lesson34 =>
+      const AssetGenImage('assets/images/mathematics/lesson_3/lesson_3-4.png');
+
+  /// File path: assets/images/mathematics/lesson_3/lesson_3-5.png
+  AssetGenImage get lesson35 =>
+      const AssetGenImage('assets/images/mathematics/lesson_3/lesson_3-5.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [lesson31, lesson32, lesson33, lesson34, lesson35];
+}
+
+class $AssetsImagesMathematicsNumbersGen {
+  const $AssetsImagesMathematicsNumbersGen();
+
+  /// File path: assets/images/mathematics/numbers/1.png
+  AssetGenImage get a1 =>
+      const AssetGenImage('assets/images/mathematics/numbers/1.png');
+
+  /// File path: assets/images/mathematics/numbers/10.png
+  AssetGenImage get a10 =>
+      const AssetGenImage('assets/images/mathematics/numbers/10.png');
+
+  /// File path: assets/images/mathematics/numbers/11.png
+  AssetGenImage get a11 =>
+      const AssetGenImage('assets/images/mathematics/numbers/11.png');
+
+  /// File path: assets/images/mathematics/numbers/12.png
+  AssetGenImage get a12 =>
+      const AssetGenImage('assets/images/mathematics/numbers/12.png');
+
+  /// File path: assets/images/mathematics/numbers/13.png
+  AssetGenImage get a13 =>
+      const AssetGenImage('assets/images/mathematics/numbers/13.png');
+
+  /// File path: assets/images/mathematics/numbers/14.png
+  AssetGenImage get a14 =>
+      const AssetGenImage('assets/images/mathematics/numbers/14.png');
+
+  /// File path: assets/images/mathematics/numbers/15.png
+  AssetGenImage get a15 =>
+      const AssetGenImage('assets/images/mathematics/numbers/15.png');
+
+  /// File path: assets/images/mathematics/numbers/16.png
+  AssetGenImage get a16 =>
+      const AssetGenImage('assets/images/mathematics/numbers/16.png');
+
+  /// File path: assets/images/mathematics/numbers/17.png
+  AssetGenImage get a17 =>
+      const AssetGenImage('assets/images/mathematics/numbers/17.png');
+
+  /// File path: assets/images/mathematics/numbers/18.png
+  AssetGenImage get a18 =>
+      const AssetGenImage('assets/images/mathematics/numbers/18.png');
+
+  /// File path: assets/images/mathematics/numbers/19.png
+  AssetGenImage get a19 =>
+      const AssetGenImage('assets/images/mathematics/numbers/19.png');
+
+  /// File path: assets/images/mathematics/numbers/2.png
+  AssetGenImage get a2 =>
+      const AssetGenImage('assets/images/mathematics/numbers/2.png');
+
+  /// File path: assets/images/mathematics/numbers/20.png
+  AssetGenImage get a20 =>
+      const AssetGenImage('assets/images/mathematics/numbers/20.png');
+
+  /// File path: assets/images/mathematics/numbers/3.png
+  AssetGenImage get a3 =>
+      const AssetGenImage('assets/images/mathematics/numbers/3.png');
+
+  /// File path: assets/images/mathematics/numbers/4.png
+  AssetGenImage get a4 =>
+      const AssetGenImage('assets/images/mathematics/numbers/4.png');
+
+  /// File path: assets/images/mathematics/numbers/5.png
+  AssetGenImage get a5 =>
+      const AssetGenImage('assets/images/mathematics/numbers/5.png');
+
+  /// File path: assets/images/mathematics/numbers/6.png
+  AssetGenImage get a6 =>
+      const AssetGenImage('assets/images/mathematics/numbers/6.png');
+
+  /// File path: assets/images/mathematics/numbers/7.png
+  AssetGenImage get a7 =>
+      const AssetGenImage('assets/images/mathematics/numbers/7.png');
+
+  /// File path: assets/images/mathematics/numbers/8.png
+  AssetGenImage get a8 =>
+      const AssetGenImage('assets/images/mathematics/numbers/8.png');
+
+  /// File path: assets/images/mathematics/numbers/9.png
+  AssetGenImage get a9 =>
+      const AssetGenImage('assets/images/mathematics/numbers/9.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        a1,
+        a10,
+        a11,
+        a12,
+        a13,
+        a14,
+        a15,
+        a16,
+        a17,
+        a18,
+        a19,
+        a2,
+        a20,
+        a3,
+        a4,
+        a5,
+        a6,
+        a7,
+        a8,
+        a9
+      ];
+}
+
+class $AssetsImagesMathematicsSampleGen {
+  const $AssetsImagesMathematicsSampleGen();
+
+  /// File path: assets/images/mathematics/sample/10_example.png
+  AssetGenImage get a10Example =>
+      const AssetGenImage('assets/images/mathematics/sample/10_example.png');
+
+  /// File path: assets/images/mathematics/sample/1_example.png
+  AssetGenImage get a1Example =>
+      const AssetGenImage('assets/images/mathematics/sample/1_example.png');
+
+  /// File path: assets/images/mathematics/sample/2_example.png
+  AssetGenImage get a2Example =>
+      const AssetGenImage('assets/images/mathematics/sample/2_example.png');
+
+  /// File path: assets/images/mathematics/sample/3_example.png
+  AssetGenImage get a3Example =>
+      const AssetGenImage('assets/images/mathematics/sample/3_example.png');
+
+  /// File path: assets/images/mathematics/sample/4_example.png
+  AssetGenImage get a4Example =>
+      const AssetGenImage('assets/images/mathematics/sample/4_example.png');
+
+  /// File path: assets/images/mathematics/sample/5_example.png
+  AssetGenImage get a5Example =>
+      const AssetGenImage('assets/images/mathematics/sample/5_example.png');
+
+  /// File path: assets/images/mathematics/sample/6_example.png
+  AssetGenImage get a6Example =>
+      const AssetGenImage('assets/images/mathematics/sample/6_example.png');
+
+  /// File path: assets/images/mathematics/sample/7_example.png
+  AssetGenImage get a7Example =>
+      const AssetGenImage('assets/images/mathematics/sample/7_example.png');
+
+  /// File path: assets/images/mathematics/sample/8_example.png
+  AssetGenImage get a8Example =>
+      const AssetGenImage('assets/images/mathematics/sample/8_example.png');
+
+  /// File path: assets/images/mathematics/sample/9_example.png
+  AssetGenImage get a9Example =>
+      const AssetGenImage('assets/images/mathematics/sample/9_example.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        a10Example,
+        a1Example,
+        a2Example,
+        a3Example,
+        a4Example,
+        a5Example,
+        a6Example,
+        a7Example,
+        a8Example,
+        a9Example
+      ];
 }
 
 class $AssetsImagesPhonicsVowelsGen {

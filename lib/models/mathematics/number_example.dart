@@ -1,8 +1,8 @@
 class NumberExample {
   final String numberImage;
   final String numberExample;
-  final String numberSound;
-  final String numberSampleSound;
+  final dynamic numberSound;
+  final dynamic numberSampleSound;
 
   NumberExample({
     required this.numberExample,

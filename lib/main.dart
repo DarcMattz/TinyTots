@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Jua'),
+      theme: ThemeData(fontFamily: 'Poetsen One'),
       debugShowCheckedModeBanner: false,
       home: const WelcomeScreen(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
@@ -35,9 +36,9 @@ class _BodyStartScreenState extends State<BodyStartScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: Assets.images.background.provider(),
             fit: BoxFit.cover,
           ),
         ),
@@ -46,9 +47,9 @@ class _BodyStartScreenState extends State<BodyStartScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TopBar(),
-              const Expanded(
+              Expanded(
                 child: StartCard(
-                  imagePath: "assets/images/learn_body.png",
+                  imagePath: Assets.images.science.learnBody.path,
                   route: BodyScreen(),
                 ),
               ),
@@ -57,10 +58,7 @@ class _BodyStartScreenState extends State<BodyStartScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(right: 60.0),
-                    child: Image.asset(
-                      'assets/images/rabbit.png',
-                      height: 170,
-                    ),
+                    child: Assets.images.rabbit.image(height: 170),
                   ),
                 ],
               ),
