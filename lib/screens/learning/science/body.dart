@@ -6,6 +6,7 @@ import 'package:flutter_application_1/components/science/body_card.dart';
 import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/science/body.dart';
+import 'package:flutter_application_1/screens/learning/science.dart';
 import 'package:flutter_application_1/screens/learning/science/body_quiz.dart';
 
 class BodyScreen extends StatefulWidget {
@@ -204,6 +205,7 @@ class _BodyScreenState extends State<BodyScreen> {
                                 barrierDismissible: false,
                                 builder: (context) => const FinishModuleDialog(
                                   route: BodyQuizScreen(),
+                                  oldRoute: ScienceHealthScreen(),
                                 ),
                               );
                             } else if (rowCurIndex == body[index].length - 1) {

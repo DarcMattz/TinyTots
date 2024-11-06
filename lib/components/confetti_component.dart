@@ -9,7 +9,8 @@ class ConfettiComponent extends StatefulWidget {
   final double gravity;
   final List<Color> colors;
 
-  ConfettiComponent({
+  const ConfettiComponent({
+    super.key,
     required this.controller,
     this.blastDirection = -3.14 / 2,
     this.emissionFrequency = 0.05,

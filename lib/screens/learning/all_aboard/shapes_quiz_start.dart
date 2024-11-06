@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/quizes/abc.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/quizes/shapes.dart';
 
 class ShapesQuizStart extends StatelessWidget {
   const ShapesQuizStart({super.key});
@@ -102,8 +103,7 @@ class AndroidWelcome extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 10),
-                            Assets.images.allAboard.letters.letterMatching
-                                .image(
+                            Assets.images.allAboard.shapes.findOddshape.image(
                               width: constraints.maxWidth * .3,
                             ),
                           ],
@@ -120,7 +120,12 @@ class AndroidWelcome extends StatelessWidget {
                             icon: Icons.close,
                             iconSize: 30,
                             method: () {
-                              Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const AllAboardScreen(),
+                                ),
+                              );
                             },
                           ),
                           NiceButton(
@@ -133,7 +138,7 @@ class AndroidWelcome extends StatelessWidget {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => const AbcQuizScreen()),
+                                    builder: (_) => const ShapeQuizScreen()),
                               );
                             },
                           ),

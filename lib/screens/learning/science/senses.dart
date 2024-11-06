@@ -5,6 +5,7 @@ import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/science/sense_card.dart';
 import 'package:flutter_application_1/models/science/sense.dart';
+import 'package:flutter_application_1/screens/learning/science.dart';
 import 'package:flutter_application_1/screens/learning/science/senses_quiz.dart';
 import 'package:gap/gap.dart';
 
@@ -75,6 +76,7 @@ class _SensesScreenState extends State<SensesScreen> {
         barrierDismissible: false,
         builder: (context) => const FinishModuleDialog(
           route: SensesQuizScreen(),
+          oldRoute: ScienceHealthScreen(),
         ),
       );
     } else {

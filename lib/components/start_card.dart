@@ -4,11 +4,13 @@ import 'package:flutter_application_1/components/utils/nice_button.dart';
 class StartCard extends StatelessWidget {
   final String imagePath;
   final Widget route;
+  final Widget oldRoute;
 
   const StartCard({
     super.key,
     required this.imagePath,
     required this.route,
+    required this.oldRoute,
   });
 
   @override
@@ -69,7 +71,12 @@ class StartCard extends StatelessWidget {
                   icon: Icons.close,
                   iconSize: 30,
                   method: () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => oldRoute,
+                      ),
+                    );
                   },
                 ),
                 NiceButton(

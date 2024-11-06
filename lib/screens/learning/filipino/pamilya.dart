@@ -7,6 +7,7 @@ import 'package:flutter_application_1/components/lesson_card.dart';
 // import 'package:flutter_application_1/components/shape_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
 
 class Pamilya {
@@ -102,8 +103,10 @@ class _PamilyaScreenState extends State<PamilyaScreen> {
                             showDialog(
                               context: context,
                               barrierDismissible: false,
-                              builder: (context) =>
-                                  FinishModuleDialog(route: widget.quizScreen),
+                              builder: (context) => FinishModuleDialog(
+                                route: widget.quizScreen,
+                                oldRoute: const FilipinoScreen(),
+                              ),
                             );
                           } else {
                             parentCarCon.nextPage();

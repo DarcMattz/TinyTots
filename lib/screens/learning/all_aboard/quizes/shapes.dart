@@ -7,8 +7,8 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/confetti_helper.dart';
 import 'package:flutter_application_1/models/all_aboard/question.dart';
 
-class AbcQuizScreen extends StatelessWidget {
-  const AbcQuizScreen({super.key});
+class ShapeQuizScreen extends StatelessWidget {
+  const ShapeQuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class AndroidWelcome extends StatefulWidget {
 }
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
-  final image = Assets.images.allAboard.letters.sample;
+  final image = Assets.images.allAboard.shapes;
   late final List<Question> questions;
 
   int currentQuestionIndex = 0;
@@ -52,34 +52,46 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
 
     questions = [
       Question(
-        questionText: "Aa",
+        questionText: "",
         imageOptions: [
-          image.egg.path,
-          image.lamb.path,
-          image.penguin.path,
-          image.apple.path,
+          image.square.path,
+          image.circle.path,
+          image.circle.path,
+          image.circle.path,
+          image.circle.path,
+          image.circle.path,
+          image.circle.path,
+          image.circle.path,
         ],
-        correctAnswerIndex: 3,
+        correctAnswerIndex: 0,
       ),
       Question(
-        questionText: "Bb",
+        questionText: "",
         imageOptions: [
-          image.noodle.path,
-          image.sun.path,
-          image.ball.path,
-          image.doll.path,
+          image.rectangle.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
         ],
-        correctAnswerIndex: 2,
+        correctAnswerIndex: 0,
       ),
       Question(
-        questionText: "Cc",
+        questionText: "",
         imageOptions: [
-          image.zoo.path,
-          image.cat.path,
-          image.goat.path,
-          image.xylophone.path,
+          image.star.path,
+          image.triangle.path,
+          image.triangle.path,
+          image.triangle.path,
+          image.triangle.path,
+          image.triangle.path,
+          image.triangle.path,
+          image.triangle.path,
         ],
-        correctAnswerIndex: 1,
+        correctAnswerIndex: 0,
       ),
       // Add more questions here
       // kulang pa!
@@ -330,14 +342,14 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               padding: EdgeInsets.all(widget.constraints.maxWidth * .03),
               child: Column(
                 children: [
-                  Text(
-                    currentQuestion.questionText,
-                    style: TextStyle(
-                      color: const Color(0xff6F53FD),
-                      fontSize: widget.constraints.maxHeight * .15,
-                      height: 1.0,
-                    ),
-                  ),
+                  // Text(
+                  //   currentQuestion.questionText,
+                  //   style: TextStyle(
+                  //     color: const Color(0xff6F53FD),
+                  //     fontSize: widget.constraints.maxHeight * .15,
+                  //     height: 1.0,
+                  //   ),
+                  // ),
                   GridView.count(
                     shrinkWrap: true,
                     crossAxisCount: 2,

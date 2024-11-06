@@ -3,6 +3,7 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
+import 'package:flutter_application_1/screens/learning/science.dart';
 import 'package:flutter_application_1/screens/learning/science/care.dart';
 
 class CareStartScreen extends StatefulWidget {
@@ -51,6 +52,7 @@ class _CareStartScreenState extends State<CareStartScreen> {
                 child: StartCard(
                   imagePath: Assets.images.science.learnCare.path,
                   route: const CareScreen(),
+                  oldRoute: const ScienceHealthScreen(),
                 ),
               ),
               Row(

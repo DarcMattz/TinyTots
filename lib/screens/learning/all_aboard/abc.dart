@@ -12,6 +12,7 @@ import 'package:flutter_application_1/models/all_aboard/alphabet.dart';
 import 'package:flutter_application_1/models/all_aboard/letter.dart';
 import 'package:flutter_application_1/models/all_aboard/letter_example.dart';
 import 'package:flutter_application_1/models/all_aboard/letter_trace.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
 import 'package:gap/gap.dart';
 
@@ -423,6 +424,7 @@ class _AbcScreenState extends State<AbcScreen> {
         barrierDismissible: false,
         builder: (context) => const FinishModuleDialog(
           route: AbcQuizStart(),
+          oldRoute: AllAboardScreen(),
         ),
       );
     } else if (rowCurIndex == 2) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/learning/mathematics/add_subtract.dart';
+import 'package:flutter_application_1/screens/learning/mathematics/mathematics.dart';
 import '../../../components/start_card.dart';
 import '../../../components/top_bar.dart';
 
@@ -24,8 +25,10 @@ class NumbersStartLessonTwoScreen extends StatelessWidget {
               const TopBar(),
               const Expanded(
                 child: StartCard(
-                  imagePath: "assets/images/mathematics/math_start_mascot_3.png",
+                  imagePath:
+                      "assets/images/mathematics/math_start_mascot_3.png",
                   route: AddSubtractScreen(),
+                  oldRoute: MathematicsScreen(),
                 ),
               ),
               Row(

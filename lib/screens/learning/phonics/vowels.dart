@@ -6,6 +6,7 @@ import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/phonics/vowel_card.dart';
 import 'package:flutter_application_1/models/vowels/vowel.dart';
+import 'package:flutter_application_1/screens/learning/phonics.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
 import 'package:gap/gap.dart';
 
@@ -281,6 +282,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
                                 barrierDismissible: false,
                                 builder: (context) => const FinishModuleDialog(
                                   route: VowelsQuizScreen(),
+                                  oldRoute: PhonicsScreen(),
                                 ),
                               );
                             } else if (rowCurIndex == 4) {

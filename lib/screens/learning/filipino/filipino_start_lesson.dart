@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
+import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 
 class FilipinoStartLessonScreen extends StatelessWidget {
   final String imagePath;
@@ -29,6 +30,7 @@ class FilipinoStartLessonScreen extends StatelessWidget {
                 child: StartCard(
                   imagePath: imagePath,
                   route: route,
+                  oldRoute: const FilipinoScreen(),
                 ),
               ),
               Row(

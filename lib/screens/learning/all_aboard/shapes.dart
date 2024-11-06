@@ -7,6 +7,7 @@ import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/shape_card.dart';
 import 'package:flutter_application_1/models/all_aboard/shape.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz_start.dart';
 import 'package:gap/gap.dart';
 
@@ -87,6 +88,7 @@ class _ShapesScreenState extends State<ShapesScreen> {
         barrierDismissible: false,
         builder: (context) => const FinishModuleDialog(
           route: ShapesQuizStart(),
+          oldRoute: AllAboardScreen(),
         ),
       );
     } else {
@@ -122,7 +124,12 @@ class _ShapesScreenState extends State<ShapesScreen> {
                   icon: Icons.close,
                   iconSize: 30,
                   method: () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const AllAboardScreen(),
+                      ),
+                    );
                   },
                 ),
               ),

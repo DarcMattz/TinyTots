@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
+import 'package:flutter_application_1/screens/learning/science.dart';
 import 'package:flutter_application_1/screens/learning/science/senses.dart';
 
 class SensesStartScreen extends StatefulWidget {
@@ -50,6 +51,7 @@ class _SensesStartScreenState extends State<SensesStartScreen> {
                 child: StartCard(
                   imagePath: "assets/images/learn_senses.png",
                   route: SensesScreen(),
+                  oldRoute: ScienceHealthScreen(),
                 ),
               ),
               Row(

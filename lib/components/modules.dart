@@ -33,7 +33,7 @@ class ModuleCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   height: constraints.maxHeight * .75,
                   width: constraints.maxWidth * .9,
                   child: Image.asset(
@@ -50,7 +50,7 @@ class ModuleCard extends StatelessWidget {
                   method: () {
                     if (module.isQuiz) {
                       if (module.isFinished) {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => module.route),
                         );
@@ -62,7 +62,7 @@ class ModuleCard extends StatelessWidget {
                         );
                       }
                     } else {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => module.route),
                       );

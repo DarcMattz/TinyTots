@@ -5,6 +5,7 @@ import 'package:flutter_application_1/components/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/science/care_card.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/science/care.dart';
+import 'package:flutter_application_1/screens/learning/science.dart';
 import 'package:flutter_application_1/screens/learning/science/care_quiz.dart';
 import 'package:gap/gap.dart';
 
@@ -95,6 +96,7 @@ class _CareScreenState extends State<CareScreen> {
         barrierDismissible: false,
         builder: (context) => const FinishModuleDialog(
           route: CareQuizScreen(),
+          oldRoute: ScienceHealthScreen(),
         ),
       );
     } else {

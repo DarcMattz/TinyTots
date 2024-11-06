@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/screens/learning/mathematics/mathematics.dart';
 import 'package:flutter_application_1/screens/learning/mathematics/numbers.dart';
 import '../../../helper/audio_service.dart';
 import '../../../components/start_card.dart';
@@ -52,7 +53,8 @@ class _NumbersStartLessonOneScreenState
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.mathematics.learnNumbers.path,
-                  route: NumbersScreen(),
+                  route: const NumbersScreen(),
+                  oldRoute: const MathematicsScreen(),
                 ),
               ),
               Row(

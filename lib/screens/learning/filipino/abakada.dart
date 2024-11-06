@@ -9,6 +9,7 @@ import 'package:flutter_application_1/components/top_bar.dart';
 // import 'package:flutter_application_1/models/all_aboard/shape.dart';
 // import 'package:flutter_application_1/screens/learning/filipino/abakada_quiz.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 // import 'package:flutter_application_1/models/shape.dart';
 // import 'package:flutter_application_1/screens/learning/filipino/filipino_start_quiz.dart';
 import 'package:gap/gap.dart';
@@ -222,7 +223,9 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
                                     context: context,
                                     barrierDismissible: false,
                                     builder: (context) => FinishModuleDialog(
-                                        route: widget.quizScreen),
+                                      route: widget.quizScreen,
+                                      oldRoute: const FilipinoScreen(),
+                                    ),
                                   );
                                 } else if (abakadaList[index].length - 1 ==
                                     cardIndex) {

@@ -59,6 +59,10 @@ class $AssetsImagesGen {
   AssetGenImage get lockDog =>
       const AssetGenImage('assets/images/lock_dog.png');
 
+  /// File path: assets/images/lock_quiz_pic.png
+  AssetGenImage get lockQuizPic =>
+      const AssetGenImage('assets/images/lock_quiz_pic.png');
+
   /// Directory path: assets/images/mathematics
   $AssetsImagesMathematicsGen get mathematics =>
       const $AssetsImagesMathematicsGen();
@@ -112,6 +116,7 @@ class $AssetsImagesGen {
         learning,
         lion,
         lockDog,
+        lockQuizPic,
         panda,
         play,
         profile,

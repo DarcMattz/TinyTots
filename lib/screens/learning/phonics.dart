@@ -20,12 +20,12 @@ class _PhonicsScreenState extends State<PhonicsScreen> {
     Module(
       type: "phonics",
       imagePath: Assets.images.phonics.vowelsPic.path,
-      route: VowelsStartScreen(),
+      route: const VowelsStartScreen(),
     ),
     Module(
       type: "phonics",
       imagePath: Assets.images.quizPic.path,
-      route: VowelsQuizScreen(),
+      route: const VowelsQuizScreen(),
     ),
   ];
 

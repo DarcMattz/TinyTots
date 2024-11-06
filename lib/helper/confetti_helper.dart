@@ -11,7 +11,8 @@ class ConfettiHelper {
 
   void startConfettiLoop() {
     if (confettiTimer == null || !confettiTimer!.isActive) {
-      confettiTimer = Timer.periodic(Duration(milliseconds: 3000), (timer) {
+      confettiTimer =
+          Timer.periodic(const Duration(milliseconds: 3000), (timer) {
         leftController.play();
         rightController.play();
       });

@@ -5,10 +5,12 @@ import 'package:gap/gap.dart';
 
 class FinishModuleDialog extends StatefulWidget {
   final Widget route;
+  final Widget oldRoute;
 
   const FinishModuleDialog({
     super.key,
     required this.route,
+    required this.oldRoute,
   });
 
   @override
@@ -79,7 +81,10 @@ class _FinishModuleDialogState extends State<FinishModuleDialog> {
                       iconSize: 30,
                       method: () {
                         Navigator.pop(context);
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (_) => widget.oldRoute),
+                        );
                       },
                     ),
                     NiceButton(

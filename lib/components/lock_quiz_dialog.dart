@@ -18,13 +18,13 @@ class LockQuizDialog extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Card(
-              color: Color(0xff95E9FF),
+              color: const Color(0xff95E9FF),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: const Text(
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
                       'It is not unlocked yet. Please finish the course first.',
                       style: TextStyle(
                         fontSize: 18,

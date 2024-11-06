@@ -18,21 +18,9 @@ class AllAboardScreen extends StatefulWidget {
 
 class _AllAboardScreenState extends State<AllAboardScreen> {
   int _currentIndex = 0;
-  bool _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
-  bool _isAlphabeFinished = prefs.getBool('alphabets_quiz_unlocked') ?? false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadQuizStatus(); // Load the quiz status when the widget is initialized
-  }
-
-  Future<void> _loadQuizStatus() async {
-    // Retrieve the saved quiz status from shared preferences
-    _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
-    _isAlphabeFinished = prefs.getBool('alphabets_quiz_unlocked') ?? false;
-    setState(() {}); // Update the UI after loading the data
-  }
+  final bool _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
+  final bool _isAlphabetFinished =
+      prefs.getBool('alphabets_quiz_unlocked') ?? false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +32,9 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
       ),
       Module(
         type: "all_aboard",
-        imagePath: Assets.images.quizPic.path,
+        imagePath: _isShapesFinished
+            ? Assets.images.quizPic.path
+            : Assets.images.lockQuizPic.path,
         isQuiz: true,
         isFinished: _isShapesFinished,
         route: const ShapesQuizStart(),
@@ -56,9 +46,11 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
       ),
       Module(
         type: "all_aboard ",
-        imagePath: Assets.images.quizPic.path,
+        imagePath: _isAlphabetFinished
+            ? Assets.images.quizPic.path
+            : Assets.images.lockQuizPic.path,
         isQuiz: true,
-        isFinished: _isAlphabeFinished,
+        isFinished: _isAlphabetFinished,
         route: const AbcQuizStart(),
       ),
     ];

@@ -3,6 +3,7 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/abc.dart';
 
 class AbcStartScreen extends StatefulWidget {
@@ -51,6 +52,7 @@ class _AbcStartScreenState extends State<AbcStartScreen> {
                 child: StartCard(
                   imagePath: Assets.images.allAboard.letters.learnAbc.path,
                   route: const AbcScreen(),
+                  oldRoute: const AllAboardScreen(),
                 ),
               ),
               Row(
