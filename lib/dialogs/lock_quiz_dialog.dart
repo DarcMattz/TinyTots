@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 
 class LockQuizDialog extends StatelessWidget {
@@ -25,6 +24,7 @@ class LockQuizDialog extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Text(
+                      textAlign: TextAlign.center,
                       'It is not unlocked yet. Please finish the course first.',
                       style: TextStyle(
                         fontSize: 18,
@@ -36,18 +36,6 @@ class LockQuizDialog extends StatelessWidget {
                     height: 100,
                   )
                 ],
-              ),
-            ),
-            Positioned(
-              top: -5,
-              right: 0,
-              child: CircleButton(
-                color: Colors.purpleAccent,
-                shadowColor: Colors.purple,
-                icon: Icons.close,
-                method: () {
-                  Navigator.pop(context);
-                },
               ),
             ),
           ],

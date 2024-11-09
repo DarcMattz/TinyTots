@@ -81,10 +81,11 @@ class _FinishModuleDialogState extends State<FinishModuleDialog> {
                       iconSize: 30,
                       method: () {
                         Navigator.pop(context);
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (_) => widget.oldRoute),
-                        );
+                        Navigator.pop(context);
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(builder: (_) => widget.oldRoute),
+                        // );
                       },
                     ),
                     NiceButton(

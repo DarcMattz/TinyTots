@@ -99,6 +99,18 @@ class $AssetsImagesGen {
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/splash_screen.png');
 
+  /// File path: assets/images/star_0.png
+  AssetGenImage get star0 => const AssetGenImage('assets/images/star_0.png');
+
+  /// File path: assets/images/star_1.png
+  AssetGenImage get star1 => const AssetGenImage('assets/images/star_1.png');
+
+  /// File path: assets/images/star_2.png
+  AssetGenImage get star2 => const AssetGenImage('assets/images/star_2.png');
+
+  /// File path: assets/images/star_3.png
+  AssetGenImage get star3 => const AssetGenImage('assets/images/star_3.png');
+
   /// File path: assets/images/sun.png
   AssetGenImage get sun => const AssetGenImage('assets/images/sun.png');
 
@@ -125,6 +137,10 @@ class $AssetsImagesGen {
         ribbon,
         splash,
         splashScreen,
+        star0,
+        star1,
+        star2,
+        star3,
         sun
       ];
 }

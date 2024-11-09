@@ -5,14 +5,14 @@ import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_example_card.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_trace_card.dart';
-import 'package:flutter_application_1/components/finish_module_dialog.dart';
+import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/all_aboard/letter_card.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/all_aboard/alphabet.dart';
 import 'package:flutter_application_1/models/all_aboard/letter.dart';
 import 'package:flutter_application_1/models/all_aboard/letter_example.dart';
 import 'package:flutter_application_1/models/all_aboard/letter_trace.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
 import 'package:gap/gap.dart';
 

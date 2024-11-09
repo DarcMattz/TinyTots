@@ -1,18 +1,26 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/components/finish_module_dialog.dart';
+import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/shape_card.dart';
 import 'package:flutter_application_1/models/all_aboard/shape.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz_start.dart';
 import 'package:gap/gap.dart';
 
 class ShapesScreen extends StatefulWidget {
-  const ShapesScreen({super.key});
+  final ValueNotifier<bool> shapeNotifier;
+  final ValueNotifier<int> shapeScore;
+  const ShapesScreen({
+    super.key,
+    required this.shapeNotifier,
+    required this.shapeScore,
+  });
 
   @override
   State<ShapesScreen> createState() => _ShapesScreenState();
@@ -81,13 +89,14 @@ class _ShapesScreenState extends State<ShapesScreen> {
 
   void _nextCard() {
     if (_currentIndex == shapes.length - 1) {
-      prefs.setBool('shapes_quiz_unlocked', true);
       prefs.setInt('shapes_current_index', 0);
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => const FinishModuleDialog(
-          route: ShapesQuizStart(),
+        builder: (context) => FinishModuleDialog(
+          route: ShapesQuizStart(
+            shapeScore: widget.shapeScore,
+          ),
           oldRoute: AllAboardScreen(),
         ),
       );
@@ -124,12 +133,7 @@ class _ShapesScreenState extends State<ShapesScreen> {
                   icon: Icons.close,
                   iconSize: 30,
                   method: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const AllAboardScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
               ),
@@ -148,7 +152,12 @@ class _ShapesScreenState extends State<ShapesScreen> {
                         _currentIndex = index;
                         _stop();
                         prefs.setInt('shapes_current_index', index);
-                        print(prefs.getInt('shapes_current_index'));
+                        if (_currentIndex == shapes.length - 1) {
+                          widget.shapeNotifier.value = true;
+                          prefs.setBool('shapes_quiz_unlocked', true);
+                          log("Quiz Unlocked");
+                        }
+                        log(prefs.getInt('shapes_current_index').toString());
                       });
                     },
                   ),

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/quizes/shapes.dart';
 
 class ShapesQuizStart extends StatelessWidget {
-  const ShapesQuizStart({super.key});
+  final ValueNotifier<int> shapeScore;
+  const ShapesQuizStart({super.key, required this.shapeScore});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +14,7 @@ class ShapesQuizStart extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         return AndroidWelcome(
           constraints: constraints,
+          shapeScore: shapeScore,
         );
       }),
     );
@@ -24,8 +25,11 @@ class AndroidWelcome extends StatelessWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
+    required this.shapeScore,
   });
   final BoxConstraints constraints;
+  final ValueNotifier<int> shapeScore;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -120,12 +124,7 @@ class AndroidWelcome extends StatelessWidget {
                             icon: Icons.close,
                             iconSize: 30,
                             method: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => const AllAboardScreen(),
-                                ),
-                              );
+                              Navigator.pop(context);
                             },
                           ),
                           NiceButton(
@@ -138,7 +137,10 @@ class AndroidWelcome extends StatelessWidget {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => const ShapeQuizScreen()),
+                                  builder: (_) => ShapeQuizScreen(
+                                    shapeScore: shapeScore,
+                                  ),
+                                ),
                               );
                             },
                           ),
@@ -156,7 +158,7 @@ class AndroidWelcome extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0, right: 30),
                   child: Assets.images.cow.image(
-                    height: constraints.maxHeight * .25,
+                    height: constraints.maxHeight * .20,
                   ),
                 ),
               ],

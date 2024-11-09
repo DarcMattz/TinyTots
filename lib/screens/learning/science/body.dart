@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/science/body_card.dart';
-import 'package:flutter_application_1/components/finish_module_dialog.dart';
+import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/science/body.dart';
 import 'package:flutter_application_1/screens/learning/science.dart';

@@ -3,11 +3,14 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/shapes.dart';
 
 class ShapesStartScreen extends StatefulWidget {
-  const ShapesStartScreen({super.key});
+  final ValueNotifier<bool> shapeNotifier;
+  final ValueNotifier<int> shapeScore;
+  const ShapesStartScreen(
+      {super.key, required this.shapeNotifier, required this.shapeScore});
 
   @override
   State<ShapesStartScreen> createState() => _ShapesStartScreenState();
@@ -51,7 +54,9 @@ class _ShapesStartScreenState extends State<ShapesStartScreen> {
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.allAboard.shapes.learnShapes.path,
-                  route: const ShapesScreen(),
+                  route: ShapesScreen(
+                      shapeNotifier: widget.shapeNotifier,
+                      shapeScore: widget.shapeScore),
                   oldRoute: const AllAboardScreen(),
                 ),
               ),

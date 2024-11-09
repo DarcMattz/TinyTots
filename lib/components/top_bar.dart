@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/settings_dialog.dart';
+import 'package:flutter_application_1/dialogs/settings_dialog.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});

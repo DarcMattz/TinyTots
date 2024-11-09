@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/modules.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:flutter_application_1/screens/learning/mathematics/mathematics.dart';
 import 'package:flutter_application_1/screens/learning/phonics.dart';

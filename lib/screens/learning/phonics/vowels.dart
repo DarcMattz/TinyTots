@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/components/finish_module_dialog.dart';
+import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/phonics/vowel_card.dart';
 import 'package:flutter_application_1/models/vowels/vowel.dart';

@@ -71,12 +71,13 @@ class StartCard extends StatelessWidget {
                   icon: Icons.close,
                   iconSize: 30,
                   method: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => oldRoute,
-                      ),
-                    );
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (_) => oldRoute,
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                   },
                 ),
                 NiceButton(

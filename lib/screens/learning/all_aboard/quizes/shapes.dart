@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/confetti_component.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/confetti_helper.dart';
 import 'package:flutter_application_1/models/all_aboard/question.dart';
 
 class ShapeQuizScreen extends StatelessWidget {
-  const ShapeQuizScreen({super.key});
+  final ValueNotifier<int> shapeScore;
+  const ShapeQuizScreen({super.key, required this.shapeScore});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class ShapeQuizScreen extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         return AndroidWelcome(
           constraints: constraints,
+          shapeScore: shapeScore,
         );
       }),
     );
@@ -23,9 +26,11 @@ class ShapeQuizScreen extends StatelessWidget {
 }
 
 class AndroidWelcome extends StatefulWidget {
+  final ValueNotifier<int> shapeScore;
   const AndroidWelcome({
     super.key,
     required this.constraints,
+    required this.shapeScore,
   });
   final BoxConstraints constraints;
 
@@ -171,9 +176,20 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     return Navigator.of(context).pop();
   }
 
-  Widget buildResultsScreen() {
+  Widget buildResultsScreen(ValueNotifier<int> shapeScore) {
     final score = calculateScore();
     final percentage = (score / questions.length * 100).round();
+    final highScore = prefs.getInt('shapes_high_score') ?? 0;
+
+    // Refactor score saving logic to its own method
+    // Delay the score update until the current frame is done
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (percentage > highScore) {
+        prefs.setInt('shapes_high_score', percentage);
+        shapeScore.value = percentage;
+      }
+    });
+
     return Stack(
       children: [
         SafeArea(
@@ -199,13 +215,13 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                         color: Colors.white,
                       ),
                     ),
-                    Text(
-                      '$percentage%',
-                      style: const TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
+                    // Text(
+                    //   '$percentage%',
+                    //   style: const TextStyle(
+                    //     fontSize: 24,
+                    //     color: Colors.white,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -297,21 +313,23 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
           ),
         ),
         // Center-left confetti
-        Align(
-          alignment: Alignment.centerLeft,
-          child: ConfettiComponent(
-            controller: _leftController,
-            blastDirection: -3.14 / 4, // Default direction for left
+        if (percentage > highScore)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ConfettiComponent(
+              controller: _leftController,
+              blastDirection: -3.14 / 4, // Default direction for left
+            ),
           ),
-        ),
         // Center-right confetti
-        Align(
-          alignment: Alignment.centerRight,
-          child: ConfettiComponent(
-            controller: _rightController,
-            blastDirection: -3.14 * 3 / 4, // Default direction for right
+        if (percentage > highScore)
+          Align(
+            alignment: Alignment.centerRight,
+            child: ConfettiComponent(
+              controller: _rightController,
+              blastDirection: -3.14 * 3 / 4, // Default direction for right
+            ),
           ),
-        ),
       ],
     );
   }
@@ -441,7 +459,9 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
           fit: BoxFit.cover,
         ),
       ),
-      child: showResults ? buildResultsScreen() : buildQuizScreen(),
+      child: showResults
+          ? buildResultsScreen(widget.shapeScore)
+          : buildQuizScreen(),
     );
   }
 }
