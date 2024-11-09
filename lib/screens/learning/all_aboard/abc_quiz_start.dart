@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/quizes/abc.dart';
+import 'package:page_transition/page_transition.dart';
 
 class AbcQuizStart extends StatelessWidget {
   const AbcQuizStart({super.key});
@@ -113,15 +116,31 @@ class AndroidWelcome extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NiceButton(
-                            label: "Back",
-                            color: Colors.yellow,
-                            shadowColor: Colors.yellow[800]!,
-                            icon: Icons.close,
-                            iconSize: 30,
-                            method: () {
-                              Navigator.pop(context);
-                            },
+                          PushReplacement(
+                            route: PageTransition(
+                              type: PageTransitionType.scale,
+                              alignment: Alignment.center,
+                              child: AllAboardScreen(),
+                            ),
+                            child: NiceButton(
+                              label: "Back",
+                              color: Colors.yellow,
+                              shadowColor: Colors.yellow[800]!,
+                              icon: Icons.close,
+                              iconSize: 30,
+                              method: () {
+                                if (context.mounted) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      alignment: Alignment.center,
+                                      child: const AllAboardScreen(),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
                           ),
                           NiceButton(
                             label: "Go",
@@ -132,8 +151,11 @@ class AndroidWelcome extends StatelessWidget {
                             method: () {
                               Navigator.pushReplacement(
                                 context,
-                                MaterialPageRoute(
-                                    builder: (_) => const AbcQuizScreen()),
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  alignment: Alignment.center,
+                                  child: const AbcQuizScreen(),
+                                ),
                               );
                             },
                           ),

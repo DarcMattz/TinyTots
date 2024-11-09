@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
@@ -15,6 +18,7 @@ import 'package:flutter_application_1/models/all_aboard/letter_trace.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
 import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class AbcScreen extends StatefulWidget {
   const AbcScreen({super.key});
@@ -460,15 +464,31 @@ class _AbcScreenState extends State<AbcScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.arrow_back,
-                  iconSize: 25,
-                  method: () {
-                    Navigator.pop(context);
-                  },
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.center,
+                    child: AllAboardScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const AllAboardScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
               Expanded(
@@ -486,7 +506,9 @@ class _AbcScreenState extends State<AbcScreen> {
                     onPageChanged: (index, reason) {
                       colCurIndex = index;
                       prefs.setInt('alphabets_current_index', index);
-                      print(colCurIndex);
+                      if (colCurIndex == alphabet.length - 1)
+                        prefs.setBool('alphabets_quiz_unlocked', true);
+                      log(colCurIndex.toString());
                       _stop();
                     },
                   ),

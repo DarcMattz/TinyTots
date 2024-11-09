@@ -53,7 +53,7 @@ class _ShapesStartScreenState extends State<ShapesStartScreen> {
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.allAboard.shapes.learnShapes.path,
-                  route: ShapesScreen(),
+                  route: const ShapesScreen(),
                   oldRoute: const AllAboardScreen(),
                 ),
               ),

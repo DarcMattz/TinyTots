@@ -8,7 +8,6 @@ import 'package:flutter_application_1/screens/learning/all_aboard/quizes/shapes.
 import 'package:page_transition/page_transition.dart';
 
 class ShapesQuizStart extends StatelessWidget {
-  // final ValueNotifier<int> shapeScore;
   const ShapesQuizStart({super.key});
 
   @override
@@ -17,7 +16,6 @@ class ShapesQuizStart extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         return AndroidWelcome(
           constraints: constraints,
-          // shapeScore: shapeScore,
         );
       }),
     );
@@ -28,10 +26,8 @@ class AndroidWelcome extends StatelessWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
-    // required this.shapeScore,
   });
   final BoxConstraints constraints;
-  // final ValueNotifier<int> shapeScore;
 
   @override
   Widget build(BuildContext context) {

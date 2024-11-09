@@ -2,10 +2,15 @@ import 'dart:math';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/confetti_component.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/confetti_helper.dart';
 import 'package:flutter_application_1/models/all_aboard/question.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
+import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class AbcQuizScreen extends StatelessWidget {
   const AbcQuizScreen({super.key});
@@ -172,120 +177,144 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   Widget buildResultsScreen() {
     final score = calculateScore();
     final percentage = (score / questions.length * 100).round();
+
+    final highScore = prefs.getInt('alphabets_high_score') ?? 0;
+
+    if (percentage > highScore) {
+      prefs.setInt('alphabets_high_score', percentage);
+    }
+
     return Stack(
       children: [
         SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Quiz Complete!',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-              CircleAvatar(
-                radius: 80,
-                backgroundColor: Colors.blue,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '$score/${questions.length}',
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      '$percentage%',
-                      style: const TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+              Dialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
-              ),
-              const SizedBox(height: 30),
-              // Show answers review
-              Expanded(
-                child: ListView.builder(
-                  itemCount: questions.length,
-                  itemBuilder: (context, index) {
-                    final question = questions[index];
-                    final userAnswer = userAnswers[index];
-                    final isCorrect = userAnswer == question.correctAnswerIndex;
-
-                    return Card(
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal: 16,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: ListTile(
-                        leading: Icon(
-                          isCorrect ? Icons.check_circle : Icons.cancel,
-                          color: isCorrect ? Colors.green : Colors.red,
-                        ),
-                        title: Text(question.questionText),
-                        trailing: SizedBox(
-                          width: 100,
-                          height: 60,
-                          child: Row(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Gap(30),
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "score",
+                                    style: TextStyle(
+                                      color: Color(0xff60CFFF),
+                                      fontSize: 26,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xffC2FDFF),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    width: 120,
+                                    child: Text(
+                                      percentage.toString(),
+                                      style: const TextStyle(
+                                        color: Color(0xff228AED),
+                                        fontSize: 28,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Gap(20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Expanded(
-                                child: Image.asset(
-                                  question.imageOptions[userAnswer ?? 0],
-                                  fit: BoxFit.cover,
+                              // NiceButton(
+                              //   label: "Restart",
+                              //   color: Colors.yellow,
+                              //   shadowColor: Colors.yellow[800]!,
+                              //   icon: Icons.check_rounded,
+                              //   iconSize: 30,
+                              //   width: 120,
+                              //   method: restartQuiz,
+                              // ),
+                              PushReplacement(
+                                route: PageTransition(
+                                    type: PageTransitionType.scale,
+                                    alignment: Alignment.center,
+                                    child: const AllAboardScreen()),
+                                child: NiceButton(
+                                  label: "OK",
+                                  color: const Color(0xffC16DFE),
+                                  shadowColor: Colors.yellow[800]!,
+                                  icon: Icons.check_rounded,
+                                  isIconRight: true,
+                                  iconSize: 30,
+                                  method: () {
+                                    if (context.mounted) {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.fade,
+                                          alignment: Alignment.center,
+                                          child: const AllAboardScreen(),
+                                        ),
+                                      );
+                                    }
+                                  },
                                 ),
                               ),
-                              if (!isCorrect) ...[
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: Image.asset(
-                                    question.imageOptions[
-                                        question.correctAnswerIndex],
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ],
                             ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: restartQuiz,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 16,
-                        ),
-                      ),
-                      child: const Text(
-                        'Restart Quiz',
-                        style: TextStyle(fontSize: 18),
+                          )
+                        ],
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: close,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 16,
+                    Positioned(
+                      top: -50,
+                      child: Container(
+                        width: 500,
+                        height: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/ribbon.png'),
+                          ),
                         ),
-                      ),
-                      child: const Text(
-                        'Close',
-                        style: TextStyle(fontSize: 18),
+                        child: const Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Text(
+                                "Congratulations",
+                                style: TextStyle(
+                                  fontSize: 27,
+                                  color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                      color: Color(0xffB20D78),
+                                      offset: Offset(1, 3),
+                                      blurRadius: 3,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -295,21 +324,23 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
           ),
         ),
         // Center-left confetti
-        Align(
-          alignment: Alignment.centerLeft,
-          child: ConfettiComponent(
-            controller: _leftController,
-            blastDirection: -3.14 / 4, // Default direction for left
+        if (percentage > highScore)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ConfettiComponent(
+              controller: _leftController,
+              blastDirection: -3.14 / 4, // Default direction for left
+            ),
           ),
-        ),
         // Center-right confetti
-        Align(
-          alignment: Alignment.centerRight,
-          child: ConfettiComponent(
-            controller: _rightController,
-            blastDirection: -3.14 * 3 / 4, // Default direction for right
+        if (percentage > highScore)
+          Align(
+            alignment: Alignment.centerRight,
+            child: ConfettiComponent(
+              controller: _rightController,
+              blastDirection: -3.14 * 3 / 4, // Default direction for right
+            ),
           ),
-        ),
       ],
     );
   }
