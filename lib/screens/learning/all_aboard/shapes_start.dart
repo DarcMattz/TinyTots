@@ -7,10 +7,9 @@ import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dar
 import 'package:flutter_application_1/screens/learning/all_aboard/shapes.dart';
 
 class ShapesStartScreen extends StatefulWidget {
-  final ValueNotifier<bool> shapeNotifier;
-  final ValueNotifier<int> shapeScore;
-  const ShapesStartScreen(
-      {super.key, required this.shapeNotifier, required this.shapeScore});
+  // final ValueNotifier<bool> shapeNotifier;
+  // final ValueNotifier<int> shapeScore;
+  const ShapesStartScreen({super.key});
 
   @override
   State<ShapesStartScreen> createState() => _ShapesStartScreenState();
@@ -54,9 +53,7 @@ class _ShapesStartScreenState extends State<ShapesStartScreen> {
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.allAboard.shapes.learnShapes.path,
-                  route: ShapesScreen(
-                      shapeNotifier: widget.shapeNotifier,
-                      shapeScore: widget.shapeScore),
+                  route: ShapesScreen(),
                   oldRoute: const AllAboardScreen(),
                 ),
               ),

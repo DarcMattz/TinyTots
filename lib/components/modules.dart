@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dialogs/lock_quiz_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Module {
   final String type;
@@ -111,11 +112,20 @@ class ModuleCard extends StatelessWidget {
                   iconSize: 30,
                   enabled: module.isQuiz ? module.isFinished : true,
                   method: () {
-                    if (module.isQuiz) {
+                    if (module.type == 'learning') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => module.route),
+                      );
+                    } else if (module.isQuiz) {
                       if (module.isFinished) {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => module.route),
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: module.route,
+                          ),
                         );
                       } else {
                         showDialog(
@@ -124,9 +134,13 @@ class ModuleCard extends StatelessWidget {
                         );
                       }
                     } else {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => module.route),
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          alignment: Alignment.center,
+                          child: module.route,
+                        ),
                       );
                     }
                   },

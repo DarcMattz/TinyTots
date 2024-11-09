@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
@@ -12,14 +13,11 @@ import 'package:flutter_application_1/models/all_aboard/shape.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz_start.dart';
 import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class ShapesScreen extends StatefulWidget {
-  final ValueNotifier<bool> shapeNotifier;
-  final ValueNotifier<int> shapeScore;
   const ShapesScreen({
     super.key,
-    required this.shapeNotifier,
-    required this.shapeScore,
   });
 
   @override
@@ -94,9 +92,7 @@ class _ShapesScreenState extends State<ShapesScreen> {
         context: context,
         barrierDismissible: false,
         builder: (context) => FinishModuleDialog(
-          route: ShapesQuizStart(
-            shapeScore: widget.shapeScore,
-          ),
+          route: ShapesQuizStart(),
           oldRoute: AllAboardScreen(),
         ),
       );
@@ -126,15 +122,31 @@ class _ShapesScreenState extends State<ShapesScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.close,
-                  iconSize: 30,
-                  method: () {
-                    Navigator.pop(context);
-                  },
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.center,
+                    child: AllAboardScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const AllAboardScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
               Expanded(
@@ -153,7 +165,7 @@ class _ShapesScreenState extends State<ShapesScreen> {
                         _stop();
                         prefs.setInt('shapes_current_index', index);
                         if (_currentIndex == shapes.length - 1) {
-                          widget.shapeNotifier.value = true;
+                          // widget.shapeNotifier.value = true;
                           prefs.setBool('shapes_quiz_unlocked', true);
                           log("Quiz Unlocked");
                         }

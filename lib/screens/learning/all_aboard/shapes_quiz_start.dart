@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/quizes/shapes.dart';
+import 'package:page_transition/page_transition.dart';
 
 class ShapesQuizStart extends StatelessWidget {
-  final ValueNotifier<int> shapeScore;
-  const ShapesQuizStart({super.key, required this.shapeScore});
+  // final ValueNotifier<int> shapeScore;
+  const ShapesQuizStart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class ShapesQuizStart extends StatelessWidget {
       body: LayoutBuilder(builder: (context, constraints) {
         return AndroidWelcome(
           constraints: constraints,
-          shapeScore: shapeScore,
+          // shapeScore: shapeScore,
         );
       }),
     );
@@ -25,10 +28,10 @@ class AndroidWelcome extends StatelessWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
-    required this.shapeScore,
+    // required this.shapeScore,
   });
   final BoxConstraints constraints;
-  final ValueNotifier<int> shapeScore;
+  // final ValueNotifier<int> shapeScore;
 
   @override
   Widget build(BuildContext context) {
@@ -117,15 +120,31 @@ class AndroidWelcome extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          NiceButton(
-                            label: "Back",
-                            color: Colors.yellow,
-                            shadowColor: Colors.yellow[800]!,
-                            icon: Icons.close,
-                            iconSize: 30,
-                            method: () {
-                              Navigator.pop(context);
-                            },
+                          PushReplacement(
+                            route: PageTransition(
+                              type: PageTransitionType.scale,
+                              alignment: Alignment.center,
+                              child: AllAboardScreen(),
+                            ),
+                            child: NiceButton(
+                              label: "Back",
+                              color: Colors.yellow,
+                              shadowColor: Colors.yellow[800]!,
+                              icon: Icons.close,
+                              iconSize: 30,
+                              method: () {
+                                if (context.mounted) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      alignment: Alignment.center,
+                                      child: const AllAboardScreen(),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
                           ),
                           NiceButton(
                             label: "Go",
@@ -136,10 +155,10 @@ class AndroidWelcome extends StatelessWidget {
                             method: () {
                               Navigator.pushReplacement(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (_) => ShapeQuizScreen(
-                                    shapeScore: shapeScore,
-                                  ),
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  alignment: Alignment.center,
+                                  child: const ShapeQuizScreen(),
                                 ),
                               );
                             },

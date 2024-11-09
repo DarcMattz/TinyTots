@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
+import 'package:page_transition/page_transition.dart';
 
 class StartCard extends StatelessWidget {
   final String imagePath;
@@ -64,21 +65,42 @@ class StartCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.close,
-                  iconSize: 30,
-                  method: () {
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (_) => oldRoute,
-                    //   ),
-                    // );
-                    Navigator.pop(context);
+                PopScope<Object?>(
+                  canPop: false,
+                  onPopInvokedWithResult: (bool didPop, Object? result) async {
+                    if (didPop) {
+                      return;
+                    }
+                    if (context.mounted) {
+                      Navigator.pushReplacement(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          alignment: Alignment.center,
+                          child: oldRoute,
+                        ),
+                      );
+                    }
                   },
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: oldRoute,
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
                 NiceButton(
                   label: "Go",
@@ -89,7 +111,11 @@ class StartCard extends StatelessWidget {
                   method: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => route),
+                      PageTransition(
+                        type: PageTransitionType.fade,
+                        alignment: Alignment.center,
+                        child: route,
+                      ),
                     );
                   },
                 ),

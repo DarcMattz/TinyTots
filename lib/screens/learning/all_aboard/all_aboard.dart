@@ -20,15 +20,16 @@ class AllAboardScreen extends StatefulWidget {
 
 class _AllAboardScreenState extends State<AllAboardScreen> {
   int _currentIndex = 0;
-  int _shapesScore = prefs.getInt('shapes_high_score') ?? 0;
-  int _alphabetScore = prefs.getInt('alphabets_high_score') ?? 0;
-  bool _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
-  bool _isAlphabetFinished = prefs.getBool('alphabets_quiz_unlocked') ?? false;
+  final int _shapesScore = prefs.getInt('shapes_high_score') ?? 0;
+  final int _alphabetScore = prefs.getInt('alphabets_high_score') ?? 0;
+  final bool _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
+  final bool _isAlphabetFinished =
+      prefs.getBool('alphabets_quiz_unlocked') ?? false;
   // late List<ValueNotifier<bool>> statusNotifiers;
-  late ValueNotifier<bool> shapesStatusNotifier;
-  late ValueNotifier<bool> alphabetStatusNotifier;
-  late ValueNotifier<int> shapesScoreNotifier;
-  late ValueNotifier<int> alphabetScoreNotifier;
+  // late ValueNotifier<bool> shapesStatusNotifier;
+  // late ValueNotifier<bool> alphabetStatusNotifier;
+  // late ValueNotifier<int> shapesScoreNotifier;
+  // late ValueNotifier<int> alphabetScoreNotifier;
 
   @override
   void initState() {
@@ -38,10 +39,10 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
     //   ValueNotifier<bool>(_isAlphabetFinished),
     //   ValueNotifier<bool>(_isAlphabetFinished)
     // ];
-    shapesStatusNotifier = ValueNotifier<bool>(_isShapesFinished);
-    alphabetStatusNotifier = ValueNotifier<bool>(_isAlphabetFinished);
-    shapesScoreNotifier = ValueNotifier<int>(_shapesScore);
-    alphabetScoreNotifier = ValueNotifier<int>(_alphabetScore);
+    // shapesStatusNotifier = ValueNotifier<bool>(_isShapesFinished);
+    // alphabetStatusNotifier = ValueNotifier<bool>(_isAlphabetFinished);
+    // shapesScoreNotifier = ValueNotifier<int>(_shapesScore);
+    // alphabetScoreNotifier = ValueNotifier<int>(_alphabetScore);
     super.initState();
   }
 
@@ -49,12 +50,10 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
   Widget build(BuildContext context) {
     final List<Module> allAboard = [
       Module(
-        type: "learning",
+        type: "lesson",
         imagePath: Assets.images.allAboard.shapesPic.path,
         score: _shapesScore,
-        route: ShapesStartScreen(
-            shapeNotifier: shapesStatusNotifier,
-            shapeScore: shapesScoreNotifier),
+        route: const ShapesStartScreen(),
       ),
       Module(
         type: "quiz",
@@ -62,12 +61,10 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
         isQuiz: true,
         isFinished: _isShapesFinished,
         score: _shapesScore,
-        route: ShapesQuizStart(
-          shapeScore: shapesScoreNotifier,
-        ),
+        route: const ShapesQuizStart(),
       ),
       Module(
-        type: "learning",
+        type: "lesson",
         imagePath: Assets.images.allAboard.alphabetPic.path,
         route: const AbcStartScreen(),
       ),
@@ -130,50 +127,50 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
                           ),
                           itemCount: allAboard.length,
                           itemBuilder: (context, index, realIndex) {
-                            if (index == 1) {
-                              // Shapes Quiz
-                              return ValueListenableBuilder<bool>(
-                                valueListenable: shapesStatusNotifier,
-                                builder: (context, isShapesUnlocked, child) {
-                                  if (isShapesUnlocked) {
-                                    allAboard[index].score =
-                                        shapesScoreNotifier.value;
-                                  }
-                                  allAboard[index].isFinished =
-                                      isShapesUnlocked;
-                                  // return ModuleCard(module: allAboard[index]);
-                                  return ValueListenableBuilder<int>(
-                                    valueListenable: shapesScoreNotifier,
-                                    builder: (context, shapesScore, child) {
-                                      if (isShapesUnlocked) {
-                                        allAboard[index].score = shapesScore;
-                                      }
-                                      allAboard[index].score =
-                                          shapesScoreNotifier.value;
-                                      return ModuleCard(
-                                          module: allAboard[index]);
-                                    },
-                                  );
-                                },
-                              );
-                            } else if (index == 3) {
-                              // Alphabet Quiz
-                              return ValueListenableBuilder<bool>(
-                                valueListenable: alphabetStatusNotifier,
-                                builder: (context, isAlphabetUnlocked, child) {
-                                  if (isAlphabetUnlocked) {
-                                    allAboard[index].score =
-                                        alphabetScoreNotifier.value;
-                                  }
-                                  allAboard[index].isFinished =
-                                      isAlphabetUnlocked;
-                                  return ModuleCard(module: allAboard[index]);
-                                },
-                              );
-                            } else {
-                              // For non-quiz modules, return directly
-                              return ModuleCard(module: allAboard[index]);
-                            }
+                            // if (index == 1) {
+                            //   // Shapes Quiz
+                            //   return ValueListenableBuilder<bool>(
+                            //     valueListenable: shapesStatusNotifier,
+                            //     builder: (context, isShapesUnlocked, child) {
+                            //       if (isShapesUnlocked) {
+                            //         allAboard[index].score =
+                            //             shapesScoreNotifier.value;
+                            //       }
+                            //       allAboard[index].isFinished =
+                            //           isShapesUnlocked;
+                            //       // return ModuleCard(module: allAboard[index]);
+                            //       return ValueListenableBuilder<int>(
+                            //         valueListenable: shapesScoreNotifier,
+                            //         builder: (context, shapesScore, child) {
+                            //           if (isShapesUnlocked) {
+                            //             allAboard[index].score = shapesScore;
+                            //           }
+                            //           allAboard[index].score =
+                            //               shapesScoreNotifier.value;
+                            //           return ModuleCard(
+                            //               module: allAboard[index]);
+                            //         },
+                            //       );
+                            //     },
+                            //   );
+                            // } else if (index == 3) {
+                            //   // Alphabet Quiz
+                            //   return ValueListenableBuilder<bool>(
+                            //     valueListenable: alphabetStatusNotifier,
+                            //     builder: (context, isAlphabetUnlocked, child) {
+                            //       if (isAlphabetUnlocked) {
+                            //         allAboard[index].score =
+                            //             alphabetScoreNotifier.value;
+                            //       }
+                            //       allAboard[index].isFinished =
+                            //           isAlphabetUnlocked;
+                            //       return ModuleCard(module: allAboard[index]);
+                            //     },
+                            //   );
+                            // } else {
+                            // For non-quiz modules, return directly
+                            return ModuleCard(module: allAboard[index]);
+                            // }
                           },
                         ),
                         const SizedBox(

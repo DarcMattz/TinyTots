@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class FinishModuleDialog extends StatefulWidget {
   final Widget route;
@@ -73,20 +75,32 @@ class _FinishModuleDialogState extends State<FinishModuleDialog> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    NiceButton(
-                      label: "Back",
-                      color: Colors.yellow,
-                      shadowColor: Colors.yellow[800]!,
-                      icon: Icons.close,
-                      iconSize: 30,
-                      method: () {
-                        Navigator.pop(context);
-                        Navigator.pop(context);
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(builder: (_) => widget.oldRoute),
-                        // );
-                      },
+                    PushReplacement(
+                      route: PageTransition(
+                        type: PageTransitionType.scale,
+                        alignment: Alignment.center,
+                        child: widget.oldRoute,
+                      ),
+                      child: NiceButton(
+                        label: "Back",
+                        color: Colors.yellow,
+                        shadowColor: Colors.yellow[800]!,
+                        icon: Icons.close,
+                        iconSize: 30,
+                        method: () {
+                          Navigator.pop(context);
+                          if (context.mounted) {
+                            Navigator.pushReplacement(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                alignment: Alignment.center,
+                                child: widget.oldRoute,
+                              ),
+                            );
+                          }
+                        },
+                      ),
                     ),
                     NiceButton(
                       label: "Go",
@@ -98,7 +112,11 @@ class _FinishModuleDialogState extends State<FinishModuleDialog> {
                         Navigator.pop(context);
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (_) => widget.route),
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: widget.route,
+                          ),
                         );
                       },
                     ),
