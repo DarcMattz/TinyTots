@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/modules.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_start.dart';
 
@@ -15,22 +16,27 @@ class PhonicsScreen extends StatefulWidget {
 
 class _PhonicsScreenState extends State<PhonicsScreen> {
   int _currentIndex = 0;
-
-  final List<Module> phonics = [
-    Module(
-      type: "phonics",
-      imagePath: Assets.images.phonics.vowelsPic.path,
-      route: const VowelsStartScreen(),
-    ),
-    Module(
-      type: "phonics",
-      imagePath: Assets.images.quizPic.path,
-      route: const VowelsQuizScreen(),
-    ),
-  ];
+  final int _vowelsScore = prefs.getInt('vowels_high_score') ?? 0;
+  final bool _isVowelsFinished = prefs.getBool('vowels_quiz_unlocked') ?? false;
 
   @override
   Widget build(BuildContext context) {
+    final List<Module> phonics = [
+      Module(
+        type: "lesson",
+        imagePath: Assets.images.phonics.vowelsPic.path,
+        route: const VowelsStartScreen(),
+      ),
+      Module(
+        type: "quiz",
+        isQuiz: true,
+        isFinished: _isVowelsFinished,
+        score: _vowelsScore,
+        imagePath: Assets.images.quizPic.path,
+        route: const VowelsQuizScreen(),
+      ),
+    ];
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {

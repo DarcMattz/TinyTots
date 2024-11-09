@@ -1,14 +1,20 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/phonics/vowel_card.dart';
 import 'package:flutter_application_1/models/vowels/vowel.dart';
+import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/phonics.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
 import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class VowelsScreen extends StatefulWidget {
   const VowelsScreen({super.key});
@@ -20,7 +26,8 @@ class VowelsScreen extends StatefulWidget {
 class _VowelsScreenState extends State<VowelsScreen> {
   final AudioService _audioService = AudioService();
   final CarouselSliderController _mainCarCon = CarouselSliderController();
-  int colCurIndex = 0;
+
+  int? colCurIndex = prefs.getInt('vowels_current_column_index');
 
   final List<List<Vowel>> vowels = [
     [
@@ -223,15 +230,31 @@ class _VowelsScreenState extends State<VowelsScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.arrow_back,
-                  iconSize: 25,
-                  method: () {
-                    Navigator.pop(context);
-                  },
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.fade,
+                    alignment: Alignment.center,
+                    child: PhonicsScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const PhonicsScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
               Expanded(
@@ -243,12 +266,20 @@ class _VowelsScreenState extends State<VowelsScreen> {
                     height: 500,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
-                    initialPage: 0,
+                    initialPage: colCurIndex ?? 0,
                     autoPlay: false,
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
                       colCurIndex = index;
                       _stop();
+
+                      prefs.setInt('vowels_current_column_index', index);
+                      log(
+                        "column_index: " +
+                            prefs
+                                .getInt('vowels_current_column_index')
+                                .toString(),
+                      );
                     },
                   ),
                   itemBuilder: (context, index, realIndex) {
@@ -269,6 +300,17 @@ class _VowelsScreenState extends State<VowelsScreen> {
                         onPageChanged: (index, reason) {
                           rowCurIndex = index;
                           _stop();
+                          log(
+                            "index: " +
+                                colCurIndex.toString() +
+                                " " +
+                                rowCurIndex.toString(),
+                          );
+                          if (colCurIndex == vowels.length - 1 &&
+                              rowCurIndex == 4) {
+                            prefs.setBool('vowels_quiz_unlocked', true);
+                            log("Quiz Unlocked");
+                          }
                         },
                       ),
                       itemBuilder: (context, sampleIndex, sampleRealIndex) {

@@ -23,24 +23,9 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
   final bool _isShapesFinished = prefs.getBool('shapes_quiz_unlocked') ?? false;
   final bool _isAlphabetFinished =
       prefs.getBool('alphabets_quiz_unlocked') ?? false;
-  // late List<ValueNotifier<bool>> statusNotifiers;
-  // late ValueNotifier<bool> shapesStatusNotifier;
-  // late ValueNotifier<bool> alphabetStatusNotifier;
-  // late ValueNotifier<int> shapesScoreNotifier;
-  // late ValueNotifier<int> alphabetScoreNotifier;
 
   @override
   void initState() {
-    // statusNotifiers = [
-    //   ValueNotifier<bool>(_isShapesFinished),
-    //   ValueNotifier<bool>(_isShapesFinished),
-    //   ValueNotifier<bool>(_isAlphabetFinished),
-    //   ValueNotifier<bool>(_isAlphabetFinished)
-    // ];
-    // shapesStatusNotifier = ValueNotifier<bool>(_isShapesFinished);
-    // alphabetStatusNotifier = ValueNotifier<bool>(_isAlphabetFinished);
-    // shapesScoreNotifier = ValueNotifier<int>(_shapesScore);
-    // alphabetScoreNotifier = ValueNotifier<int>(_alphabetScore);
     super.initState();
   }
 

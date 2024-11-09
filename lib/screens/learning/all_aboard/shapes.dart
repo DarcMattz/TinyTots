@@ -124,7 +124,7 @@ class _ShapesScreenState extends State<ShapesScreen> {
                 padding: const EdgeInsets.all(16.0),
                 child: PushReplacement(
                   route: PageTransition(
-                    type: PageTransitionType.scale,
+                    type: PageTransitionType.fade,
                     alignment: Alignment.center,
                     child: AllAboardScreen(),
                   ),
@@ -163,13 +163,14 @@ class _ShapesScreenState extends State<ShapesScreen> {
                       setState(() {
                         _currentIndex = index;
                         _stop();
+
                         prefs.setInt('shapes_current_index', index);
+                        log(prefs.getInt('shapes_current_index').toString());
+
                         if (_currentIndex == shapes.length - 1) {
-                          // widget.shapeNotifier.value = true;
                           prefs.setBool('shapes_quiz_unlocked', true);
                           log("Quiz Unlocked");
                         }
-                        log(prefs.getInt('shapes_current_index').toString());
                       });
                     },
                   ),
