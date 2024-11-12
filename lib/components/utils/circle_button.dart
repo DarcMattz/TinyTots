@@ -5,6 +5,7 @@ class CircleButton extends StatefulWidget {
   final Color shadowColor;
   final IconData icon;
   final VoidCallback? method;
+  final VoidCallback? longPressMethod;
 
   const CircleButton({
     super.key,
@@ -12,6 +13,7 @@ class CircleButton extends StatefulWidget {
     required this.shadowColor,
     required this.icon,
     this.method,
+    this.longPressMethod,
     // this.route,
   });
 
@@ -26,6 +28,12 @@ class _CircleButtonState extends State<CircleButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onLongPress: () {
+        setState(() {
+          _position = 0;
+        });
+        widget.longPressMethod!();
+      },
       onTapUp: (_) {
         setState(() {
           _position = 4;

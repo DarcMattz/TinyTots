@@ -10,7 +10,6 @@ import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/phonics/vowel_card.dart';
 import 'package:flutter_application_1/models/vowels/vowel.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/phonics.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
 import 'package:gap/gap.dart';
@@ -275,10 +274,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
 
                       prefs.setInt('vowels_current_column_index', index);
                       log(
-                        "column_index: " +
-                            prefs
-                                .getInt('vowels_current_column_index')
-                                .toString(),
+                        "column_index: ${prefs.getInt('vowels_current_column_index')}",
                       );
                     },
                   ),

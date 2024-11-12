@@ -4,7 +4,7 @@ import 'package:flutter_application_1/components/modules.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
+import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_start.dart';
 
 class PhonicsScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _PhonicsScreenState extends State<PhonicsScreen> {
         isFinished: _isVowelsFinished,
         score: _vowelsScore,
         imagePath: Assets.images.quizPic.path,
-        route: const VowelsQuizScreen(),
+        route: const VowelsQuizStart(),
       ),
     ];
 

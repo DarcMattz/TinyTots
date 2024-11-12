@@ -19,6 +19,7 @@ import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dar
 import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:scribble/scribble.dart';
 
 class AbcScreen extends StatefulWidget {
   const AbcScreen({super.key});
@@ -452,9 +453,9 @@ class _AbcScreenState extends State<AbcScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: Assets.images.background.provider(),
             fit: BoxFit.cover,
           ),
         ),
@@ -506,8 +507,7 @@ class _AbcScreenState extends State<AbcScreen> {
                     onPageChanged: (index, reason) {
                       colCurIndex = index;
                       prefs.setInt('alphabets_current_index', index);
-                      if (colCurIndex == alphabet.length - 1)
-                        prefs.setBool('alphabets_quiz_unlocked', true);
+
                       log(colCurIndex.toString());
                       _stop();
                     },
@@ -515,6 +515,8 @@ class _AbcScreenState extends State<AbcScreen> {
                   itemBuilder: (context, index, realIndex) {
                     final CarouselSliderController childCarCon =
                         CarouselSliderController();
+                    final ScribbleNotifier scribbleNotifier =
+                        ScribbleNotifier();
                     int rowCurIndex = 0;
 
                     return CarouselSlider.builder(
@@ -529,6 +531,13 @@ class _AbcScreenState extends State<AbcScreen> {
                         viewportFraction: 0.8,
                         onPageChanged: (index, reason) {
                           rowCurIndex = index;
+                          if (colCurIndex == alphabet.length - 1 &&
+                              index == 2) {
+                            prefs.setBool('alphabets_quiz_unlocked', true);
+                          }
+                          log(
+                            prefs.getBool('alphabets_quiz_unlocked').toString(),
+                          );
                           _stop();
                         },
                       ),
@@ -565,6 +574,7 @@ class _AbcScreenState extends State<AbcScreen> {
                                 _nextCard(index, childCarCon, rowCurIndex),
                             prevCallback: () =>
                                 _previousCard(childCarCon, rowCurIndex),
+                            scribbleNotifier: scribbleNotifier,
                             trace: alphabet[index].traceImage,
                           );
                         }
