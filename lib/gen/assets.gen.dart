@@ -1203,6 +1203,10 @@ class $AssetsImagesScienceBodyGen {
   AssetGenImage get partsOfBody =>
       const AssetGenImage('assets/images/science/body/parts_of_body.png');
 
+  /// Directory path: assets/images/science/body/quiz
+  $AssetsImagesScienceBodyQuizGen get quiz =>
+      const $AssetsImagesScienceBodyQuizGen();
+
   /// List of all assets
   List<AssetGenImage> get values =>
       [body1, body2, body3, body4, body5, body6, body7, partsOfBody];
@@ -1960,6 +1964,38 @@ class $AssetsImagesAllAboardLettersSampleGen {
         yarn,
         zoo
       ];
+}
+
+class $AssetsImagesScienceBodyQuizGen {
+  const $AssetsImagesScienceBodyQuizGen();
+
+  /// File path: assets/images/science/body/quiz/eye.png
+  AssetGenImage get eye =>
+      const AssetGenImage('assets/images/science/body/quiz/eye.png');
+
+  /// File path: assets/images/science/body/quiz/eyebrow.png
+  AssetGenImage get eyebrow =>
+      const AssetGenImage('assets/images/science/body/quiz/eyebrow.png');
+
+  /// File path: assets/images/science/body/quiz/head.png
+  AssetGenImage get head =>
+      const AssetGenImage('assets/images/science/body/quiz/head.png');
+
+  /// File path: assets/images/science/body/quiz/left_ear.png
+  AssetGenImage get leftEar =>
+      const AssetGenImage('assets/images/science/body/quiz/left_ear.png');
+
+  /// File path: assets/images/science/body/quiz/mouth.png
+  AssetGenImage get mouth =>
+      const AssetGenImage('assets/images/science/body/quiz/mouth.png');
+
+  /// File path: assets/images/science/body/quiz/right_ear.png
+  AssetGenImage get rightEar =>
+      const AssetGenImage('assets/images/science/body/quiz/right_ear.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [eye, eyebrow, head, leftEar, mouth, rightEar];
 }
 
 class Assets {

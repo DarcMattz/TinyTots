@@ -15,6 +15,8 @@ class Storage {
     prefs.setBool('vowels_quiz_unlocked', false);
     prefs.setInt('vowels_high_score', 0);
 
+    prefs.setInt('body_high_score', 0);
+
     log("Data Cleared");
   }
 
@@ -48,6 +50,10 @@ class Storage {
     );
     log(
       "Vowels High Score: ${prefs.getInt('vowels_high_score')}",
+    );
+
+    log(
+      "Body High Score: ${prefs.getInt('body_high_score')}",
     );
   }
 

@@ -85,6 +85,7 @@ flutter:
     - assets/images/science/care/
     - assets/images/science/face/
     - assets/images/science/body/
+    - assets/images/science/body/quiz/
     - assets/images/science/senses/
     - assets/images/mathematics/
     - assets/images/mathematics/numbers/
