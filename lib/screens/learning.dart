@@ -6,8 +6,8 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:flutter_application_1/screens/learning/mathematics/mathematics.dart';
-import 'package:flutter_application_1/screens/learning/phonics.dart';
-import 'package:flutter_application_1/screens/learning/science.dart';
+import 'package:flutter_application_1/screens/learning/phonics/phonics.dart';
+import 'package:flutter_application_1/screens/learning/science/science.dart';
 
 class LearningListScreen extends StatefulWidget {
   const LearningListScreen({super.key});

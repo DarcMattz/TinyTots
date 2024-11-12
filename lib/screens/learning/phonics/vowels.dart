@@ -10,7 +10,7 @@ import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/components/phonics/vowel_card.dart';
 import 'package:flutter_application_1/models/vowels/vowel.dart';
-import 'package:flutter_application_1/screens/learning/phonics.dart';
+import 'package:flutter_application_1/screens/learning/phonics/phonics.dart';
 import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';

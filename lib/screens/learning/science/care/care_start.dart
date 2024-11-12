@@ -3,8 +3,8 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/screens/learning/science.dart';
-import 'package:flutter_application_1/screens/learning/science/care.dart';
+import 'package:flutter_application_1/screens/learning/science/science.dart';
+import 'package:flutter_application_1/screens/learning/science/care/care.dart';
 
 class CareStartScreen extends StatefulWidget {
   const CareStartScreen({super.key});

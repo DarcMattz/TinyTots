@@ -6,8 +6,8 @@ import 'package:flutter_application_1/components/science/body_card.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/science/body.dart';
-import 'package:flutter_application_1/screens/learning/science.dart';
-import 'package:flutter_application_1/screens/learning/science/body_quiz.dart';
+import 'package:flutter_application_1/screens/learning/science/science.dart';
+import 'package:flutter_application_1/screens/learning/science/body/body_quiz.dart';
 
 class BodyScreen extends StatefulWidget {
   const BodyScreen({super.key});

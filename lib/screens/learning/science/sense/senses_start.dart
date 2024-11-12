@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/screens/learning/science.dart';
-import 'package:flutter_application_1/screens/learning/science/senses.dart';
+import 'package:flutter_application_1/screens/learning/science/science.dart';
+import 'package:flutter_application_1/screens/learning/science/sense/senses.dart';
 
 class SensesStartScreen extends StatefulWidget {
   const SensesStartScreen({super.key});

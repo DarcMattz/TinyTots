@@ -5,8 +5,8 @@ import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/science/care_card.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/science/care.dart';
-import 'package:flutter_application_1/screens/learning/science.dart';
-import 'package:flutter_application_1/screens/learning/science/care_quiz.dart';
+import 'package:flutter_application_1/screens/learning/science/science.dart';
+import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
 import 'package:gap/gap.dart';
 
 class CareScreen extends StatefulWidget {
