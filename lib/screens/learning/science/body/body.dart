@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/science/body_card.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/models/science/body.dart';
 import 'package:flutter_application_1/screens/learning/science/science.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_quiz.dart';
+import 'package:page_transition/page_transition.dart';
 
 class BodyScreen extends StatefulWidget {
   const BodyScreen({super.key});
@@ -19,7 +22,8 @@ class BodyScreen extends StatefulWidget {
 class _BodyScreenState extends State<BodyScreen> {
   final AudioService _audioService = AudioService();
   final CarouselSliderController _mainCarCon = CarouselSliderController();
-  int colCurIndex = 0;
+  int colCurIndex = prefs.getInt('body_current_column_index') ?? 0;
+  int rowCurIndex = prefs.getInt('body_current_row_index') ?? 0;
 
   final List<List<Body>> body = [
     [
@@ -111,8 +115,10 @@ class _BodyScreenState extends State<BodyScreen> {
   @override
   void initState() {
     super.initState();
-
     _audioService.setOnComplete(() {});
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _mainCarCon.jumpToPage(colCurIndex);
+    });
   }
 
   @override
@@ -146,15 +152,31 @@ class _BodyScreenState extends State<BodyScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.arrow_back,
-                  iconSize: 25,
-                  method: () {
-                    Navigator.pop(context);
-                  },
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.center,
+                    child: const ScienceHealthScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const ScienceHealthScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
               Expanded(
@@ -162,7 +184,7 @@ class _BodyScreenState extends State<BodyScreen> {
                   carouselController: _mainCarCon,
                   itemCount: body.length,
                   options: CarouselOptions(
-                    scrollDirection: Axis.vertical,
+                    scrollDirection: Axis.horizontal,
                     height: 500,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
@@ -170,6 +192,8 @@ class _BodyScreenState extends State<BodyScreen> {
                     autoPlay: false,
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
+                      prefs.setInt('body_current_column_index', index);
+                      print('index: $index');
                       colCurIndex = index;
                       _stop();
                     },
@@ -177,12 +201,15 @@ class _BodyScreenState extends State<BodyScreen> {
                   itemBuilder: (context, index, realIndex) {
                     final CarouselSliderController childCarCon =
                         CarouselSliderController();
-                    int rowCurIndex = 0;
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      childCarCon.jumpToPage(rowCurIndex);
+                    });
 
                     return CarouselSlider.builder(
                       carouselController: childCarCon,
                       itemCount: body[index].length,
                       options: CarouselOptions(
+                        scrollDirection: Axis.vertical,
                         height: 400,
                         enlargeCenterPage: true,
                         enableInfiniteScroll: false,
@@ -191,6 +218,13 @@ class _BodyScreenState extends State<BodyScreen> {
                         viewportFraction: 0.8,
                         onPageChanged: (index, reason) {
                           rowCurIndex = index;
+                          prefs.setInt('body_current_row_index', index);
+                          if (colCurIndex == body.length - 1 &&
+                              rowCurIndex == body[1].length - 1) {
+                            prefs.setBool('body_quiz_unlocked', true);
+                            prefs.setInt('body_current_column_index', 0);
+                            prefs.setInt('body_current_row_index', 0);
+                          }
                           _stop();
                         },
                       ),

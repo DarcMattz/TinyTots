@@ -53,7 +53,7 @@ class SettingsDialog extends StatelessWidget {
                       icon: Icons.cleaning_services,
                       color: Colors.orange,
                       label: 'Clear Data',
-                      onPressed: () => Storage.clearData(),
+                      onPressed: () => Storage.defaultData(),
                     ),
                     SettingsIconButton(
                       icon: Icons.bar_chart,
@@ -65,7 +65,7 @@ class SettingsDialog extends StatelessWidget {
                       icon: Icons.delete,
                       color: Colors.red,
                       label: 'Delete Data',
-                      onPressed: () => Storage.deleteAllData(),
+                      onPressed: () => Storage.clearData(),
                     ),
                   ],
                 ),

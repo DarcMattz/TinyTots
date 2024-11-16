@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/modules.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_start.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
@@ -19,42 +20,47 @@ class ScienceHealthScreen extends StatefulWidget {
 
 class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
   int _currentIndex = 0;
-
-  final List<Module> science = [
-    Module(
-      type: "science",
-      imagePath: Assets.images.science.bodyPic.path,
-      route: const BodyStartScreen(),
-    ),
-    Module(
-      type: "science",
-      imagePath: Assets.images.quizPic.path,
-      route: const BodyQuizScreen(),
-    ),
-    Module(
-      type: "science",
-      imagePath: Assets.images.science.sensesPic.path,
-      route: const SensesStartScreen(),
-    ),
-    Module(
-      type: "science ",
-      imagePath: Assets.images.quizPic.path,
-      route: const SensesQuizScreen(),
-    ),
-    Module(
-      type: "science",
-      imagePath: Assets.images.science.carePic.path,
-      route: const CareStartScreen(),
-    ),
-    Module(
-      type: "science",
-      imagePath: Assets.images.quizPic.path,
-      route: const CareQuizScreen(),
-    ),
-  ];
+  bool _isBodyFinished = prefs.getBool('body_quiz_unlocked') ?? false;
+  int _bodyScore = prefs.getInt('body_high_score') ?? 0;
 
   @override
   Widget build(BuildContext context) {
+    final List<Module> science = [
+      Module(
+        type: "lesson",
+        imagePath: Assets.images.science.bodyPic.path,
+        route: const BodyStartScreen(),
+      ),
+      Module(
+        type: "quiz",
+        imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isBodyFinished,
+        score: _bodyScore,
+        route: const BodyQuizScreen(),
+      ),
+      Module(
+        type: "lesson",
+        imagePath: Assets.images.science.sensesPic.path,
+        route: const SensesStartScreen(),
+      ),
+      Module(
+        type: "quiz",
+        imagePath: Assets.images.quizPic.path,
+        route: const SensesQuizScreen(),
+      ),
+      Module(
+        type: "lesson",
+        imagePath: Assets.images.science.carePic.path,
+        route: const CareStartScreen(),
+      ),
+      Module(
+        type: "quiz",
+        imagePath: Assets.images.quizPic.path,
+        route: const CareQuizScreen(),
+      ),
+    ];
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
