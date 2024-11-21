@@ -6,6 +6,7 @@ import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
+import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/helper/confetti_helper.dart';
 import 'package:flutter_application_1/models/all_aboard/question.dart';
 import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
@@ -39,8 +40,9 @@ class AndroidWelcome extends StatefulWidget {
 }
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
+  final AudioService _audioService = AudioService();
   final image = Assets.images.allAboard.letters.sample;
-  late final List<Question> questions;
+  late final List<AlphabetQuestion> questions;
 
   int currentQuestionIndex = 0;
   List<int> randomizedIndices = [];
@@ -54,9 +56,10 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   @override
   void initState() {
     super.initState();
+    _audioService.setOnComplete(() {});
 
     questions = [
-      Question(
+      AlphabetQuestion(
         questionText: "Aa",
         imageOptions: [
           image.egg.path,
@@ -64,9 +67,15 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
           image.penguin.path,
           image.apple.path,
         ],
+        audioOptions: [
+          "sounds/alphabet/example/egg.m4a",
+          "sounds/alphabet/example/lamb.m4a",
+          "sounds/alphabet/example/penguin.m4a",
+          "sounds/alphabet/example/apple.m4a",
+        ],
         correctAnswerIndex: 3,
       ),
-      Question(
+      AlphabetQuestion(
         questionText: "Bb",
         imageOptions: [
           image.noodle.path,
@@ -74,9 +83,15 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
           image.ball.path,
           image.doll.path,
         ],
+        audioOptions: [
+          "sounds/alphabet/example/noodle.m4a",
+          "sounds/alphabet/example/sun.m4a",
+          "sounds/alphabet/example/ball.m4a",
+          "sounds/alphabet/example/doll.m4a",
+        ],
         correctAnswerIndex: 2,
       ),
-      Question(
+      AlphabetQuestion(
         questionText: "Cc",
         imageOptions: [
           image.zoo.path,
@@ -84,15 +99,27 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
           image.goat.path,
           image.xylophone.path,
         ],
+        audioOptions: [
+          "sounds/alphabet/example/zoo.m4a",
+          "sounds/alphabet/example/cat.m4a",
+          "sounds/alphabet/example/goat.m4a",
+          "sounds/alphabet/example/xylophone.m4a",
+        ],
         correctAnswerIndex: 1,
       ),
-      Question(
+      AlphabetQuestion(
         questionText: "Dd",
         imageOptions: [
           image.doll.path,
           image.hand.path,
           image.kite.path,
           image.umbrella.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/doll.m4a",
+          "sounds/alphabet/example/hand.m4a",
+          "sounds/alphabet/example/kite.m4a",
+          "sounds/alphabet/example/umbrella.m4a",
         ],
         correctAnswerIndex: 0,
       ),
@@ -109,8 +136,17 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     _confettiHelper = ConfettiHelper(_leftController, _rightController);
   }
 
+  void _play(soundPath) async {
+    await _audioService.playFromAssets(soundPath);
+  }
+
+  void _stop() async {
+    await _audioService.stop();
+  }
+
   @override
   void dispose() {
+    _audioService.dispose();
     _confettiHelper.stopConfettiLoop(); // Stop the loop
     _confettiHelper.dispose(); // Dispose of controllers
     super.dispose();
@@ -346,7 +382,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   Widget buildQuizScreen() {
-    Question currentQuestion = questions[currentQuestionIndex];
+    AlphabetQuestion currentQuestion = questions[currentQuestionIndex];
     bool hasAnswered = userAnswers.length > currentQuestionIndex &&
         userAnswers[currentQuestionIndex] != null;
 
@@ -387,7 +423,12 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                     children: List.generate(
                       currentQuestion.imageOptions.length,
                       (index) => GestureDetector(
-                        onTap: () => handleAnswer(index),
+                        onTap: () {
+                          _stop();
+                          _play(currentQuestion
+                              .audioOptions[randomizedIndices[index]]);
+                          handleAnswer(index);
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                             color: const Color(0xff95E9FF),

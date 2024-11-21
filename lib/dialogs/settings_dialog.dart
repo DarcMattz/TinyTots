@@ -1,11 +1,37 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/settings_icon_button.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/helper/prefs_helper.dart';
 import 'package:gap/gap.dart';
 
-class SettingsDialog extends StatelessWidget {
+class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});
+
+  @override
+  State<SettingsDialog> createState() => _SettingsDialogState();
+}
+
+class _SettingsDialogState extends State<SettingsDialog> {
+  final AudioService _audioService = AudioService();
+
+  @override
+  void initState() {
+    super.initState();
+    _audioService.setOnComplete(() {});
+  }
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
+
+  void _play(soundPath) async {
+    await _audioService.playFromAssets(soundPath);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +87,18 @@ class SettingsDialog extends StatelessWidget {
                       label: 'Print Data',
                       onPressed: () => Storage.getData(),
                     ),
+                    // SettingsIconButton(
+                    //   icon: Icons.delete,
+                    //   color: Colors.red,
+                    //   label: 'Delete Data',
+                    //   onPressed: () => Storage.clearData(),
+                    // ),
                     SettingsIconButton(
-                      icon: Icons.delete,
+                      icon: Icons.volume_up,
                       color: Colors.red,
-                      label: 'Delete Data',
-                      onPressed: () => Storage.clearData(),
+                      label: 'Try Sound',
+                      onPressed: () =>
+                          _play("sounds/alphabet/example/apple.m4a"),
                     ),
                   ],
                 ),

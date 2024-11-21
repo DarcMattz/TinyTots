@@ -26,7 +26,8 @@ class _VowelsScreenState extends State<VowelsScreen> {
   final AudioService _audioService = AudioService();
   final CarouselSliderController _mainCarCon = CarouselSliderController();
 
-  int? colCurIndex = prefs.getInt('vowels_current_column_index');
+  int? colCurIndex = prefs.getInt('vowels_current_column_index') ?? 0;
+  int? rowCurIndex = prefs.getInt('vowels_current_row_index') ?? 0;
 
   final List<List<Vowel>> vowels = [
     [
@@ -194,7 +195,9 @@ class _VowelsScreenState extends State<VowelsScreen> {
   @override
   void initState() {
     super.initState();
-
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _mainCarCon.jumpToPage(colCurIndex!);
+    });
     _audioService.setOnComplete(() {});
   }
 
@@ -233,7 +236,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
                   route: PageTransition(
                     type: PageTransitionType.fade,
                     alignment: Alignment.center,
-                    child: PhonicsScreen(),
+                    child: const PhonicsScreen(),
                   ),
                   child: NiceButton(
                     label: "Back",
@@ -265,23 +268,21 @@ class _VowelsScreenState extends State<VowelsScreen> {
                     height: 500,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
-                    initialPage: colCurIndex ?? 0,
+                    initialPage: 0,
                     autoPlay: false,
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
                       colCurIndex = index;
-                      _stop();
-
                       prefs.setInt('vowels_current_column_index', index);
-                      log(
-                        "column_index: ${prefs.getInt('vowels_current_column_index')}",
-                      );
+                      _stop();
                     },
                   ),
                   itemBuilder: (context, index, realIndex) {
                     final CarouselSliderController childCarCon =
                         CarouselSliderController();
-                    int rowCurIndex = 0;
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      childCarCon.jumpToPage(rowCurIndex!);
+                    });
 
                     return CarouselSlider.builder(
                       carouselController: childCarCon,
@@ -295,13 +296,9 @@ class _VowelsScreenState extends State<VowelsScreen> {
                         viewportFraction: 0.8,
                         onPageChanged: (index, reason) {
                           rowCurIndex = index;
+                          prefs.setInt('vowels_current_row_index', index);
                           _stop();
-                          log(
-                            "index: " +
-                                colCurIndex.toString() +
-                                " " +
-                                rowCurIndex.toString(),
-                          );
+
                           if (colCurIndex == vowels.length - 1 &&
                               rowCurIndex == 4) {
                             prefs.setBool('vowels_quiz_unlocked', true);
@@ -314,7 +311,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
                           vowel: vowels[index][sampleIndex],
                           nextCallback: () {
                             if (colCurIndex == vowels.length - 1 &&
-                                rowCurIndex == 4) {
+                                sampleIndex == 4) {
                               showDialog(
                                 context: context,
                                 barrierDismissible: false,
@@ -323,7 +320,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
                                   oldRoute: PhonicsScreen(),
                                 ),
                               );
-                            } else if (rowCurIndex == 4) {
+                            } else if (sampleIndex == 4) {
                               _mainCarCon.nextPage();
                               childCarCon.animateToPage(0);
                             } else {
@@ -331,7 +328,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
                             }
                           },
                           prevCallback: () {
-                            if (rowCurIndex == 0) {
+                            if (sampleIndex == 0) {
                               _mainCarCon.previousPage();
                             } else {
                               childCarCon.previousPage();

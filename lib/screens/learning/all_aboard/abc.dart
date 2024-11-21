@@ -31,8 +31,8 @@ class AbcScreen extends StatefulWidget {
 class _AbcScreenState extends State<AbcScreen> {
   final AudioService _audioService = AudioService();
   final CarouselSliderController _mainCarCon = CarouselSliderController();
-  int? colCurIndex = prefs.getInt('alphabets_current_index');
-  // int colCurIndex = 0;
+  int? colCurIndex = prefs.getInt('alphabets_current_column_index') ?? 0;
+  int? rowCurIndex = prefs.getInt('alphabets_current_row_index') ?? 0;
   final List<Alphabet> alphabet = [
     Alphabet(
       letter: Letter(
@@ -403,7 +403,9 @@ class _AbcScreenState extends State<AbcScreen> {
   @override
   void initState() {
     super.initState();
-
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _mainCarCon.jumpToPage(colCurIndex!);
+    });
     _audioService.setOnComplete(() {});
   }
 
@@ -421,9 +423,9 @@ class _AbcScreenState extends State<AbcScreen> {
     await _audioService.stop();
   }
 
-  void _nextCard(index, childCarCon, rowCurIndex) {
+  void _nextCard(index, childCarCon, rowIndex) {
     if (colCurIndex == alphabet.length - 1 &&
-        rowCurIndex == alphabet[index].length - 1) {
+        rowIndex == alphabet[index].length - 1) {
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -432,7 +434,7 @@ class _AbcScreenState extends State<AbcScreen> {
           oldRoute: AllAboardScreen(),
         ),
       );
-    } else if (rowCurIndex == 2) {
+    } else if (rowIndex == 2) {
       _mainCarCon.nextPage();
       childCarCon.animateToPage(0);
     } else {
@@ -440,8 +442,8 @@ class _AbcScreenState extends State<AbcScreen> {
     }
   }
 
-  void _previousCard(childCarCon, rowCurIndex) {
-    if (rowCurIndex == 0) {
+  void _previousCard(childCarCon, rowIndex) {
+    if (rowIndex == 0) {
       _mainCarCon.previousPage();
     } else {
       childCarCon.previousPage();
@@ -469,7 +471,7 @@ class _AbcScreenState extends State<AbcScreen> {
                   route: PageTransition(
                     type: PageTransitionType.scale,
                     alignment: Alignment.center,
-                    child: AllAboardScreen(),
+                    child: const AllAboardScreen(),
                   ),
                   child: NiceButton(
                     label: "Back",
@@ -501,12 +503,12 @@ class _AbcScreenState extends State<AbcScreen> {
                     height: 400,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
-                    initialPage: colCurIndex ?? 0,
+                    initialPage: 0,
                     autoPlay: false,
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
                       colCurIndex = index;
-                      prefs.setInt('alphabets_current_index', index);
+                      prefs.setInt('alphabets_current_column_index', index);
 
                       log(colCurIndex.toString());
                       _stop();
@@ -517,7 +519,9 @@ class _AbcScreenState extends State<AbcScreen> {
                         CarouselSliderController();
                     final ScribbleNotifier scribbleNotifier =
                         ScribbleNotifier();
-                    int rowCurIndex = 0;
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      childCarCon.jumpToPage(rowCurIndex!);
+                    });
 
                     return CarouselSlider.builder(
                       carouselController: childCarCon,
@@ -531,13 +535,13 @@ class _AbcScreenState extends State<AbcScreen> {
                         viewportFraction: 0.8,
                         onPageChanged: (index, reason) {
                           rowCurIndex = index;
+                          prefs.setInt('alphabets_current_row_index', index);
+
                           if (colCurIndex == alphabet.length - 1 &&
                               index == 2) {
                             prefs.setBool('alphabets_quiz_unlocked', true);
                           }
-                          log(
-                            prefs.getBool('alphabets_quiz_unlocked').toString(),
-                          );
+
                           _stop();
                         },
                       ),
@@ -546,9 +550,9 @@ class _AbcScreenState extends State<AbcScreen> {
                           return LetterCard(
                             letter: alphabet[index].letter,
                             nextCallback: () =>
-                                _nextCard(index, childCarCon, rowCurIndex),
+                                _nextCard(index, childCarCon, sampleIndex),
                             prevCallback: () =>
-                                _previousCard(childCarCon, rowCurIndex),
+                                _previousCard(childCarCon, sampleIndex),
                             isFirst: (index == 0)
                                 ? ((sampleIndex == 0) ? true : false)
                                 : false,
@@ -559,9 +563,9 @@ class _AbcScreenState extends State<AbcScreen> {
                         } else if (sampleIndex == 1) {
                           return LetterExampleCard(
                             nextCallback: () =>
-                                _nextCard(index, childCarCon, rowCurIndex),
+                                _nextCard(index, childCarCon, sampleIndex),
                             prevCallback: () =>
-                                _previousCard(childCarCon, rowCurIndex),
+                                _previousCard(childCarCon, sampleIndex),
                             letterExample: alphabet[index].letterSample,
                             soundCallback: () {
                               _play(
@@ -571,9 +575,9 @@ class _AbcScreenState extends State<AbcScreen> {
                         } else {
                           return LetterTraceCard(
                             nextCallback: () =>
-                                _nextCard(index, childCarCon, rowCurIndex),
+                                _nextCard(index, childCarCon, sampleIndex),
                             prevCallback: () =>
-                                _previousCard(childCarCon, rowCurIndex),
+                                _previousCard(childCarCon, sampleIndex),
                             scribbleNotifier: scribbleNotifier,
                             trace: alphabet[index].traceImage,
                           );

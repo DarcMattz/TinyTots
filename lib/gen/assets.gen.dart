@@ -319,6 +319,10 @@ class $AssetsImagesPhonicsGen {
   AssetGenImage get phonicsPic =>
       const AssetGenImage('assets/images/phonics/phonics_pic.png');
 
+  /// File path: assets/images/phonics/vowel_quiz.png
+  AssetGenImage get vowelQuiz =>
+      const AssetGenImage('assets/images/phonics/vowel_quiz.png');
+
   /// Directory path: assets/images/phonics/vowels
   $AssetsImagesPhonicsVowelsGen get vowels =>
       const $AssetsImagesPhonicsVowelsGen();
@@ -328,7 +332,8 @@ class $AssetsImagesPhonicsGen {
       const AssetGenImage('assets/images/phonics/vowels_pic.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [learnVowels, phonicsPic, vowelsPic];
+  List<AssetGenImage> get values =>
+      [learnVowels, phonicsPic, vowelQuiz, vowelsPic];
 }
 
 class $AssetsImagesScienceGen {

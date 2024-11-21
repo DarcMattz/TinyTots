@@ -40,7 +40,7 @@ class AndroidWelcome extends StatefulWidget {
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
   final image = Assets.images.allAboard.shapes;
-  late final List<Question> questions;
+  late final List<ShapesQuestion> questions;
 
   int currentQuestionIndex = 0;
   List<int> randomizedIndices = [];
@@ -56,7 +56,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     super.initState();
 
     questions = [
-      Question(
+      ShapesQuestion(
         questionText: "",
         imageOptions: [
           image.square.path,
@@ -70,7 +70,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         ],
         correctAnswerIndex: 0,
       ),
-      Question(
+      ShapesQuestion(
         questionText: "",
         imageOptions: [
           image.rectangle.path,
@@ -84,7 +84,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         ],
         correctAnswerIndex: 0,
       ),
-      Question(
+      ShapesQuestion(
         questionText: "",
         imageOptions: [
           image.star.path,
@@ -347,7 +347,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   Widget buildQuizScreen() {
-    Question currentQuestion = questions[currentQuestionIndex];
+    ShapesQuestion currentQuestion = questions[currentQuestionIndex];
     bool hasAnswered = userAnswers.length > currentQuestionIndex &&
         userAnswers[currentQuestionIndex] != null;
 

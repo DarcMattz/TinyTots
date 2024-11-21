@@ -3,8 +3,8 @@ import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/quizes/shapes.dart';
+import 'package:flutter_application_1/screens/learning/phonics/phonics.dart';
+import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
 import 'package:page_transition/page_transition.dart';
 
 class VowelsQuizStart extends StatelessWidget {
@@ -89,7 +89,7 @@ class AndroidWelcome extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Text(
-                              'Find the Odd Shape',
+                              'Name the Picture',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class AndroidWelcome extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             const Text(
-                              "Tap the shape that doesn't match the others.",
+                              "Choose the ending sound you hear.",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -106,8 +106,8 @@ class AndroidWelcome extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 10),
-                            Assets.images.allAboard.shapes.findOddshape.image(
-                              width: constraints.maxWidth * .3,
+                            Assets.images.phonics.vowelQuiz.image(
+                              height: constraints.maxHeight * .15,
                             ),
                           ],
                         ),
@@ -120,7 +120,7 @@ class AndroidWelcome extends StatelessWidget {
                             route: PageTransition(
                               type: PageTransitionType.scale,
                               alignment: Alignment.center,
-                              child: AllAboardScreen(),
+                              child: const PhonicsScreen(),
                             ),
                             child: NiceButton(
                               label: "Back",
@@ -135,7 +135,7 @@ class AndroidWelcome extends StatelessWidget {
                                     PageTransition(
                                       type: PageTransitionType.fade,
                                       alignment: Alignment.center,
-                                      child: const AllAboardScreen(),
+                                      child: const PhonicsScreen(),
                                     ),
                                   );
                                 }
@@ -154,7 +154,7 @@ class AndroidWelcome extends StatelessWidget {
                                 PageTransition(
                                   type: PageTransitionType.fade,
                                   alignment: Alignment.center,
-                                  child: const ShapeQuizScreen(),
+                                  child: const VowelsQuizScreen(),
                                 ),
                               );
                             },
