@@ -8,6 +8,7 @@ import 'package:flutter_application_1/screens/learning/science/body/body_quiz.da
 import 'package:flutter_application_1/screens/learning/science/body/body_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_start.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
+import 'package:flutter_application_1/screens/learning/science/care/care_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_start.dart';
 import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz_start.dart';
@@ -69,7 +70,7 @@ class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
         isQuiz: true,
         isFinished: _isCareFinished,
         score: _careScore,
-        route: const CareQuizScreen(),
+        route: const CareQuizStart(),
       ),
     ];
 

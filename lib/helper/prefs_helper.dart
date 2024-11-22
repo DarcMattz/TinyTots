@@ -26,6 +26,10 @@ class Storage {
     'senses_current_index',
     'senses_quiz_unlocked',
     'senses_high_score',
+    //care
+    'care_current_index',
+    'care_quiz_unlocked',
+    'care_high_score',
   ];
 
   // Set Default
@@ -41,6 +45,7 @@ class Storage {
     prefs.setInt('alphabets_high_score', 0);
     //vowels
     prefs.setInt('vowels_current_column_index', 0);
+    prefs.setInt('vowels_current_row_index', 0);
     prefs.setBool('vowels_quiz_unlocked', false);
     prefs.setInt('vowels_high_score', 0);
     // body

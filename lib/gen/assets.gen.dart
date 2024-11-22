@@ -1256,6 +1256,10 @@ class $AssetsImagesScienceCareGen {
   AssetGenImage get care9 =>
       const AssetGenImage('assets/images/science/care/care_9.png');
 
+  /// Directory path: assets/images/science/care/quiz
+  $AssetsImagesScienceCareQuizGen get quiz =>
+      const $AssetsImagesScienceCareQuizGen();
+
   /// List of all assets
   List<AssetGenImage> get values =>
       [care1, care2, care3, care4, care5, care6, care7, care8, care9];
@@ -2009,6 +2013,69 @@ class $AssetsImagesScienceBodyQuizGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [bodyQuiz, eye, eyebrow, head, leftEar, mouth, rightEar];
+}
+
+class $AssetsImagesScienceCareQuizGen {
+  const $AssetsImagesScienceCareQuizGen();
+
+  /// File path: assets/images/science/care/quiz/basket_back.png
+  AssetGenImage get basketBack =>
+      const AssetGenImage('assets/images/science/care/quiz/basket_back.png');
+
+  /// File path: assets/images/science/care/quiz/basket_front.png
+  AssetGenImage get basketFront =>
+      const AssetGenImage('assets/images/science/care/quiz/basket_front.png');
+
+  /// File path: assets/images/science/care/quiz/care_quiz.png
+  AssetGenImage get careQuiz =>
+      const AssetGenImage('assets/images/science/care/quiz/care_quiz.png');
+
+  /// File path: assets/images/science/care/quiz/item_1.png
+  AssetGenImage get item1 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_1.png');
+
+  /// File path: assets/images/science/care/quiz/item_2.png
+  AssetGenImage get item2 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_2.png');
+
+  /// File path: assets/images/science/care/quiz/item_3.png
+  AssetGenImage get item3 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_3.png');
+
+  /// File path: assets/images/science/care/quiz/item_4.png
+  AssetGenImage get item4 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_4.png');
+
+  /// File path: assets/images/science/care/quiz/item_5.png
+  AssetGenImage get item5 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_5.png');
+
+  /// File path: assets/images/science/care/quiz/item_6.png
+  AssetGenImage get item6 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_6.png');
+
+  /// File path: assets/images/science/care/quiz/item_7.png
+  AssetGenImage get item7 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_7.png');
+
+  /// File path: assets/images/science/care/quiz/item_8.png
+  AssetGenImage get item8 =>
+      const AssetGenImage('assets/images/science/care/quiz/item_8.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        basketBack,
+        basketFront,
+        careQuiz,
+        item1,
+        item2,
+        item3,
+        item4,
+        item5,
+        item6,
+        item7,
+        item8
+      ];
 }
 
 class $AssetsImagesScienceSensesQuizGen {

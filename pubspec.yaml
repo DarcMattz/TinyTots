@@ -83,6 +83,7 @@ flutter:
     - assets/images/phonics/vowels/
     - assets/images/science/
     - assets/images/science/care/
+    - assets/images/science/care/quiz/
     - assets/images/science/face/
     - assets/images/science/body/
     - assets/images/science/body/quiz/
