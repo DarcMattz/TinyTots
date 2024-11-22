@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/start_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
@@ -36,9 +37,9 @@ class _SensesStartScreenState extends State<SensesStartScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.png'),
+            image: Assets.images.background.provider(),
             fit: BoxFit.cover,
           ),
         ),
@@ -47,9 +48,9 @@ class _SensesStartScreenState extends State<SensesStartScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TopBar(),
-              const Expanded(
+              Expanded(
                 child: StartCard(
-                  imagePath: "assets/images/learn_senses.png",
+                  imagePath: Assets.images.science.learnSenses.path,
                   route: SensesScreen(),
                   oldRoute: ScienceHealthScreen(),
                 ),

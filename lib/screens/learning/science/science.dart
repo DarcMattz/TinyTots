@@ -22,6 +22,10 @@ class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
   int _currentIndex = 0;
   bool _isBodyFinished = prefs.getBool('body_quiz_unlocked') ?? false;
   int _bodyScore = prefs.getInt('body_high_score') ?? 0;
+  bool _isSensesFinished = prefs.getBool('senses_quiz_unlocked') ?? false;
+  int _sensesScore = prefs.getInt('senses_high_score') ?? 0;
+  bool _isCareFinished = prefs.getBool('care_quiz_unlocked') ?? false;
+  int _careScore = prefs.getInt('care_high_score') ?? 0;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +51,9 @@ class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
       Module(
         type: "quiz",
         imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isSensesFinished,
+        score: _sensesScore,
         route: const SensesQuizScreen(),
       ),
       Module(
@@ -57,6 +64,9 @@ class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
       Module(
         type: "quiz",
         imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isCareFinished,
+        score: _careScore,
         route: const CareQuizScreen(),
       ),
     ];

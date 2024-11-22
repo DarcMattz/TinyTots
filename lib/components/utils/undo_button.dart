@@ -1,32 +1,42 @@
 import 'package:flutter/material.dart';
 
-class CircleButton extends StatefulWidget {
+class UndoButton extends StatefulWidget {
   final Color color;
   final Color shadowColor;
   final IconData icon;
   final VoidCallback? method;
+  final VoidCallback? longPressMethod;
 
-  const CircleButton({
+  const UndoButton({
     super.key,
     required this.color,
     required this.shadowColor,
     required this.icon,
     this.method,
-
+    this.longPressMethod,
     // this.route,
   });
 
   @override
-  State<CircleButton> createState() => _CircleButtonState();
+  State<UndoButton> createState() => _CircleButtonState();
 }
 
-class _CircleButtonState extends State<CircleButton> {
+class _CircleButtonState extends State<UndoButton> {
   static const double _shadowHeight = 4;
   double _position = 3;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onLongPress: () {
+        setState(() {
+          _position = 0;
+        });
+        widget.longPressMethod!();
+        setState(() {
+          _position = 4;
+        });
+      },
       onTapUp: (_) {
         setState(() {
           _position = 4;

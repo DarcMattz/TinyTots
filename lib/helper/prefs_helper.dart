@@ -22,6 +22,10 @@ class Storage {
     'body_current_row_index',
     'body_quiz_unlocked',
     'body_high_score',
+    //senses
+    'senses_current_index',
+    'senses_quiz_unlocked',
+    'senses_high_score',
   ];
 
   // Set Default
@@ -44,6 +48,14 @@ class Storage {
     prefs.setInt('body_current_row_index', 0);
     prefs.setBool('body_quiz_unlocked', false);
     prefs.setInt('body_high_score', 0);
+    //senses
+    prefs.setInt('senses_current_index', 0);
+    prefs.setBool('senses_quiz_unlocked', false);
+    prefs.setInt('senses_high_score', 0);
+    //care
+    prefs.setInt('care_current_index', 0);
+    prefs.setBool('care_quiz_unlocked', false);
+    prefs.setInt('care_high_score', 0);
 
     log("Data Cleared");
   }
