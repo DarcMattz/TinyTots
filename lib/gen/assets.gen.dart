@@ -1300,6 +1300,10 @@ class $AssetsImagesScienceFaceGen {
 class $AssetsImagesScienceSensesGen {
   const $AssetsImagesScienceSensesGen();
 
+  /// Directory path: assets/images/science/senses/quiz
+  $AssetsImagesScienceSensesQuizGen get quiz =>
+      const $AssetsImagesScienceSensesQuizGen();
+
   /// File path: assets/images/science/senses/sense_1.png
   AssetGenImage get sense1 =>
       const AssetGenImage('assets/images/science/senses/sense_1.png');
@@ -1974,6 +1978,10 @@ class $AssetsImagesAllAboardLettersSampleGen {
 class $AssetsImagesScienceBodyQuizGen {
   const $AssetsImagesScienceBodyQuizGen();
 
+  /// File path: assets/images/science/body/quiz/body_quiz.png
+  AssetGenImage get bodyQuiz =>
+      const AssetGenImage('assets/images/science/body/quiz/body_quiz.png');
+
   /// File path: assets/images/science/body/quiz/eye.png
   AssetGenImage get eye =>
       const AssetGenImage('assets/images/science/body/quiz/eye.png');
@@ -2000,7 +2008,39 @@ class $AssetsImagesScienceBodyQuizGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [eye, eyebrow, head, leftEar, mouth, rightEar];
+      [bodyQuiz, eye, eyebrow, head, leftEar, mouth, rightEar];
+}
+
+class $AssetsImagesScienceSensesQuizGen {
+  const $AssetsImagesScienceSensesQuizGen();
+
+  /// File path: assets/images/science/senses/quiz/hear.png
+  AssetGenImage get hear =>
+      const AssetGenImage('assets/images/science/senses/quiz/hear.png');
+
+  /// File path: assets/images/science/senses/quiz/see.png
+  AssetGenImage get see =>
+      const AssetGenImage('assets/images/science/senses/quiz/see.png');
+
+  /// File path: assets/images/science/senses/quiz/senses_quiz.png
+  AssetGenImage get sensesQuiz =>
+      const AssetGenImage('assets/images/science/senses/quiz/senses_quiz.png');
+
+  /// File path: assets/images/science/senses/quiz/smell.png
+  AssetGenImage get smell =>
+      const AssetGenImage('assets/images/science/senses/quiz/smell.png');
+
+  /// File path: assets/images/science/senses/quiz/taste.png
+  AssetGenImage get taste =>
+      const AssetGenImage('assets/images/science/senses/quiz/taste.png');
+
+  /// File path: assets/images/science/senses/quiz/touch.png
+  AssetGenImage get touch =>
+      const AssetGenImage('assets/images/science/senses/quiz/touch.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [hear, see, sensesQuiz, smell, taste, touch];
 }
 
 class Assets {

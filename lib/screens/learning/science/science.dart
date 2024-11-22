@@ -5,10 +5,12 @@ import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_quiz.dart';
+import 'package:flutter_application_1/screens/learning/science/body/body_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_start.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_start.dart';
 import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz.dart';
+import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/sense/senses_start.dart';
 
 class ScienceHealthScreen extends StatefulWidget {
@@ -41,7 +43,7 @@ class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
         isQuiz: true,
         isFinished: _isBodyFinished,
         score: _bodyScore,
-        route: const BodyQuizScreen(),
+        route: const BodyQuizStart(),
       ),
       Module(
         type: "lesson",
@@ -54,7 +56,7 @@ class _ScienceHealthScreenState extends State<ScienceHealthScreen> {
         isQuiz: true,
         isFinished: _isSensesFinished,
         score: _sensesScore,
-        route: const SensesQuizScreen(),
+        route: const SensesQuizStart(),
       ),
       Module(
         type: "lesson",

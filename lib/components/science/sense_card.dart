@@ -67,6 +67,19 @@ class _SenseCardState extends State<SenseCard> {
                           width: double.infinity,
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            widget.sense.label,
+                            style: TextStyle(
+                              fontSize: constraints.maxWidth * .08,
+                              color: Colors.orange,
+                            ),
+                          ),
+                        ),
+                      ),
                       Positioned(
                         right: 5.0,
                         top: 5.0,
@@ -91,13 +104,6 @@ class _SenseCardState extends State<SenseCard> {
                       shadowColor: Colors.yellow,
                       icon: Icons.arrow_back_rounded,
                       method: widget.prevCallback,
-                    ),
-                    Text(
-                      widget.sense.label,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.orange,
-                      ),
                     ),
                     CircleButton(
                       color: Colors.amberAccent,
