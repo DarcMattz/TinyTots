@@ -176,27 +176,6 @@ class _SensesScreenState extends State<SensesScreen> {
                       },
                     ),
                     const Gap(30),
-                    // Center(
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.center,
-                    //     children: List.generate(senses.length, (index) {
-                    //       return GestureDetector(
-                    //         child: Container(
-                    //           margin:
-                    //               const EdgeInsets.symmetric(horizontal: 4.0),
-                    //           width: 10,
-                    //           height: 10,
-                    //           decoration: BoxDecoration(
-                    //             shape: BoxShape.circle,
-                    //             color: _currentIndex == index
-                    //                 ? Colors.blueAccent
-                    //                 : Colors.grey,
-                    //           ),
-                    //         ),
-                    //       );
-                    //     }),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

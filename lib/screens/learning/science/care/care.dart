@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/science/care_card.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_application_1/models/science/care.dart';
 import 'package:flutter_application_1/screens/learning/science/science.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
 import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CareScreen extends StatefulWidget {
   const CareScreen({super.key});
@@ -18,6 +21,7 @@ class CareScreen extends StatefulWidget {
 
 class _CareScreenState extends State<CareScreen> {
   final AudioService _audioService = AudioService();
+  int colCurIndex = prefs.getInt('care_current_index') ?? 0;
   int _currentIndex = 0;
   final CarouselSliderController _carCon = CarouselSliderController();
 
@@ -72,6 +76,9 @@ class _CareScreenState extends State<CareScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _carCon.jumpToPage(colCurIndex);
+    });
     _audioService.setOnComplete(() {});
   }
 
@@ -125,15 +132,31 @@ class _CareScreenState extends State<CareScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.close,
-                  iconSize: 30,
-                  method: () {
-                    Navigator.pop(context);
-                  },
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.center,
+                    child: const ScienceHealthScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const ScienceHealthScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
               Expanded(
@@ -148,6 +171,12 @@ class _CareScreenState extends State<CareScreen> {
                     viewportFraction: 0.8,
                     onPageChanged: (index, reason) {
                       _currentIndex = index;
+                      prefs.setInt('care_current_index', index);
+
+                      if (index == cares.length - 1) {
+                        prefs.setBool('care_quiz_unlocked', true);
+                        prefs.setInt('care_current_index', 0);
+                      }
                       _stop();
                     },
                   ),
