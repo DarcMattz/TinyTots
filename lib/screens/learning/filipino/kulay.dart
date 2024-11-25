@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
@@ -6,20 +5,9 @@ import 'package:flutter_application_1/components/lesson_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/models/filipino/kulay.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
-
-class Kulay {
-  final String imagePath;
-  final String label;
-  final String voicePath;
-
-  Kulay({
-    required this.label,
-    required this.imagePath,
-    required this.voicePath,
-  });
-}
 
 class KulayScreen extends StatefulWidget {
   final Widget quizScreen;

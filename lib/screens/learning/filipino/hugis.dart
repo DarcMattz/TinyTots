@@ -5,20 +5,9 @@ import 'package:flutter_application_1/components/lesson_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/models/filipino/hugis.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
-
-class Hugis {
-  final String imagePath;
-  final String label;
-  final String voicePath;
-
-  Hugis({
-    required this.label,
-    required this.imagePath,
-    required this.voicePath,
-  });
-}
 
 class HugisScreen extends StatefulWidget {
   final Widget quizScreen;
