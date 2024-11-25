@@ -62,69 +62,419 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       AlphabetQuestion(
         questionText: "Aa",
         imageOptions: [
-          image.egg.path,
-          image.lamb.path,
-          image.penguin.path,
           image.apple.path,
+          image.zoo.path,
+          image.cat.path,
+          image.kite.path,
         ],
         audioOptions: [
-          "sounds/alphabet/example/egg.m4a",
-          "sounds/alphabet/example/lamb.m4a",
-          "sounds/alphabet/example/penguin.m4a",
           "sounds/alphabet/example/apple.m4a",
+          "sounds/alphabet/example/zoo.m4a",
+          "sounds/alphabet/example/cat.m4a",
+          "sounds/alphabet/example/kite.m4a",
         ],
-        correctAnswerIndex: 3,
+        correctAnswerIndex: 0,
       ),
       AlphabetQuestion(
         questionText: "Bb",
         imageOptions: [
-          image.noodle.path,
-          image.sun.path,
           image.ball.path,
+          image.sun.path,
           image.doll.path,
+          image.hand.path,
         ],
         audioOptions: [
-          "sounds/alphabet/example/noodle.m4a",
-          "sounds/alphabet/example/sun.m4a",
           "sounds/alphabet/example/ball.m4a",
+          "sounds/alphabet/example/sun.m4a",
           "sounds/alphabet/example/doll.m4a",
+          "sounds/alphabet/example/hand.m4a",
         ],
-        correctAnswerIndex: 2,
+        correctAnswerIndex: 0,
       ),
       AlphabetQuestion(
         questionText: "Cc",
         imageOptions: [
-          image.zoo.path,
           image.cat.path,
-          image.goat.path,
-          image.xylophone.path,
+          image.noodle.path,
+          image.queen.path,
+          image.vase.path,
         ],
         audioOptions: [
-          "sounds/alphabet/example/zoo.m4a",
           "sounds/alphabet/example/cat.m4a",
-          "sounds/alphabet/example/goat.m4a",
-          "sounds/alphabet/example/xylophone.m4a",
+          "sounds/alphabet/example/noodle.m4a",
+          "sounds/alphabet/example/queen.m4a",
+          "sounds/alphabet/example/vase.m4a",
         ],
-        correctAnswerIndex: 1,
+        correctAnswerIndex: 0,
       ),
       AlphabetQuestion(
         questionText: "Dd",
         imageOptions: [
           image.doll.path,
-          image.hand.path,
-          image.kite.path,
           image.umbrella.path,
+          image.jam.path,
+          image.tail.path,
         ],
         audioOptions: [
           "sounds/alphabet/example/doll.m4a",
-          "sounds/alphabet/example/hand.m4a",
+          "sounds/alphabet/example/umbrella.m4a",
+          "sounds/alphabet/example/jam.m4a",
+          "sounds/alphabet/example/tail.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Ee",
+        imageOptions: [
+          image.egg.path,
+          image.monkey.path,
+          image.wagon.path,
+          image.penguin.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/egg.m4a",
+          "sounds/alphabet/example/monkey.m4a",
+          "sounds/alphabet/example/wagon.m4a",
+          "sounds/alphabet/example/penguin.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Ff",
+        imageOptions: [
+          image.fan.path,
+          image.cat.path,
+          image.noodle.path,
+          image.xylophone.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/fan.m4a",
+          "sounds/alphabet/example/cat.m4a",
+          "sounds/alphabet/example/noodle.m4a",
+          "sounds/alphabet/example/xylophone.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Gg",
+        imageOptions: [
+          image.goat.path,
+          image.zoo.path,
+          image.kite.path,
+          image.tail.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/goat.m4a",
+          "sounds/alphabet/example/zoo.m4a",
           "sounds/alphabet/example/kite.m4a",
+          "sounds/alphabet/example/tail.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Hh",
+        imageOptions: [
+          image.hand.path,
+          image.ramp.path,
+          image.yarn.path,
+          image.lamb.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/hand.m4a",
+          "sounds/alphabet/example/ramp.m4a",
+          "sounds/alphabet/example/yarn.m4a",
+          "sounds/alphabet/example/lamb.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Ii",
+        imageOptions: [
+          image.ice.path,
+          image.vase.path,
+          image.monkey.path,
+          image.umbrella.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/ice.m4a",
+          "sounds/alphabet/example/vase.m4a",
+          "sounds/alphabet/example/monkey.m4a",
           "sounds/alphabet/example/umbrella.m4a",
         ],
         correctAnswerIndex: 0,
       ),
-      // Add more questions here
-      // kulang pa!
+      AlphabetQuestion(
+        questionText: "Jj",
+        imageOptions: [
+          image.jam.path,
+          image.apple.path,
+          image.xylophone.path,
+          image.noodle.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/jam.m4a",
+          "sounds/alphabet/example/apple.m4a",
+          "sounds/alphabet/example/xylophone.m4a",
+          "sounds/alphabet/example/noodle.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Kk",
+        imageOptions: [
+          image.kite.path,
+          image.penguin.path,
+          image.cat.path,
+          image.fan.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/kite.m4a",
+          "sounds/alphabet/example/penguin.m4a",
+          "sounds/alphabet/example/cat.m4a",
+          "sounds/alphabet/example/fan.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Ll",
+        imageOptions: [
+          image.lamb.path,
+          image.sun.path,
+          image.ball.path,
+          image.wagon.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/lamb.m4a",
+          "sounds/alphabet/example/sun.m4a",
+          "sounds/alphabet/example/ball.m4a",
+          "sounds/alphabet/example/wagon.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Mm",
+        imageOptions: [
+          image.monkey.path,
+          image.vase.path,
+          image.doll.path,
+          image.hand.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/monkey.m4a",
+          "sounds/alphabet/example/vase.m4a",
+          "sounds/alphabet/example/doll.m4a",
+          "sounds/alphabet/example/hand.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Nn",
+        imageOptions: [
+          image.noodle.path,
+          image.apple.path,
+          image.ramp.path,
+          image.goat.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/noodle.m4a",
+          "sounds/alphabet/example/apple.m4a",
+          "sounds/alphabet/example/ramp.m4a",
+          "sounds/alphabet/example/goat.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Oo",
+        imageOptions: [
+          image.octopus.path,
+          image.zoo.path,
+          image.tail.path,
+          image.ice.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/octopus.m4a",
+          "sounds/alphabet/example/zoo.m4a",
+          "sounds/alphabet/example/tail.m4a",
+          "sounds/alphabet/example/ice.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Pp",
+        imageOptions: [
+          image.penguin.path,
+          image.yarn.path,
+          image.jam.path,
+          image.lamb.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/penguin.m4a",
+          "sounds/alphabet/example/yarn.m4a",
+          "sounds/alphabet/example/jam.m4a",
+          "sounds/alphabet/example/lamb.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Qq",
+        imageOptions: [
+          image.queen.path,
+          image.cat.path,
+          image.fan.path,
+          image.xylophone.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/queen.m4a",
+          "sounds/alphabet/example/cat.m4a",
+          "sounds/alphabet/example/fan.m4a",
+          "sounds/alphabet/example/xylophone.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Rr",
+        imageOptions: [
+          image.ramp.path,
+          image.monkey.path,
+          image.umbrella.path,
+          image.doll.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/ramp.m4a",
+          "sounds/alphabet/example/monkey.m4a",
+          "sounds/alphabet/example/umbrella.m4a",
+          "sounds/alphabet/example/doll.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Ss",
+        imageOptions: [
+          image.sun.path,
+          image.wagon.path,
+          image.kite.path,
+          image.zoo.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/sun.m4a",
+          "sounds/alphabet/example/wagon.m4a",
+          "sounds/alphabet/example/kite.m4a",
+          "sounds/alphabet/example/zoo.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Tt",
+        imageOptions: [
+          image.tail.path,
+          image.jam.path,
+          image.apple.path,
+          image.queen.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/tail.m4a",
+          "sounds/alphabet/example/jam.m4a",
+          "sounds/alphabet/example/apple.m4a",
+          "sounds/alphabet/example/queen.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Uu",
+        imageOptions: [
+          image.umbrella.path,
+          image.penguin.path,
+          image.ramp.path,
+          image.lamb.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/umbrella.m4a",
+          "sounds/alphabet/example/penguin.m4a",
+          "sounds/alphabet/example/ramp.m4a",
+          "sounds/alphabet/example/lamb.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Vv",
+        imageOptions: [
+          image.vase.path,
+          image.doll.path,
+          image.hand.path,
+          image.ice.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/vase.m4a",
+          "sounds/alphabet/example/doll.m4a",
+          "sounds/alphabet/example/hand.m4a",
+          "sounds/alphabet/example/ice.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Ww",
+        imageOptions: [
+          image.wagon.path,
+          image.sun.path,
+          image.tail.path,
+          image.cat.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/wagon.m4a",
+          "sounds/alphabet/example/sun.m4a",
+          "sounds/alphabet/example/tail.m4a",
+          "sounds/alphabet/example/cat.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Xx",
+        imageOptions: [
+          image.xylophone.path,
+          image.octopus.path,
+          image.kite.path,
+          image.yarn.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/xylophone.m4a",
+          "sounds/alphabet/example/octopus.m4a",
+          "sounds/alphabet/example/kite.m4a",
+          "sounds/alphabet/example/yarn.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Yy",
+        imageOptions: [
+          image.yarn.path,
+          image.apple.path,
+          image.noodle.path,
+          image.penguin.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/yarn.m4a",
+          "sounds/alphabet/example/apple.m4a",
+          "sounds/alphabet/example/noodle.m4a",
+          "sounds/alphabet/example/penguin.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
+      AlphabetQuestion(
+        questionText: "Zz",
+        imageOptions: [
+          image.zoo.path,
+          image.queen.path,
+          image.monkey.path,
+          image.vase.path,
+        ],
+        audioOptions: [
+          "sounds/alphabet/example/zoo.m4a",
+          "sounds/alphabet/example/queen.m4a",
+          "sounds/alphabet/example/monkey.m4a",
+          "sounds/alphabet/example/vase.m4a",
+        ],
+        correctAnswerIndex: 0,
+      ),
     ];
 
     randomizeCurrentQuestion();
@@ -171,6 +521,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   void nextQuestion() {
+    _stop();
     if (currentQuestionIndex < questions.length - 1) {
       setState(() {
         currentQuestionIndex++;
