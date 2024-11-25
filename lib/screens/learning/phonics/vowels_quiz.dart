@@ -59,10 +59,11 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     _audioService.setOnComplete(() {});
 
     questions = [
+      // Questions for 'a'
       VowelsQuestion(
-        imagePath: Assets.images.phonics.vowels.fan.path,
-        questionText: "f_n",
-        audioPath: "sounds/vowels/fafan.m4a",
+        imagePath: Assets.images.phonics.vowels.cat.path,
+        questionText: "c_t",
+        audioPath: "sounds/vowels/cacat.m4a",
         options: [
           'a',
           'o',
@@ -71,29 +72,167 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         correctAnswerIndex: 0,
       ),
       VowelsQuestion(
-        imagePath: Assets.images.phonics.vowels.dog.path,
-        questionText: "d_g",
-        audioPath: "sounds/vowels/dodog.m4a",
+        imagePath: Assets.images.phonics.vowels.mat.path,
+        questionText: "m_t",
+        audioPath: "sounds/vowels/mamat.m4a",
+        options: [
+          'a',
+          'i',
+          'u',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.lamp.path,
+        questionText: "l_mp",
+        audioPath: "sounds/vowels/lalamp.m4a",
+        options: [
+          'a',
+          'e',
+          'o',
+        ],
+        correctAnswerIndex: 0,
+      ),
+
+      // Questions for 'e'
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.bed.path,
+        questionText: "b_d",
+        audioPath: "sounds/vowels/bebed.m4a",
+        options: [
+          'e',
+          'i',
+          'a',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.net.path,
+        questionText: "n_t",
+        audioPath: "sounds/vowels/nenet.m4a",
         options: [
           'e',
           'o',
-          'i',
+          'u',
         ],
-        correctAnswerIndex: 1,
+        correctAnswerIndex: 0,
       ),
       VowelsQuestion(
-        imagePath: Assets.images.phonics.vowels.gum.path,
-        questionText: "g_m",
-        audioPath: "sounds/vowels/gugum.m4a",
+        imagePath: Assets.images.phonics.vowels.pen.path,
+        questionText: "p_n",
+        audioPath: "sounds/vowels/pepen.m4a",
         options: [
-          'u',
-          'o',
+          'e',
+          'a',
           'i',
         ],
         correctAnswerIndex: 0,
       ),
-      // Add more questions here
-      // kulang pa!
+
+      // Questions for 'i'
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.bib.path,
+        questionText: "b_b",
+        audioPath: "sounds/vowels/bibib.m4a",
+        options: [
+          'i',
+          'e',
+          'o',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.pig.path,
+        questionText: "p_g",
+        audioPath: "sounds/vowels/pipig.m4a",
+        options: [
+          'i',
+          'u',
+          'a',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.gift.path,
+        questionText: "g_ft",
+        audioPath: "sounds/vowels/gigift.m4a",
+        options: [
+          'i',
+          'e',
+          'o',
+        ],
+        correctAnswerIndex: 0,
+      ),
+
+      // Questions for 'o'
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.dog.path,
+        questionText: "d_g",
+        audioPath: "sounds/vowels/dodog.m4a",
+        options: [
+          'o',
+          'a',
+          'e',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.hog.path,
+        questionText: "h_g",
+        audioPath: "sounds/vowels/hohog.m4a",
+        options: [
+          'o',
+          'u',
+          'i',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.cot.path,
+        questionText: "c_t",
+        audioPath: "sounds/vowels/cocot.m4a",
+        options: [
+          'o',
+          'a',
+          'e',
+        ],
+        correctAnswerIndex: 0,
+      ),
+
+      // Questions for 'u'
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.bus.path,
+        questionText: "b_s",
+        audioPath: "sounds/vowels/bubus.m4a",
+        options: [
+          'u',
+          'i',
+          'o',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.sun.path,
+        questionText: "s_n",
+        audioPath: "sounds/vowels/susun.m4a",
+        options: [
+          'u',
+          'a',
+          'e',
+        ],
+        correctAnswerIndex: 0,
+      ),
+      VowelsQuestion(
+        imagePath: Assets.images.phonics.vowels.hut.path,
+        questionText: "h_t",
+        audioPath: "sounds/vowels/huhut.m4a",
+        options: [
+          'u',
+          'o',
+          'a',
+        ],
+        correctAnswerIndex: 0,
+      ),
     ];
 
     randomizeCurrentQuestion();
@@ -140,6 +279,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   void nextQuestion() {
+    _stop();
     if (currentQuestionIndex < questions.length - 1) {
       setState(() {
         currentQuestionIndex++;
@@ -165,15 +305,15 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     return score;
   }
 
-  void restartQuiz() {
-    setState(() {
-      currentQuestionIndex = 0;
-      userAnswers.clear();
-      showResults = false;
-      randomizeCurrentQuestion();
-      _confettiHelper.stopConfettiLoop(); // Stop confetti when restarting
-    });
-  }
+  // void restartQuiz() {
+  //   setState(() {
+  //     currentQuestionIndex = 0;
+  //     userAnswers.clear();
+  //     showResults = false;
+  //     randomizeCurrentQuestion();
+  //     _confettiHelper.stopConfettiLoop(); // Stop confetti when restarting
+  //   });
+  // }
 
   void close() {
     return Navigator.of(context).pop();
@@ -390,21 +530,30 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(14.0),
-                        child: Column(
+                        child: Stack(
                           children: [
-                            Image(
-                              image: AssetImage(currentQuestion.imagePath),
-                              height: widget.constraints.maxHeight * .2,
-                              width: widget.constraints.maxWidth,
+                            Column(
+                              children: [
+                                Image(
+                                  image: AssetImage(currentQuestion.imagePath),
+                                  height: widget.constraints.maxHeight * .2,
+                                  width: widget.constraints.maxWidth,
+                                ),
+                                Text(
+                                  currentQuestion.questionText!,
+                                  style: TextStyle(
+                                    color: const Color(0xffA659FE),
+                                    fontSize:
+                                        widget.constraints.maxHeight * .05,
+                                    height: 1.0,
+                                  ),
+                                )
+                              ],
                             ),
-                            Text(
-                              currentQuestion.questionText!,
-                              style: TextStyle(
-                                color: const Color(0xffA659FE),
-                                fontSize: widget.constraints.maxHeight * .05,
-                                height: 1.0,
-                              ),
-                            )
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Icon(Icons.volume_up_rounded),
+                            ),
                           ],
                         ),
                       ),
