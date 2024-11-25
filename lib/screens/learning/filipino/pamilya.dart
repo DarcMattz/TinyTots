@@ -7,6 +7,7 @@ import 'package:flutter_application_1/components/lesson_card.dart';
 // import 'package:flutter_application_1/components/shape_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
 
@@ -37,27 +38,27 @@ class _PamilyaScreenState extends State<PamilyaScreen> {
   final List<Pamilya> pamilyaList = [
     Pamilya(
         label: "NANAY",
-        imagePath: "assets/images/filipino/pamilya_nanay.png",
+        imagePath: Assets.images.filipino.pamilya.pamilyaNanay.path,
         voicePath: ""),
     Pamilya(
         label: "TATAY",
-        imagePath: "assets/images/filipino/pamilya_tatay.png",
+        imagePath: Assets.images.filipino.pamilya.pamilyaTatay.path,
         voicePath: ""),
     Pamilya(
         label: "ATE",
-        imagePath: "assets/images/filipino/pamilya_ate.png",
+        imagePath: Assets.images.filipino.pamilya.pamilyaAte.path,
         voicePath: ""),
     Pamilya(
         label: "KUYA",
-        imagePath: "assets/images/filipino/pamilya_kuya.png",
+        imagePath: Assets.images.filipino.pamilya.pamilyaKuya.path,
         voicePath: ""),
     Pamilya(
         label: "LOLO",
-        imagePath: "assets/images/filipino/pamilya_lolo.png",
+        imagePath: Assets.images.filipino.pamilya.pamilyaLolo.path,
         voicePath: ""),
     Pamilya(
         label: "LOLA",
-        imagePath: "assets/images/filipino/pamilya_lola.png",
+        imagePath: Assets.images.filipino.pamilya.pamilyaLola.path,
         voicePath: ""),
   ];
 

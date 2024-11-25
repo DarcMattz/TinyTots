@@ -214,6 +214,10 @@ class $AssetsImagesAllAboardGen {
 class $AssetsImagesFilipinoGen {
   const $AssetsImagesFilipinoGen();
 
+  /// Directory path: assets/images/filipino/abakada
+  $AssetsImagesFilipinoAbakadaGen get abakada =>
+      const $AssetsImagesFilipinoAbakadaGen();
+
   /// File path: assets/images/filipino/abakada_pic.png
   AssetGenImage get abakadaPic =>
       const AssetGenImage('assets/images/filipino/abakada_pic.png');
@@ -222,9 +226,17 @@ class $AssetsImagesFilipinoGen {
   AssetGenImage get filipinoPic =>
       const AssetGenImage('assets/images/filipino/filipino_pic.png');
 
+  /// Directory path: assets/images/filipino/hugis
+  $AssetsImagesFilipinoHugisGen get hugis =>
+      const $AssetsImagesFilipinoHugisGen();
+
   /// File path: assets/images/filipino/hugis_pic.png
   AssetGenImage get hugisPic =>
       const AssetGenImage('assets/images/filipino/hugis_pic.png');
+
+  /// Directory path: assets/images/filipino/kulay
+  $AssetsImagesFilipinoKulayGen get kulay =>
+      const $AssetsImagesFilipinoKulayGen();
 
   /// File path: assets/images/filipino/kulay_pic.png
   AssetGenImage get kulayPic =>
@@ -245,6 +257,10 @@ class $AssetsImagesFilipinoGen {
   /// File path: assets/images/filipino/learn_pamilya.png
   AssetGenImage get learnPamilya =>
       const AssetGenImage('assets/images/filipino/learn_pamilya.png');
+
+  /// Directory path: assets/images/filipino/pamilya
+  $AssetsImagesFilipinoPamilyaGen get pamilya =>
+      const $AssetsImagesFilipinoPamilyaGen();
 
   /// File path: assets/images/filipino/pamilya_pic.png
   AssetGenImage get pamilyaPic =>
@@ -785,6 +801,192 @@ class $AssetsImagesAllAboardShapesGen {
         square,
         star,
         triangle
+      ];
+}
+
+class $AssetsImagesFilipinoAbakadaGen {
+  const $AssetsImagesFilipinoAbakadaGen();
+
+  /// File path: assets/images/filipino/abakada/abakada_Aa.png
+  AssetGenImage get abakadaAa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Aa.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ba.png
+  AssetGenImage get abakadaBa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ba.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Da.png
+  AssetGenImage get abakadaDa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Da.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ga.png
+  AssetGenImage get abakadaGa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ga.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ha.png
+  AssetGenImage get abakadaHa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ha.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ka.png
+  AssetGenImage get abakadaKa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ka.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_La.png
+  AssetGenImage get abakadaLa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_La.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ma.png
+  AssetGenImage get abakadaMa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ma.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Na.png
+  AssetGenImage get abakadaNa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Na.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Nga.png
+  AssetGenImage get abakadaNga =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Nga.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Pa.png
+  AssetGenImage get abakadaPa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Pa.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ra.png
+  AssetGenImage get abakadaRa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ra.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Sa.png
+  AssetGenImage get abakadaSa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Sa.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Ta.png
+  AssetGenImage get abakadaTa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Ta.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Wa.png
+  AssetGenImage get abakadaWa =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Wa.png');
+
+  /// File path: assets/images/filipino/abakada/abakada_Yo.png
+  AssetGenImage get abakadaYo =>
+      const AssetGenImage('assets/images/filipino/abakada/abakada_Yo.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        abakadaAa,
+        abakadaBa,
+        abakadaDa,
+        abakadaGa,
+        abakadaHa,
+        abakadaKa,
+        abakadaLa,
+        abakadaMa,
+        abakadaNa,
+        abakadaNga,
+        abakadaPa,
+        abakadaRa,
+        abakadaSa,
+        abakadaTa,
+        abakadaWa,
+        abakadaYo
+      ];
+}
+
+class $AssetsImagesFilipinoHugisGen {
+  const $AssetsImagesFilipinoHugisGen();
+
+  /// File path: assets/images/filipino/hugis/hugis_bilog.png
+  AssetGenImage get hugisBilog =>
+      const AssetGenImage('assets/images/filipino/hugis/hugis_bilog.png');
+
+  /// File path: assets/images/filipino/hugis/hugis_oblong.png
+  AssetGenImage get hugisOblong =>
+      const AssetGenImage('assets/images/filipino/hugis/hugis_oblong.png');
+
+  /// File path: assets/images/filipino/hugis/hugis_parihaba.png
+  AssetGenImage get hugisParihaba =>
+      const AssetGenImage('assets/images/filipino/hugis/hugis_parihaba.png');
+
+  /// File path: assets/images/filipino/hugis/hugis_parisukat.png
+  AssetGenImage get hugisParisukat =>
+      const AssetGenImage('assets/images/filipino/hugis/hugis_parisukat.png');
+
+  /// File path: assets/images/filipino/hugis/hugis_tatsulok.png
+  AssetGenImage get hugisTatsulok =>
+      const AssetGenImage('assets/images/filipino/hugis/hugis_tatsulok.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [hugisBilog, hugisOblong, hugisParihaba, hugisParisukat, hugisTatsulok];
+}
+
+class $AssetsImagesFilipinoKulayGen {
+  const $AssetsImagesFilipinoKulayGen();
+
+  /// File path: assets/images/filipino/kulay/kulay_asul.png
+  AssetGenImage get kulayAsul =>
+      const AssetGenImage('assets/images/filipino/kulay/kulay_asul.png');
+
+  /// File path: assets/images/filipino/kulay/kulay_berde.png
+  AssetGenImage get kulayBerde =>
+      const AssetGenImage('assets/images/filipino/kulay/kulay_berde.png');
+
+  /// File path: assets/images/filipino/kulay/kulay_dilaw.png
+  AssetGenImage get kulayDilaw =>
+      const AssetGenImage('assets/images/filipino/kulay/kulay_dilaw.png');
+
+  /// File path: assets/images/filipino/kulay/kulay_kahel.png
+  AssetGenImage get kulayKahel =>
+      const AssetGenImage('assets/images/filipino/kulay/kulay_kahel.png');
+
+  /// File path: assets/images/filipino/kulay/kulay_lila.png
+  AssetGenImage get kulayLila =>
+      const AssetGenImage('assets/images/filipino/kulay/kulay_lila.png');
+
+  /// File path: assets/images/filipino/kulay/kulay_pula.png
+  AssetGenImage get kulayPula =>
+      const AssetGenImage('assets/images/filipino/kulay/kulay_pula.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [kulayAsul, kulayBerde, kulayDilaw, kulayKahel, kulayLila, kulayPula];
+}
+
+class $AssetsImagesFilipinoPamilyaGen {
+  const $AssetsImagesFilipinoPamilyaGen();
+
+  /// File path: assets/images/filipino/pamilya/pamilya_ate.png
+  AssetGenImage get pamilyaAte =>
+      const AssetGenImage('assets/images/filipino/pamilya/pamilya_ate.png');
+
+  /// File path: assets/images/filipino/pamilya/pamilya_kuya.png
+  AssetGenImage get pamilyaKuya =>
+      const AssetGenImage('assets/images/filipino/pamilya/pamilya_kuya.png');
+
+  /// File path: assets/images/filipino/pamilya/pamilya_lola.png
+  AssetGenImage get pamilyaLola =>
+      const AssetGenImage('assets/images/filipino/pamilya/pamilya_lola.png');
+
+  /// File path: assets/images/filipino/pamilya/pamilya_lolo.png
+  AssetGenImage get pamilyaLolo =>
+      const AssetGenImage('assets/images/filipino/pamilya/pamilya_lolo.png');
+
+  /// File path: assets/images/filipino/pamilya/pamilya_nanay.png
+  AssetGenImage get pamilyaNanay =>
+      const AssetGenImage('assets/images/filipino/pamilya/pamilya_nanay.png');
+
+  /// File path: assets/images/filipino/pamilya/pamilya_tatay.png
+  AssetGenImage get pamilyaTatay =>
+      const AssetGenImage('assets/images/filipino/pamilya/pamilya_tatay.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        pamilyaAte,
+        pamilyaKuya,
+        pamilyaLola,
+        pamilyaLolo,
+        pamilyaNanay,
+        pamilyaTatay
       ];
 }
 

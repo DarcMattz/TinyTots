@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/utils/nice_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/components/mathematics/add_subtract_card.dart';
 import 'package:flutter_application_1/models/mathematics/number_only.dart';
 import 'package:gap/gap.dart';
-import '../../../components/utils/nice_button.dart';
 
 class AddSubtractScreen extends StatefulWidget {
   const AddSubtractScreen({super.key});
@@ -41,19 +42,19 @@ class _AddSubtractScreenState extends State<AddSubtractScreen> {
 
   final List<NumberOnly> _numbers = [
     NumberOnly(
-        numberImage: 'assets/images/mathematics/lesson_3-1.png',
+        numberImage: Assets.images.mathematics.lesson3.lesson31.path,
         numberSound: "sounds/mathematics/1st_step.m4a"),
     NumberOnly(
-        numberImage: 'assets/images/mathematics/lesson_3-2.png',
+        numberImage: Assets.images.mathematics.lesson3.lesson32.path,
         numberSound: "sounds/mathematics/2nd_step.m4a"),
     NumberOnly(
-        numberImage: 'assets/images/mathematics/lesson_3-3.png',
+        numberImage: Assets.images.mathematics.lesson3.lesson33.path,
         numberSound: "sounds/mathematics/3rd_step.m4a"),
     NumberOnly(
-        numberImage: 'assets/images/mathematics/lesson_3-4.png',
+        numberImage: Assets.images.mathematics.lesson3.lesson34.path,
         numberSound: "sounds/mathematics/4th_step.m4a"),
     NumberOnly(
-        numberImage: 'assets/images/mathematics/lesson_3-5.png',
+        numberImage: Assets.images.mathematics.lesson3.lesson35.path,
         numberSound: "sounds/mathematics/5th_step.m4a"),
   ];
 

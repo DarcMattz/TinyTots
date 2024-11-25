@@ -1,9 +1,11 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/lesson_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
 
@@ -34,27 +36,27 @@ class _KulayScreenState extends State<KulayScreen> {
   final List<Kulay> kulayList = [
     Kulay(
         label: "Pula",
-        imagePath: "assets/images/filipino/kulay_pula.png",
+        imagePath: Assets.images.filipino.kulay.kulayPula.path,
         voicePath: ""),
     Kulay(
         label: "Kahel",
-        imagePath: "assets/images/filipino/kulay_kahel.png",
+        imagePath: Assets.images.filipino.kulay.kulayKahel.path,
         voicePath: ""),
     Kulay(
         label: "Dilaw",
-        imagePath: "assets/images/filipino/kulay_dilaw.png",
+        imagePath: Assets.images.filipino.kulay.kulayDilaw.path,
         voicePath: ""),
     Kulay(
         label: "Berde",
-        imagePath: "assets/images/filipino/kulay_berde.png",
+        imagePath: Assets.images.filipino.kulay.kulayBerde.path,
         voicePath: ""),
     Kulay(
         label: "Asul",
-        imagePath: "assets/images/filipino/kulay_asul.png",
+        imagePath: Assets.images.filipino.kulay.kulayAsul.path,
         voicePath: ""),
     Kulay(
         label: "Lila",
-        imagePath: "assets/images/filipino/kulay_lila.png",
+        imagePath: Assets.images.filipino.kulay.kulayLila.path,
         voicePath: ""),
   ];
 

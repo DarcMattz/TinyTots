@@ -4,6 +4,7 @@ import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/lesson_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
 
@@ -34,23 +35,23 @@ class _HugisScreenState extends State<HugisScreen> {
   final List<Hugis> hugisList = [
     Hugis(
         label: "Bilog",
-        imagePath: "assets/images/filipino/hugis_bilog.png",
+        imagePath: Assets.images.filipino.hugis.hugisBilog.path,
         voicePath: ""),
     Hugis(
         label: "Parisukat",
-        imagePath: "assets/images/filipino/hugis_parisukat.png",
+        imagePath: Assets.images.filipino.hugis.hugisParisukat.path,
         voicePath: ""),
     Hugis(
         label: "Parihaba",
-        imagePath: "assets/images/filipino/hugis_parihaba.png",
+        imagePath: Assets.images.filipino.hugis.hugisParihaba.path,
         voicePath: ""),
     Hugis(
         label: "Oblong",
-        imagePath: "assets/images/filipino/hugis_oblong.png",
+        imagePath: Assets.images.filipino.hugis.hugisOblong.path,
         voicePath: ""),
     Hugis(
         label: "Tatsulok",
-        imagePath: "assets/images/filipino/hugis_tatsulok.png",
+        imagePath: Assets.images.filipino.hugis.hugisTatsulok.path,
         voicePath: ""),
   ];
 

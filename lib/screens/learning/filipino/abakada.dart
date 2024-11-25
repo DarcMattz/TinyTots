@@ -2,32 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
 import 'package:flutter_application_1/components/lesson_card.dart';
-// import 'package:flutter_application_1/components/letter_card.dart';
-// import 'package:flutter_application_1/components/nice_button.dart';
-// import 'package:flutter_application_1/components/shape_card.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
-// import 'package:flutter_application_1/models/all_aboard/shape.dart';
-// import 'package:flutter_application_1/screens/learning/filipino/abakada_quiz.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/models/filipino/abakada.dart';
 import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
-// import 'package:flutter_application_1/models/shape.dart';
-// import 'package:flutter_application_1/screens/learning/filipino/filipino_start_quiz.dart';
 import 'package:gap/gap.dart';
-
-class Abakada {
-  final String imagePath;
-  final String label;
-  final String voicePath;
-  final String mainContent;
-  final List<String>? subContent;
-
-  Abakada(
-      {required this.label,
-      required this.imagePath,
-      required this.voicePath,
-      required this.mainContent,
-      this.subContent});
-}
 
 class AbakadaScreen extends StatefulWidget {
   final Widget quizScreen;
@@ -44,28 +24,28 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
     [
       Abakada(imagePath: "", label: "", mainContent: "Aa", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Aa.png",
+          imagePath: Assets.images.filipino.abakada.abakadaAa.path,
           label: "A-so",
           mainContent: "",
           voicePath: "",
           subContent: ["a", "e", "i", "o", "u"]),
       Abakada(imagePath: "", label: "", mainContent: "Ba", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ba.png",
+          imagePath: Assets.images.filipino.abakada.abakadaBa.path,
           label: "Ba-ka",
           mainContent: "",
           voicePath: "",
           subContent: ["Ba", "Be", "Bi", "Bo", "Bu"]),
       Abakada(imagePath: "", label: "", mainContent: "Ka", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ka.png",
+          imagePath: Assets.images.filipino.abakada.abakadaKa.path,
           label: "Ka-bayo",
           mainContent: "",
           voicePath: "",
           subContent: ["Ka", "Ke", "Ki", "Ko", "Ku"]),
       Abakada(imagePath: "", label: "", mainContent: "Da", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Da.png",
+          imagePath: Assets.images.filipino.abakada.abakadaDa.path,
           label: "Da-ga",
           mainContent: "",
           voicePath: "",
@@ -74,28 +54,28 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
     [
       Abakada(imagePath: "", label: "", mainContent: "Ga", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ga.png",
+          imagePath: Assets.images.filipino.abakada.abakadaGa.path,
           label: "Ga-gamba",
           mainContent: "",
           voicePath: "",
           subContent: ["Ga", "Ge", "Gi", "Go", "Gu"]),
       Abakada(imagePath: "", label: "", mainContent: "Ha", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ha.png",
+          imagePath: Assets.images.filipino.abakada.abakadaHa.path,
           label: "Ha-laman",
           mainContent: "",
           voicePath: "",
           subContent: ["Ha", "He", "Hi", "Ho", "Hu"]),
       Abakada(imagePath: "", label: "", mainContent: "La", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_La.png",
+          imagePath: Assets.images.filipino.abakada.abakadaLa.path,
           label: "La-pis",
           mainContent: "",
           voicePath: "",
           subContent: ["La", "Le", "Li", "Lo", "Lu"]),
       Abakada(imagePath: "", label: "", mainContent: "Ma", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ma.png",
+          imagePath: Assets.images.filipino.abakada.abakadaMa.path,
           label: "Ma-ta",
           mainContent: "",
           voicePath: "",
@@ -104,28 +84,28 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
     [
       Abakada(imagePath: "", label: "", mainContent: "Na", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Na.png",
+          imagePath: Assets.images.filipino.abakada.abakadaNa.path,
           label: "Na-nay",
           mainContent: "",
           voicePath: "",
           subContent: ["Na", "Ne", "Ni", "No", "Nu"]),
       Abakada(imagePath: "", label: "", mainContent: "Nga", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Nga.png",
+          imagePath: Assets.images.filipino.abakada.abakadaNga.path,
           label: "Ngi-pin",
           mainContent: "",
           voicePath: "",
           subContent: ["Nga", "Nge", "Ngi", "Ngo", "Ngu"]),
       Abakada(imagePath: "", label: "", mainContent: "Pa", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Pa.png",
+          imagePath: Assets.images.filipino.abakada.abakadaPa.path,
           label: "Pa-paya",
           mainContent: "",
           voicePath: "",
           subContent: ["Pa", "Pe", "Pi", "Po", "Pu"]),
       Abakada(imagePath: "", label: "", mainContent: "Ra", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ra.png",
+          imagePath: Assets.images.filipino.abakada.abakadaRa.path,
           label: "Ra-dyo",
           mainContent: "",
           voicePath: "",
@@ -134,28 +114,28 @@ class _AbakadaScreenState extends State<AbakadaScreen> {
     [
       Abakada(imagePath: "", label: "", mainContent: "Sa", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Sa.png",
+          imagePath: Assets.images.filipino.abakada.abakadaSa.path,
           label: "Sa-ging",
           mainContent: "",
           voicePath: "",
           subContent: ["Sa", "Se", "Si", "So", "Su"]),
       Abakada(imagePath: "", label: "", mainContent: "Ta", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Ta.png",
+          imagePath: Assets.images.filipino.abakada.abakadaTa.path,
           label: "Ta-sa",
           mainContent: "",
           voicePath: "",
           subContent: ["Ta", "Te", "Ti", "To", "Tu"]),
       Abakada(imagePath: "", label: "", mainContent: "Wa", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Wa.png",
+          imagePath: Assets.images.filipino.abakada.abakadaWa.path,
           label: "Wa-lis",
           mainContent: "",
           voicePath: "",
           subContent: ["Wa", "We", "Wi", "Wo", "Wu"]),
       Abakada(imagePath: "", label: "", mainContent: "Ya", voicePath: ""),
       Abakada(
-          imagePath: "assets/images/filipino/abakada_Yo.png",
+          imagePath: Assets.images.filipino.abakada.abakadaYo.path,
           label: "Yo-yo",
           mainContent: "",
           voicePath: "",
