@@ -1,11 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/settings_icon_button.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/components/utils/nice_button.dart';
+import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/helper/prefs_helper.dart';
+import 'package:flutter_application_1/screens/home.dart';
+import 'package:flutter_application_1/screens/settings/profile.dart';
 import 'package:flutter_application_1/screens/settings/stats.dart';
 import 'package:gap/gap.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});
@@ -16,6 +23,8 @@ class SettingsDialog extends StatefulWidget {
 
 class _SettingsDialogState extends State<SettingsDialog> {
   final AudioService _audioService = AudioService();
+  TextEditingController _textFieldController =
+      TextEditingController(text: prefs.getString('username'));
 
   @override
   void initState() {
@@ -65,11 +74,19 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     //   color: Colors.blue,
                     //   label: 'Sound',
                     // ),
-                    // SettingsIconButton(
-                    //   icon: Icons.person,
-                    //   color: Colors.green,
-                    //   label: 'Profile',
-                    // ),
+                    SettingsIconButton(
+                      icon: Icons.person,
+                      color: Colors.green,
+                      label: 'Profile',
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChangeProfile(),
+                          ),
+                        );
+                      },
+                    ),
                     SettingsIconButton(
                       icon: Icons.bar_chart,
                       color: Colors.purple,
@@ -89,40 +106,48 @@ class _SettingsDialogState extends State<SettingsDialog> {
                       label: 'Clear Data',
                       onPressed: () => Storage.defaultData(),
                     ),
-                    SettingsIconButton(
-                      icon: Icons.bar_chart,
-                      color: Colors.purple,
-                      label: 'Print Data',
-                      onPressed: () => Storage.getData(),
-                    ),
+                    // SettingsIconButton(
+                    //   icon: Icons.bar_chart,
+                    //   color: Colors.purple,
+                    //   label: 'Print Data',
+                    //   onPressed: () => Storage.getData(),
+                    // ),
                     // SettingsIconButton(
                     //   icon: Icons.delete,
                     //   color: Colors.red,
                     //   label: 'Delete Data',
                     //   onPressed: () => Storage.clearData(),
                     // ),
-                    // SettingsIconButton(
-                    //     icon: Icons.volume_up,
-                    //     color: Colors.red,
-                    //     label: 'Try Sound',
-                    //     onPressed: () {
-                    //       String soundPath =
-                    //           Assets.sounds.alphabet.example.apple;
-                    //       _play(soundPath);
-                    //     }),
                   ],
                 ),
                 const Gap(20),
-                const TextField(
-                  decoration: InputDecoration(hintText: "Enter your Username"),
-                  textAlign: TextAlign.center,
-                ),
-                const Text(
-                  'username',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: TextField(
+                    style: const TextStyle(
+                      color: Color(0xFF4D4D4D),
+                      fontSize: 20,
+                    ),
+                    controller: _textFieldController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xffD9D9D9),
+                      // labelText: "Username",
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(28.0),
+                      ),
+                      errorText: _textFieldController.text.isEmpty
+                          ? 'Username cannot be empty'
+                          : null,
+                    ),
+                    textAlign: TextAlign.center,
+                    onSubmitted: (value) {
+                      if (value.isNotEmpty) {
+                        prefs.setString('username', value);
+                        log('Username: $value');
+                      }
+                    },
                   ),
                 ),
                 const Gap(20),
@@ -164,13 +189,33 @@ class _SettingsDialogState extends State<SettingsDialog> {
             Positioned(
               top: -15,
               right: -10,
-              child: CircleButton(
-                color: Colors.purpleAccent,
-                shadowColor: Colors.purple,
-                icon: Icons.close,
-                method: () {
-                  Navigator.pop(context);
-                },
+              child: PushReplacement(
+                route: PageTransition(
+                  type: PageTransitionType.scale,
+                  alignment: Alignment.center,
+                  child: const HomeScreen(),
+                ),
+                child: CircleButton(
+                  color: Colors.purpleAccent,
+                  shadowColor: Colors.purple,
+                  icon: Icons.close,
+                  method: () {
+                    if (_textFieldController.text.isNotEmpty) {
+                      prefs.setString('username', _textFieldController.text);
+                      log('Username: ${_textFieldController.text}');
+                    }
+                    if (context.mounted) {
+                      Navigator.pushReplacement(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          alignment: Alignment.center,
+                          child: const HomeScreen(),
+                        ),
+                      );
+                    }
+                  },
+                ),
               ),
             ),
           ],

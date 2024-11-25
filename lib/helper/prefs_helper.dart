@@ -37,6 +37,9 @@ class Storage {
 
   // Set Default
   static defaultData() {
+    //settings
+    prefs.setString('username', '');
+
     //shapes
     prefs.setInt('shapes_current_index', 0);
     prefs.setBool('shapes_quiz_unlocked', false);

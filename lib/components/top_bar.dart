@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dialogs/settings_dialog.dart';
+import 'package:flutter_application_1/globals.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final String username = prefs.getString('username') ?? 'Guest';
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
@@ -25,8 +28,8 @@ class TopBar extends StatelessWidget {
                   color: Colors.purpleAccent,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Text(
-                  'username',
+                child: Text(
+                  username,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
