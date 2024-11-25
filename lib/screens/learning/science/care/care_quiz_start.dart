@@ -5,7 +5,6 @@ import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/science.dart';
-import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz.dart';
 import 'package:page_transition/page_transition.dart';
 
 class CareQuizStart extends StatelessWidget {

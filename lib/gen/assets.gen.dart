@@ -2026,6 +2026,10 @@ class $AssetsImagesScienceCareQuizGen {
   AssetGenImage get basketFront =>
       const AssetGenImage('assets/images/science/care/quiz/basket_front.png');
 
+  /// File path: assets/images/science/care/quiz/basket_inside.png
+  AssetGenImage get basketInside =>
+      const AssetGenImage('assets/images/science/care/quiz/basket_inside.png');
+
   /// File path: assets/images/science/care/quiz/care_quiz.png
   AssetGenImage get careQuiz =>
       const AssetGenImage('assets/images/science/care/quiz/care_quiz.png');
@@ -2066,6 +2070,7 @@ class $AssetsImagesScienceCareQuizGen {
   List<AssetGenImage> get values => [
         basketBack,
         basketFront,
+        basketInside,
         careQuiz,
         item1,
         item2,

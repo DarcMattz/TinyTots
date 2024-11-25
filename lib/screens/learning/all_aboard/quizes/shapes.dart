@@ -98,6 +98,48 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         ],
         correctAnswerIndex: 0,
       ),
+      ShapesQuestion(
+        questionText: "",
+        imageOptions: [
+          image.triangle.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+        ],
+        correctAnswerIndex: 0,
+      ),
+      ShapesQuestion(
+        questionText: "",
+        imageOptions: [
+          image.circle.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+          image.oval.path,
+        ],
+        correctAnswerIndex: 0,
+      ),
+      ShapesQuestion(
+        questionText: "",
+        imageOptions: [
+          image.rectangle.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+          image.square.path,
+        ],
+        correctAnswerIndex: 0,
+      ),
       // Add more questions here
       // kulang pa!
     ];
