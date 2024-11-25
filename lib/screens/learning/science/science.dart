@@ -4,13 +4,10 @@ import 'package:flutter_application_1/components/modules.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/screens/learning/science/body/body_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/body/body_start.dart';
-import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/care/care_start.dart';
-import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz.dart';
 import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz_start.dart';
 import 'package:flutter_application_1/screens/learning/science/sense/senses_start.dart';
 

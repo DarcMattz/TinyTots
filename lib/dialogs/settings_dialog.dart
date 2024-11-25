@@ -1,10 +1,10 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/settings_icon_button.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/helper/prefs_helper.dart';
+import 'package:flutter_application_1/screens/settings/stats.dart';
 import 'package:gap/gap.dart';
 
 class SettingsDialog extends StatefulWidget {
@@ -70,11 +70,19 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     //   color: Colors.green,
                     //   label: 'Profile',
                     // ),
-                    // SettingsIconButton(
-                    //   icon: Icons.bar_chart,
-                    //   color: Colors.purple,
-                    //   label: 'Stats',
-                    // ),
+                    SettingsIconButton(
+                      icon: Icons.bar_chart,
+                      color: Colors.purple,
+                      label: 'Stats',
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const StatsScreen(),
+                          ),
+                        );
+                      },
+                    ),
                     SettingsIconButton(
                       icon: Icons.cleaning_services,
                       color: Colors.orange,
@@ -93,13 +101,15 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     //   label: 'Delete Data',
                     //   onPressed: () => Storage.clearData(),
                     // ),
-                    SettingsIconButton(
-                      icon: Icons.volume_up,
-                      color: Colors.red,
-                      label: 'Try Sound',
-                      onPressed: () =>
-                          _play("sounds/alphabet/example/apple.m4a"),
-                    ),
+                    // SettingsIconButton(
+                    //     icon: Icons.volume_up,
+                    //     color: Colors.red,
+                    //     label: 'Try Sound',
+                    //     onPressed: () {
+                    //       String soundPath =
+                    //           Assets.sounds.alphabet.example.apple;
+                    //       _play(soundPath);
+                    //     }),
                   ],
                 ),
                 const Gap(20),

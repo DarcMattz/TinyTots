@@ -38,6 +38,9 @@ class $AssetsImagesGen {
   /// Directory path: assets/images/filipino
   $AssetsImagesFilipinoGen get filipino => const $AssetsImagesFilipinoGen();
 
+  /// File path: assets/images/fox.png
+  AssetGenImage get fox => const AssetGenImage('assets/images/fox.png');
+
   /// File path: assets/images/geography.png
   AssetGenImage get geography =>
       const AssetGenImage('assets/images/geography.png');
@@ -122,6 +125,7 @@ class $AssetsImagesGen {
         cow,
         dog,
         explore,
+        fox,
         geography,
         giraffe,
         koala,

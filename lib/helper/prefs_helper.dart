@@ -3,6 +3,9 @@ import 'package:flutter_application_1/globals.dart';
 
 class Storage {
   static List allKeys = [
+    //settings
+    'username',
+
     //shapes
     'shapes_current_index',
     'shapes_quiz_unlocked',
