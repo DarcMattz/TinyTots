@@ -18,6 +18,9 @@ class $AssetsImagesGen {
   /// Directory path: assets/images/all_aboard
   $AssetsImagesAllAboardGen get allAboard => const $AssetsImagesAllAboardGen();
 
+  /// Directory path: assets/images/avatars
+  $AssetsImagesAvatarsGen get avatars => const $AssetsImagesAvatarsGen();
+
   /// File path: assets/images/background.png
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
@@ -61,10 +64,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/lock_dog.png
   AssetGenImage get lockDog =>
       const AssetGenImage('assets/images/lock_dog.png');
-
-  /// File path: assets/images/lock_quiz_pic.png
-  AssetGenImage get lockQuizPic =>
-      const AssetGenImage('assets/images/lock_quiz_pic.png');
 
   /// Directory path: assets/images/mathematics
   $AssetsImagesMathematicsGen get mathematics =>
@@ -132,7 +131,6 @@ class $AssetsImagesGen {
         learning,
         lion,
         lockDog,
-        lockQuizPic,
         panda,
         play,
         profile,
@@ -213,6 +211,54 @@ class $AssetsImagesAllAboardGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [allaboardPic, alphabetPic, shapesPic];
+}
+
+class $AssetsImagesAvatarsGen {
+  const $AssetsImagesAvatarsGen();
+
+  /// File path: assets/images/avatars/boy_1.png
+  AssetGenImage get boy1 =>
+      const AssetGenImage('assets/images/avatars/boy_1.png');
+
+  /// File path: assets/images/avatars/boy_2.png
+  AssetGenImage get boy2 =>
+      const AssetGenImage('assets/images/avatars/boy_2.png');
+
+  /// File path: assets/images/avatars/boy_3.png
+  AssetGenImage get boy3 =>
+      const AssetGenImage('assets/images/avatars/boy_3.png');
+
+  /// File path: assets/images/avatars/boy_4.png
+  AssetGenImage get boy4 =>
+      const AssetGenImage('assets/images/avatars/boy_4.png');
+
+  /// File path: assets/images/avatars/boy_5.png
+  AssetGenImage get boy5 =>
+      const AssetGenImage('assets/images/avatars/boy_5.png');
+
+  /// File path: assets/images/avatars/girl_1.png
+  AssetGenImage get girl1 =>
+      const AssetGenImage('assets/images/avatars/girl_1.png');
+
+  /// File path: assets/images/avatars/girl_2.png
+  AssetGenImage get girl2 =>
+      const AssetGenImage('assets/images/avatars/girl_2.png');
+
+  /// File path: assets/images/avatars/girl_3.png
+  AssetGenImage get girl3 =>
+      const AssetGenImage('assets/images/avatars/girl_3.png');
+
+  /// File path: assets/images/avatars/girl_4.png
+  AssetGenImage get girl4 =>
+      const AssetGenImage('assets/images/avatars/girl_4.png');
+
+  /// File path: assets/images/avatars/girl_5.png
+  AssetGenImage get girl5 =>
+      const AssetGenImage('assets/images/avatars/girl_5.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [boy1, boy2, boy3, boy4, boy5, girl1, girl2, girl3, girl4, girl5];
 }
 
 class $AssetsImagesFilipinoGen {

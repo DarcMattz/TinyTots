@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dialogs/settings_dialog.dart';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 
-class TopBar extends StatelessWidget {
+class TopBar extends StatefulWidget {
   const TopBar({super.key});
 
   @override
+  State<TopBar> createState() => _TopBarState();
+}
+
+class _TopBarState extends State<TopBar> {
+  @override
   Widget build(BuildContext context) {
-    final String username = prefs.getString('username') ?? 'Guest';
+    String username = prefs.getString('username') ?? 'Guest';
+    String avatar =
+        prefs.getString('avatar') ?? Assets.images.avatars.boy1.path;
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -16,9 +24,9 @@ class TopBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 25,
-                backgroundImage: AssetImage('assets/images/profile.png'),
+                backgroundImage: AssetImage(avatar),
               ),
               const SizedBox(width: 10),
               Container(

@@ -110,50 +110,7 @@ class _AllAboardScreenState extends State<AllAboardScreen> {
                           ),
                           itemCount: allAboard.length,
                           itemBuilder: (context, index, realIndex) {
-                            // if (index == 1) {
-                            //   // Shapes Quiz
-                            //   return ValueListenableBuilder<bool>(
-                            //     valueListenable: shapesStatusNotifier,
-                            //     builder: (context, isShapesUnlocked, child) {
-                            //       if (isShapesUnlocked) {
-                            //         allAboard[index].score =
-                            //             shapesScoreNotifier.value;
-                            //       }
-                            //       allAboard[index].isFinished =
-                            //           isShapesUnlocked;
-                            //       // return ModuleCard(module: allAboard[index]);
-                            //       return ValueListenableBuilder<int>(
-                            //         valueListenable: shapesScoreNotifier,
-                            //         builder: (context, shapesScore, child) {
-                            //           if (isShapesUnlocked) {
-                            //             allAboard[index].score = shapesScore;
-                            //           }
-                            //           allAboard[index].score =
-                            //               shapesScoreNotifier.value;
-                            //           return ModuleCard(
-                            //               module: allAboard[index]);
-                            //         },
-                            //       );
-                            //     },
-                            //   );
-                            // } else if (index == 3) {
-                            //   // Alphabet Quiz
-                            //   return ValueListenableBuilder<bool>(
-                            //     valueListenable: alphabetStatusNotifier,
-                            //     builder: (context, isAlphabetUnlocked, child) {
-                            //       if (isAlphabetUnlocked) {
-                            //         allAboard[index].score =
-                            //             alphabetScoreNotifier.value;
-                            //       }
-                            //       allAboard[index].isFinished =
-                            //           isAlphabetUnlocked;
-                            //       return ModuleCard(module: allAboard[index]);
-                            //     },
-                            //   );
-                            // } else {
-                            // For non-quiz modules, return directly
                             return ModuleCard(module: allAboard[index]);
-                            // }
                           },
                         ),
                         const SizedBox(

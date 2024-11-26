@@ -17,13 +17,28 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class AndroidScreen extends StatelessWidget {
+class AndroidScreen extends StatefulWidget {
   final BoxConstraints constraints;
 
   const AndroidScreen({
     required this.constraints,
     super.key,
   });
+
+  @override
+  State<AndroidScreen> createState() => _AndroidScreenState();
+}
+
+class _AndroidScreenState extends State<AndroidScreen> {
+  @override
+  void initState() {
+    super.initState();
+    refreshScreen();
+  }
+
+  void refreshScreen() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +89,8 @@ class AndroidScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Assets.images.learning.image(
-                      height: constraints.maxHeight * 0.2,
-                      width: constraints.maxWidth * 0.6,
+                      height: widget.constraints.maxHeight * 0.2,
+                      width: widget.constraints.maxWidth * 0.6,
                     ),
                   ],
                 ),
@@ -117,8 +132,8 @@ class AndroidScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Assets.images.explore.image(
-                      height: constraints.maxHeight * 0.2,
-                      width: constraints.maxWidth * 0.6,
+                      height: widget.constraints.maxHeight * 0.2,
+                      width: widget.constraints.maxWidth * 0.6,
                     ),
                   ],
                 ),
@@ -129,7 +144,7 @@ class AndroidScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Assets.images.lion.image(
-                  height: constraints.maxHeight * 0.2,
+                  height: widget.constraints.maxHeight * 0.2,
                   // width: constraints.maxWidth * 0.6,
                 ),
               ],
