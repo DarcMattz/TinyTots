@@ -47,7 +47,7 @@ class _BodyStartScreenState extends State<BodyStartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: ScienceHealthScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.science.learnBody.path,

@@ -49,7 +49,7 @@ class _ShapesStartScreenState extends State<ShapesStartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: const AllAboardScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.allAboard.shapes.learnShapes.path,

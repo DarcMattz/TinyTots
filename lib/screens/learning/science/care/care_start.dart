@@ -47,7 +47,7 @@ class _CareStartScreenState extends State<CareStartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: ScienceHealthScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.science.learnCare.path,

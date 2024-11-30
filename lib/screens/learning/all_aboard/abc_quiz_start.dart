@@ -43,7 +43,7 @@ class AndroidWelcome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const TopBar(),
+            TopBar(oldScreen: AllAboardScreen()),
             const Spacer(),
             Stack(
               clipBehavior: Clip.none,
@@ -120,7 +120,7 @@ class AndroidWelcome extends StatelessWidget {
                             route: PageTransition(
                               type: PageTransitionType.scale,
                               alignment: Alignment.center,
-                              child: AllAboardScreen(),
+                              child: const AllAboardScreen(),
                             ),
                             child: NiceButton(
                               label: "Back",

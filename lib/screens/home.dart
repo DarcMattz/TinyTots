@@ -53,7 +53,7 @@ class _AndroidScreenState extends State<AndroidScreen> {
       child: SafeArea(
         child: Column(
           children: [
-            const TopBar(),
+            TopBar(oldScreen: HomeScreen()),
             const Spacer(),
             GestureDetector(
               onTap: () {

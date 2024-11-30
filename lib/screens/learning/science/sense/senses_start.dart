@@ -47,7 +47,7 @@ class _SensesStartScreenState extends State<SensesStartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: ScienceHealthScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.science.learnSenses.path,

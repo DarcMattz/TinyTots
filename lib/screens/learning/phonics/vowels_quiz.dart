@@ -499,7 +499,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // const TopBar(),
+          // TopBar(),
           const Spacer(),
           Card(
             margin: EdgeInsets.symmetric(

@@ -59,7 +59,7 @@ class _HugisScreenState extends State<HugisScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: FilipinoScreen()),
               Expanded(
                 child: CarouselSlider.builder(
                   carouselController: parentCarCon,

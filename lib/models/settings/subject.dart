@@ -1,5 +1,3 @@
-import 'package:flutter_application_1/globals.dart';
-
 class Book {
   final String title;
   final Map<String, int> lessons;

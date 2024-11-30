@@ -44,7 +44,7 @@ class AndroidWelcome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const TopBar(),
+            TopBar(oldScreen: ScienceHealthScreen()),
             const Spacer(),
             Stack(
               clipBehavior: Clip.none,

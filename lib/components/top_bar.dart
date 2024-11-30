@@ -4,15 +4,23 @@ import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 
 class TopBar extends StatefulWidget {
-  const TopBar({super.key});
+  TopBar({super.key, required this.oldScreen});
+  final Widget oldScreen;
 
   @override
   State<TopBar> createState() => _TopBarState();
 }
 
 class _TopBarState extends State<TopBar> {
+  void refreshScreen() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      refreshScreen();
+    });
     String username = prefs.getString('username') ?? 'Guest';
     String avatar =
         prefs.getString('avatar') ?? Assets.images.avatars.boy1.path;
@@ -52,7 +60,8 @@ class _TopBarState extends State<TopBar> {
               showDialog(
                 context: context,
                 barrierDismissible: false,
-                builder: (context) => const SettingsDialog(),
+                builder: (context) =>
+                    SettingsDialog(oldScreen: widget.oldScreen),
               );
             },
             icon: const Icon(

@@ -47,7 +47,7 @@ class _AbcStartScreenState extends State<AbcStartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: AllAboardScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.allAboard.letters.learnAbc.path,

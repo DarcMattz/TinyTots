@@ -47,7 +47,7 @@ class _VowelsStartScreenState extends State<VowelsStartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: PhonicsScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.phonics.learnVowels.path,

@@ -23,7 +23,7 @@ class NumbersStartLessonTwoScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: MathematicsScreen()),
               Expanded(
                 child: StartCard(
                   imagePath: Assets.images.mathematics.learnAddSubtract.path,

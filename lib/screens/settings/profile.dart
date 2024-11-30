@@ -4,14 +4,13 @@ import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/models/settings/subject.dart';
 import 'package:flutter_application_1/screens/home.dart';
-import 'package:flutter_application_1/screens/settings/stats_per_book.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ChangeProfile extends StatelessWidget {
-  const ChangeProfile({super.key});
+  const ChangeProfile({super.key, required this.oldScreen});
+
+  final Widget oldScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +20,12 @@ class ChangeProfile extends StatelessWidget {
           if (constraints.maxWidth > 600) {
             return AndroidWelcome(
               constraints: constraints,
+              oldScreen: oldScreen,
             );
           } else {
             return AndroidWelcome(
               constraints: constraints,
+              oldScreen: oldScreen,
             );
           }
         },
@@ -37,8 +38,10 @@ class AndroidWelcome extends StatefulWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
+    required this.oldScreen,
   });
   final BoxConstraints constraints;
+  final Widget oldScreen;
 
   @override
   State<AndroidWelcome> createState() => _AndroidWelcomeState();
@@ -72,7 +75,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                     route: PageTransition(
                       type: PageTransitionType.scale,
                       alignment: Alignment.center,
-                      child: const HomeScreen(),
+                      child: widget.oldScreen,
                     ),
                     child: NiceButton(
                       label: "Back",
@@ -87,7 +90,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                             PageTransition(
                               type: PageTransitionType.fade,
                               alignment: Alignment.center,
-                              child: const HomeScreen(),
+                              child: widget.oldScreen,
                             ),
                           );
                         }
@@ -112,7 +115,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Color(0xffA77DFE),
+                          color: const Color(0xffA77DFE),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Padding(
@@ -163,7 +166,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                           PageTransition(
                                             type: PageTransitionType.fade,
                                             alignment: Alignment.center,
-                                            child: const HomeScreen(),
+                                            child: widget.oldScreen,
                                           ),
                                         );
                                       });

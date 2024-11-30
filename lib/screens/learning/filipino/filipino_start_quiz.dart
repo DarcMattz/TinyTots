@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/top_bar.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
+import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
 
 class FilipinoStartQuizScreen extends StatelessWidget {
   final String title;
@@ -28,7 +29,7 @@ class FilipinoStartQuizScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TopBar(),
+              TopBar(oldScreen: FilipinoScreen()),
               Stack(
                 clipBehavior: Clip.none,
                 alignment: Alignment.topCenter,

@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/settings_icon_button.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/helper/prefs_helper.dart';
-import 'package:flutter_application_1/screens/home.dart';
 import 'package:flutter_application_1/screens/settings/profile.dart';
 import 'package:flutter_application_1/screens/settings/stats.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SettingsDialog extends StatefulWidget {
-  const SettingsDialog({super.key});
+  const SettingsDialog({super.key, required this.oldScreen});
+
+  final Widget oldScreen;
 
   @override
   State<SettingsDialog> createState() => _SettingsDialogState();
@@ -82,7 +82,8 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ChangeProfile(),
+                            builder: (context) =>
+                                ChangeProfile(oldScreen: widget.oldScreen),
                           ),
                         );
                       },
@@ -189,33 +190,19 @@ class _SettingsDialogState extends State<SettingsDialog> {
             Positioned(
               top: -15,
               right: -10,
-              child: PushReplacement(
-                route: PageTransition(
-                  type: PageTransitionType.scale,
-                  alignment: Alignment.center,
-                  child: const HomeScreen(),
-                ),
-                child: CircleButton(
-                  color: Colors.purpleAccent,
-                  shadowColor: Colors.purple,
-                  icon: Icons.close,
-                  method: () {
-                    if (_textFieldController.text.isNotEmpty) {
-                      prefs.setString('username', _textFieldController.text);
-                      log('Username: ${_textFieldController.text}');
-                    }
-                    if (context.mounted) {
-                      Navigator.pushReplacement(
-                        context,
-                        PageTransition(
-                          type: PageTransitionType.fade,
-                          alignment: Alignment.center,
-                          child: const HomeScreen(),
-                        ),
-                      );
-                    }
-                  },
-                ),
+              child: CircleButton(
+                color: Colors.purpleAccent,
+                shadowColor: Colors.purple,
+                icon: Icons.close,
+                method: () {
+                  if (_textFieldController.text.isNotEmpty) {
+                    prefs.setString('username', _textFieldController.text);
+                    log('Username: ${_textFieldController.text}');
+                  }
+                  if (context.mounted) {
+                    Navigator.pop(context);
+                  }
+                },
               ),
             ),
           ],
