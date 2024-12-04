@@ -1,14 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/push_replacement.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/components/science/sense_card.dart';
-import 'package:flutter_application_1/models/science/sense.dart';
-import 'package:flutter_application_1/screens/learning/science/science.dart';
-import 'package:flutter_application_1/screens/learning/science/sense/senses_quiz.dart';
+import 'package:tinytots/components/push_replacement.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/dialogs/finish_module_dialog.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/components/science/sense_card.dart';
+import 'package:tinytots/models/science/sense.dart';
+import 'package:tinytots/screens/learning/science/science.dart';
+import 'package:tinytots/screens/learning/science/sense/senses_quiz.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
 

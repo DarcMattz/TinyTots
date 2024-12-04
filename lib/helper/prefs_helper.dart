@@ -1,6 +1,6 @@
 import 'dart:developer';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/globals.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 
 class Storage {
   static List allKeys = [

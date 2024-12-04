@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/helper/prefs_helper.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/helper/prefs_helper.dart';
 
-class DataScreen extends StatelessWidget {
+class DataScreen extends StatefulWidget {
   const DataScreen({super.key});
 
+  @override
+  State<DataScreen> createState() => _DataScreenState();
+}
+
+class _DataScreenState extends State<DataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,9 +21,16 @@ class DataScreen extends StatelessWidget {
           itemCount: Storage.allKeys.length,
           itemBuilder: (BuildContext context, int index) {
             return Card(
-              child: ListTile(
-                title: Text(Storage.allKeys[index]),
-                trailing: Text(prefs.get(Storage.allKeys[index]).toString()),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    prefs.remove(Storage.allKeys[index]);
+                  });
+                },
+                child: ListTile(
+                  title: Text(Storage.allKeys[index]),
+                  trailing: Text(prefs.get(Storage.allKeys[index]).toString()),
+                ),
               ),
             );
           },

@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/components/mathematics/number_card.dart';
-import 'package:flutter_application_1/components/mathematics/number_with_example_card.dart';
-import 'package:flutter_application_1/models/mathematics/number_example.dart';
-import 'package:flutter_application_1/models/mathematics/number_only.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/components/mathematics/number_card.dart';
+import 'package:tinytots/components/mathematics/number_with_example_card.dart';
+import 'package:tinytots/models/mathematics/number_example.dart';
+import 'package:tinytots/models/mathematics/number_only.dart';
 import 'package:gap/gap.dart';
 import '../../../components/utils/nice_button.dart';
 

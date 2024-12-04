@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/models/all_aboard/shape.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/models/all_aboard/shape.dart';
 import 'package:gap/gap.dart';
 
 class ShapeCard extends StatefulWidget {

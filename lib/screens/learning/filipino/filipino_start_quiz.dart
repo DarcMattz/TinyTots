@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/screens/learning/filipino/filipino.dart';
 
 class FilipinoStartQuizScreen extends StatelessWidget {
   final String title;

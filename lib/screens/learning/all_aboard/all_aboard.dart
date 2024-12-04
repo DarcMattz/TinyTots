@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/modules.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/abc_quiz_start.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/abc_start.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/shapes_quiz_start.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/shapes_start.dart';
+import 'package:tinytots/components/modules.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/screens/learning/all_aboard/abc_quiz_start.dart';
+import 'package:tinytots/screens/learning/all_aboard/abc_start.dart';
+import 'package:tinytots/screens/learning/all_aboard/shapes_quiz_start.dart';
+import 'package:tinytots/screens/learning/all_aboard/shapes_start.dart';
 
 class AllAboardScreen extends StatefulWidget {
   const AllAboardScreen({super.key});

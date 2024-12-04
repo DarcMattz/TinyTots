@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/components/start_card.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/screens/learning/phonics/phonics.dart';
-import 'package:flutter_application_1/screens/learning/phonics/vowels.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/components/start_card.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/screens/learning/phonics/phonics.dart';
+import 'package:tinytots/screens/learning/phonics/vowels.dart';
 
 class VowelsStartScreen extends StatefulWidget {
   const VowelsStartScreen({super.key});

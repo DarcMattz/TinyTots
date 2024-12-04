@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/push_replacement.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/quizes/shapes.dart';
+import 'package:tinytots/components/push_replacement.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/screens/learning/all_aboard/all_aboard.dart';
+import 'package:tinytots/screens/learning/all_aboard/quizes/shapes.dart';
 import 'package:page_transition/page_transition.dart';
 
 class ShapesQuizStart extends StatelessWidget {
@@ -22,12 +23,32 @@ class ShapesQuizStart extends StatelessWidget {
   }
 }
 
-class AndroidWelcome extends StatelessWidget {
+class AndroidWelcome extends StatefulWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
   });
   final BoxConstraints constraints;
+
+  @override
+  State<AndroidWelcome> createState() => _AndroidWelcomeState();
+}
+
+class _AndroidWelcomeState extends State<AndroidWelcome> {
+  final AudioService _audioService = AudioService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _audioService.playFromAssets("sounds/shapes/shape_quiz_directions.m4a");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +128,7 @@ class AndroidWelcome extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             Assets.images.allAboard.shapes.findOddshape.image(
-                              width: constraints.maxWidth * .3,
+                              width: widget.constraints.maxWidth * .3,
                             ),
                           ],
                         ),
@@ -173,7 +194,7 @@ class AndroidWelcome extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0, right: 30),
                   child: Assets.images.cow.image(
-                    height: constraints.maxHeight * .20,
+                    height: widget.constraints.maxHeight * .20,
                   ),
                 ),
               ],

@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/models/all_aboard/letter.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/models/all_aboard/letter.dart';
 import 'package:gap/gap.dart';
 
 class LetterCard extends StatefulWidget {

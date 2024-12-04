@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/start_card.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/mathematics/add_subtract.dart';
-import 'package:flutter_application_1/screens/learning/mathematics/mathematics.dart';
+import 'package:tinytots/components/start_card.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/screens/learning/mathematics/add_subtract.dart';
+import 'package:tinytots/screens/learning/mathematics/mathematics.dart';
 
 class NumbersStartLessonTwoScreen extends StatelessWidget {
   const NumbersStartLessonTwoScreen({super.key});

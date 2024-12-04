@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/components/utils/undo_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/models/all_aboard/letter_trace.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/components/utils/undo_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/models/all_aboard/letter_trace.dart';
 import 'package:gap/gap.dart';
 import 'package:scribble/scribble.dart';
 

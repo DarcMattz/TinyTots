@@ -1,31 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/screens/home.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/screens/home.dart';
 
-class WelcomeScreen extends StatefulWidget {
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
-
-  @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  final AudioService _audioService = AudioService();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _audioService.playFromAssets("sounds/welcome.m4a");
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _audioService.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +25,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 }
 
-class AndroidWelcome extends StatelessWidget {
+class AndroidWelcome extends StatefulWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
   });
   final BoxConstraints constraints;
+
+  @override
+  State<AndroidWelcome> createState() => _AndroidWelcomeState();
+}
+
+class _AndroidWelcomeState extends State<AndroidWelcome> {
+  final AudioService _audioService = AudioService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _audioService.playFromAssets("sounds/welcome.m4a");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -128,7 +129,7 @@ class AndroidWelcome extends StatelessWidget {
                         'Explore a world of fun learning\nwith our interactive activities.\nJoin us on an exciting journey\nof discovery and growth. Let’s\nlearn together!',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: constraints.maxHeight * .019,
+                          fontSize: widget.constraints.maxHeight * .019,
                           color: Colors.black,
                         ),
                       ),
@@ -143,6 +144,7 @@ class AndroidWelcome extends StatelessWidget {
                           icon: Icons.arrow_forward,
                           iconSize: 30,
                           method: () {
+                            _audioService.stop();
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -178,13 +180,33 @@ class AndroidWelcome extends StatelessWidget {
   }
 }
 
-class TabletWelcome extends StatelessWidget {
+class TabletWelcome extends StatefulWidget {
   const TabletWelcome({
     super.key,
     required this.constraints,
   });
 
   final BoxConstraints constraints;
+
+  @override
+  State<TabletWelcome> createState() => _TabletWelcomeState();
+}
+
+class _TabletWelcomeState extends State<TabletWelcome> {
+  final AudioService _audioService = AudioService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _audioService.playFromAssets("sounds/welcome.m4a");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -284,6 +306,7 @@ class TabletWelcome extends StatelessWidget {
                             icon: Icons.arrow_forward,
                             iconSize: 40, // Larger icon size for tablet
                             method: () {
+                              _audioService.stop();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/models/settings/subject.dart';
-import 'package:flutter_application_1/screens/settings/data.dart';
-import 'package:flutter_application_1/screens/settings/stats_per_book.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/models/settings/subject.dart';
+import 'package:tinytots/screens/settings/data.dart';
+import 'package:tinytots/screens/settings/stats_per_book.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class StatsScreen extends StatefulWidget {

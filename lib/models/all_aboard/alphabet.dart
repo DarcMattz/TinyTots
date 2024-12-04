@@ -1,6 +1,6 @@
-import 'package:flutter_application_1/models/all_aboard/letter.dart';
-import 'package:flutter_application_1/models/all_aboard/letter_example.dart';
-import 'package:flutter_application_1/models/all_aboard/letter_trace.dart';
+import 'package:tinytots/models/all_aboard/letter.dart';
+import 'package:tinytots/models/all_aboard/letter_example.dart';
+import 'package:tinytots/models/all_aboard/letter_trace.dart';
 
 class Alphabet {
   final Letter letter;

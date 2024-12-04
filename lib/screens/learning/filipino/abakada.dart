@@ -1,12 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
-import 'package:flutter_application_1/components/lesson_card.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/models/filipino/abakada.dart';
-import 'package:flutter_application_1/screens/learning/filipino/filipino.dart';
+import 'package:tinytots/dialogs/finish_module_dialog.dart';
+import 'package:tinytots/components/lesson_card.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/models/filipino/abakada.dart';
+import 'package:tinytots/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
 
 class AbakadaScreen extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/models/science/sense.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/models/science/sense.dart';
 
 class SenseCard extends StatefulWidget {
   final Sense sense;

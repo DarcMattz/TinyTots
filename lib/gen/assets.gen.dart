@@ -158,14 +158,18 @@ class $AssetsImagesGen {
 class $AssetsModelsGen {
   const $AssetsModelsGen();
 
-  /// File path: assets/models/ssd_mobilenet.tflite
-  String get ssdMobilenetTflite => 'assets/models/ssd_mobilenet.tflite';
+  /// File path: assets/models/converted_tflite_quantized.zip
+  String get convertedTfliteQuantized =>
+      'assets/models/converted_tflite_quantized.zip';
 
-  /// File path: assets/models/ssd_mobilenet.txt
-  String get ssdMobilenetTxt => 'assets/models/ssd_mobilenet.txt';
+  /// File path: assets/models/labels.txt
+  String get labels => 'assets/models/labels.txt';
+
+  /// File path: assets/models/model.tflite
+  String get model => 'assets/models/model.tflite';
 
   /// List of all assets
-  List<String> get values => [ssdMobilenetTflite, ssdMobilenetTxt];
+  List<String> get values => [convertedTfliteQuantized, labels, model];
 }
 
 class $AssetsSoundsGen {
@@ -174,9 +178,18 @@ class $AssetsSoundsGen {
   /// Directory path: assets/sounds/alphabet
   $AssetsSoundsAlphabetGen get alphabet => const $AssetsSoundsAlphabetGen();
 
+  /// File path: assets/sounds/correct.wav
+  String get correct => 'assets/sounds/correct.wav';
+
+  /// File path: assets/sounds/finish.mp3
+  String get finish => 'assets/sounds/finish.mp3';
+
   /// Directory path: assets/sounds/mathematics
   $AssetsSoundsMathematicsGen get mathematics =>
       const $AssetsSoundsMathematicsGen();
+
+  /// Directory path: assets/sounds/quiz
+  $AssetsSoundsQuizGen get quiz => const $AssetsSoundsQuizGen();
 
   /// File path: assets/sounds/ready.m4a
   String get ready => 'assets/sounds/ready.m4a';
@@ -190,8 +203,14 @@ class $AssetsSoundsGen {
   /// Directory path: assets/sounds/vowels
   $AssetsSoundsVowelsGen get vowels => const $AssetsSoundsVowelsGen();
 
+  /// File path: assets/sounds/welcome.m4a
+  String get welcome => 'assets/sounds/welcome.m4a';
+
+  /// File path: assets/sounds/wrong.mp3
+  String get wrong => 'assets/sounds/wrong.mp3';
+
   /// List of all assets
-  List<String> get values => [ready];
+  List<String> get values => [correct, finish, ready, welcome, wrong];
 }
 
 class $AssetsImagesAllAboardGen {
@@ -341,6 +360,9 @@ class $AssetsImagesFilipinoGen {
 class $AssetsImagesGifGen {
   const $AssetsImagesGifGen();
 
+  /// File path: assets/images/gif/bear.gif
+  AssetGenImage get bear => const AssetGenImage('assets/images/gif/bear.gif');
+
   /// File path: assets/images/gif/blue_cat.gif
   AssetGenImage get blueCat =>
       const AssetGenImage('assets/images/gif/blue_cat.gif');
@@ -359,7 +381,7 @@ class $AssetsImagesGifGen {
   AssetGenImage get snail => const AssetGenImage('assets/images/gif/snail.gif');
 
   /// List of all assets
-  List<AssetGenImage> get values => [blueCat, dog, lion, raccoon, snail];
+  List<AssetGenImage> get values => [bear, blueCat, dog, lion, raccoon, snail];
 }
 
 class $AssetsImagesMathematicsGen {
@@ -660,6 +682,25 @@ class $AssetsSoundsMathematicsGen {
       ];
 }
 
+class $AssetsSoundsQuizGen {
+  const $AssetsSoundsQuizGen();
+
+  /// File path: assets/sounds/quiz/great.m4a
+  String get great => 'assets/sounds/quiz/great.m4a';
+
+  /// File path: assets/sounds/quiz/low_1.m4a
+  String get low1 => 'assets/sounds/quiz/low_1.m4a';
+
+  /// File path: assets/sounds/quiz/low_2.m4a
+  String get low2 => 'assets/sounds/quiz/low_2.m4a';
+
+  /// File path: assets/sounds/quiz/perfect.m4a
+  String get perfect => 'assets/sounds/quiz/perfect.m4a';
+
+  /// List of all assets
+  List<String> get values => [great, low1, low2, perfect];
+}
+
 class $AssetsSoundsScienceGen {
   const $AssetsSoundsScienceGen();
 
@@ -689,6 +730,10 @@ class $AssetsSoundsShapesGen {
   /// File path: assets/sounds/shapes/rectangle.m4a
   String get rectangle => 'assets/sounds/shapes/rectangle.m4a';
 
+  /// File path: assets/sounds/shapes/shape_quiz_directions.m4a
+  String get shapeQuizDirections =>
+      'assets/sounds/shapes/shape_quiz_directions.m4a';
+
   /// File path: assets/sounds/shapes/square.m4a
   String get square => 'assets/sounds/shapes/square.m4a';
 
@@ -699,8 +744,16 @@ class $AssetsSoundsShapesGen {
   String get triangle => 'assets/sounds/shapes/triangle.m4a';
 
   /// List of all assets
-  List<String> get values =>
-      [circle, learnShapes, oval, rectangle, square, star, triangle];
+  List<String> get values => [
+        circle,
+        learnShapes,
+        oval,
+        rectangle,
+        shapeQuizDirections,
+        square,
+        star,
+        triangle
+      ];
 }
 
 class $AssetsSoundsVowelsGen {

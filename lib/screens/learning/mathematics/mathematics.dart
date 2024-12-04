@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/modules.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/mathematics/numbers_quiz.dart';
-import 'package:flutter_application_1/screens/learning/mathematics/numbers_start_lesson_one.dart';
-import 'package:flutter_application_1/screens/learning/mathematics/numbers_start_lesson_two.dart';
+import 'package:tinytots/components/modules.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/screens/learning/mathematics/numbers_quiz.dart';
+import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_one.dart';
+import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_two.dart';
 
 class MathematicsScreen extends StatefulWidget {
   const MathematicsScreen({super.key});

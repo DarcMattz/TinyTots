@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/dialogs/settings_dialog.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/globals.dart';
+import 'package:tinytots/dialogs/settings_dialog.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 
 class TopBar extends StatefulWidget {
   TopBar({super.key, required this.oldScreen});
@@ -21,7 +21,7 @@ class _TopBarState extends State<TopBar> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       refreshScreen();
     });
-    String username = prefs.getString('username') ?? 'Guest';
+    String username = prefs.getString('username') ?? 'Tiny Explorer';
     String avatar =
         prefs.getString('avatar') ?? Assets.images.avatars.boy1.path;
 

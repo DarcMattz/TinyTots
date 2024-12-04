@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/modules.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz_start.dart';
-import 'package:flutter_application_1/screens/learning/phonics/vowels_start.dart';
+import 'package:tinytots/components/modules.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/screens/learning/phonics/vowels_quiz_start.dart';
+import 'package:tinytots/screens/learning/phonics/vowels_start.dart';
 
 class PhonicsScreen extends StatefulWidget {
   const PhonicsScreen({super.key});

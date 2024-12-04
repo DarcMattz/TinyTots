@@ -2,16 +2,16 @@ import 'dart:developer';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/push_replacement.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/components/phonics/vowel_card.dart';
-import 'package:flutter_application_1/models/vowels/vowel.dart';
-import 'package:flutter_application_1/screens/learning/phonics/phonics.dart';
-import 'package:flutter_application_1/screens/learning/phonics/vowels_quiz.dart';
+import 'package:tinytots/components/push_replacement.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/dialogs/finish_module_dialog.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/components/phonics/vowel_card.dart';
+import 'package:tinytots/models/vowels/vowel.dart';
+import 'package:tinytots/screens/learning/phonics/phonics.dart';
+import 'package:tinytots/screens/learning/phonics/vowels_quiz.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
 

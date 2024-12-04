@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/explore.dart';
-import 'package:flutter_application_1/screens/learning.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/screens/explore.dart';
+import 'package:tinytots/screens/learning.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/push_replacement.dart';
-import 'package:flutter_application_1/components/top_bar.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/all_aboard.dart';
-import 'package:flutter_application_1/screens/learning/all_aboard/quizes/abc.dart';
+import 'package:tinytots/components/push_replacement.dart';
+import 'package:tinytots/components/top_bar.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/screens/learning/all_aboard/all_aboard.dart';
+import 'package:tinytots/screens/learning/all_aboard/quizes/abc.dart';
 import 'package:page_transition/page_transition.dart';
 
 class AbcQuizStart extends StatelessWidget {

@@ -1,14 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/push_replacement.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/dialogs/finish_module_dialog.dart';
-import 'package:flutter_application_1/components/science/care_card.dart';
-import 'package:flutter_application_1/components/utils/nice_button.dart';
-import 'package:flutter_application_1/models/science/care.dart';
-import 'package:flutter_application_1/screens/learning/science/science.dart';
-import 'package:flutter_application_1/screens/learning/science/care/care_quiz.dart';
+import 'package:tinytots/components/push_replacement.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/dialogs/finish_module_dialog.dart';
+import 'package:tinytots/components/science/care_card.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/models/science/care.dart';
+import 'package:tinytots/screens/learning/science/science.dart';
+import 'package:tinytots/screens/learning/science/care/care_quiz.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
 

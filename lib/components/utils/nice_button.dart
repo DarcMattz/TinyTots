@@ -7,8 +7,8 @@ class NiceButton extends StatefulWidget {
   final String label;
   final Color color;
   final Color shadowColor;
-  final IconData icon;
-  final double iconSize;
+  final IconData? icon;
+  final double? iconSize;
   final VoidCallback? method;
   final bool isIconRight;
   final bool enabled;
@@ -23,8 +23,8 @@ class NiceButton extends StatefulWidget {
     required this.label,
     required this.color,
     required this.shadowColor,
-    required this.icon,
-    required this.iconSize,
+    this.icon,
+    this.iconSize,
     this.method,
   });
 
@@ -91,7 +91,7 @@ class _NiceButtonState extends State<NiceButton> {
                       ? MainAxisAlignment.center
                       : MainAxisAlignment.spaceEvenly,
                   children: [
-                    if (!widget.isIconRight)
+                    if (!widget.isIconRight && widget.icon != null)
                       Icon(
                         widget.icon,
                         size: widget.iconSize,
@@ -116,7 +116,7 @@ class _NiceButtonState extends State<NiceButton> {
                         ],
                       ),
                     ),
-                    if (widget.isIconRight)
+                    if (widget.isIconRight && widget.icon != null)
                       Icon(
                         widget.icon,
                         size: widget.iconSize,

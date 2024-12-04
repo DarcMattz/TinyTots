@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/mathematics/number_example.dart';
+import 'package:tinytots/models/mathematics/number_example.dart';
 
 import '../utils/circle_button.dart';
 
@@ -72,10 +72,10 @@ class _NumberWithExampleCardState extends State<NumberWithExampleCard> {
                   right: 5.0,
                   top: 5.0,
                   child: CircleButton(
-                      color: Colors.purpleAccent,
-                      shadowColor: Colors.purple,
-                      icon: Icons.volume_up_rounded,
-                      method: widget.sound,
+                    color: Colors.purpleAccent,
+                    shadowColor: Colors.purple,
+                    icon: Icons.volume_up_rounded,
+                    method: widget.sound,
                   ),
                 ),
               ]),

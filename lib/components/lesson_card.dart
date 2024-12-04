@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
 
 class LessonCard extends StatefulWidget {
   final Widget content;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:tinytots/gen/assets.gen.dart';
 
 class LockQuizDialog extends StatelessWidget {
   const LockQuizDialog({super.key});

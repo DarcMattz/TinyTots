@@ -2,13 +2,13 @@ import 'dart:developer';
 
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/settings_icon_button.dart';
-import 'package:flutter_application_1/components/utils/circle_button.dart';
-import 'package:flutter_application_1/globals.dart';
-import 'package:flutter_application_1/helper/audio_service.dart';
-import 'package:flutter_application_1/helper/prefs_helper.dart';
-import 'package:flutter_application_1/screens/settings/profile.dart';
-import 'package:flutter_application_1/screens/settings/stats.dart';
+import 'package:tinytots/components/settings_icon_button.dart';
+import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/globals.dart';
+import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/helper/prefs_helper.dart';
+import 'package:tinytots/screens/settings/profile.dart';
+import 'package:tinytots/screens/settings/stats.dart';
 import 'package:gap/gap.dart';
 
 class SettingsDialog extends StatefulWidget {
@@ -76,7 +76,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     SettingsIconButton(
                       icon: Icons.person,
                       color: Colors.green,
-                      label: 'Profile',
+                      label: 'Avatar',
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
