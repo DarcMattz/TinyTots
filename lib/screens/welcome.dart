@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
+import 'package:flutter_application_1/helper/audio_service.dart';
 import 'package:flutter_application_1/screens/home.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  final AudioService _audioService = AudioService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _audioService.playFromAssets("sounds/welcome.m4a");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

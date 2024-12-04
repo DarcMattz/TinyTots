@@ -48,8 +48,15 @@ class $AssetsImagesGen {
   AssetGenImage get geography =>
       const AssetGenImage('assets/images/geography.png');
 
+  /// Directory path: assets/images/gif
+  $AssetsImagesGifGen get gif => const $AssetsImagesGifGen();
+
   /// File path: assets/images/giraffe.png
   AssetGenImage get giraffe => const AssetGenImage('assets/images/giraffe.png');
+
+  /// File path: assets/images/google_logo.png
+  AssetGenImage get googleLogo =>
+      const AssetGenImage('assets/images/google_logo.png');
 
   /// File path: assets/images/koala.png
   AssetGenImage get koala => const AssetGenImage('assets/images/koala.png');
@@ -127,6 +134,7 @@ class $AssetsImagesGen {
         fox,
         geography,
         giraffe,
+        googleLogo,
         koala,
         learning,
         lion,
@@ -328,6 +336,30 @@ class $AssetsImagesFilipinoGen {
         learnPamilya,
         pamilyaPic
       ];
+}
+
+class $AssetsImagesGifGen {
+  const $AssetsImagesGifGen();
+
+  /// File path: assets/images/gif/blue_cat.gif
+  AssetGenImage get blueCat =>
+      const AssetGenImage('assets/images/gif/blue_cat.gif');
+
+  /// File path: assets/images/gif/dog.gif
+  AssetGenImage get dog => const AssetGenImage('assets/images/gif/dog.gif');
+
+  /// File path: assets/images/gif/lion.gif
+  AssetGenImage get lion => const AssetGenImage('assets/images/gif/lion.gif');
+
+  /// File path: assets/images/gif/raccoon.gif
+  AssetGenImage get raccoon =>
+      const AssetGenImage('assets/images/gif/raccoon.gif');
+
+  /// File path: assets/images/gif/snail.gif
+  AssetGenImage get snail => const AssetGenImage('assets/images/gif/snail.gif');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [blueCat, dog, lion, raccoon, snail];
 }
 
 class $AssetsImagesMathematicsGen {

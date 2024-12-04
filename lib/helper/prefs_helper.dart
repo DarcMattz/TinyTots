@@ -1,10 +1,12 @@
 import 'dart:developer';
+import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 
 class Storage {
   static List allKeys = [
     //settings
     'username',
+    'avatar',
 
     //shapes
     'shapes_current_index',
@@ -38,7 +40,8 @@ class Storage {
   // Set Default
   static defaultData() {
     //settings
-    prefs.setString('username', '');
+    prefs.setString('username', 'Tiny Explorer');
+    prefs.setString('avatar', Assets.images.avatars.boy1.path);
 
     //shapes
     prefs.setInt('shapes_current_index', 0);

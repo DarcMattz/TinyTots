@@ -79,15 +79,24 @@ class _AndroidScreenState extends State<AndroidScreen> {
                 ),
                 child: Column(
                   children: [
-                    const Text(
-                      'Learning is Fun',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                    Container(
+                      width: widget.constraints.maxWidth * 0.6,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 0),
+                      decoration: BoxDecoration(
+                        color: Color(0xffA77DFE),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: const Text(
+                        'Learning is Fun',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    // const SizedBox(height: 10),
                     Assets.images.learning.image(
                       height: widget.constraints.maxHeight * 0.2,
                       width: widget.constraints.maxWidth * 0.6,
@@ -122,12 +131,21 @@ class _AndroidScreenState extends State<AndroidScreen> {
                 ),
                 child: Column(
                   children: [
-                    const Text(
-                      'Let\'s Explore more',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                    Container(
+                      width: widget.constraints.maxWidth * 0.6,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 0),
+                      decoration: BoxDecoration(
+                        color: Color(0xffA77DFE),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: const Text(
+                        "Let's Explore More",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -139,16 +157,21 @@ class _AndroidScreenState extends State<AndroidScreen> {
                 ),
               ),
             ),
-            const Spacer(),
+            // const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Assets.images.lion.image(
+                // Assets.images.lion.image(
+                //   height: widget.constraints.maxHeight * 0.2,
+                //   // width: constraints.maxWidth * 0.6,
+                // ),
+                Assets.images.gif.dog.image(
                   height: widget.constraints.maxHeight * 0.2,
-                  // width: constraints.maxWidth * 0.6,
+                  width: widget.constraints.maxWidth * 0.6,
                 ),
               ],
             ),
+            const Spacer(),
           ],
         ),
       ),

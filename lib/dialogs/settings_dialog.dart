@@ -1,7 +1,7 @@
 import 'dart:developer';
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/components/push_replacement.dart';
 import 'package:flutter_application_1/components/settings_icon_button.dart';
 import 'package:flutter_application_1/components/utils/circle_button.dart';
 import 'package:flutter_application_1/globals.dart';
@@ -10,7 +10,6 @@ import 'package:flutter_application_1/helper/prefs_helper.dart';
 import 'package:flutter_application_1/screens/settings/profile.dart';
 import 'package:flutter_application_1/screens/settings/stats.dart';
 import 'package:gap/gap.dart';
-import 'package:page_transition/page_transition.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key, required this.oldScreen});
@@ -62,7 +61,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Color(0xFF4D4D4D),
                   ),
                 ),
                 const Gap(20),
@@ -132,7 +131,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     controller: _textFieldController,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffD9D9D9),
+                      fillColor: const Color(0xffD9D9D9),
                       // labelText: "Username",
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
@@ -144,9 +143,14 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     ),
                     textAlign: TextAlign.center,
                     onSubmitted: (value) {
+                      value = value.trim();
                       if (value.isNotEmpty) {
                         prefs.setString('username', value);
                         log('Username: $value');
+                      } else {
+                        log('Username cannot be empty');
+                        _textFieldController.text =
+                            prefs.getString('username') ?? 'Tiny Explorer';
                       }
                     },
                   ),
@@ -176,7 +180,30 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 32, vertical: 12),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_textFieldController.text.isNotEmpty) {
+                      //register if not registered
+                      //retrieve if registered
+                    } else {
+                      log('Username cannot be empty');
+                      Navigator.pop(context);
+
+                      const snackBar = SnackBar(
+                        elevation: 0,
+                        behavior: SnackBarBehavior.floating,
+                        backgroundColor: Colors.transparent,
+                        content: AwesomeSnackbarContent(
+                          title: 'Oops!',
+                          message: 'Username cannot be empty',
+                          contentType: ContentType.warning,
+                        ),
+                      );
+
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(snackBar);
+                    }
+                  },
                   child: const Text(
                     'Register this Account',
                     style: TextStyle(
@@ -196,7 +223,8 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 icon: Icons.close,
                 method: () {
                   if (_textFieldController.text.isNotEmpty) {
-                    prefs.setString('username', _textFieldController.text);
+                    prefs.setString(
+                        'username', _textFieldController.text.trim());
                     log('Username: ${_textFieldController.text}');
                   }
                   if (context.mounted) {

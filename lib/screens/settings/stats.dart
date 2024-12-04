@@ -3,6 +3,7 @@ import 'package:flutter_application_1/components/utils/nice_button.dart';
 import 'package:flutter_application_1/gen/assets.gen.dart';
 import 'package:flutter_application_1/globals.dart';
 import 'package:flutter_application_1/models/settings/subject.dart';
+import 'package:flutter_application_1/screens/settings/data.dart';
 import 'package:flutter_application_1/screens/settings/stats_per_book.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -97,12 +98,12 @@ class AndroidWelcome extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: NiceButton(
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  NiceButton(
                     label: "Back",
                     color: Colors.yellow,
                     shadowColor: Colors.yellow[800]!,
@@ -112,8 +113,19 @@ class AndroidWelcome extends StatelessWidget {
                       Navigator.pop(context);
                     },
                   ),
-                ),
-              ],
+                  CircleAvatar(
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DataScreen()));
+                      },
+                      icon: const Icon(Icons.data_array),
+                    ),
+                  )
+                ],
+              ),
             ),
             SizedBox(height: 30),
             Padding(
@@ -176,8 +188,9 @@ class SubjectCard extends StatelessWidget {
                   child: Text(
                     book.title,
                     style: TextStyle(
-                        fontSize: constraints.maxWidth * 0.035,
-                        color: Colors.white),
+                      fontSize: constraints.maxWidth * 0.035,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

@@ -33,16 +33,22 @@ class _TopBarState extends State<TopBar> {
           Row(
             children: [
               CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage(avatar),
+                radius: 28,
+                backgroundColor: Colors.white,
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage(avatar),
+                  backgroundColor: Color(0xffCEBEAF),
+                ),
               ),
               const SizedBox(width: 10),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.purpleAccent,
-                  borderRadius: BorderRadius.circular(20),
+                  color: Color(0xff9F51FE),
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: Colors.white, width: 4),
                 ),
                 child: Text(
                   username,

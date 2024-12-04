@@ -30,15 +30,19 @@ environment:
 dependencies:
   audioplayers: ^6.1.0
   auto_size_text: ^3.0.0
+  awesome_snackbar_content: ^0.1.4
   blur: ^4.0.0
   camera: ^0.11.0+2
   carousel_slider: ^5.0.0
   confetti: ^0.8.0
   cupertino_icons: ^1.0.8
+  firebase_auth: ^5.3.3
+  firebase_core: ^3.8.0
   flutter:
     sdk: flutter
   gap: ^3.0.1
   google_fonts: ^6.2.1
+  google_sign_in: ^6.2.2
   page_transition: ^2.1.0
   path: ^1.9.0
   path_provider: ^2.1.4
@@ -75,6 +79,7 @@ flutter:
     - assets/sounds/science/senses/
     - assets/sounds/
     - assets/images/
+    - assets/images/gif/
     - assets/images/avatars/
     - assets/images/all_aboard/
     - assets/images/all_aboard/letters/

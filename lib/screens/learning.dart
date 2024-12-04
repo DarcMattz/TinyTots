@@ -133,11 +133,12 @@ class _LearningListScreenState extends State<LearningListScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 20.0, right: 30),
-                        child: Image.asset(
-                          'assets/images/panda.png',
-                          width: 200,
-                          height: 200,
-                        ),
+                        child: Assets.images.gif.raccoon.image(height: 200),
+                        // Image.asset(
+                        //   'assets/images/panda.png',
+                        //   width: 200,
+                        //   height: 200,
+                        // ),
                       ),
                     ],
                   ),
