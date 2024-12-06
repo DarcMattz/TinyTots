@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/components/modules.dart';
-import 'package:tinytots/screens/explore/geography.dart';
 import 'package:tinytots/screens/explore/find_shapes.dart';
 
 class ExploreListScreen extends StatefulWidget {
@@ -16,10 +15,6 @@ class _ExploreListScreenState extends State<ExploreListScreen> {
   int _currentIndex = 0;
 
   final List<Module> modules = [
-    Module(
-        type: "explore",
-        imagePath: 'assets/images/geography.png',
-        route: const GeographyScreen()),
     Module(
         type: "explore",
         imagePath: 'assets/images/play.png',
