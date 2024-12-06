@@ -149,7 +149,7 @@ class _AndroidScreenState extends State<AndroidScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Assets.images.explore.image(
+                    Assets.images.explorePng.image(
                       height: widget.constraints.maxHeight * 0.2,
                       width: widget.constraints.maxWidth * 0.6,
                     ),
@@ -165,7 +165,7 @@ class _AndroidScreenState extends State<AndroidScreen> {
                 //   height: widget.constraints.maxHeight * 0.2,
                 //   // width: constraints.maxWidth * 0.6,
                 // ),
-                Assets.images.gif.dog.image(
+                Assets.images.gif.raccoon.image(
                   height: widget.constraints.maxHeight * 0.2,
                   width: widget.constraints.maxWidth * 0.6,
                 ),

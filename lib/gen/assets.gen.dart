@@ -35,8 +35,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/dog.png
   AssetGenImage get dog => const AssetGenImage('assets/images/dog.png');
 
+  /// Directory path: assets/images/explore
+  $AssetsImagesExploreGen get explore => const $AssetsImagesExploreGen();
+
   /// File path: assets/images/explore.png
-  AssetGenImage get explore => const AssetGenImage('assets/images/explore.png');
+  AssetGenImage get explorePng =>
+      const AssetGenImage('assets/images/explore.png');
 
   /// Directory path: assets/images/filipino
   $AssetsImagesFilipinoGen get filipino => const $AssetsImagesFilipinoGen();
@@ -130,7 +134,7 @@ class $AssetsImagesGen {
         backgroundRoad,
         cow,
         dog,
-        explore,
+        explorePng,
         fox,
         geography,
         giraffe,
@@ -158,6 +162,9 @@ class $AssetsImagesGen {
 class $AssetsModelsGen {
   const $AssetsModelsGen();
 
+  /// File path: assets/models/converted_tflite.zip
+  String get convertedTflite => 'assets/models/converted_tflite.zip';
+
   /// File path: assets/models/converted_tflite_quantized.zip
   String get convertedTfliteQuantized =>
       'assets/models/converted_tflite_quantized.zip';
@@ -165,11 +172,24 @@ class $AssetsModelsGen {
   /// File path: assets/models/labels.txt
   String get labels => 'assets/models/labels.txt';
 
-  /// File path: assets/models/model.tflite
-  String get model => 'assets/models/model.tflite';
+  /// File path: assets/models/model_unquant.tflite
+  String get modelUnquant => 'assets/models/model_unquant.tflite';
+
+  /// File path: assets/models/shapes_labels.txt
+  String get shapesLabels => 'assets/models/shapes_labels.txt';
+
+  /// File path: assets/models/shapesmodel.tflite
+  String get shapesmodel => 'assets/models/shapesmodel.tflite';
 
   /// List of all assets
-  List<String> get values => [convertedTfliteQuantized, labels, model];
+  List<String> get values => [
+        convertedTflite,
+        convertedTfliteQuantized,
+        labels,
+        modelUnquant,
+        shapesLabels,
+        shapesmodel
+      ];
 }
 
 class $AssetsSoundsGen {
@@ -177,6 +197,9 @@ class $AssetsSoundsGen {
 
   /// Directory path: assets/sounds/alphabet
   $AssetsSoundsAlphabetGen get alphabet => const $AssetsSoundsAlphabetGen();
+
+  /// File path: assets/sounds/button.mp3
+  String get button => 'assets/sounds/button.mp3';
 
   /// File path: assets/sounds/correct.wav
   String get correct => 'assets/sounds/correct.wav';
@@ -210,7 +233,7 @@ class $AssetsSoundsGen {
   String get wrong => 'assets/sounds/wrong.mp3';
 
   /// List of all assets
-  List<String> get values => [correct, finish, ready, welcome, wrong];
+  List<String> get values => [button, correct, finish, ready, welcome, wrong];
 }
 
 class $AssetsImagesAllAboardGen {
@@ -286,6 +309,17 @@ class $AssetsImagesAvatarsGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [boy1, boy2, boy3, boy4, boy5, girl1, girl2, girl3, girl4, girl5];
+}
+
+class $AssetsImagesExploreGen {
+  const $AssetsImagesExploreGen();
+
+  /// File path: assets/images/explore/lets_play.png
+  AssetGenImage get letsPlay =>
+      const AssetGenImage('assets/images/explore/lets_play.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [letsPlay];
 }
 
 class $AssetsImagesFilipinoGen {

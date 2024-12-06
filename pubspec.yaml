@@ -85,6 +85,7 @@ flutter:
     - assets/images/
     - assets/images/gif/
     - assets/images/avatars/
+    - assets/images/explore/
     - assets/images/all_aboard/
     - assets/images/all_aboard/letters/
     - assets/images/all_aboard/letters/guide/

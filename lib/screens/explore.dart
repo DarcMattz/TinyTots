@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/components/modules.dart';
 import 'package:tinytots/screens/explore/geography.dart';
-import 'package:tinytots/screens/explore/play.dart';
+import 'package:tinytots/screens/explore/find_shapes.dart';
 
 class ExploreListScreen extends StatefulWidget {
   const ExploreListScreen({super.key});
