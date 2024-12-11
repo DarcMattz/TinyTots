@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/components/modules.dart';
+import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/screens/explore/endless_hunt.dart';
 import 'package:tinytots/screens/explore/riddle_hunt.dart';
 import 'package:tinytots/screens/explore/time_chase.dart';
@@ -19,17 +21,24 @@ class _ExploreListScreenState extends State<ExploreListScreen> {
   final List<Module> modules = [
     Module(
         type: "explore",
-        imagePath: 'assets/images/play.png',
+        imagePath: Assets.images.explore.endlessHunt.path,
         route: const EndlessHunt()),
     Module(
         type: "explore",
-        imagePath: 'assets/images/play.png',
+        imagePath: Assets.images.explore.timeChase.path,
         route: const TimeChase()),
     Module(
         type: "explore",
-        imagePath: 'assets/images/play.png',
+        imagePath: Assets.images.explore.riddleHunt.path,
         route: const RiddleHunt()),
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Permission.camera.request();
+  }
 
   @override
   Widget build(BuildContext context) {

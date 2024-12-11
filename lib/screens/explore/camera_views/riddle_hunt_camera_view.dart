@@ -4,6 +4,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/helper/audio_service.dart';
@@ -21,15 +22,16 @@ class RiddleHuntCameraView extends StatefulWidget {
 class CameraViewState extends State<RiddleHuntCameraView> {
   late final ScanController controller;
   final AudioService _audioService = AudioService();
-  late bool skipAllowed;
-
   @override
   void initState() {
     super.initState();
-    skipAllowed = true;
     controller = Get.put(ScanController());
     controller.initializeCamera();
     controller.context = context;
+
+    controller.isInfinite = false;
+    controller.isTimeChase = false;
+    controller.isRiddleHunt = true;
 
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
@@ -37,13 +39,18 @@ class CameraViewState extends State<RiddleHuntCameraView> {
         controller.questionsAnswers[controller.questionIndex].question;
     controller.answer =
         controller.questionsAnswers[controller.questionIndex].answer;
+    controller.questionSoundPath =
+        controller.questionsAnswers[controller.questionIndex].questionSoundPath;
+    controller.answerSoundPath =
+        controller.questionsAnswers[controller.questionIndex].answerSoundPath;
     controller.questionIndex = 0;
-    controller.maxIndex = controller.questionsAnswers.length - 1;
+    controller.maxIndex = 5;
   }
 
   @override
   void dispose() {
     controller.disposeCamera();
+    controller.stopRoundTimer();
     super.dispose();
   }
 
@@ -75,11 +82,12 @@ class CameraViewState extends State<RiddleHuntCameraView> {
   }
 
   Widget _buildTopBar() {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: PushReplacement(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          PushReplacement(
             route: PageTransition(
               type: PageTransitionType.scale,
               alignment: Alignment.center,
@@ -92,8 +100,14 @@ class CameraViewState extends State<RiddleHuntCameraView> {
               method: () => _navigateToExploreScreen(),
             ),
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+                '${controller.remainingRoundTime.value ~/ 60}:${(controller.remainingRoundTime.value % 60).toString().padLeft(2, '0')}',
+                style: const TextStyle(color: Colors.white, fontSize: 24)),
+          ),
+        ],
+      ),
     );
   }
 
@@ -127,18 +141,19 @@ class CameraViewState extends State<RiddleHuntCameraView> {
             shadowColor: Colors.purple,
             icon: Icons.volume_up_rounded,
             method: () {
-              log('Volume button pressed'); // Add functionality if required
+              String path = controller.questionSoundPath;
+              log(path);
+              _audioService.playFromAssets(path);
             },
           ),
-          if (skipAllowed)
-            CircleButton(
-              color: Colors.purpleAccent,
-              shadowColor: Colors.purple,
-              icon: Icons.arrow_forward,
-              method: () {
-                controller.skipQuestion();
-              },
-            ),
+          CircleButton(
+            color: Colors.purpleAccent,
+            shadowColor: Colors.purple,
+            icon: Icons.arrow_forward,
+            method: () {
+              controller.skipQuestion();
+            },
+          ),
         ],
       ),
     );
@@ -148,7 +163,7 @@ class CameraViewState extends State<RiddleHuntCameraView> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 28.0),
       child: Text(
-        '${controller.answer}',
+        '${controller.question}',
         style: const TextStyle(color: Colors.white, fontSize: 28),
         textAlign: TextAlign.center,
       ),

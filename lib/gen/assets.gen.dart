@@ -182,11 +182,17 @@ class $AssetsSoundsGen {
   /// Directory path: assets/sounds/alphabet
   $AssetsSoundsAlphabetGen get alphabet => const $AssetsSoundsAlphabetGen();
 
+  /// File path: assets/sounds/bg_song.mp3
+  String get bgSong => 'assets/sounds/bg_song.mp3';
+
   /// File path: assets/sounds/button.mp3
   String get button => 'assets/sounds/button.mp3';
 
   /// File path: assets/sounds/correct.wav
   String get correct => 'assets/sounds/correct.wav';
+
+  /// Directory path: assets/sounds/explore
+  $AssetsSoundsExploreGen get explore => const $AssetsSoundsExploreGen();
 
   /// File path: assets/sounds/finish.mp3
   String get finish => 'assets/sounds/finish.mp3';
@@ -221,7 +227,7 @@ class $AssetsSoundsGen {
 
   /// List of all assets
   List<String> get values =>
-      [button, correct, finish, ready, timesup, welcome, wrong];
+      [bgSong, button, correct, finish, ready, timesup, welcome, wrong];
 }
 
 class $AssetsImagesAllAboardGen {
@@ -302,16 +308,25 @@ class $AssetsImagesAvatarsGen {
 class $AssetsImagesExploreGen {
   const $AssetsImagesExploreGen();
 
+  /// File path: assets/images/explore/endless_hunt.jpg
+  AssetGenImage get endlessHunt =>
+      const AssetGenImage('assets/images/explore/endless_hunt.jpg');
+
   /// File path: assets/images/explore/lets_play.png
   AssetGenImage get letsPlay =>
       const AssetGenImage('assets/images/explore/lets_play.png');
 
-  /// File path: assets/images/explore/look.jpg
-  AssetGenImage get look =>
-      const AssetGenImage('assets/images/explore/look.jpg');
+  /// File path: assets/images/explore/riddle_hunt.jpg
+  AssetGenImage get riddleHunt =>
+      const AssetGenImage('assets/images/explore/riddle_hunt.jpg');
+
+  /// File path: assets/images/explore/time_chase.jpg
+  AssetGenImage get timeChase =>
+      const AssetGenImage('assets/images/explore/time_chase.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [letsPlay, look];
+  List<AssetGenImage> get values =>
+      [endlessHunt, letsPlay, riddleHunt, timeChase];
 }
 
 class $AssetsImagesFilipinoGen {
@@ -557,6 +572,241 @@ class $AssetsSoundsAlphabetGen {
 
   /// List of all assets
   List<String> get values => [learnAlphabet];
+}
+
+class $AssetsSoundsExploreGen {
+  const $AssetsSoundsExploreGen();
+
+  /// File path: assets/sounds/explore/A small container to store things.m4a
+  String get aSmallContainerToStoreThings =>
+      'assets/sounds/explore/A small container to store things.m4a';
+
+  /// File path: assets/sounds/explore/Apple.m4a
+  String get apple => 'assets/sounds/explore/Apple.m4a';
+
+  /// File path: assets/sounds/explore/Bag.m4a
+  String get bag => 'assets/sounds/explore/Bag.m4a';
+
+  /// File path: assets/sounds/explore/Banana.m4a
+  String get banana => 'assets/sounds/explore/Banana.m4a';
+
+  /// File path: assets/sounds/explore/Books.m4a
+  String get books => 'assets/sounds/explore/Books.m4a';
+
+  /// File path: assets/sounds/explore/Broom.m4a
+  String get broom => 'assets/sounds/explore/Broom.m4a';
+
+  /// File path: assets/sounds/explore/Clock.m4a
+  String get clock => 'assets/sounds/explore/Clock.m4a';
+
+  /// File path: assets/sounds/explore/Colorful pages full of stories and pictures.m4a
+  String get colorfulPagesFullOfStoriesAndPictures =>
+      'assets/sounds/explore/Colorful pages full of stories and pictures.m4a';
+
+  /// File path: assets/sounds/explore/Fan.m4a
+  String get fan => 'assets/sounds/explore/Fan.m4a';
+
+  /// File path: assets/sounds/explore/Hair Tie.m4a
+  String get hairTie => 'assets/sounds/explore/Hair Tie.m4a';
+
+  /// File path: assets/sounds/explore/Hat.m4a
+  String get hat => 'assets/sounds/explore/Hat.m4a';
+
+  /// File path: assets/sounds/explore/Plate.m4a
+  String get plate => 'assets/sounds/explore/Plate.m4a';
+
+  /// File path: assets/sounds/explore/Ponytail.m4a
+  String get ponytail => 'assets/sounds/explore/Ponytail.m4a';
+
+  /// File path: assets/sounds/explore/Something you write on.m4a
+  String get somethingYouWriteOn =>
+      'assets/sounds/explore/Something you write on.m4a';
+
+  /// File path: assets/sounds/explore/Spoon and Fork.m4a
+  String get spoonAndFork => 'assets/sounds/explore/Spoon and Fork.m4a';
+
+  /// File path: assets/sounds/explore/Wallet.m4a
+  String get wallet => 'assets/sounds/explore/Wallet.m4a';
+
+  /// File path: assets/sounds/explore/Watch.m4a
+  String get watch => 'assets/sounds/explore/Watch.m4a';
+
+  /// File path: assets/sounds/explore/Water Bottle.m4a
+  String get waterBottle => 'assets/sounds/explore/Water Bottle.m4a';
+
+  /// File path: assets/sounds/explore/ball.m4a
+  String get ball => 'assets/sounds/explore/ball.m4a';
+
+  /// File path: assets/sounds/explore/bottle.m4a
+  String get bottle => 'assets/sounds/explore/bottle.m4a';
+
+  /// File path: assets/sounds/explore/ccessory you wear on your head to protect it from the sun.m4a
+  String get ccessoryYouWearOnYourHeadToProtectItFromTheSun =>
+      'assets/sounds/explore/ccessory you wear on your head to protect it from the sun.m4a';
+
+  /// File path: assets/sounds/explore/cleaning tool made of sticks.m4a
+  String get cleaningToolMadeOfSticks =>
+      'assets/sounds/explore/cleaning tool made of sticks.m4a';
+
+  /// File path: assets/sounds/explore/comb.m4a
+  String get comb => 'assets/sounds/explore/comb.m4a';
+
+  /// File path: assets/sounds/explore/container to carry water.m4a
+  String get containerToCarryWater =>
+      'assets/sounds/explore/container to carry water.m4a';
+
+  /// File path: assets/sounds/explore/crayons.m4a
+  String get crayons => 'assets/sounds/explore/crayons.m4a';
+
+  /// File path: assets/sounds/explore/cup.m4a
+  String get cup => 'assets/sounds/explore/cup.m4a';
+
+  /// File path: assets/sounds/explore/feet.m4a
+  String get feet => 'assets/sounds/explore/feet.m4a';
+
+  /// File path: assets/sounds/explore/hands.m4a
+  String get hands => 'assets/sounds/explore/hands.m4a';
+
+  /// File path: assets/sounds/explore/helps you walk.m4a
+  String get helpsYouWalk => 'assets/sounds/explore/helps you walk.m4a';
+
+  /// File path: assets/sounds/explore/instructions.m4a
+  String get instructions => 'assets/sounds/explore/instructions.m4a';
+
+  /// File path: assets/sounds/explore/jar.m4a
+  String get jar => 'assets/sounds/explore/jar.m4a';
+
+  /// File path: assets/sounds/explore/paper.m4a
+  String get paper => 'assets/sounds/explore/paper.m4a';
+
+  /// File path: assets/sounds/explore/pencil.m4a
+  String get pencil => 'assets/sounds/explore/pencil.m4a';
+
+  /// File path: assets/sounds/explore/placed on a wall to tell the time.m4a
+  String get placedOnAWallToTellTheTime =>
+      'assets/sounds/explore/placed on a wall to tell the time.m4a';
+
+  /// File path: assets/sounds/explore/round fruit that keeps the doctor away.m4a
+  String get roundFruitThatKeepsTheDoctorAway =>
+      'assets/sounds/explore/round fruit that keeps the doctor away.m4a';
+
+  /// File path: assets/sounds/explore/small device you wear to know the time.m4a
+  String get smallDeviceYouWearToKnowTheTime =>
+      'assets/sounds/explore/small device you wear to know the time.m4a';
+
+  /// File path: assets/sounds/explore/spins to keep you cool.m4a
+  String get spinsToKeepYouCool =>
+      'assets/sounds/explore/spins to keep you cool.m4a';
+
+  /// File path: assets/sounds/explore/ties or holds your hair in place.m4a
+  String get tiesOrHoldsYourHairInPlace =>
+      'assets/sounds/explore/ties or holds your hair in place.m4a';
+
+  /// File path: assets/sounds/explore/to play basketball.m4a
+  String get toPlayBasketball => 'assets/sounds/explore/to play basketball.m4a';
+
+  /// File path: assets/sounds/explore/toothbrush.m4a
+  String get toothbrush => 'assets/sounds/explore/toothbrush.m4a';
+
+  /// File path: assets/sounds/explore/use to carry books or personal items.m4a
+  String get useToCarryBooksOrPersonalItems =>
+      'assets/sounds/explore/use to carry books or personal items.m4a';
+
+  /// File path: assets/sounds/explore/use to clean your teeth.m4a
+  String get useToCleanYourTeeth =>
+      'assets/sounds/explore/use to clean your teeth.m4a';
+
+  /// File path: assets/sounds/explore/use to drink water or juice.m4a
+  String get useToDrinkWaterOrJuice =>
+      'assets/sounds/explore/use to drink water or juice.m4a';
+
+  /// File path: assets/sounds/explore/use to eat meals.m4a
+  String get useToEatMeals => 'assets/sounds/explore/use to eat meals.m4a';
+
+  /// File path: assets/sounds/explore/used for writing or drawing lines.m4a
+  String get usedForWritingOrDrawingLines =>
+      'assets/sounds/explore/used for writing or drawing lines.m4a';
+
+  /// File path: assets/sounds/explore/used to color.m4a
+  String get usedToColor => 'assets/sounds/explore/used to color.m4a';
+
+  /// File path: assets/sounds/explore/used to eat food.m4a
+  String get usedToEatFood => 'assets/sounds/explore/used to eat food.m4a';
+
+  /// File path: assets/sounds/explore/used to hold flower.m4a
+  String get usedToHoldFlower =>
+      'assets/sounds/explore/used to hold flower.m4a';
+
+  /// File path: assets/sounds/explore/used to tidy  your hair.m4a
+  String get usedToTidyYourHair =>
+      'assets/sounds/explore/used to tidy  your hair.m4a';
+
+  /// File path: assets/sounds/explore/vase.m4a
+  String get vase => 'assets/sounds/explore/vase.m4a';
+
+  /// File path: assets/sounds/explore/yellow fruit that monkeys love to eat.m4a
+  String get yellowFruitThatMonkeysLoveToEat =>
+      'assets/sounds/explore/yellow fruit that monkeys love to eat.m4a';
+
+  /// File path: assets/sounds/explore/you keep your money and cards in.m4a
+  String get youKeepYourMoneyAndCardsIn =>
+      'assets/sounds/explore/you keep your money and cards in.m4a';
+
+  /// List of all assets
+  List<String> get values => [
+        aSmallContainerToStoreThings,
+        apple,
+        bag,
+        banana,
+        books,
+        broom,
+        clock,
+        colorfulPagesFullOfStoriesAndPictures,
+        fan,
+        hairTie,
+        hat,
+        plate,
+        ponytail,
+        somethingYouWriteOn,
+        spoonAndFork,
+        wallet,
+        watch,
+        waterBottle,
+        ball,
+        bottle,
+        ccessoryYouWearOnYourHeadToProtectItFromTheSun,
+        cleaningToolMadeOfSticks,
+        comb,
+        containerToCarryWater,
+        crayons,
+        cup,
+        feet,
+        hands,
+        helpsYouWalk,
+        instructions,
+        jar,
+        paper,
+        pencil,
+        placedOnAWallToTellTheTime,
+        roundFruitThatKeepsTheDoctorAway,
+        smallDeviceYouWearToKnowTheTime,
+        spinsToKeepYouCool,
+        tiesOrHoldsYourHairInPlace,
+        toPlayBasketball,
+        toothbrush,
+        useToCarryBooksOrPersonalItems,
+        useToCleanYourTeeth,
+        useToDrinkWaterOrJuice,
+        useToEatMeals,
+        usedForWritingOrDrawingLines,
+        usedToColor,
+        usedToEatFood,
+        usedToHoldFlower,
+        usedToTidyYourHair,
+        vase,
+        yellowFruitThatMonkeysLoveToEat,
+        youKeepYourMoneyAndCardsIn
+      ];
 }
 
 class $AssetsSoundsMathematicsGen {

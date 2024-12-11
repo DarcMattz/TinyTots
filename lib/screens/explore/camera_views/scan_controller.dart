@@ -8,6 +8,8 @@ import 'package:page_transition/page_transition.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/models/obj_qa.dart';
 import 'package:tinytots/screens/explore.dart';
@@ -21,11 +23,15 @@ class ScanController extends GetxController {
 
   // Game Type
   bool isInfinite = true;
+  bool isTimeChase = false;
+  bool isRiddleHunt = false;
 
   // Question and answer data
   final List questionsAnswers = questionAnswers;
   String question = "";
   String answer = "";
+  String answerSoundPath = "";
+  String questionSoundPath = "";
 
   // Object detection variables
   var isCameraInitialized = false.obs;
@@ -42,9 +48,9 @@ class ScanController extends GetxController {
   Timer? gameTimer;
   // final int maxRoundTime = 300; // Maximum round time in seconds (5 minutes)
   final int maxRoundTime =
-      10; // Maximum round time in seconds (2 minutes, 30 seconds)
+      150; // Maximum round time in seconds (2 minutes, 30 seconds)
   // var remainingRoundTime = 300.obs;
-  var remainingRoundTime = 10.obs;
+  var remainingRoundTime = 150.obs;
 
   @override
   void onInit() {
@@ -76,12 +82,49 @@ class ScanController extends GetxController {
   }
 
   void endGame() {
-    // Perform actions when the game ends, e.g., show final score, reset game
-    log("Game Over! Final Score: $score");
+    log("Game Over! Score: $score");
     showGameOverPopup();
   }
 
   void showGameOverPopup() {
+    int maxscore = (maxIndex * 10) + maxRoundTime;
+    int itemPoints = score * 10;
+    int timeBonus = remainingRoundTime.value;
+    log("Item Points: $itemPoints | Time Bonus: $timeBonus | remainingRoundTime: $remainingRoundTime");
+    int finalScore = itemPoints + timeBonus;
+
+    log("Final Score: $finalScore");
+
+    int highScore = 0;
+    isTimeChase
+        ? highScore = prefs.getInt('time_chase_high_score') ?? 0
+        : highScore = prefs.getInt('riddle_hunt_high_score') ?? 0;
+
+    if (finalScore > highScore) {
+      if (isTimeChase) {
+        prefs.setInt('time_chase_high_score', finalScore);
+      }
+      if (isRiddleHunt) {
+        prefs.setInt('riddle_hunt_high_score', finalScore);
+      }
+    }
+
+    Widget star;
+
+    if (finalScore >= 160) {
+      // 3 Stars: 80%-100%
+      star = Assets.images.star3.image();
+    } else if (finalScore >= 100) {
+      // 2 Stars: 50%-79%
+      star = Assets.images.star2.image();
+    } else if (finalScore >= 67) {
+      // 1 Star: 33%-49%
+      star = Assets.images.star1.image();
+    } else {
+      // 0 Stars: <33%
+      star = Assets.images.star0.image();
+    }
+
     if (context.mounted) {
       showDialog(
         barrierDismissible: false,
@@ -89,76 +132,100 @@ class ScanController extends GetxController {
         builder: (context) => Center(
           child: Container(
             width: 300,
-            height: 200,
+            height: 230,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Stack(
+              clipBehavior: Clip.none,
               children: [
-                const Text(
-                  "Time's Up!",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  "Your Score: $score",
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // ElevatedButton(
-                    //   onPressed: () {
-                    //     Navigator.of(context, rootNavigator: true).pop();
-                    //     _restartGame(); // Restart game after closing popup
-                    //   },
-                    //   child: const Text("Play Again"),
-                    // ),
-
-                    PushReplacement(
-                      route: PageTransition(
-                        type: PageTransitionType.scale,
-                        alignment: Alignment.center,
-                        child: const ExploreListScreen(),
-                      ),
-                      child: CircleButton(
-                        color: const Color(0xFFFF8413),
-                        shadowColor: const Color(0xFFFF8413),
-                        icon: Icons.arrow_back,
-                        method: () {
-                          if (context.mounted) {
-                            Navigator.pushReplacement(
-                              context,
-                              PageTransition(
-                                type: PageTransitionType.fade,
-                                alignment: Alignment.center,
-                                child: const ExploreListScreen(),
-                              ),
-                            );
-                          }
-                        },
+                    Text(
+                      remainingRoundTime.value == 0
+                          ? "Time's Up!"
+                          : "Well Done!",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.red,
+                        overflow: TextOverflow.visible,
                       ),
                     ),
-                    CircleButton(
-                        color: Color(0xff43D309),
-                        shadowColor: Color(0xff43D309),
-                        icon: Icons.replay,
-                        method: () {
-                          Navigator.of(context, rootNavigator: true).pop();
-                          _restartGame(); // Restart game after closing popup
-                        }),
+                    const SizedBox(height: 10),
+                    if (finalScore > highScore)
+                      Text(
+                        "New High Score!",
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.red,
+                        ),
+                      ),
+                    if (finalScore <= highScore)
+                      Text(
+                        "High Score: $highScore",
+                        style: const TextStyle(
+                          fontSize: 18,
+                          overflow: TextOverflow.visible,
+                        ),
+                      ),
+                    const SizedBox(height: 10),
+                    Text(
+                      "Your Score: $finalScore",
+                      style: const TextStyle(
+                        fontSize: 18,
+                        overflow: TextOverflow.visible,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        PushReplacement(
+                          route: PageTransition(
+                            type: PageTransitionType.scale,
+                            alignment: Alignment.center,
+                            child: const ExploreListScreen(),
+                          ),
+                          child: CircleButton(
+                            color: const Color(0xFFFF8413),
+                            shadowColor: const Color(0xFFFF8413),
+                            icon: Icons.arrow_back,
+                            method: () {
+                              if (context.mounted) {
+                                Navigator.of(context).pop();
+                                Navigator.pushReplacement(
+                                  context,
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    alignment: Alignment.center,
+                                    child: const ExploreListScreen(),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                        CircleButton(
+                            color: Color(0xff43D309),
+                            shadowColor: Color(0xff43D309),
+                            icon: Icons.replay,
+                            method: () {
+                              // Navigator.of(context, rootNavigator: true).pop();
+                              Navigator.of(context).pop();
+                              _restartGame(); // Restart game after closing popup
+                            }),
+                      ],
+                    ),
                   ],
                 ),
+                Positioned(
+                  top: -50,
+                  right: 30,
+                  left: 30,
+                  child: star,
+                )
               ],
             ),
           ),
@@ -173,6 +240,8 @@ class ScanController extends GetxController {
     score = 0;
     question = questionsAnswers[questionIndex].question;
     answer = questionsAnswers[questionIndex].answer;
+    questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
+    answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
     startRoundTimer();
     resumeCamera();
     update();
@@ -186,10 +255,14 @@ class ScanController extends GetxController {
     maxIndex = questionsAnswers.length;
     question = questionsAnswers[questionIndex].question;
     answer = questionsAnswers[questionIndex].answer;
+    questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
+    answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
 
     log("Questions loaded: $questionsAnswers");
     await _initializeTflite();
-    startRoundTimer(); // Start the round timer
+    if (!isInfinite) {
+      startRoundTimer();
+    } // Only start round timer if not infinite
   }
 
   Future<void> _initializeTflite() async {
@@ -214,6 +287,11 @@ class ScanController extends GetxController {
         await cameraController.initialize();
         isCameraInitialized(true);
         startImageStream();
+
+        if (!isInfinite) {
+          startRoundTimer();
+        } // Only start round timer if not infinite
+
         update();
       } catch (e) {
         log("Error initializing camera: $e");
@@ -308,12 +386,14 @@ class ScanController extends GetxController {
   void _handleCorrectAnswer() {
     score++;
 
-    if (questionIndex + 1 <= maxIndex) {
+    if (questionIndex + 1 < maxIndex) {
       _showCorrectAnswerPopup();
       _audioService.playFromAssets('sounds/correct.wav');
       questionIndex++;
       question = questionsAnswers[questionIndex].question;
       answer = questionsAnswers[questionIndex].answer;
+      questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
+      answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
     } else if (isInfinite) {
       _showCorrectAnswerPopup();
       _audioService.playFromAssets('sounds/correct.wav');
@@ -321,6 +401,8 @@ class ScanController extends GetxController {
       questionIndex = 0;
       question = questionsAnswers[questionIndex].question;
       answer = questionsAnswers[questionIndex].answer;
+      questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
+      answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
       log('index reset');
     } else {
       _audioService.playFromAssets('sounds/finish.mp3');
@@ -333,13 +415,25 @@ class ScanController extends GetxController {
   }
 
   void skipQuestion() {
+    remainingRoundTime.value -= 30;
+    log('deducted 30 seconds');
     if (questionIndex + 1 < maxIndex) {
       questionIndex++;
       question = questionsAnswers[questionIndex].question;
       answer = questionsAnswers[questionIndex].answer;
+      questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
+      answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
       _audioService.playFromAssets('sounds/wrong.mp3');
     } else {
-      questionIndex = 0;
+      if (isInfinite) {
+        questionIndex = 0;
+      } else {
+        _audioService.playFromAssets('sounds/finish.mp3');
+        remainingRoundTime.value = 0;
+        stopRoundTimer();
+        pauseCamera();
+        endGame();
+      }
     }
     update();
   }
@@ -389,9 +483,10 @@ class ScanController extends GetxController {
       );
 
       // Automatically dismiss the dialog after a delay
-      Future.delayed(const Duration(milliseconds: 700), () {
+      Future.delayed(const Duration(milliseconds: 600), () {
         if (context.mounted) {
           Navigator.of(context, rootNavigator: true).pop();
+          log('correct answer popup dismissed');
         }
       });
     }

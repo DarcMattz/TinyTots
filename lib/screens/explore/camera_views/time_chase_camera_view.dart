@@ -4,6 +4,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/helper/audio_service.dart';
@@ -30,8 +31,10 @@ class CameraViewState extends State<TimeChaseCameraView> {
     controller = Get.put(ScanController());
     controller.initializeCamera();
     controller.context = context;
-    //timer
-    controller.startRoundTimer();
+
+    controller.isInfinite = false;
+    controller.isTimeChase = true;
+    controller.isRiddleHunt = false;
 
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
@@ -39,9 +42,12 @@ class CameraViewState extends State<TimeChaseCameraView> {
         controller.questionsAnswers[controller.questionIndex].question;
     controller.answer =
         controller.questionsAnswers[controller.questionIndex].answer;
+    controller.questionSoundPath =
+        controller.questionsAnswers[controller.questionIndex].questionSoundPath;
+    controller.answerSoundPath =
+        controller.questionsAnswers[controller.questionIndex].answerSoundPath;
     controller.questionIndex = 0;
     controller.maxIndex = 5;
-    controller.isInfinite = false;
   }
 
   @override
@@ -138,7 +144,9 @@ class CameraViewState extends State<TimeChaseCameraView> {
             shadowColor: Colors.purple,
             icon: Icons.volume_up_rounded,
             method: () {
-              log('Volume button pressed'); // Add functionality if required
+              String path = controller.answerSoundPath;
+              log(path);
+              _audioService.playFromAssets(path);
             },
           ),
           if (skipAllowed)

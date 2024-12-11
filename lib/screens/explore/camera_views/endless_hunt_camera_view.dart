@@ -31,12 +31,20 @@ class CameraViewState extends State<EndlessHuntCameraView> {
     controller.initializeCamera();
     controller.context = context;
 
+    controller.isInfinite = true;
+    controller.isTimeChase = false;
+    controller.isRiddleHunt = false;
+
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
     controller.question =
         controller.questionsAnswers[controller.questionIndex].question;
     controller.answer =
         controller.questionsAnswers[controller.questionIndex].answer;
+    controller.questionSoundPath =
+        controller.questionsAnswers[controller.questionIndex].questionSoundPath;
+    controller.answerSoundPath =
+        controller.questionsAnswers[controller.questionIndex].answerSoundPath;
     controller.questionIndex = 0;
     controller.maxIndex = controller.questionsAnswers.length - 1;
   }
@@ -127,7 +135,9 @@ class CameraViewState extends State<EndlessHuntCameraView> {
             shadowColor: Colors.purple,
             icon: Icons.volume_up_rounded,
             method: () {
-              log('Volume button pressed'); // Add functionality if required
+              String path = controller.answerSoundPath;
+              log(path);
+              _audioService.playFromAssets(path);
             },
           ),
           if (skipAllowed)

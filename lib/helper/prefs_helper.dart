@@ -36,6 +36,10 @@ class Storage {
     'care_current_index',
     'care_quiz_unlocked',
     'care_high_score',
+
+    //explore
+    'time_chase_high_score',
+    'riddle_hunt_high_score',
   ];
 
   // Set Default
@@ -71,6 +75,10 @@ class Storage {
     prefs.setInt('care_current_index', 0);
     prefs.setBool('care_quiz_unlocked', false);
     prefs.setInt('care_high_score', 0);
+
+    //explore
+    prefs.setInt('time_chase_high_score', 0);
+    prefs.setInt('riddle_hunt_high_score', 0);
 
     log("Data Cleared");
   }
