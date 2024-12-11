@@ -1,3 +1,26 @@
-0 Rectangle
-1 Circle
-2 Triangle
+0 jar
+1 fan
+2 vase
+3 banana
+4 apple
+5 clock
+6 toothbrush
+7 ball
+8 cup
+9 paper
+10 foot
+11 comb
+12 bag
+13 broom
+14 pencil
+15 wallet
+16 plate
+17 bottle
+18 hat
+19 watch
+20 spoon and fork
+21 hair tie
+22 hand
+23 book
+24 crayon
+25 scissor

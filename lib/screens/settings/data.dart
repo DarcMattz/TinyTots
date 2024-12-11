@@ -16,7 +16,8 @@ class _DataScreenState extends State<DataScreen> {
       appBar: AppBar(
         title: const Text("Data"),
       ),
-      body: Expanded(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
           itemCount: Storage.allKeys.length,
           itemBuilder: (BuildContext context, int index) {

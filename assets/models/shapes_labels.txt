@@ -1,4 +1,0 @@
-0 Triangle
-1 Star
-2 Square
-3 Circle

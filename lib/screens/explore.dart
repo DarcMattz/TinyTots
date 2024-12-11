@@ -2,7 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/components/modules.dart';
-import 'package:tinytots/screens/explore/find_shapes.dart';
+import 'package:tinytots/screens/explore/endless_hunt.dart';
+import 'package:tinytots/screens/explore/riddle_hunt.dart';
+import 'package:tinytots/screens/explore/time_chase.dart';
 
 class ExploreListScreen extends StatefulWidget {
   const ExploreListScreen({super.key});
@@ -18,7 +20,15 @@ class _ExploreListScreenState extends State<ExploreListScreen> {
     Module(
         type: "explore",
         imagePath: 'assets/images/play.png',
-        route: const FindShapes()),
+        route: const EndlessHunt()),
+    Module(
+        type: "explore",
+        imagePath: 'assets/images/play.png',
+        route: const TimeChase()),
+    Module(
+        type: "explore",
+        imagePath: 'assets/images/play.png',
+        route: const RiddleHunt()),
   ];
 
   @override

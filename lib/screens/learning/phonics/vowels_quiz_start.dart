@@ -6,6 +6,7 @@ import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/screens/learning/phonics/phonics.dart';
 import 'package:tinytots/screens/learning/phonics/vowels_quiz.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tinytots/screens/learning/phonics/vowels_quiz_two.dart';
 
 class VowelsQuizStart extends StatelessWidget {
   const VowelsQuizStart({super.key});
@@ -154,7 +155,7 @@ class AndroidWelcome extends StatelessWidget {
                                 PageTransition(
                                   type: PageTransitionType.fade,
                                   alignment: Alignment.center,
-                                  child: const VowelsQuizScreen(),
+                                  child: const VowelsQuizTwoScreen(),
                                 ),
                               );
                             },

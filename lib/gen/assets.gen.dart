@@ -29,6 +29,9 @@ class $AssetsImagesGen {
   AssetGenImage get backgroundRoad =>
       const AssetGenImage('assets/images/background_road.png');
 
+  /// File path: assets/images/correct.png
+  AssetGenImage get correct => const AssetGenImage('assets/images/correct.png');
+
   /// File path: assets/images/cow.png
   AssetGenImage get cow => const AssetGenImage('assets/images/cow.png');
 
@@ -108,10 +111,6 @@ class $AssetsImagesGen {
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
-  /// File path: assets/images/splash_screen.png
-  AssetGenImage get splashScreen =>
-      const AssetGenImage('assets/images/splash_screen.png');
-
   /// File path: assets/images/star_0.png
   AssetGenImage get star0 => const AssetGenImage('assets/images/star_0.png');
 
@@ -132,6 +131,7 @@ class $AssetsImagesGen {
         logo,
         background,
         backgroundRoad,
+        correct,
         cow,
         dog,
         explorePng,
@@ -150,7 +150,6 @@ class $AssetsImagesGen {
         rabbit,
         ribbon,
         splash,
-        splashScreen,
         star0,
         star1,
         star2,
@@ -162,12 +161,9 @@ class $AssetsImagesGen {
 class $AssetsModelsGen {
   const $AssetsModelsGen();
 
-  /// File path: assets/models/converted_tflite.zip
-  String get convertedTflite => 'assets/models/converted_tflite.zip';
-
-  /// File path: assets/models/converted_tflite_quantized.zip
-  String get convertedTfliteQuantized =>
-      'assets/models/converted_tflite_quantized.zip';
+  /// File path: assets/models/converted_tflite (2)-20241210T145147Z-001.zip
+  String get convertedTflite220241210T145147Z001 =>
+      'assets/models/converted_tflite (2)-20241210T145147Z-001.zip';
 
   /// File path: assets/models/labels.txt
   String get labels => 'assets/models/labels.txt';
@@ -175,21 +171,9 @@ class $AssetsModelsGen {
   /// File path: assets/models/model_unquant.tflite
   String get modelUnquant => 'assets/models/model_unquant.tflite';
 
-  /// File path: assets/models/shapes_labels.txt
-  String get shapesLabels => 'assets/models/shapes_labels.txt';
-
-  /// File path: assets/models/shapesmodel.tflite
-  String get shapesmodel => 'assets/models/shapesmodel.tflite';
-
   /// List of all assets
-  List<String> get values => [
-        convertedTflite,
-        convertedTfliteQuantized,
-        labels,
-        modelUnquant,
-        shapesLabels,
-        shapesmodel
-      ];
+  List<String> get values =>
+      [convertedTflite220241210T145147Z001, labels, modelUnquant];
 }
 
 class $AssetsSoundsGen {
@@ -318,8 +302,12 @@ class $AssetsImagesExploreGen {
   AssetGenImage get letsPlay =>
       const AssetGenImage('assets/images/explore/lets_play.png');
 
+  /// File path: assets/images/explore/look.jpg
+  AssetGenImage get look =>
+      const AssetGenImage('assets/images/explore/look.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [letsPlay];
+  List<AssetGenImage> get values => [letsPlay, look];
 }
 
 class $AssetsImagesFilipinoGen {
@@ -472,6 +460,9 @@ class $AssetsImagesPhonicsGen {
   /// File path: assets/images/phonics/phonics_pic.png
   AssetGenImage get phonicsPic =>
       const AssetGenImage('assets/images/phonics/phonics_pic.png');
+
+  /// Directory path: assets/images/phonics/quiz
+  $AssetsImagesPhonicsQuizGen get quiz => const $AssetsImagesPhonicsQuizGen();
 
   /// File path: assets/images/phonics/vowel_quiz.png
   AssetGenImage get vowelQuiz =>
@@ -1408,6 +1399,104 @@ class $AssetsImagesMathematicsSampleGen {
         a7Example,
         a8Example,
         a9Example
+      ];
+}
+
+class $AssetsImagesPhonicsQuizGen {
+  const $AssetsImagesPhonicsQuizGen();
+
+  /// File path: assets/images/phonics/quiz/bag.png
+  AssetGenImage get bag =>
+      const AssetGenImage('assets/images/phonics/quiz/bag.png');
+
+  /// File path: assets/images/phonics/quiz/bed.png
+  AssetGenImage get bed =>
+      const AssetGenImage('assets/images/phonics/quiz/bed.png');
+
+  /// File path: assets/images/phonics/quiz/bell.png
+  AssetGenImage get bell =>
+      const AssetGenImage('assets/images/phonics/quiz/bell.png');
+
+  /// File path: assets/images/phonics/quiz/bib.png
+  AssetGenImage get bib =>
+      const AssetGenImage('assets/images/phonics/quiz/bib.png');
+
+  /// File path: assets/images/phonics/quiz/bread.png
+  AssetGenImage get bread =>
+      const AssetGenImage('assets/images/phonics/quiz/bread.png');
+
+  /// File path: assets/images/phonics/quiz/cap.png
+  AssetGenImage get cap =>
+      const AssetGenImage('assets/images/phonics/quiz/cap.png');
+
+  /// File path: assets/images/phonics/quiz/ewan (2).png
+  AssetGenImage get ewan2 =>
+      const AssetGenImage('assets/images/phonics/quiz/ewan (2).png');
+
+  /// File path: assets/images/phonics/quiz/ewan (3).png
+  AssetGenImage get ewan3 =>
+      const AssetGenImage('assets/images/phonics/quiz/ewan (3).png');
+
+  /// File path: assets/images/phonics/quiz/ewan (4).png
+  AssetGenImage get ewan4 =>
+      const AssetGenImage('assets/images/phonics/quiz/ewan (4).png');
+
+  /// File path: assets/images/phonics/quiz/ewan.png
+  AssetGenImage get ewan =>
+      const AssetGenImage('assets/images/phonics/quiz/ewan.png');
+
+  /// File path: assets/images/phonics/quiz/house.png
+  AssetGenImage get house =>
+      const AssetGenImage('assets/images/phonics/quiz/house.png');
+
+  /// File path: assets/images/phonics/quiz/king.png
+  AssetGenImage get king =>
+      const AssetGenImage('assets/images/phonics/quiz/king.png');
+
+  /// File path: assets/images/phonics/quiz/log.png
+  AssetGenImage get log =>
+      const AssetGenImage('assets/images/phonics/quiz/log.png');
+
+  /// File path: assets/images/phonics/quiz/pen.png
+  AssetGenImage get pen =>
+      const AssetGenImage('assets/images/phonics/quiz/pen.png');
+
+  /// File path: assets/images/phonics/quiz/police.png
+  AssetGenImage get police =>
+      const AssetGenImage('assets/images/phonics/quiz/police.png');
+
+  /// File path: assets/images/phonics/quiz/pot.png
+  AssetGenImage get pot =>
+      const AssetGenImage('assets/images/phonics/quiz/pot.png');
+
+  /// File path: assets/images/phonics/quiz/rat.png
+  AssetGenImage get rat =>
+      const AssetGenImage('assets/images/phonics/quiz/rat.png');
+
+  /// File path: assets/images/phonics/quiz/ten.png
+  AssetGenImage get ten =>
+      const AssetGenImage('assets/images/phonics/quiz/ten.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        bag,
+        bed,
+        bell,
+        bib,
+        bread,
+        cap,
+        ewan2,
+        ewan3,
+        ewan4,
+        ewan,
+        house,
+        king,
+        log,
+        pen,
+        police,
+        pot,
+        rat,
+        ten
       ];
 }
 

@@ -7,6 +7,7 @@ class Storage {
     //settings
     'username',
     'avatar',
+    'isFirstTime',
 
     //shapes
     'shapes_current_index',

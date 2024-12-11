@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/screens/home.dart';
 
@@ -41,7 +42,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    prefs.setBool('isFirstTime', false);
     _audioService.playFromAssets("sounds/welcome.m4a");
     super.initState();
   }
@@ -197,7 +198,6 @@ class _TabletWelcomeState extends State<TabletWelcome> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _audioService.playFromAssets("sounds/welcome.m4a");
     super.initState();
   }
@@ -307,6 +307,7 @@ class _TabletWelcomeState extends State<TabletWelcome> {
                             iconSize: 40, // Larger icon size for tablet
                             method: () {
                               _audioService.stop();
+                              Navigator.pop(context);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

@@ -105,7 +105,7 @@ class ModuleCard extends StatelessWidget {
                       ? 'Learn'
                       : module.type == 'quiz'
                           ? "Take Quiz"
-                          : "Explore",
+                          : "Play",
                   color: const Color(0xff4EC307),
                   shadowColor: const Color(0xff4EC307),
                   icon: Icons.play_arrow_rounded,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tinytots/firebase_options.dart';
 import 'package:tinytots/globals.dart';
+import 'package:tinytots/screens/home.dart';
 import 'package:tinytots/screens/welcome.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Poetsen One'),
       debugShowCheckedModeBanner: false,
-      home: const WelcomeScreen(),
+      home: isFirstTime ? const WelcomeScreen() : const HomeScreen(),
     );
   }
 }

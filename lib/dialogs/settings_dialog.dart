@@ -37,9 +37,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
     super.dispose();
   }
 
-  void _play(soundPath) async {
-    await _audioService.playFromAssets(soundPath);
-  }
+  // void _play(soundPath) async {
+  //   await _audioService.playFromAssets(soundPath);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +138,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         borderRadius: BorderRadius.circular(28.0),
                       ),
                       errorText: _textFieldController.text.isEmpty
-                          ? 'Username cannot be empty'
+                          ? 'Please enter a username'
                           : null,
                     ),
                     textAlign: TextAlign.center,
