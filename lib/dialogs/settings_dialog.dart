@@ -24,11 +24,13 @@ class _SettingsDialogState extends State<SettingsDialog> {
   final AudioService _audioService = AudioService();
   TextEditingController _textFieldController =
       TextEditingController(text: prefs.getString('username'));
+  late bool _isPlaying;
 
   @override
   void initState() {
     super.initState();
     _audioService.setOnComplete(() {});
+    _isPlaying = _audioService.isPlaying;
   }
 
   @override
@@ -68,11 +70,21 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // SettingsIconButton(
-                    //   icon: Icons.volume_up,
-                    //   color: Colors.blue,
-                    //   label: 'Sound',
-                    // ),
+                    SettingsIconButton(
+                      icon: _isPlaying ? Icons.volume_up : Icons.volume_off,
+                      color: Colors.blue,
+                      label: 'Music',
+                      onPressed: () {
+                        setState(() {
+                          _audioService.isPlaying
+                              ? _audioService.pauseBG()
+                              : _audioService.playBG();
+                          _isPlaying = !_isPlaying;
+
+                          log("isPlaying: $_isPlaying");
+                        });
+                      },
+                    ),
                     SettingsIconButton(
                       icon: Icons.person,
                       color: Colors.green,
