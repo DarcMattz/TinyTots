@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:tinytots/components/settings_icon_button.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/globals.dart';
-import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/helper/background_audio_service.dart';
 import 'package:tinytots/helper/prefs_helper.dart';
 import 'package:tinytots/screens/settings/profile.dart';
 import 'package:tinytots/screens/settings/stats.dart';
@@ -21,7 +21,8 @@ class SettingsDialog extends StatefulWidget {
 }
 
 class _SettingsDialogState extends State<SettingsDialog> {
-  final AudioService _audioService = AudioService();
+  final BackgroundAudioService _backgroundAudioService =
+      BackgroundAudioService();
   TextEditingController _textFieldController =
       TextEditingController(text: prefs.getString('username'));
   late bool _isPlaying;
@@ -29,13 +30,11 @@ class _SettingsDialogState extends State<SettingsDialog> {
   @override
   void initState() {
     super.initState();
-    _audioService.setOnComplete(() {});
-    _isPlaying = _audioService.isPlaying;
+    _isPlaying = _backgroundAudioService.isPlaying;
   }
 
   @override
   void dispose() {
-    _audioService.dispose();
     super.dispose();
   }
 
@@ -71,14 +70,15 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SettingsIconButton(
+                      // icon: Icons.volume_off,
                       icon: _isPlaying ? Icons.volume_up : Icons.volume_off,
                       color: Colors.blue,
                       label: 'Music',
                       onPressed: () {
                         setState(() {
-                          _audioService.isPlaying
-                              ? _audioService.pauseBG()
-                              : _audioService.playBG();
+                          _backgroundAudioService.isPlaying
+                              ? _backgroundAudioService.pause()
+                              : _backgroundAudioService.resume();
                           _isPlaying = !_isPlaying;
 
                           log("isPlaying: $_isPlaying");

@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:tinytots/components/top_bar.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/helper/audio_service.dart';
+import 'package:tinytots/helper/background_audio_service.dart';
 import 'package:tinytots/screens/explore.dart';
 import 'package:tinytots/screens/learning.dart';
 
@@ -32,20 +35,22 @@ class AndroidScreen extends StatefulWidget {
 }
 
 class _AndroidScreenState extends State<AndroidScreen> {
-  final AudioService _audioService = AudioService();
+  final BackgroundAudioService _backgroundAudioService =
+      BackgroundAudioService();
 
   @override
   void initState() {
+    log("Home Screen");
     super.initState();
     refreshScreen();
-    _audioService.playBG();
+    _backgroundAudioService.playBackroundMusic();
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _audioService.dispose();
+    _backgroundAudioService.dispose();
   }
 
   void refreshScreen() {
