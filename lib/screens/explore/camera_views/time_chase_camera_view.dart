@@ -30,6 +30,8 @@ class CameraViewState extends State<TimeChaseCameraView> {
     controller = Get.put(ScanController());
     controller.initializeCamera();
     controller.context = context;
+    //timer
+    controller.startRoundTimer();
 
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
@@ -38,12 +40,14 @@ class CameraViewState extends State<TimeChaseCameraView> {
     controller.answer =
         controller.questionsAnswers[controller.questionIndex].answer;
     controller.questionIndex = 0;
-    controller.maxIndex = controller.questionsAnswers.length - 1;
+    controller.maxIndex = 5;
+    controller.isInfinite = false;
   }
 
   @override
   void dispose() {
     controller.disposeCamera();
+    controller.stopRoundTimer();
     super.dispose();
   }
 
@@ -75,11 +79,12 @@ class CameraViewState extends State<TimeChaseCameraView> {
   }
 
   Widget _buildTopBar() {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: PushReplacement(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          PushReplacement(
             route: PageTransition(
               type: PageTransitionType.scale,
               alignment: Alignment.center,
@@ -92,8 +97,14 @@ class CameraViewState extends State<TimeChaseCameraView> {
               method: () => _navigateToExploreScreen(),
             ),
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+                '${controller.remainingRoundTime.value ~/ 60}:${(controller.remainingRoundTime.value % 60).toString().padLeft(2, '0')}',
+                style: const TextStyle(color: Colors.white, fontSize: 24)),
+          ),
+        ],
+      ),
     );
   }
 

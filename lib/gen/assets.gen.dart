@@ -207,6 +207,9 @@ class $AssetsSoundsGen {
   /// Directory path: assets/sounds/shapes
   $AssetsSoundsShapesGen get shapes => const $AssetsSoundsShapesGen();
 
+  /// File path: assets/sounds/timesup.mp3
+  String get timesup => 'assets/sounds/timesup.mp3';
+
   /// Directory path: assets/sounds/vowels
   $AssetsSoundsVowelsGen get vowels => const $AssetsSoundsVowelsGen();
 
@@ -217,7 +220,8 @@ class $AssetsSoundsGen {
   String get wrong => 'assets/sounds/wrong.mp3';
 
   /// List of all assets
-  List<String> get values => [button, correct, finish, ready, welcome, wrong];
+  List<String> get values =>
+      [button, correct, finish, ready, timesup, welcome, wrong];
 }
 
 class $AssetsImagesAllAboardGen {
