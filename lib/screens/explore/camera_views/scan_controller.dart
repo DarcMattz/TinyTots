@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
@@ -8,6 +9,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/dialogs/explore_finish_dialog.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
@@ -110,125 +112,39 @@ class ScanController extends GetxController {
     }
 
     Widget star;
+    String path;
 
     if (finalScore >= 160) {
       // 3 Stars: 80%-100%
       star = Assets.images.star3.image();
+      path = 'sounds/quiz/perfect.m4a';
     } else if (finalScore >= 100) {
       // 2 Stars: 50%-79%
       star = Assets.images.star2.image();
+      path = 'sounds/quiz/great.m4a';
     } else if (finalScore >= 67) {
       // 1 Star: 33%-49%
       star = Assets.images.star1.image();
+      path = 'sounds/quiz/low_2.m4a';
     } else {
       // 0 Stars: <33%
       star = Assets.images.star0.image();
+      path = 'sounds/quiz/low_1.m4a';
     }
+
+    AudioPlayer audioPlayer = AudioPlayer();
+    audioPlayer.play(AssetSource(path));
 
     if (context.mounted) {
       showDialog(
         barrierDismissible: false,
         context: Navigator.of(context, rootNavigator: true).context,
-        builder: (context) => Center(
-          child: Container(
-            width: 300,
-            height: 230,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      remainingRoundTime.value == 0
-                          ? "Time's Up!"
-                          : "Well Done!",
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.red,
-                        overflow: TextOverflow.visible,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    if (finalScore > highScore)
-                      Text(
-                        "New High Score!",
-                        style: TextStyle(
-                          fontSize: 22,
-                          color: Colors.red,
-                        ),
-                      ),
-                    if (finalScore <= highScore)
-                      Text(
-                        "High Score: $highScore",
-                        style: const TextStyle(
-                          fontSize: 18,
-                          overflow: TextOverflow.visible,
-                        ),
-                      ),
-                    const SizedBox(height: 10),
-                    Text(
-                      "Your Score: $finalScore",
-                      style: const TextStyle(
-                        fontSize: 18,
-                        overflow: TextOverflow.visible,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        PushReplacement(
-                          route: PageTransition(
-                            type: PageTransitionType.scale,
-                            alignment: Alignment.center,
-                            child: const ExploreListScreen(),
-                          ),
-                          child: CircleButton(
-                            color: const Color(0xFFFF8413),
-                            shadowColor: const Color(0xFFFF8413),
-                            icon: Icons.arrow_back,
-                            method: () {
-                              if (context.mounted) {
-                                Navigator.of(context).pop();
-                                Navigator.pushReplacement(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    alignment: Alignment.center,
-                                    child: const ExploreListScreen(),
-                                  ),
-                                );
-                              }
-                            },
-                          ),
-                        ),
-                        CircleButton(
-                            color: Color(0xff43D309),
-                            shadowColor: Color(0xff43D309),
-                            icon: Icons.replay,
-                            method: () {
-                              // Navigator.of(context, rootNavigator: true).pop();
-                              Navigator.of(context).pop();
-                              _restartGame(); // Restart game after closing popup
-                            }),
-                      ],
-                    ),
-                  ],
-                ),
-                Positioned(
-                  top: -50,
-                  right: 30,
-                  left: 30,
-                  child: star,
-                )
-              ],
-            ),
-          ),
+        builder: (context) => ExploreFinishDialog(
+          replay: () => _restartGame(),
+          score: finalScore,
+          star: star,
+          highscore: highScore,
+          remainingTime: remainingRoundTime.value,
         ),
       );
     }
@@ -429,7 +345,9 @@ class ScanController extends GetxController {
         questionIndex = 0;
       } else {
         _audioService.playFromAssets('sounds/finish.mp3');
-        remainingRoundTime.value = 0;
+        if (remainingRoundTime.value < 0) {
+          remainingRoundTime.value = 0;
+        }
         stopRoundTimer();
         pauseCamera();
         endGame();
