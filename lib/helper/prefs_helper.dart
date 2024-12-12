@@ -84,17 +84,22 @@ class Storage {
   }
 
   // Read
-  static getData() async {
-    // final items = await getAllSharedPrefItems();
-    log('------- All Keys -------');
-    for (var key in allKeys) {
-      log('Key: $key | Value: ${prefs.get(key)}');
+  static Map<String, dynamic> getData() {
+    Map<String, dynamic> data = {};
+    for (String key in allKeys) {
+      data[key] = prefs.get(key);
     }
+    return data;
   }
 
   // Delete
   static Future<void> clearData() async {
     await prefs.clear();
     log("Data Deleted");
+  }
+
+  static Future<void> saveDataOnline() async {
+    /// if signed in save data to firestore
+    /// if not signed in
   }
 }

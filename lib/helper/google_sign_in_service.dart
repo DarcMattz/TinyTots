@@ -1,43 +1,65 @@
+import 'dart:developer';
+
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:tinytots/components/snackbar.dart';
 
 class GoogleSignInService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  Future<User?> signInWithGoogle() async {
+  Future<UserCredential?> signInWithGoogle(BuildContext context) async {
     try {
-      // Trigger the Google Sign-In flow
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      final googleUser = await GoogleSignIn().signIn();
 
       if (googleUser == null) {
-        // The user canceled the sign-in
+        log('[GoogleSignInService] User cancelled the login flow.');
         return null;
       }
 
-      // Obtain the Google sign-in authentication
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
+      final googleAuth = await googleUser.authentication;
 
-      // Create a new credential
-      final AuthCredential credential = GoogleAuthProvider.credential(
+      if (googleAuth.accessToken == null || googleAuth.idToken == null) {
+        throw FirebaseAuthException(
+            code: 'invalid-credential',
+            message: 'Google authentication failed.');
+      }
+
+      final cred = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
-      // Sign in with the credential
-      final UserCredential userCredential =
-          await _auth.signInWithCredential(credential);
-
-      return userCredential.user;
+      log('[GoogleSignInService] User signed in successfully.');
+      return await _auth.signInWithCredential(cred);
     } catch (e) {
-      print('Google Sign-In Error: $e');
-      return null;
+      log('[GoogleSignInService] Error: $e');
+
+      if (e is FirebaseAuthException && e.code == 'network-request-failed') {
+        showTopAwesomeSnackbar(
+          context,
+          title: 'Network Error',
+          message: 'Please check your internet connection.',
+          contentType: ContentType.failure,
+        );
+      } else {
+        showTopAwesomeSnackbar(
+          context,
+          title: 'Error',
+          message: 'An unexpected error occurred.',
+          contentType: ContentType.failure,
+        );
+      }
     }
+    return null;
   }
 
+  bool isSignedIn() => _auth.currentUser != null;
+
   Future<void> signOut() async {
-    await _googleSignIn.signOut();
     await _auth.signOut();
+    await GoogleSignIn().signOut();
+    log('[GoogleSignInService] User signed out.');
   }
 }

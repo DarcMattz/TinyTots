@@ -3,10 +3,12 @@ import 'dart:developer';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:tinytots/components/settings_icon_button.dart';
+import 'package:tinytots/components/snackbar.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/background_audio_service.dart';
-import 'package:tinytots/helper/prefs_helper.dart';
+import 'package:tinytots/helper/google_sign_in_service.dart';
 import 'package:tinytots/screens/settings/profile.dart';
 import 'package:tinytots/screens/settings/stats.dart';
 import 'package:gap/gap.dart';
@@ -21,30 +23,53 @@ class SettingsDialog extends StatefulWidget {
 }
 
 class _SettingsDialogState extends State<SettingsDialog> {
+  final GoogleSignInService _googleSignInService = GoogleSignInService();
   final BackgroundAudioService _backgroundAudioService =
       BackgroundAudioService();
-  TextEditingController _textFieldController =
-      TextEditingController(text: prefs.getString('username'));
+  late TextEditingController _textFieldController;
   late bool _isPlaying;
 
   @override
   void initState() {
     super.initState();
     _isPlaying = _backgroundAudioService.isPlaying;
+    _textFieldController =
+        TextEditingController(text: prefs.getString('username') ?? '');
   }
 
   @override
   void dispose() {
+    _textFieldController.dispose();
     super.dispose();
   }
 
-  // void _play(soundPath) async {
-  //   await _audioService.playFromAssets(soundPath);
-  // }
+  void _toggleMusic() {
+    _backgroundAudioService.isPlaying
+        ? _backgroundAudioService.pause()
+        : _backgroundAudioService.resume();
+    setState(() {
+      _isPlaying = !_isPlaying;
+    });
+    log("Music Playing: $_isPlaying");
+  }
+
+  void _handleGoogleSignIn() async {
+    if (_googleSignInService.isSignedIn()) {
+      await _googleSignInService.signOut();
+    } else {
+      await _googleSignInService.signInWithGoogle(context);
+    }
+
+    // Update the UI after the sign-in state changes
+    setState(() {
+      log('isSignedIn: ${_googleSignInService.isSignedIn()}');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: Colors.transparent,
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
@@ -70,20 +95,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SettingsIconButton(
-                      // icon: Icons.volume_off,
                       icon: _isPlaying ? Icons.volume_up : Icons.volume_off,
                       color: Colors.blue,
                       label: 'Music',
-                      onPressed: () {
-                        setState(() {
-                          _backgroundAudioService.isPlaying
-                              ? _backgroundAudioService.pause()
-                              : _backgroundAudioService.resume();
-                          _isPlaying = !_isPlaying;
-
-                          log("isPlaying: $_isPlaying");
-                        });
-                      },
+                      onPressed: _toggleMusic,
                     ),
                     SettingsIconButton(
                       icon: Icons.person,
@@ -112,46 +127,24 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         );
                       },
                     ),
-                    SettingsIconButton(
-                      icon: Icons.cleaning_services,
-                      color: Colors.orange,
-                      label: 'Clear Data',
-                      onPressed: () => Storage.defaultData(),
-                    ),
-                    // SettingsIconButton(
-                    //   icon: Icons.bar_chart,
-                    //   color: Colors.purple,
-                    //   label: 'Print Data',
-                    //   onPressed: () => Storage.getData(),
-                    // ),
-                    // SettingsIconButton(
-                    //   icon: Icons.delete,
-                    //   color: Colors.red,
-                    //   label: 'Delete Data',
-                    //   onPressed: () => Storage.clearData(),
-                    // ),
                   ],
                 ),
                 const Gap(20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: TextField(
+                    controller: _textFieldController,
                     style: const TextStyle(
                       color: Color(0xFF4D4D4D),
                       fontSize: 20,
                     ),
-                    controller: _textFieldController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xffD9D9D9),
-                      // labelText: "Username",
                       border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(28.0),
+                        borderSide: BorderSide.none,
                       ),
-                      errorText: _textFieldController.text.isEmpty
-                          ? 'Please enter a username'
-                          : null,
                     ),
                     textAlign: TextAlign.center,
                     onSubmitted: (value) {
@@ -160,67 +153,55 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         prefs.setString('username', value);
                         log('Username: $value');
                       } else {
-                        log('Username cannot be empty');
+                        showTopAwesomeSnackbar(
+                          context,
+                          title: 'Oops!',
+                          message: 'Username cannot be empty',
+                          contentType: ContentType.warning,
+                        );
                         _textFieldController.text =
-                            prefs.getString('username') ?? 'Tiny Explorer';
+                            prefs.getString('username') ?? '';
                       }
                     },
                   ),
                 ),
                 const Gap(20),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.save, color: Colors.black54),
-                    SizedBox(width: 8),
-                    Text(
-                      'Save Your Progress',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xffFFB213),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
                       ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
-                  ],
-                ),
-                const Gap(10),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 12),
-                  ),
-                  onPressed: () {
-                    if (_textFieldController.text.isNotEmpty) {
-                      //register if not registered
-                      //retrieve if registered
-                    } else {
-                      log('Username cannot be empty');
-                      Navigator.pop(context);
-
-                      const snackBar = SnackBar(
-                        elevation: 0,
-                        behavior: SnackBarBehavior.floating,
-                        backgroundColor: Colors.transparent,
-                        content: AwesomeSnackbarContent(
-                          title: 'Oops!',
-                          message: 'Username cannot be empty',
-                          contentType: ContentType.warning,
+                    onPressed: _handleGoogleSignIn,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Google logo with some spacing
+                        Container(
+                          padding: const EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: Assets.images.googleLogo.image(height: 28),
                         ),
-                      );
-
-                      ScaffoldMessenger.of(context)
-                        ..hideCurrentSnackBar()
-                        ..showSnackBar(snackBar);
-                    }
-                  },
-                  child: const Text(
-                    'Register this Account',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+                        const SizedBox(width: 12),
+                        // Sign-In or Sign-Out text
+                        Text(
+                          _googleSignInService.isSignedIn()
+                              ? 'Sign Out'
+                              : 'Sign In',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff4D4D4D),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -239,9 +220,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                         'username', _textFieldController.text.trim());
                     log('Username: ${_textFieldController.text}');
                   }
-                  if (context.mounted) {
-                    Navigator.pop(context);
-                  }
+                  if (context.mounted) Navigator.pop(context);
                 },
               ),
             ),
