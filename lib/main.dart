@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/firebase_options.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/screens/home.dart';
@@ -13,6 +14,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   prefs = await SharedPreferences.getInstance();
+  Permission.camera.request();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (value) => runApp(const MyApp()),
   );

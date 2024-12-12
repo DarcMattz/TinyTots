@@ -3,6 +3,7 @@ import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/top_bar.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/screens/explore.dart';
 
 import 'package:page_transition/page_transition.dart';
@@ -23,12 +24,36 @@ class RiddleHunt extends StatelessWidget {
   }
 }
 
-class AndroidWelcome extends StatelessWidget {
+class AndroidWelcome extends StatefulWidget {
   const AndroidWelcome({
     super.key,
     required this.constraints,
   });
   final BoxConstraints constraints;
+
+  @override
+  State<AndroidWelcome> createState() => _AndroidWelcomeState();
+}
+
+class _AndroidWelcomeState extends State<AndroidWelcome> {
+  final AudioService audioService = AudioService();
+
+  void _play() async {
+    await audioService.playFromAssets("sounds/explore/riddle_hunt.m4a");
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _play();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    audioService.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +117,7 @@ class AndroidWelcome extends StatelessWidget {
                             Text(
                               'Riddle Hunt',
                               style: TextStyle(
-                                fontSize: constraints.maxWidth * .057,
+                                fontSize: widget.constraints.maxWidth * .057,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff6F53FD),
                               ),
@@ -107,8 +132,8 @@ class AndroidWelcome extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 10),
-                            Assets.images.science.body.quiz.bodyQuiz.image(
-                              width: constraints.maxWidth * .4,
+                            Assets.images.explore.riddle.image(
+                              width: widget.constraints.maxWidth * .4,
                             ),
                           ],
                         ),
@@ -174,7 +199,7 @@ class AndroidWelcome extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20.0, right: 30),
                   child: Assets.images.cow.image(
-                    height: constraints.maxHeight * .20,
+                    height: widget.constraints.maxHeight * .20,
                   ),
                 ),
               ],

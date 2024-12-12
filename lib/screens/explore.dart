@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/components/modules.dart';
 import 'package:tinytots/gen/assets.gen.dart';
@@ -37,7 +36,6 @@ class _ExploreListScreenState extends State<ExploreListScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Permission.camera.request();
   }
 
   @override

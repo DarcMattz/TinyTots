@@ -199,7 +199,11 @@ class ScanController extends GetxController {
     if (await Permission.camera.request().isGranted) {
       try {
         cameras = await availableCameras();
-        cameraController = CameraController(cameras[0], ResolutionPreset.max);
+        cameraController = CameraController(
+          cameras[0],
+          ResolutionPreset.max,
+          enableAudio: false,
+        );
         await cameraController.initialize();
         isCameraInitialized(true);
         startImageStream();
@@ -367,7 +371,7 @@ class ScanController extends GetxController {
             width: 200,
             height: 200,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(
@@ -377,24 +381,10 @@ class ScanController extends GetxController {
                 ),
               ],
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/correct.png',
-                  width: 100,
-                  height: 100,
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  "Correct!",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
-              ],
+            child: Image.asset(
+              'assets/images/correct.png',
+              width: 100,
+              height: 100,
             ),
           ),
         ),
