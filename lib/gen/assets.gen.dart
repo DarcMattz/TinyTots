@@ -499,6 +499,10 @@ class $AssetsImagesPhonicsGen {
   AssetGenImage get vowelQuiz =>
       const AssetGenImage('assets/images/phonics/vowel_quiz.png');
 
+  /// File path: assets/images/phonics/vowel_quiz_two.png
+  AssetGenImage get vowelQuizTwo =>
+      const AssetGenImage('assets/images/phonics/vowel_quiz_two.png');
+
   /// Directory path: assets/images/phonics/vowels
   $AssetsImagesPhonicsVowelsGen get vowels =>
       const $AssetsImagesPhonicsVowelsGen();
@@ -509,7 +513,7 @@ class $AssetsImagesPhonicsGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [learnVowels, phonicsPic, vowelQuiz, vowelsPic];
+      [learnVowels, phonicsPic, vowelQuiz, vowelQuizTwo, vowelsPic];
 }
 
 class $AssetsImagesScienceGen {
@@ -655,6 +659,9 @@ class $AssetsSoundsExploreGen {
   /// File path: assets/sounds/explore/cup_question.m4a
   String get cupQuestion => 'assets/sounds/explore/cup_question.m4a';
 
+  /// File path: assets/sounds/explore/endless_hunt.m4a
+  String get endlessHunt => 'assets/sounds/explore/endless_hunt.m4a';
+
   /// File path: assets/sounds/explore/fan.m4a
   String get fan => 'assets/sounds/explore/fan.m4a';
 
@@ -706,11 +713,17 @@ class $AssetsSoundsExploreGen {
   /// File path: assets/sounds/explore/plate_question.m4a
   String get plateQuestion => 'assets/sounds/explore/plate_question.m4a';
 
+  /// File path: assets/sounds/explore/riddle_hunt.m4a
+  String get riddleHunt => 'assets/sounds/explore/riddle_hunt.m4a';
+
   /// File path: assets/sounds/explore/spoon and fork.m4a
   String get spoonAndFork => 'assets/sounds/explore/spoon and fork.m4a';
 
   /// File path: assets/sounds/explore/spoon_question.m4a
   String get spoonQuestion => 'assets/sounds/explore/spoon_question.m4a';
+
+  /// File path: assets/sounds/explore/time_chase.m4a
+  String get timeChase => 'assets/sounds/explore/time_chase.m4a';
 
   /// File path: assets/sounds/explore/toothbrush.m4a
   String get toothbrush => 'assets/sounds/explore/toothbrush.m4a';
@@ -761,6 +774,7 @@ class $AssetsSoundsExploreGen {
         crayonsQuestion,
         cup,
         cupQuestion,
+        endlessHunt,
         fan,
         fanQuestion,
         feet,
@@ -778,8 +792,10 @@ class $AssetsSoundsExploreGen {
         pencil,
         plate,
         plateQuestion,
+        riddleHunt,
         spoonAndFork,
         spoonQuestion,
+        timeChase,
         toothbrush,
         toothbrushQuestion,
         vase,
@@ -1082,6 +1098,9 @@ class $AssetsSoundsVowelsGen {
 
   /// File path: assets/sounds/vowels/popot.m4a
   String get popot => 'assets/sounds/vowels/popot.m4a';
+
+  /// Directory path: assets/sounds/vowels/quiz2
+  $AssetsSoundsVowelsQuiz2Gen get quiz2 => const $AssetsSoundsVowelsQuiz2Gen();
 
   /// File path: assets/sounds/vowels/riring.m4a
   String get riring => 'assets/sounds/vowels/riring.m4a';
@@ -2397,6 +2416,77 @@ class $AssetsSoundsScienceSensesGen {
 
   /// List of all assets
   List<String> get values => [hearing, learnSenses, sight, smell, taste, touch];
+}
+
+class $AssetsSoundsVowelsQuiz2Gen {
+  const $AssetsSoundsVowelsQuiz2Gen();
+
+  /// File path: assets/sounds/vowels/quiz2/a_hot.m4a
+  String get aHot => 'assets/sounds/vowels/quiz2/a_hot.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/bob is a.m4a
+  String get bobIsA => 'assets/sounds/vowels/quiz2/bob is a.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/drive-download-20241212T202621Z-001.zip
+  String get driveDownload20241212T202621Z001 =>
+      'assets/sounds/vowels/quiz2/drive-download-20241212T202621Z-001.zip';
+
+  /// File path: assets/sounds/vowels/quiz2/he_has_a.m4a
+  String get heHasA => 'assets/sounds/vowels/quiz2/he_has_a.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/he_is_a.m4a
+  String get heIsA => 'assets/sounds/vowels/quiz2/he_is_a.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/i see a.m4a
+  String get iSeeA => 'assets/sounds/vowels/quiz2/i see a.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/it is a big.m4a
+  String get itIsABig => 'assets/sounds/vowels/quiz2/it is a big.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/it is a fat.m4a
+  String get itIsAFat => 'assets/sounds/vowels/quiz2/it is a fat.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/it is a.m4a
+  String get itIsA => 'assets/sounds/vowels/quiz2/it is a.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/the bus is in the.m4a
+  String get theBusIsInThe =>
+      'assets/sounds/vowels/quiz2/the bus is in the.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/the pin is on the.m4a
+  String get thePinIsOnThe =>
+      'assets/sounds/vowels/quiz2/the pin is on the.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/the_dog.m4a
+  String get theDog => 'assets/sounds/vowels/quiz2/the_dog.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/this is a fat.m4a
+  String get thisIsAFat => 'assets/sounds/vowels/quiz2/this is a fat.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/this is a.m4a
+  String get thisIsA => 'assets/sounds/vowels/quiz2/this is a.m4a';
+
+  /// File path: assets/sounds/vowels/quiz2/this is dads.m4a
+  String get thisIsDads => 'assets/sounds/vowels/quiz2/this is dads.m4a';
+
+  /// List of all assets
+  List<String> get values => [
+        aHot,
+        bobIsA,
+        driveDownload20241212T202621Z001,
+        heHasA,
+        heIsA,
+        iSeeA,
+        itIsABig,
+        itIsAFat,
+        itIsA,
+        theBusIsInThe,
+        thePinIsOnThe,
+        theDog,
+        thisIsAFat,
+        thisIsA,
+        thisIsDads
+      ];
 }
 
 class $AssetsImagesAllAboardLettersGuideGen {

@@ -63,7 +63,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       VowelsQuestion(
         imagePath: Assets.images.phonics.quiz.king.path,
         questionText: "He is a ____.",
-        audioPath: "",
+        audioPath: "sounds/vowels/quiz2/he_is_a.m4a",
         options: [
           'king',
           'bed',
@@ -74,7 +74,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       VowelsQuestion(
         imagePath: Assets.images.phonics.quiz.log.path,
         questionText: "The dog is on the ___.",
-        audioPath: "",
+        audioPath: "sounds/vowels/quiz2/the_dog.m4a",
         options: [
           'log',
           'pen',
@@ -85,7 +85,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       VowelsQuestion(
         imagePath: Assets.images.phonics.quiz.bread.path,
         questionText: "This is a hot ___.",
-        audioPath: "",
+        audioPath: "sounds/vowels/quiz2/a_hot.m4a",
         options: [
           'bread',
           'bib',
@@ -559,6 +559,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       ),
                     ),
                   ),
+                  Gap(widget.constraints.maxHeight * .02),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Wrap(
@@ -597,12 +598,16 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                           offset: const Offset(0, 3),
                                         ),
                                 ]),
-                            child: Text(
-                              currentQuestion.options[randomizedIndices[index]],
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: widget.constraints.maxHeight * .05,
-                                height: 1.0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                currentQuestion
+                                    .options[randomizedIndices[index]],
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: widget.constraints.maxHeight * .025,
+                                  height: 1.0,
+                                ),
                               ),
                             ),
                           ),
@@ -610,6 +615,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       ),
                     ),
                   ),
+                  Gap(widget.constraints.maxHeight * .02),
                   LayoutBuilder(builder: (context, constraints) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),

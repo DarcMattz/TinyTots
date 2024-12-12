@@ -5,11 +5,10 @@ import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/screens/learning/phonics/phonics.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:tinytots/screens/learning/phonics/vowels_quiz.dart';
 import 'package:tinytots/screens/learning/phonics/vowels_quiz_two.dart';
 
-class VowelsQuizStart extends StatelessWidget {
-  const VowelsQuizStart({super.key});
+class VowelsQuizTwoStart extends StatelessWidget {
+  const VowelsQuizTwoStart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +70,7 @@ class AndroidWelcome extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
+                        alignment: Alignment.center,
                         padding: const EdgeInsets.all(18.0),
                         decoration: BoxDecoration(
                           color: const Color(0xff95E9FF),
@@ -90,16 +90,17 @@ class AndroidWelcome extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Text(
-                              'Name the Picture',
+                              'Complete the sentence',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff6F53FD),
                               ),
+                              textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 10),
                             const Text(
-                              "Choose the ending sound you hear.",
+                              "Choose the word that completes the sentence.",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -107,8 +108,8 @@ class AndroidWelcome extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 10),
-                            Assets.images.phonics.vowelQuiz.image(
-                              height: constraints.maxHeight * .15,
+                            Assets.images.phonics.vowelQuizTwo.image(
+                              height: constraints.maxHeight * .2,
                             ),
                           ],
                         ),
@@ -155,7 +156,7 @@ class AndroidWelcome extends StatelessWidget {
                                 PageTransition(
                                   type: PageTransitionType.fade,
                                   alignment: Alignment.center,
-                                  child: const VowelsQuizScreen(),
+                                  child: const VowelsQuizTwoScreen(),
                                 ),
                               );
                             },

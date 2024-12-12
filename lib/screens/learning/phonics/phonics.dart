@@ -5,6 +5,7 @@ import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/screens/learning/phonics/vowels_quiz_start.dart';
+import 'package:tinytots/screens/learning/phonics/vowels_quiz_start_two.dart';
 import 'package:tinytots/screens/learning/phonics/vowels_start.dart';
 
 class PhonicsScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class _PhonicsScreenState extends State<PhonicsScreen> {
         isFinished: _isVowelsFinished,
         score: _vowelsScore,
         imagePath: Assets.images.quizPic.path,
-        route: const VowelsQuizStart(),
+        route: const VowelsQuizTwoStart(),
       ),
     ];
 
