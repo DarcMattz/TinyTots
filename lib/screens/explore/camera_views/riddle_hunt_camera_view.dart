@@ -4,7 +4,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/helper/audio_service.dart';

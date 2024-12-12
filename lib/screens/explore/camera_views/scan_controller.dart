@@ -24,7 +24,7 @@ class ScanController extends GetxController {
   late BuildContext context;
 
   // Game Type
-  bool isInfinite = true;
+  bool isInfinite = false;
   bool isTimeChase = false;
   bool isRiddleHunt = false;
 
@@ -93,6 +93,7 @@ class ScanController extends GetxController {
     int itemPoints = score * 10;
     int timeBonus = remainingRoundTime.value;
     log("Item Points: $itemPoints | Time Bonus: $timeBonus | remainingRoundTime: $remainingRoundTime");
+    log("MaxScore: $maxscore");
     int finalScore = itemPoints + timeBonus;
 
     log("Final Score: $finalScore");
@@ -305,6 +306,8 @@ class ScanController extends GetxController {
 
   void _handleCorrectAnswer() {
     score++;
+    log("questionIndex: $questionIndex");
+    log("maxIndex: $maxIndex");
 
     if (questionIndex + 1 < maxIndex) {
       _showCorrectAnswerPopup();

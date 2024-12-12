@@ -158,7 +158,7 @@ class _AndroidScreenState extends State<AndroidScreen> {
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: const Text(
-                        "Let's Explore More",
+                        "Let's Explore",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
