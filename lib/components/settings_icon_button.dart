@@ -21,10 +21,19 @@ class SettingsIconButton extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: onPressed,
-          child: CircleAvatar(
-            radius: 25,
-            backgroundColor: color,
-            child: Icon(icon, color: Colors.white, size: 30),
+          // child: CircleAvatar(
+          //   radius: 25,
+          //   backgroundColor: color,
+          //   child: Icon(icon, color: Colors.white, size: 30),
+          // ),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Color(0xff4D4D4D), width: 2),
+            ),
+            child: Icon(icon, color: Colors.white, size: 40),
           ),
         ),
         const Gap(8),

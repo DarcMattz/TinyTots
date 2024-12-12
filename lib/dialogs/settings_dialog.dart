@@ -56,6 +56,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
   void _handleGoogleSignIn() async {
     if (_googleSignInService.isSignedIn()) {
       await _googleSignInService.signOut();
+      await _googleSignInService.signInWithGoogle(context);
     } else {
       await _googleSignInService.signInWithGoogle(context);
     }
@@ -96,13 +97,13 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   children: [
                     SettingsIconButton(
                       icon: _isPlaying ? Icons.volume_up : Icons.volume_off,
-                      color: Colors.blue,
+                      color: Color(0xff2EA1FE),
                       label: 'Music',
                       onPressed: _toggleMusic,
                     ),
                     SettingsIconButton(
                       icon: Icons.person,
-                      color: Colors.green,
+                      color: Color(0xff2ED6B2),
                       label: 'Avatar',
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -116,7 +117,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     ),
                     SettingsIconButton(
                       icon: Icons.bar_chart,
-                      color: Colors.purple,
+                      color: Color(0xffA248DE),
                       label: 'Stats',
                       onPressed: () {
                         Navigator.pushReplacement(
@@ -165,7 +166,43 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     },
                   ),
                 ),
-                const Gap(20),
+                Text(
+                  'username',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                const Gap(10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xffFFfff),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                    ),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.save, color: Color(0xff4D4D4D), size: 24),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Save your progress',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            // fontWeight: FontWeight.w600,
+                            color: Color(0xff4D4D4D),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Gap(10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: ElevatedButton(
@@ -180,24 +217,22 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Google logo with some spacing
                         Container(
                           padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.white,
                           ),
-                          child: Assets.images.googleLogo.image(height: 28),
+                          child: Assets.images.googleLogo.image(height: 24),
                         ),
-                        const SizedBox(width: 12),
-                        // Sign-In or Sign-Out text
+                        const SizedBox(width: 8),
                         Text(
                           _googleSignInService.isSignedIn()
-                              ? 'Sign Out'
-                              : 'Sign In',
+                              ? 'Change Account'
+                              : 'Sign In with Google',
                           style: const TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                            // fontWeight: FontWeight.w600,
                             color: Color(0xff4D4D4D),
                           ),
                         ),
@@ -209,12 +244,26 @@ class _SettingsDialogState extends State<SettingsDialog> {
             ),
             Positioned(
               top: -15,
-              right: -10,
-              child: CircleButton(
-                color: Colors.purpleAccent,
-                shadowColor: Colors.purple,
-                icon: Icons.close,
-                method: () {
+              right: -15,
+              // child: CircleButton(
+              //   color: Colors.purpleAccent,
+              //   shadowColor: Colors.purple,
+              //   icon: Icons.close,
+              //   method: () {
+              //     if (_textFieldController.text.isNotEmpty) {
+              //       prefs.setString(
+              //           'username', _textFieldController.text.trim());
+              //       log('Username: ${_textFieldController.text}');
+              //     }
+              //     if (context.mounted) Navigator.pop(context);
+              //   },
+              // ),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.close,
+                  color: Color(0xff4D4D4D),
+                ),
+                onPressed: () {
                   if (_textFieldController.text.isNotEmpty) {
                     prefs.setString(
                         'username', _textFieldController.text.trim());
