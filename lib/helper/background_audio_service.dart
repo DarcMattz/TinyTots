@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/material.dart';
 
 class BackgroundAudioService {
   static final BackgroundAudioService _instance =

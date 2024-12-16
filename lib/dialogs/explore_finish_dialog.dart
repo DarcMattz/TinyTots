@@ -24,10 +24,10 @@ class ExploreFinishDialog extends StatefulWidget {
   });
 
   @override
-  State<ExploreFinishDialog> createState() => _FinishModuleDialogState();
+  State<ExploreFinishDialog> createState() => _ExploreFinishDialogState();
 }
 
-class _FinishModuleDialogState extends State<ExploreFinishDialog> {
+class _ExploreFinishDialogState extends State<ExploreFinishDialog> {
   @override
   void initState() {
     super.initState();

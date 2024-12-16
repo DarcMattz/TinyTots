@@ -188,7 +188,11 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         print('mali');
         _audioService.playFromAssets('sounds/wrong.mp3');
       }
+      Future.delayed(const Duration(seconds: 2), () {
+        nextQuestion();
+      });
       hasChecked = true;
+
       //   selectedAnswer = optionIndex;
       //   showResult = true;
       //   if (optionIndex == questions[currentQuestionIndex].correctAnswer) {
@@ -257,6 +261,18 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       prefs.setInt('shapes_high_score', percentage);
     }
 
+    Widget star;
+    double height = 75;
+    if (percentage < 25) {
+      star = Assets.images.star0.image(height: height);
+    } else if (percentage < 50) {
+      star = Assets.images.star1.image(height: height);
+    } else if (percentage < 100) {
+      star = Assets.images.star2.image(height: height);
+    } else {
+      star = Assets.images.star3.image(height: height);
+    }
+
     return Stack(
       children: [
         SafeArea(
@@ -287,11 +303,13 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: [
-                                  const Text(
-                                    "score",
-                                    style: TextStyle(
+                                  Text(
+                                    percentage > highScore
+                                        ? "New High Score!"
+                                        : "score",
+                                    style: const TextStyle(
                                       color: Color(0xff60CFFF),
-                                      fontSize: 26,
+                                      fontSize: 20,
                                     ),
                                     textAlign: TextAlign.center,
                                   ),
@@ -310,23 +328,28 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
+                                  Gap(12),
+                                  Text(
+                                    'High Score',
+                                    style: TextStyle(
+                                      color: Color(0xFF60CFFF),
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Text(
+                                    highScore.toString(),
+                                    style: TextStyle(
+                                      color: Color(0xFF228AED),
+                                      fontSize: 20,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
                           ),
-                          const Gap(20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // NiceButton(
-                              //   label: "Restart",
-                              //   color: Colors.yellow,
-                              //   shadowColor: Colors.yellow[800]!,
-                              //   icon: Icons.check_rounded,
-                              //   iconSize: 30,
-                              //   width: 120,
-                              //   method: restartQuiz,
-                              // ),
                               PushReplacement(
                                 route: PageTransition(
                                     type: PageTransitionType.scale,
@@ -359,6 +382,10 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       ),
                     ),
                     Positioned(
+                      top: -150,
+                      child: star,
+                    ),
+                    Positioned(
                       top: -50,
                       child: Container(
                         width: 500,
@@ -368,13 +395,17 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                             image: AssetImage('assets/images/ribbon.png'),
                           ),
                         ),
-                        child: const Column(
+                        child: Column(
                           children: [
                             Padding(
                               padding: EdgeInsets.all(16.0),
                               child: Text(
-                                "Congratulations",
-                                style: TextStyle(
+                                percentage < 50
+                                    ? "Good try!"
+                                    : percentage < 75
+                                        ? "Well done!"
+                                        : "Amazing!",
+                                style: const TextStyle(
                                   fontSize: 27,
                                   color: Colors.white,
                                   shadows: [
@@ -396,7 +427,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               ),
               if (highScore < percentage)
                 Assets.images.gif.snail.image(height: 250),
-              if (highScore > percentage) Spacer(),
+              if (highScore >= percentage) Spacer(),
             ],
           ),
         ),
@@ -491,14 +522,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                       color: (isCorrect
                                               ? Colors.green
                                               : Colors.red)
-                                          .withOpacity(0.3),
-                                      child: Center(
-                                        child: Icon(
-                                          isCorrect ? Icons.check : Icons.close,
-                                          size: 50,
-                                          color: Colors.white,
-                                        ),
-                                      ),
+                                          .withOpacity(0.1),
                                     ),
                                 ],
                               ),
@@ -514,23 +538,17 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       child: NiceButton(
                         width: constraints.maxWidth * .9,
                         isIconRight: true,
-                        label: hasChecked
-                            ? (currentQuestionIndex == questions.length - 1
-                                ? 'Finish'
-                                : 'Next')
-                            : 'Check',
+                        label: currentQuestionIndex == questions.length - 1
+                            ? 'Finish'
+                            : 'Next',
                         color: const Color.fromARGB(255, 87, 210, 91),
                         shadowColor: Colors.green[800]!,
-                        icon: hasChecked ? Icons.arrow_forward : null,
-                        iconSize: hasChecked ? 30 : null,
+                        icon: Icons.arrow_forward,
+                        iconSize: 30,
                         enabled: hasAnswered,
                         method: hasChecked
-                            ? nextQuestion
-                            : hasAnswered
-                                ? () {
-                                    checkAnswer(selectedAnswer!);
-                                  }
-                                : null,
+                            ? null
+                            : () => checkAnswer(selectedAnswer!),
                       ),
                     );
                   }),
