@@ -7,6 +7,7 @@ import 'package:tinytots/screens/explore.dart';
 
 class ExploreFinishDialog extends StatefulWidget {
   final Function replay;
+  final int points;
   final int score;
   final int highscore;
   final Widget star;
@@ -15,6 +16,7 @@ class ExploreFinishDialog extends StatefulWidget {
   const ExploreFinishDialog({
     super.key,
     required this.replay,
+    required this.points,
     required this.score,
     required this.highscore,
     required this.star,
@@ -57,12 +59,25 @@ class _FinishModuleDialogState extends State<ExploreFinishDialog> {
               children: [
                 const Gap(30),
                 Text(
+                  '+${widget.points} points',
+                  style: TextStyle(
+                    color: Color(0xFF4EC307),
+                    fontSize: 16,
+                  ),
+                ),
+                Text(
+                  '+${widget.remainingTime} bonus',
+                  style: TextStyle(
+                    color: Color(0xFF4EC307),
+                    fontSize: 16,
+                  ),
+                ),
+                Text(
                   widget.highscore < widget.score ? "New High Score!" : "score",
                   style: TextStyle(
                     color: Color(0xFF60CFFF),
                     fontSize: 20,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Container(
                   width: 100,
@@ -77,6 +92,21 @@ class _FinishModuleDialogState extends State<ExploreFinishDialog> {
                       fontSize: 28,
                     ),
                     textAlign: TextAlign.center,
+                  ),
+                ),
+                Gap(12),
+                Text(
+                  'High Score',
+                  style: TextStyle(
+                    color: Color(0xFF60CFFF),
+                    fontSize: 16,
+                  ),
+                ),
+                Text(
+                  widget.highscore.toString(),
+                  style: TextStyle(
+                    color: Color(0xFF228AED),
+                    fontSize: 20,
                   ),
                 ),
                 const Gap(20),

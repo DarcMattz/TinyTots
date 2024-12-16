@@ -21,6 +21,7 @@ class RiddleHuntCameraView extends StatefulWidget {
 class CameraViewState extends State<RiddleHuntCameraView> {
   late final ScanController controller;
   final AudioService _audioService = AudioService();
+
   @override
   void initState() {
     super.initState();
@@ -34,6 +35,7 @@ class CameraViewState extends State<RiddleHuntCameraView> {
 
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
+    controller.questionIndex = 0;
     controller.question =
         controller.questionsAnswers[controller.questionIndex].question;
     controller.answer =
@@ -42,7 +44,8 @@ class CameraViewState extends State<RiddleHuntCameraView> {
         controller.questionsAnswers[controller.questionIndex].questionSoundPath;
     controller.answerSoundPath =
         controller.questionsAnswers[controller.questionIndex].answerSoundPath;
-    controller.questionIndex = 0;
+    controller.hintPath =
+        controller.questionsAnswers[controller.questionIndex].hintPath;
     controller.maxIndex = 5;
   }
 
@@ -93,17 +96,57 @@ class CameraViewState extends State<RiddleHuntCameraView> {
               child: const ExploreListScreen(),
             ),
             child: CircleButton(
-              color: const Color(0xFFFF8413),
-              shadowColor: const Color(0xFFFF8413),
-              icon: Icons.arrow_back,
+              color: Colors.red,
+              shadowColor: Colors.red,
+              icon: Icons.clear,
               method: () => _navigateToExploreScreen(),
             ),
           ),
+          Container(
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              width: 80,
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Text('points', style: const TextStyle(color: Colors.white)),
+                  Text('${controller.score * 10}',
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 26)),
+                ],
+              )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-                '${controller.remainingRoundTime.value ~/ 60}:${(controller.remainingRoundTime.value % 60).toString().padLeft(2, '0')}',
-                style: const TextStyle(color: Colors.white, fontSize: 24)),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              width: 80,
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Text('time', style: const TextStyle(color: Colors.white)),
+                  Text(
+                    '${controller.remainingRoundTime.value ~/ 60}:${(controller.remainingRoundTime.value % 60).toString().padLeft(2, '0')}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          CircleButton(
+            color: const Color(0xFFFF8413),
+            shadowColor: const Color(0xFFFF8413),
+            icon: Icons.arrow_forward,
+            method: () {
+              controller.skipQuestion();
+            },
           ),
         ],
       ),
@@ -146,15 +189,37 @@ class CameraViewState extends State<RiddleHuntCameraView> {
             },
           ),
           CircleButton(
-            color: Colors.purpleAccent,
-            shadowColor: Colors.purple,
-            icon: Icons.arrow_forward,
+            color: Colors.amber,
+            shadowColor: Colors.amberAccent,
+            icon: Icons.lightbulb,
             method: () {
-              controller.skipQuestion();
+              showDialog(
+                context: context,
+                builder: (context) => _buildHint(context),
+              );
             },
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildHint(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          height: constraints.maxHeight * 0.59,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(25),
+            image: DecorationImage(
+              image: AssetImage(controller.hintPath),
+              fit: BoxFit.contain,
+            ),
+          ),
+        );
+      }),
     );
   }
 

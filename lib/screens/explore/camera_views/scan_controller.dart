@@ -5,16 +5,12 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:get/get.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:tinytots/components/push_replacement.dart';
-import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/dialogs/explore_finish_dialog.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/models/obj_qa.dart';
-import 'package:tinytots/screens/explore.dart';
 
 class ScanController extends GetxController {
   // Camera-related variables
@@ -34,6 +30,7 @@ class ScanController extends GetxController {
   String answer = "";
   String answerSoundPath = "";
   String questionSoundPath = "";
+  String hintPath = "";
 
   // Object detection variables
   var isCameraInitialized = false.obs;
@@ -48,10 +45,7 @@ class ScanController extends GetxController {
 
   // Timer variables
   Timer? gameTimer;
-  // final int maxRoundTime = 300; // Maximum round time in seconds (5 minutes)
-  final int maxRoundTime =
-      150; // Maximum round time in seconds (2 minutes, 30 seconds)
-  // var remainingRoundTime = 300.obs;
+  final int maxRoundTime = 150;
   var remainingRoundTime = 150.obs;
 
   @override
@@ -63,8 +57,6 @@ class ScanController extends GetxController {
   // ---------------- Timer Methods ----------------
 
   void startRoundTimer() {
-    stopRoundTimer(); // Stop any existing timer
-    remainingRoundTime.value = maxRoundTime;
     gameTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (remainingRoundTime.value > 0) {
         remainingRoundTime.value--;
@@ -81,6 +73,10 @@ class ScanController extends GetxController {
   void stopRoundTimer() {
     gameTimer?.cancel();
     gameTimer = null;
+  }
+
+  void pauseRoundTimer() {
+    gameTimer?.cancel();
   }
 
   void endGame() {
@@ -115,20 +111,20 @@ class ScanController extends GetxController {
     Widget star;
     String path;
 
-    if (finalScore >= 160) {
-      // 3 Stars: 80%-100%
+    if (finalScore >= 140 && finalScore <= 200) {
+      // 3 Stars: 70%-100%
       star = Assets.images.star3.image();
       path = 'sounds/quiz/perfect.m4a';
-    } else if (finalScore >= 100) {
-      // 2 Stars: 50%-79%
+    } else if (finalScore >= 80 && finalScore < 140) {
+      // 2 Stars: 40%-69%
       star = Assets.images.star2.image();
       path = 'sounds/quiz/great.m4a';
-    } else if (finalScore >= 67) {
-      // 1 Star: 33%-49%
+    } else if (finalScore >= 40 && finalScore < 80) {
+      // 1 Star: 20%-39%
       star = Assets.images.star1.image();
       path = 'sounds/quiz/low_2.m4a';
     } else {
-      // 0 Stars: <33%
+      // 0 Stars: <20%
       star = Assets.images.star0.image();
       path = 'sounds/quiz/low_1.m4a';
     }
@@ -142,6 +138,7 @@ class ScanController extends GetxController {
         context: Navigator.of(context, rootNavigator: true).context,
         builder: (context) => ExploreFinishDialog(
           replay: () => _restartGame(),
+          points: itemPoints,
           score: finalScore,
           star: star,
           highscore: highScore,
@@ -159,6 +156,9 @@ class ScanController extends GetxController {
     answer = questionsAnswers[questionIndex].answer;
     questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
     answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
+    hintPath = questionsAnswers[questionIndex].hintPath;
+    stopRoundTimer();
+    remainingRoundTime.value = maxRoundTime;
     startRoundTimer();
     resumeCamera();
     update();
@@ -174,10 +174,13 @@ class ScanController extends GetxController {
     answer = questionsAnswers[questionIndex].answer;
     questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
     answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
+    hintPath = questionsAnswers[questionIndex].hintPath;
 
     log("Questions loaded: $questionsAnswers");
     await _initializeTflite();
     if (!isInfinite) {
+      stopRoundTimer();
+      remainingRoundTime.value = maxRoundTime;
       startRoundTimer();
     } // Only start round timer if not infinite
   }
@@ -210,6 +213,8 @@ class ScanController extends GetxController {
         startImageStream();
 
         if (!isInfinite) {
+          stopRoundTimer();
+          remainingRoundTime.value = maxRoundTime;
           startRoundTimer();
         } // Only start round timer if not infinite
 
@@ -317,6 +322,7 @@ class ScanController extends GetxController {
       answer = questionsAnswers[questionIndex].answer;
       questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
       answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
+      hintPath = questionsAnswers[questionIndex].hintPath;
     } else if (isInfinite) {
       _showCorrectAnswerPopup();
       _audioService.playFromAssets('sounds/correct.wav');
@@ -326,6 +332,7 @@ class ScanController extends GetxController {
       answer = questionsAnswers[questionIndex].answer;
       questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
       answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
+      hintPath = questionsAnswers[questionIndex].hintPath;
       log('index reset');
     } else {
       _audioService.playFromAssets('sounds/finish.mp3');
@@ -346,6 +353,7 @@ class ScanController extends GetxController {
       answer = questionsAnswers[questionIndex].answer;
       questionSoundPath = questionsAnswers[questionIndex].questionSoundPath;
       answerSoundPath = questionsAnswers[questionIndex].answerSoundPath;
+      hintPath = questionsAnswers[questionIndex].hintPath;
       _audioService.playFromAssets('sounds/wrong.mp3');
     } else {
       if (isInfinite) {
@@ -365,10 +373,13 @@ class ScanController extends GetxController {
 
   void _showCorrectAnswerPopup() {
     if (context.mounted) {
-      // Ensure the context is valid
+      // Pause the timer and camera
+      pauseRoundTimer();
+      pauseCamera();
+
       showDialog(
-        context: Navigator.of(context, rootNavigator: true)
-            .context, // Use root navigator context
+        barrierDismissible: false,
+        context: Navigator.of(context, rootNavigator: true).context,
         builder: (context) => Center(
           child: Container(
             width: 200,
@@ -393,11 +404,15 @@ class ScanController extends GetxController {
         ),
       );
 
-      // Automatically dismiss the dialog after a delay
-      Future.delayed(const Duration(milliseconds: 600), () {
+      Future.delayed(const Duration(seconds: 5), () {
         if (context.mounted) {
+          // Dismiss the popup
           Navigator.of(context, rootNavigator: true).pop();
           log('correct answer popup dismissed');
+
+          // Resume the timer and camera
+          startRoundTimer();
+          resumeCamera();
         }
       });
     }

@@ -21,12 +21,10 @@ class EndlessHuntCameraView extends StatefulWidget {
 class CameraViewState extends State<EndlessHuntCameraView> {
   late final ScanController controller;
   final AudioService _audioService = AudioService();
-  late bool skipAllowed;
 
   @override
   void initState() {
     super.initState();
-    skipAllowed = true;
     controller = Get.put(ScanController());
     controller.initializeCamera();
     controller.context = context;
@@ -37,6 +35,7 @@ class CameraViewState extends State<EndlessHuntCameraView> {
 
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
+    controller.questionIndex = 0;
     controller.question =
         controller.questionsAnswers[controller.questionIndex].question;
     controller.answer =
@@ -45,7 +44,8 @@ class CameraViewState extends State<EndlessHuntCameraView> {
         controller.questionsAnswers[controller.questionIndex].questionSoundPath;
     controller.answerSoundPath =
         controller.questionsAnswers[controller.questionIndex].answerSoundPath;
-    controller.questionIndex = 0;
+    controller.hintPath =
+        controller.questionsAnswers[controller.questionIndex].hintPath;
     controller.maxIndex = controller.questionsAnswers.length - 1;
   }
 
@@ -75,7 +75,7 @@ class CameraViewState extends State<EndlessHuntCameraView> {
         children: [
           _buildTopBar(),
           _buildCameraPreview(),
-          _buildVolumeSkipButton(),
+          _buildSoundHintButton(),
           _buildQuestionText(),
         ],
       ),
@@ -83,25 +83,34 @@ class CameraViewState extends State<EndlessHuntCameraView> {
   }
 
   Widget _buildTopBar() {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: PushReplacement(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          PushReplacement(
             route: PageTransition(
               type: PageTransitionType.scale,
               alignment: Alignment.center,
               child: const ExploreListScreen(),
             ),
             child: CircleButton(
-              color: const Color(0xFFFF8413),
-              shadowColor: const Color(0xFFFF8413),
-              icon: Icons.arrow_back,
+              color: Colors.red,
+              shadowColor: Colors.red,
+              icon: Icons.clear,
               method: () => _navigateToExploreScreen(),
             ),
           ),
-        ),
-      ],
+          CircleButton(
+            color: const Color(0xFFFF8413),
+            shadowColor: const Color(0xFFFF8413),
+            icon: Icons.arrow_forward,
+            method: () {
+              controller.skipQuestion();
+            },
+          ),
+        ],
+      ),
     );
   }
 
@@ -124,7 +133,7 @@ class CameraViewState extends State<EndlessHuntCameraView> {
     );
   }
 
-  Widget _buildVolumeSkipButton() {
+  Widget _buildSoundHintButton() {
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Row(
@@ -140,17 +149,38 @@ class CameraViewState extends State<EndlessHuntCameraView> {
               _audioService.playFromAssets(path);
             },
           ),
-          if (skipAllowed)
-            CircleButton(
-              color: Colors.purpleAccent,
-              shadowColor: Colors.purple,
-              icon: Icons.arrow_forward,
-              method: () {
-                controller.skipQuestion();
-              },
-            ),
+          CircleButton(
+            color: Colors.amber,
+            shadowColor: Colors.amberAccent,
+            icon: Icons.lightbulb,
+            method: () {
+              showDialog(
+                context: context,
+                builder: (context) => _buildHint(context),
+              );
+            },
+          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildHint(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          height: constraints.maxHeight * 0.59,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(25),
+            image: DecorationImage(
+              image: AssetImage(controller.hintPath),
+              fit: BoxFit.contain,
+            ),
+          ),
+        );
+      }),
     );
   }
 

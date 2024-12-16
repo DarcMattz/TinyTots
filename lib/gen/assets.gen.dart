@@ -308,6 +308,9 @@ class $AssetsImagesAvatarsGen {
 class $AssetsImagesExploreGen {
   const $AssetsImagesExploreGen();
 
+  /// Directory path: assets/images/explore/clue
+  $AssetsImagesExploreClueGen get clue => const $AssetsImagesExploreClueGen();
+
   /// File path: assets/images/explore/endless.png
   AssetGenImage get endless =>
       const AssetGenImage('assets/images/explore/endless.png');
@@ -1216,6 +1219,139 @@ class $AssetsImagesAllAboardShapesGen {
         square,
         star,
         triangle
+      ];
+}
+
+class $AssetsImagesExploreClueGen {
+  const $AssetsImagesExploreClueGen();
+
+  /// File path: assets/images/explore/clue/apple.png
+  AssetGenImage get apple =>
+      const AssetGenImage('assets/images/explore/clue/apple.png');
+
+  /// File path: assets/images/explore/clue/bag.png
+  AssetGenImage get bag =>
+      const AssetGenImage('assets/images/explore/clue/bag.png');
+
+  /// File path: assets/images/explore/clue/ball.png
+  AssetGenImage get ball =>
+      const AssetGenImage('assets/images/explore/clue/ball.png');
+
+  /// File path: assets/images/explore/clue/banana.png
+  AssetGenImage get banana =>
+      const AssetGenImage('assets/images/explore/clue/banana.png');
+
+  /// File path: assets/images/explore/clue/book.png
+  AssetGenImage get book =>
+      const AssetGenImage('assets/images/explore/clue/book.png');
+
+  /// File path: assets/images/explore/clue/bottle.png
+  AssetGenImage get bottle =>
+      const AssetGenImage('assets/images/explore/clue/bottle.png');
+
+  /// File path: assets/images/explore/clue/broom.png
+  AssetGenImage get broom =>
+      const AssetGenImage('assets/images/explore/clue/broom.png');
+
+  /// File path: assets/images/explore/clue/clock.png
+  AssetGenImage get clock =>
+      const AssetGenImage('assets/images/explore/clue/clock.png');
+
+  /// File path: assets/images/explore/clue/comb.png
+  AssetGenImage get comb =>
+      const AssetGenImage('assets/images/explore/clue/comb.png');
+
+  /// File path: assets/images/explore/clue/crayon.png
+  AssetGenImage get crayon =>
+      const AssetGenImage('assets/images/explore/clue/crayon.png');
+
+  /// File path: assets/images/explore/clue/cup.png
+  AssetGenImage get cup =>
+      const AssetGenImage('assets/images/explore/clue/cup.png');
+
+  /// File path: assets/images/explore/clue/fan.png
+  AssetGenImage get fan =>
+      const AssetGenImage('assets/images/explore/clue/fan.png');
+
+  /// File path: assets/images/explore/clue/foot.png
+  AssetGenImage get foot =>
+      const AssetGenImage('assets/images/explore/clue/foot.png');
+
+  /// File path: assets/images/explore/clue/hairtie.png
+  AssetGenImage get hairtie =>
+      const AssetGenImage('assets/images/explore/clue/hairtie.png');
+
+  /// File path: assets/images/explore/clue/hand.png
+  AssetGenImage get hand =>
+      const AssetGenImage('assets/images/explore/clue/hand.png');
+
+  /// File path: assets/images/explore/clue/hat.png
+  AssetGenImage get hat =>
+      const AssetGenImage('assets/images/explore/clue/hat.png');
+
+  /// File path: assets/images/explore/clue/jar.png
+  AssetGenImage get jar =>
+      const AssetGenImage('assets/images/explore/clue/jar.png');
+
+  /// File path: assets/images/explore/clue/paper.png
+  AssetGenImage get paper =>
+      const AssetGenImage('assets/images/explore/clue/paper.png');
+
+  /// File path: assets/images/explore/clue/pencil.png
+  AssetGenImage get pencil =>
+      const AssetGenImage('assets/images/explore/clue/pencil.png');
+
+  /// File path: assets/images/explore/clue/plate.png
+  AssetGenImage get plate =>
+      const AssetGenImage('assets/images/explore/clue/plate.png');
+
+  /// File path: assets/images/explore/clue/spoon.png
+  AssetGenImage get spoon =>
+      const AssetGenImage('assets/images/explore/clue/spoon.png');
+
+  /// File path: assets/images/explore/clue/toothbrush.png
+  AssetGenImage get toothbrush =>
+      const AssetGenImage('assets/images/explore/clue/toothbrush.png');
+
+  /// File path: assets/images/explore/clue/vase.png
+  AssetGenImage get vase =>
+      const AssetGenImage('assets/images/explore/clue/vase.png');
+
+  /// File path: assets/images/explore/clue/wallet.png
+  AssetGenImage get wallet =>
+      const AssetGenImage('assets/images/explore/clue/wallet.png');
+
+  /// File path: assets/images/explore/clue/watch.png
+  AssetGenImage get watch =>
+      const AssetGenImage('assets/images/explore/clue/watch.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        apple,
+        bag,
+        ball,
+        banana,
+        book,
+        bottle,
+        broom,
+        clock,
+        comb,
+        crayon,
+        cup,
+        fan,
+        foot,
+        hairtie,
+        hand,
+        hat,
+        jar,
+        paper,
+        pencil,
+        plate,
+        spoon,
+        toothbrush,
+        vase,
+        wallet,
+        watch
       ];
 }
 
@@ -2427,10 +2563,6 @@ class $AssetsSoundsVowelsQuiz2Gen {
   /// File path: assets/sounds/vowels/quiz2/bob is a.m4a
   String get bobIsA => 'assets/sounds/vowels/quiz2/bob is a.m4a';
 
-  /// File path: assets/sounds/vowels/quiz2/drive-download-20241212T202621Z-001.zip
-  String get driveDownload20241212T202621Z001 =>
-      'assets/sounds/vowels/quiz2/drive-download-20241212T202621Z-001.zip';
-
   /// File path: assets/sounds/vowels/quiz2/he_has_a.m4a
   String get heHasA => 'assets/sounds/vowels/quiz2/he_has_a.m4a';
 
@@ -2473,7 +2605,6 @@ class $AssetsSoundsVowelsQuiz2Gen {
   List<String> get values => [
         aHot,
         bobIsA,
-        driveDownload20241212T202621Z001,
         heHasA,
         heIsA,
         iSeeA,

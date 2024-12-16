@@ -4,7 +4,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/helper/audio_service.dart';
@@ -22,12 +21,10 @@ class TimeChaseCameraView extends StatefulWidget {
 class CameraViewState extends State<TimeChaseCameraView> {
   late final ScanController controller;
   final AudioService _audioService = AudioService();
-  late bool skipAllowed;
 
   @override
   void initState() {
     super.initState();
-    skipAllowed = true;
     controller = Get.put(ScanController());
     controller.initializeCamera();
     controller.context = context;
@@ -38,6 +35,7 @@ class CameraViewState extends State<TimeChaseCameraView> {
 
     // Shuffle questions and set the first question
     controller.questionsAnswers.shuffle();
+    controller.questionIndex = 0;
     controller.question =
         controller.questionsAnswers[controller.questionIndex].question;
     controller.answer =
@@ -46,7 +44,8 @@ class CameraViewState extends State<TimeChaseCameraView> {
         controller.questionsAnswers[controller.questionIndex].questionSoundPath;
     controller.answerSoundPath =
         controller.questionsAnswers[controller.questionIndex].answerSoundPath;
-    controller.questionIndex = 0;
+    controller.hintPath =
+        controller.questionsAnswers[controller.questionIndex].hintPath;
     controller.maxIndex = 5;
   }
 
@@ -97,17 +96,57 @@ class CameraViewState extends State<TimeChaseCameraView> {
               child: const ExploreListScreen(),
             ),
             child: CircleButton(
-              color: const Color(0xFFFF8413),
-              shadowColor: const Color(0xFFFF8413),
-              icon: Icons.arrow_back,
+              color: Colors.red,
+              shadowColor: Colors.red,
+              icon: Icons.clear,
               method: () => _navigateToExploreScreen(),
             ),
           ),
+          Container(
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              width: 80,
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Text('points', style: const TextStyle(color: Colors.white)),
+                  Text('${controller.score * 10}',
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 26)),
+                ],
+              )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-                '${controller.remainingRoundTime.value ~/ 60}:${(controller.remainingRoundTime.value % 60).toString().padLeft(2, '0')}',
-                style: const TextStyle(color: Colors.white, fontSize: 24)),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              width: 80,
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Text('time', style: const TextStyle(color: Colors.white)),
+                  Text(
+                    '${controller.remainingRoundTime.value ~/ 60}:${(controller.remainingRoundTime.value % 60).toString().padLeft(2, '0')}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          CircleButton(
+            color: const Color(0xFFFF8413),
+            shadowColor: const Color(0xFFFF8413),
+            icon: Icons.arrow_forward,
+            method: () {
+              controller.skipQuestion();
+            },
           ),
         ],
       ),
@@ -149,17 +188,38 @@ class CameraViewState extends State<TimeChaseCameraView> {
               _audioService.playFromAssets(path);
             },
           ),
-          if (skipAllowed)
-            CircleButton(
-              color: Colors.purpleAccent,
-              shadowColor: Colors.purple,
-              icon: Icons.arrow_forward,
-              method: () {
-                controller.skipQuestion();
-              },
-            ),
+          CircleButton(
+            color: Colors.amber,
+            shadowColor: Colors.amberAccent,
+            icon: Icons.lightbulb,
+            method: () {
+              showDialog(
+                context: context,
+                builder: (context) => _buildHint(context),
+              );
+            },
+          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildHint(BuildContext context) {
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          height: constraints.maxHeight * 0.59,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(25),
+            image: DecorationImage(
+              image: AssetImage(controller.hintPath),
+              fit: BoxFit.contain,
+            ),
+          ),
+        );
+      }),
     );
   }
 
