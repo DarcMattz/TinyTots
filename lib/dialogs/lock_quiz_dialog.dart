@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
 
-class LockQuizDialog extends StatelessWidget {
+class LockQuizDialog extends StatefulWidget {
   const LockQuizDialog({super.key});
+
+  @override
+  State<LockQuizDialog> createState() => _LockQuizDialogState();
+}
+
+class _LockQuizDialogState extends State<LockQuizDialog> {
+  AudioService audioService = AudioService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    audioService.playFromAssets("sounds/lock.m4a");
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    audioService.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
