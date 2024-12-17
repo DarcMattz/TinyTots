@@ -94,18 +94,18 @@ class _ExploreFinishDialogState extends State<ExploreFinishDialog> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                Gap(12),
-                Text(
+                const Gap(12),
+                const Text(
                   'High Score',
                   style: TextStyle(
-                    color: Color(0xFF60CFFF),
+                    color: Color(0xFFFFB213),
                     fontSize: 16,
                   ),
                 ),
                 Text(
                   widget.highscore.toString(),
-                  style: TextStyle(
-                    color: Color(0xFF228AED),
+                  style: const TextStyle(
+                    color: Color(0xFFFFB213),
                     fontSize: 20,
                   ),
                 ),
