@@ -197,6 +197,9 @@ class $AssetsSoundsGen {
   /// File path: assets/sounds/finish.mp3
   String get finish => 'assets/sounds/finish.mp3';
 
+  /// File path: assets/sounds/lock.m4a
+  String get lock => 'assets/sounds/lock.m4a';
+
   /// Directory path: assets/sounds/mathematics
   $AssetsSoundsMathematicsGen get mathematics =>
       const $AssetsSoundsMathematicsGen();
@@ -227,7 +230,7 @@ class $AssetsSoundsGen {
 
   /// List of all assets
   List<String> get values =>
-      [bgSong, button, correct, finish, ready, timesup, welcome, wrong];
+      [bgSong, button, correct, finish, lock, ready, timesup, welcome, wrong];
 }
 
 class $AssetsImagesAllAboardGen {
@@ -1241,6 +1244,10 @@ class $AssetsImagesExploreClueGen {
   AssetGenImage get banana =>
       const AssetGenImage('assets/images/explore/clue/banana.png');
 
+  /// File path: assets/images/explore/clue/bed.png
+  AssetGenImage get bed =>
+      const AssetGenImage('assets/images/explore/clue/bed.png');
+
   /// File path: assets/images/explore/clue/book.png
   AssetGenImage get book =>
       const AssetGenImage('assets/images/explore/clue/book.png');
@@ -1249,9 +1256,25 @@ class $AssetsImagesExploreClueGen {
   AssetGenImage get bottle =>
       const AssetGenImage('assets/images/explore/clue/bottle.png');
 
+  /// File path: assets/images/explore/clue/box.png
+  AssetGenImage get box =>
+      const AssetGenImage('assets/images/explore/clue/box.png');
+
   /// File path: assets/images/explore/clue/broom.png
   AssetGenImage get broom =>
       const AssetGenImage('assets/images/explore/clue/broom.png');
+
+  /// File path: assets/images/explore/clue/bucket.png
+  AssetGenImage get bucket =>
+      const AssetGenImage('assets/images/explore/clue/bucket.png');
+
+  /// File path: assets/images/explore/clue/chair.png
+  AssetGenImage get chair =>
+      const AssetGenImage('assets/images/explore/clue/chair.png');
+
+  /// File path: assets/images/explore/clue/circle.png
+  AssetGenImage get circle =>
+      const AssetGenImage('assets/images/explore/clue/circle.png');
 
   /// File path: assets/images/explore/clue/clock.png
   AssetGenImage get clock =>
@@ -1269,9 +1292,21 @@ class $AssetsImagesExploreClueGen {
   AssetGenImage get cup =>
       const AssetGenImage('assets/images/explore/clue/cup.png');
 
+  /// File path: assets/images/explore/clue/doll.png
+  AssetGenImage get doll =>
+      const AssetGenImage('assets/images/explore/clue/doll.png');
+
+  /// File path: assets/images/explore/clue/eraser.png
+  AssetGenImage get eraser =>
+      const AssetGenImage('assets/images/explore/clue/eraser.png');
+
   /// File path: assets/images/explore/clue/fan.png
   AssetGenImage get fan =>
       const AssetGenImage('assets/images/explore/clue/fan.png');
+
+  /// File path: assets/images/explore/clue/faucet.png
+  AssetGenImage get faucet =>
+      const AssetGenImage('assets/images/explore/clue/faucet.png');
 
   /// File path: assets/images/explore/clue/foot.png
   AssetGenImage get foot =>
@@ -1293,6 +1328,18 @@ class $AssetsImagesExploreClueGen {
   AssetGenImage get jar =>
       const AssetGenImage('assets/images/explore/clue/jar.png');
 
+  /// File path: assets/images/explore/clue/key.png
+  AssetGenImage get key =>
+      const AssetGenImage('assets/images/explore/clue/key.png');
+
+  /// File path: assets/images/explore/clue/lamp.png
+  AssetGenImage get lamp =>
+      const AssetGenImage('assets/images/explore/clue/lamp.png');
+
+  /// File path: assets/images/explore/clue/oval.png
+  AssetGenImage get oval =>
+      const AssetGenImage('assets/images/explore/clue/oval.png');
+
   /// File path: assets/images/explore/clue/paper.png
   AssetGenImage get paper =>
       const AssetGenImage('assets/images/explore/clue/paper.png');
@@ -1301,17 +1348,53 @@ class $AssetsImagesExploreClueGen {
   AssetGenImage get pencil =>
       const AssetGenImage('assets/images/explore/clue/pencil.png');
 
+  /// File path: assets/images/explore/clue/pillow.png
+  AssetGenImage get pillow =>
+      const AssetGenImage('assets/images/explore/clue/pillow.png');
+
   /// File path: assets/images/explore/clue/plate.png
   AssetGenImage get plate =>
       const AssetGenImage('assets/images/explore/clue/plate.png');
+
+  /// File path: assets/images/explore/clue/rectangle.png
+  AssetGenImage get rectangle =>
+      const AssetGenImage('assets/images/explore/clue/rectangle.png');
+
+  /// File path: assets/images/explore/clue/scissors.png
+  AssetGenImage get scissors =>
+      const AssetGenImage('assets/images/explore/clue/scissors.png');
+
+  /// File path: assets/images/explore/clue/slippers.png
+  AssetGenImage get slippers =>
+      const AssetGenImage('assets/images/explore/clue/slippers.png');
 
   /// File path: assets/images/explore/clue/spoon.png
   AssetGenImage get spoon =>
       const AssetGenImage('assets/images/explore/clue/spoon.png');
 
+  /// File path: assets/images/explore/clue/square.png
+  AssetGenImage get square =>
+      const AssetGenImage('assets/images/explore/clue/square.png');
+
+  /// File path: assets/images/explore/clue/table.png
+  AssetGenImage get table =>
+      const AssetGenImage('assets/images/explore/clue/table.png');
+
+  /// File path: assets/images/explore/clue/teapot.png
+  AssetGenImage get teapot =>
+      const AssetGenImage('assets/images/explore/clue/teapot.png');
+
   /// File path: assets/images/explore/clue/toothbrush.png
   AssetGenImage get toothbrush =>
       const AssetGenImage('assets/images/explore/clue/toothbrush.png');
+
+  /// File path: assets/images/explore/clue/triangle.png
+  AssetGenImage get triangle =>
+      const AssetGenImage('assets/images/explore/clue/triangle.png');
+
+  /// File path: assets/images/explore/clue/umbrella.png
+  AssetGenImage get umbrella =>
+      const AssetGenImage('assets/images/explore/clue/umbrella.png');
 
   /// File path: assets/images/explore/clue/vase.png
   AssetGenImage get vase =>
@@ -1331,24 +1414,44 @@ class $AssetsImagesExploreClueGen {
         bag,
         ball,
         banana,
+        bed,
         book,
         bottle,
+        box,
         broom,
+        bucket,
+        chair,
+        circle,
         clock,
         comb,
         crayon,
         cup,
+        doll,
+        eraser,
         fan,
+        faucet,
         foot,
         hairtie,
         hand,
         hat,
         jar,
+        key,
+        lamp,
+        oval,
         paper,
         pencil,
+        pillow,
         plate,
+        rectangle,
+        scissors,
+        slippers,
         spoon,
+        square,
+        table,
+        teapot,
         toothbrush,
+        triangle,
+        umbrella,
         vase,
         wallet,
         watch

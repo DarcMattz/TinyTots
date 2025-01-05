@@ -19,8 +19,26 @@
 18 hat
 19 watch
 20 spoon and fork
-21 hair tie
-22 hand
-23 book
-24 crayon
-25 scissor
+21 hairtie
+22 bed
+23 doll
+24 eraser
+25 faucet
+26 lamp
+27 box
+28 bucket
+29 chair
+30 key
+31 pillow
+32 scissors
+33 slippers
+34 table
+35 teapot
+36 umbrella
+37 hand
+38 crayon
+39 circle
+40 oval
+41 square
+42 rectangle
+43 triangle

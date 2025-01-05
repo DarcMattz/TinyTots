@@ -228,7 +228,7 @@ class CameraViewState extends State<RiddleHuntCameraView> {
       padding: const EdgeInsets.symmetric(horizontal: 28.0),
       child: Text(
         '${controller.question}',
-        style: const TextStyle(color: Colors.white, fontSize: 28),
+        style: const TextStyle(color: Colors.white, fontSize: 24),
         textAlign: TextAlign.center,
       ),
     );

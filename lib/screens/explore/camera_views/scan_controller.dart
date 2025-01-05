@@ -45,8 +45,8 @@ class ScanController extends GetxController {
 
   // Timer variables
   Timer? gameTimer;
-  final int maxRoundTime = 150;
-  var remainingRoundTime = 150.obs;
+  final int maxRoundTime = 600;
+  var remainingRoundTime = 600.obs;
 
   @override
   void onInit() {
@@ -111,15 +111,15 @@ class ScanController extends GetxController {
     Widget star;
     String path;
 
-    if (finalScore >= 140 && finalScore <= 200) {
+    if (finalScore >= 455 && finalScore <= 650) {
       // 3 Stars: 70%-100%
       star = Assets.images.star3.image();
       path = 'sounds/quiz/perfect.m4a';
-    } else if (finalScore >= 80 && finalScore < 140) {
+    } else if (finalScore >= 260 && finalScore < 455) {
       // 2 Stars: 40%-69%
       star = Assets.images.star2.image();
       path = 'sounds/quiz/great.m4a';
-    } else if (finalScore >= 40 && finalScore < 80) {
+    } else if (finalScore >= 130 && finalScore < 260) {
       // 1 Star: 20%-39%
       star = Assets.images.star1.image();
       path = 'sounds/quiz/low_2.m4a';
@@ -303,6 +303,9 @@ class ScanController extends GetxController {
       if (label.contains(answer)) {
         _handleCorrectAnswer();
         log('same');
+      } else {
+        log('not same');
+        AudioService().playFromAssets('sounds/wrong.mp3');
       }
     }
   }
@@ -345,8 +348,11 @@ class ScanController extends GetxController {
   }
 
   void skipQuestion() {
-    remainingRoundTime.value -= 30;
-    log('deducted 30 seconds');
+    if (!isInfinite) {
+      remainingRoundTime.value -= 120;
+    }
+
+    log('deducted 120 seconds');
     if (questionIndex + 1 < maxIndex) {
       questionIndex++;
       question = questionsAnswers[questionIndex].question;
@@ -404,14 +410,16 @@ class ScanController extends GetxController {
         ),
       );
 
-      Future.delayed(const Duration(seconds: 5), () {
+      Future.delayed(const Duration(seconds: 3), () {
         if (context.mounted) {
           // Dismiss the popup
           Navigator.of(context, rootNavigator: true).pop();
           log('correct answer popup dismissed');
 
           // Resume the timer and camera
-          startRoundTimer();
+          if (!isInfinite) {
+            startRoundTimer();
+          }
           resumeCamera();
         }
       });

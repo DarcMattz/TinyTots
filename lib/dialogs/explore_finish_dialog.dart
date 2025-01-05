@@ -58,20 +58,22 @@ class _ExploreFinishDialogState extends State<ExploreFinishDialog> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Gap(30),
-                Text(
-                  '+${widget.points} points',
-                  style: TextStyle(
-                    color: Color(0xFF4EC307),
-                    fontSize: 16,
+                if (widget.points > 0)
+                  Text(
+                    '+${widget.points} points',
+                    style: TextStyle(
+                      color: Color(0xFF4EC307),
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                Text(
-                  '+${widget.remainingTime} bonus',
-                  style: TextStyle(
-                    color: Color(0xFF4EC307),
-                    fontSize: 16,
+                if (widget.remainingTime > 0)
+                  Text(
+                    '+${widget.remainingTime} time bonus',
+                    style: TextStyle(
+                      color: Color(0xFF4EC307),
+                      fontSize: 16,
+                    ),
                   ),
-                ),
                 Text(
                   widget.highscore < widget.score ? "New High Score!" : "score",
                   style: TextStyle(
