@@ -74,7 +74,7 @@ class AndroidWelcome extends StatelessWidget {
         },
       ),
       Book(
-        title: "Geography",
+        title: "Filipino",
         lessons: {
           'Abakada': prefs.getInt('abakada_high_score') ?? 0,
           'Pamilya': prefs.getInt('pamilya_high_score') ?? 0,
