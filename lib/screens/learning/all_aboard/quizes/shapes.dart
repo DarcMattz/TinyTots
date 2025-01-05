@@ -192,12 +192,6 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
         nextQuestion();
       });
       hasChecked = true;
-
-      //   selectedAnswer = optionIndex;
-      //   showResult = true;
-      //   if (optionIndex == questions[currentQuestionIndex].correctAnswer) {
-      //     score++;
-      //   }
     });
   }
 
@@ -556,21 +550,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               ),
             ),
           ),
-          // const Spacer(),
-
           const Spacer(),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.only(bottom: 20.0, right: 50),
-          //       child: Image.asset(
-          //         'assets/images/dog.png',
-          //         height: widget.constraints.maxHeight * 0.17,
-          //       ),
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );

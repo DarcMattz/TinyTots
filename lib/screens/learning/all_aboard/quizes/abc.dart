@@ -47,7 +47,11 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   int currentQuestionIndex = 0;
   List<int> randomizedIndices = [];
   List<int?> userAnswers = [];
+  int? selectedAnswer;
   bool showResults = false;
+  int score = 0;
+  bool isCorrect = false;
+  bool hasChecked = false;
 
   late ConfettiController _leftController;
   late ConfettiController _rightController;
@@ -511,6 +515,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   void handleAnswer(int selectedIndex) {
+    selectedAnswer = selectedIndex;
     setState(() {
       if (userAnswers.length <= currentQuestionIndex) {
         userAnswers.add(randomizedIndices[selectedIndex]);
@@ -520,8 +525,30 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     });
   }
 
+  void checkAnswer(int selectedIndex) {
+    // if (selectedAnswer != null) return;
+
+    setState(() {
+      if (userAnswers[currentQuestionIndex] ==
+          questions[currentQuestionIndex].correctAnswerIndex) {
+        isCorrect = true;
+        print('tama');
+        _audioService.playFromAssets('sounds/correct.wav');
+      } else {
+        isCorrect = false;
+        print('mali');
+        _audioService.playFromAssets('sounds/wrong.mp3');
+      }
+      Future.delayed(const Duration(seconds: 2), () {
+        nextQuestion();
+      });
+      hasChecked = true;
+    });
+  }
+
   void nextQuestion() {
-    _stop();
+    isCorrect = false;
+    hasChecked = false;
     if (currentQuestionIndex < questions.length - 1) {
       setState(() {
         currentQuestionIndex++;
@@ -537,12 +564,21 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   int calculateScore() {
-    int score = 0;
     for (int i = 0; i < questions.length; i++) {
       if (userAnswers.length > i &&
           userAnswers[i] == questions[i].correctAnswerIndex) {
         score++;
       }
+    }
+    _audioService.playFromAssets('sounds/finish.mp3');
+    if (score / questions.length * 100 < 50) {
+      _audioService.playFromAssets('sounds/quiz/low_1.m4a');
+    } else if (score / questions.length * 100 < 75) {
+      _audioService.playFromAssets('sounds/quiz/low_2.m4a');
+    } else if (score / questions.length * 100 < 100) {
+      _audioService.playFromAssets('sounds/quiz/great.m4a');
+    } else {
+      _audioService.playFromAssets('sounds/quiz/perfect.m4a');
     }
     return score;
   }
@@ -571,12 +607,25 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       prefs.setInt('alphabets_high_score', percentage);
     }
 
+    Widget star;
+    double height = 75;
+    if (percentage < 25) {
+      star = Assets.images.star0.image(height: height);
+    } else if (percentage < 50) {
+      star = Assets.images.star1.image(height: height);
+    } else if (percentage < 100) {
+      star = Assets.images.star2.image(height: height);
+    } else {
+      star = Assets.images.star3.image(height: height);
+    }
+
     return Stack(
       children: [
         SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Spacer(),
               Dialog(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -600,11 +649,13 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: [
-                                  const Text(
-                                    "score",
-                                    style: TextStyle(
+                                  Text(
+                                    percentage > highScore
+                                        ? "New High Score!"
+                                        : "score",
+                                    style: const TextStyle(
                                       color: Color(0xff60CFFF),
-                                      fontSize: 26,
+                                      fontSize: 20,
                                     ),
                                     textAlign: TextAlign.center,
                                   ),
@@ -623,23 +674,28 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
+                                  const Gap(12),
+                                  const Text(
+                                    'High Score',
+                                    style: TextStyle(
+                                      color: Color(0xFFFFB213),
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Text(
+                                    highScore.toString(),
+                                    style: const TextStyle(
+                                      color: Color(0xFFFFB213),
+                                      fontSize: 20,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
                           ),
-                          const Gap(20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // NiceButton(
-                              //   label: "Restart",
-                              //   color: Colors.yellow,
-                              //   shadowColor: Colors.yellow[800]!,
-                              //   icon: Icons.check_rounded,
-                              //   iconSize: 30,
-                              //   width: 120,
-                              //   method: restartQuiz,
-                              // ),
                               PushReplacement(
                                 route: PageTransition(
                                     type: PageTransitionType.scale,
@@ -649,7 +705,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                   label: "OK",
                                   color: const Color(0xffC16DFE),
                                   shadowColor: Colors.yellow[800]!,
-                                  icon: Icons.check_rounded,
+                                  icon: Icons.arrow_right,
                                   isIconRight: true,
                                   iconSize: 30,
                                   method: () {
@@ -672,6 +728,10 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                       ),
                     ),
                     Positioned(
+                      top: -150,
+                      child: star,
+                    ),
+                    Positioned(
                       top: -50,
                       child: Container(
                         width: 500,
@@ -681,13 +741,17 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                             image: AssetImage('assets/images/ribbon.png'),
                           ),
                         ),
-                        child: const Column(
+                        child: Column(
                           children: [
                             Padding(
                               padding: EdgeInsets.all(16.0),
                               child: Text(
-                                "Congratulations",
-                                style: TextStyle(
+                                percentage < 50
+                                    ? "Good try!"
+                                    : percentage < 75
+                                        ? "Well done!"
+                                        : "Amazing!",
+                                style: const TextStyle(
                                   fontSize: 27,
                                   color: Colors.white,
                                   shadows: [
@@ -707,6 +771,9 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                   ],
                 ),
               ),
+              if (highScore < percentage)
+                Assets.images.gif.snail.image(height: 250),
+              if (highScore >= percentage) Spacer(),
             ],
           ),
         ),
@@ -773,40 +840,57 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                     mainAxisSpacing: 10,
                     children: List.generate(
                       currentQuestion.imageOptions.length,
-                      (index) => GestureDetector(
-                        onTap: () {
-                          _stop();
-                          _play(currentQuestion
-                              .audioOptions[randomizedIndices[index]]);
-                          handleAnswer(index);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color(0xff95E9FF),
-                            border: Border.all(
-                              color: hasAnswered &&
-                                      randomizedIndices[index] ==
-                                          userAnswers[currentQuestionIndex]
-                                  ? Colors.amber
-                                  : Colors.grey,
-                              width: hasAnswered &&
-                                      randomizedIndices[index] ==
-                                          userAnswers[currentQuestionIndex]
-                                  ? 4
-                                  : 1,
+                      (index) {
+                        final isSelected = index == selectedAnswer;
+                        return GestureDetector(
+                          onTap: hasChecked
+                              ? null
+                              : () {
+                                  _stop();
+                                  _play(currentQuestion
+                                      .audioOptions[randomizedIndices[index]]);
+                                  handleAnswer(index);
+                                },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: const Color(0xff95E9FF),
+                              border: Border.all(
+                                color: hasChecked && isSelected
+                                    ? (isCorrect ? Colors.green : Colors.red)
+                                    : hasAnswered && isSelected
+                                        ? Colors.amber
+                                        : Colors.grey,
+                                width: hasAnswered &&
+                                        randomizedIndices[index] ==
+                                            userAnswers[currentQuestionIndex]
+                                    ? 4
+                                    : 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.asset(
-                              currentQuestion
-                                  .imageOptions[randomizedIndices[index]],
-                              fit: BoxFit.cover,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  Image.asset(
+                                    currentQuestion
+                                        .imageOptions[randomizedIndices[index]],
+                                    fit: BoxFit.cover,
+                                  ),
+                                  if (hasChecked && isSelected)
+                                    Container(
+                                      color: (isCorrect
+                                              ? Colors.green
+                                              : Colors.red)
+                                          .withOpacity(0.1),
+                                    ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ),
                   LayoutBuilder(builder: (context, constraints) {
@@ -823,7 +907,9 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                         icon: Icons.arrow_forward,
                         iconSize: 30,
                         enabled: hasAnswered,
-                        method: hasAnswered ? nextQuestion : null,
+                        method: hasChecked
+                            ? null
+                            : () => checkAnswer(selectedAnswer!),
                       ),
                     );
                   }),
@@ -831,21 +917,8 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               ),
             ),
           ),
-          // const Spacer(),
 
           const Spacer(),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.only(bottom: 20.0, right: 50),
-          //       child: Image.asset(
-          //         'assets/images/dog.png',
-          //         height: widget.constraints.maxHeight * 0.17,
-          //       ),
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );
