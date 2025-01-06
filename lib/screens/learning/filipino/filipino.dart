@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tinytots/components/modules.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 import 'package:tinytots/screens/learning/filipino/abakada.dart';
 import 'package:tinytots/screens/learning/filipino/filipino_start_quiz.dart';
 import 'package:tinytots/screens/learning/filipino/filipino_start_lesson.dart';
@@ -20,14 +21,45 @@ class FilipinoScreen extends StatefulWidget {
 class _FilipinoScreenState extends State<FilipinoScreen> {
   int _currentIndex = 0;
 
-  final List<Module> filipino = [
-    Module(
-        type: "lesson",
-        imagePath: Assets.images.filipino.abakadaPic.path,
-        route: FilipinoStartLessonScreen(
-          imagePath: Assets.images.filipino.learnAbakada.path,
-          route: const AbakadaScreen(
-              quizScreen: FilipinoStartQuizScreen(
+  final int _abakadaScore = prefs.getInt('abakada_high_score') ?? 0;
+  final int _pamilyaScore = prefs.getInt('pamilya_high_score') ?? 0;
+  final int _kulayScore = prefs.getInt('kulay_high_score') ?? 0;
+  final int _hugisScore = prefs.getInt('hugis_high_score') ?? 0;
+
+  final bool _isAbakadaFinished =
+      prefs.getBool('abakada_quiz_unlocked') ?? false;
+  final bool _isPamilyaFinished =
+      prefs.getBool('pamilya_quiz_unlocked') ?? false;
+  final bool _isKulayFinished = prefs.getBool('kulay_quiz_unlocked') ?? false;
+  final bool _isHugisFinished = prefs.getBool('hugis_quiz_unlocked') ?? false;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Module> filipino = [
+      Module(
+          type: "lesson",
+          imagePath: Assets.images.filipino.abakadaPic.path,
+          score: _abakadaScore,
+          route: FilipinoStartLessonScreen(
+            imagePath: Assets.images.filipino.learnAbakada.path,
+            route: const AbakadaScreen(
+                quizScreen: FilipinoStartQuizScreen(
+              route: Scaffold(
+                body: Center(
+                  child: Text("Quiz1"),
+                ),
+              ),
+              title: "title1",
+              instruction: "instruction1",
+            )),
+          )),
+      Module(
+          type: "quiz",
+          imagePath: Assets.images.quizPic.path,
+          isQuiz: true,
+          isFinished: _isAbakadaFinished,
+          score: _abakadaScore,
+          route: const FilipinoStartQuizScreen(
             route: Scaffold(
               body: Center(
                 child: Text("Quiz1"),
@@ -36,112 +68,109 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
             title: "title1",
             instruction: "instruction1",
           )),
-        )),
-    Module(
+      Module(
+          type: "lesson",
+          imagePath: Assets.images.filipino.pamilyaPic.path,
+          score: _pamilyaScore,
+          route: FilipinoStartLessonScreen(
+            imagePath: Assets.images.filipino.learnPamilya.path,
+            route: const PamilyaScreen(
+              quizScreen: FilipinoStartQuizScreen(
+                route: Scaffold(
+                  body: Center(
+                    child: Text("Quiz2"),
+                  ),
+                ),
+                title: "title2",
+                instruction: "instruction2",
+              ),
+            ),
+          )),
+      Module(
+          type: "quiz",
+          imagePath: Assets.images.quizPic.path,
+          isQuiz: true,
+          isFinished: _isPamilyaFinished,
+          score: _pamilyaScore,
+          route: const FilipinoStartQuizScreen(
+            route: Scaffold(
+              body: Center(
+                child: Text("Quiz2"),
+              ),
+            ),
+            title: "title2",
+            instruction: "instruction2",
+          )),
+      Module(
+          type: "lesson",
+          imagePath: Assets.images.filipino.kulayPic.path,
+          score: _kulayScore,
+          route: FilipinoStartLessonScreen(
+            imagePath: Assets.images.filipino.learnKulay.path,
+            route: const KulayScreen(
+              quizScreen: FilipinoStartQuizScreen(
+                route: Scaffold(
+                  body: Center(
+                    child: Text("Quiz3"),
+                  ),
+                ),
+                title: "title3",
+                instruction: "instruction3",
+              ),
+            ),
+          )),
+      Module(
         type: "quiz",
         imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isKulayFinished,
+        score: _kulayScore,
         route: const FilipinoStartQuizScreen(
           route: Scaffold(
             body: Center(
-              child: Text("Quiz1"),
+              child: Text("Quiz3"),
             ),
           ),
-          title: "title1",
-          instruction: "instruction1",
-        )),
-    Module(
-        type: "lesson",
-        imagePath: Assets.images.filipino.pamilyaPic.path,
-        route: FilipinoStartLessonScreen(
-          imagePath: Assets.images.filipino.learnPamilya.path,
-          route: const PamilyaScreen(
-            quizScreen: FilipinoStartQuizScreen(
-              route: Scaffold(
-                body: Center(
-                  child: Text("Quiz2"),
+          title: "title3",
+          instruction: "instruction3",
+        ),
+      ),
+      Module(
+          type: "lesson",
+          imagePath: Assets.images.filipino.hugisPic.path,
+          score: _hugisScore,
+          route: FilipinoStartLessonScreen(
+            imagePath: Assets.images.filipino.learnHugis.path,
+            route: const HugisScreen(
+              quizScreen: FilipinoStartQuizScreen(
+                route: Scaffold(
+                  body: Center(
+                    child: Text("Quiz4"),
+                  ),
                 ),
+                title: "title4",
+                instruction: "instruction4",
               ),
-              title: "title2",
-              instruction: "instruction2",
             ),
-          ),
-        )),
-    Module(
+          )),
+      Module(
         type: "quiz",
         imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isHugisFinished,
+        score: _hugisScore,
         route: const FilipinoStartQuizScreen(
           route: Scaffold(
             body: Center(
-              child: Text("Quiz2"),
+              child: Text("Quiz4"),
             ),
           ),
-          title: "title2",
-          instruction: "instruction2",
-        )),
-    Module(
-        type: "lesson",
-        imagePath: Assets.images.filipino.kulayPic.path,
-        route: FilipinoStartLessonScreen(
-          imagePath: Assets.images.filipino.learnKulay.path,
-          route: const KulayScreen(
-            quizScreen: FilipinoStartQuizScreen(
-              route: Scaffold(
-                body: Center(
-                  child: Text("Quiz3"),
-                ),
-              ),
-              title: "title3",
-              instruction: "instruction3",
-            ),
-          ),
-        )),
-    Module(
-      type: "quiz",
-      imagePath: Assets.images.quizPic.path,
-      route: const FilipinoStartQuizScreen(
-        route: Scaffold(
-          body: Center(
-            child: Text("Quiz3"),
-          ),
+          title: "title4",
+          instruction: "instruction4",
         ),
-        title: "title3",
-        instruction: "instruction3",
       ),
-    ),
-    Module(
-        type: "lesson",
-        imagePath: Assets.images.filipino.hugisPic.path,
-        route: FilipinoStartLessonScreen(
-          imagePath: Assets.images.filipino.learnHugis.path,
-          route: const HugisScreen(
-            quizScreen: FilipinoStartQuizScreen(
-              route: Scaffold(
-                body: Center(
-                  child: Text("Quiz4"),
-                ),
-              ),
-              title: "title4",
-              instruction: "instruction4",
-            ),
-          ),
-        )),
-    Module(
-      type: "quiz",
-      imagePath: Assets.images.quizPic.path,
-      route: const FilipinoStartQuizScreen(
-        route: Scaffold(
-          body: Center(
-            child: Text("Quiz4"),
-          ),
-        ),
-        title: "title4",
-        instruction: "instruction4",
-      ),
-    ),
-  ];
+    ];
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -192,7 +221,6 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
                           itemCount: filipino.length,
                           itemBuilder: (context, index, realIndex) {
                             return ModuleCard(module: filipino[index]);
-                            // }
                           },
                         ),
                         const SizedBox(

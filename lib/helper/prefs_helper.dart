@@ -9,6 +9,7 @@ class Storage {
     'avatar',
     'isFirstTime',
 
+    //ALL ABOARD
     //shapes
     'shapes_current_index',
     'shapes_quiz_unlocked',
@@ -18,11 +19,15 @@ class Storage {
     'alphabets_current_row_index',
     'alphabets_quiz_unlocked',
     'alphabets_high_score',
+
+    //PHONICS
     //vowels
     'vowels_current_column_index',
     'vowels_current_row_index',
     'vowels_quiz_unlocked',
     'vowels_high_score',
+
+    //SCIENCE
     // body
     'body_current_column_index',
     'body_current_row_index',
@@ -36,6 +41,33 @@ class Storage {
     'care_current_index',
     'care_quiz_unlocked',
     'care_high_score',
+
+    //MATHEMATICS
+    // 'numbers_current_index',
+    'numbers_quiz_unlocked',
+    'numbers_high_score',
+    //add_subtract
+    // 'add_subtract_current_index',
+    'add_subtract_quiz_unlocked',
+    'add_subtract_high_score',
+
+    //FILIPINO
+    //abakada
+    // 'abakada_current_index',
+    'abakada_quiz_unlocked',
+    'abakada_high_score',
+    //kulay
+    // 'kulay_current_index',
+    'kulay_quiz_unlocked',
+    'kulay_high_score',
+    //hugis
+    // 'hugis_current_index',
+    'hugis_quiz_unlocked',
+    'hugis_high_score',
+    //pamilya
+    // 'pamilya_current_index',
+    'pamilya_quiz_unlocked',
+    'pamilya_high_score',
 
     //explore
     'time_chase_high_score',

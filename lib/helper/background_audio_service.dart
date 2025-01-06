@@ -13,7 +13,7 @@ class BackgroundAudioService {
 
   /// Play
   Future<void> playBackroundMusic() async {
-    _backgroundAudioPlayer.setVolume(0.5);
+    _backgroundAudioPlayer.setVolume(0.2);
     _backgroundAudioPlayer.setReleaseMode(ReleaseMode.loop);
     await _backgroundAudioPlayer.play(AssetSource("sounds/bg_song.mp3"));
   }

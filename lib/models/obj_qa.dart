@@ -342,4 +342,46 @@ final List<QuestionAnswer> questionAnswers = [
     hintPath: Assets.images.explore.clue.triangle.path,
     type: "shape",
   ),
+
+  //colors
+  // QuestionAnswer(
+  //   question: "Find something that is red.",
+  //   answer: "red",
+  //   questionSoundPath: "sounds/explore/red_question.m4a",
+  //   answerSoundPath: "sounds/explore/red.m4a",
+  //   hintPath: Assets.images.explore.clue.red.path,
+  //   type: "color",
+  // ),
+  // QuestionAnswer(
+  //   question: "Find something that is yellow.",
+  //   answer: "yellow",
+  //   questionSoundPath: "sounds/explore/yellow_question.m4a",
+  //   answerSoundPath: "sounds/explore/yellow.m4a",
+  //   hintPath: Assets.images.explore.clue.yellow.path,
+  //   type: "color",
+  // ),
+  // QuestionAnswer(
+  //   question: "Find something that is green.",
+  //   answer: "green",
+  //   questionSoundPath: "sounds/explore/green_question.m4a",
+  //   answerSoundPath: "sounds/explore/green.m4a",
+  //   hintPath: Assets.images.explore.clue.green.path,
+  //   type: "color",
+  // ),
+  // QuestionAnswer(
+  //   question: "Find something that is blue.",
+  //   answer: "blue",
+  //   questionSoundPath: "sounds/explore/blue_question.m4a",
+  //   answerSoundPath: "sounds/explore/blue.m4a",
+  //   hintPath: Assets.images.explore.clue.blue.path,
+  //   type: "color",
+  // ),
+  // QuestionAnswer(
+  //   question: "Find something that is orange.",
+  //   answer: "orange",
+  //   questionSoundPath: "sounds/explore/orange_question.m4a",
+  //   answerSoundPath: "sounds/explore/orange.m4a",
+  //   hintPath: Assets.images.explore.clue.orange.path,
+  //   type: "color",
+  // ),
 ];
