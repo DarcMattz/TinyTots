@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tinytots/components/modules.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_quiz.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_one.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_two.dart';
@@ -16,28 +17,42 @@ class MathematicsScreen extends StatefulWidget {
 
 class _MathematicsScreenState extends State<MathematicsScreen> {
   int _currentIndex = 0;
-
-  final List<Module> math = [
-    Module(
-        type: "mathematics",
-        imagePath: Assets.images.mathematics.numbersPic.path,
-        route: const NumbersStartLessonOneScreen()),
-    Module(
-        type: "mathematics",
-        imagePath: Assets.images.quizPic.path,
-        route: const NumbersQuizScreen()),
-    Module(
-        type: "mathematics",
-        imagePath: Assets.images.mathematics.addsubtrPic.path,
-        route: const NumbersStartLessonTwoScreen()),
-    Module(
-        type: "mathematics",
-        imagePath: Assets.images.quizPic.path,
-        route: const NumbersQuizScreen()),
-  ];
+  final int _numbersScore = prefs.getInt('numbers_high_score') ?? 0;
+  final int _addSubtractScore = prefs.getInt('add_subtract_high_score') ?? 0;
+  final bool _isNumbersFinished =
+      prefs.getBool('numbers_quiz_unlocked') ?? false;
+  final bool _isAddSubtractFinished =
+      prefs.getBool('add_subtract_quiz_unlocked') ?? false;
 
   @override
   Widget build(BuildContext context) {
+    final List<Module> math = [
+      Module(
+          type: "lesson",
+          imagePath: Assets.images.mathematics.numbersPic.path,
+          score: _numbersScore,
+          route: const NumbersStartLessonOneScreen()),
+      Module(
+          type: "quiz",
+          isQuiz: true,
+          imagePath: Assets.images.quizPic.path,
+          isFinished: _isNumbersFinished,
+          score: _numbersScore,
+          route: const NumbersQuizScreen()),
+      Module(
+          type: "lesson",
+          imagePath: Assets.images.mathematics.addsubtrPic.path,
+          score: _addSubtractScore,
+          route: const NumbersStartLessonTwoScreen()),
+      Module(
+          type: "quiz",
+          imagePath: Assets.images.quizPic.path,
+          isQuiz: true,
+          isFinished: _isAddSubtractFinished,
+          score: _addSubtractScore,
+          route: const NumbersQuizScreen()),
+    ];
+
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -97,18 +112,16 @@ class _MathematicsScreenState extends State<MathematicsScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: List.generate(math.length, (index) {
-                              return GestureDetector(
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
-                                  width: 10,
-                                  height: 10,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: _currentIndex == index
-                                        ? Colors.blueAccent
-                                        : Colors.grey,
-                                  ),
+                              return Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: _currentIndex == index
+                                      ? Colors.blueAccent
+                                      : Colors.grey,
                                 ),
                               );
                             }),
