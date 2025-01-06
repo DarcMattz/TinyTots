@@ -303,10 +303,11 @@ class ScanController extends GetxController {
       if (label.contains(answer)) {
         _handleCorrectAnswer();
         log('same');
-      } else {
-        log('not same');
-        AudioService().playFromAssets('sounds/wrong.mp3');
       }
+      // else {
+      //   log('not same');
+      //   AudioService().playFromAssets('sounds/wrong.mp3');
+      // }
     }
   }
 
