@@ -1,9 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/models/mathematics/number_only.dart';
+import 'package:tinytots/screens/learning/mathematics/add_subtract_quiz.dart';
 import 'package:tinytots/screens/learning/mathematics/mathematics.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_quiz.dart';
+import 'package:tinytots/screens/learning/mathematics/quiz_start.dart';
 import '../../dialogs/finish_module_dialog.dart';
 
 class NumbersLessonThreeCard extends StatefulWidget {
@@ -97,9 +100,17 @@ class _NumbersLessonThreeCardState extends State<NumbersLessonThreeCard> {
                     showDialog(
                       context: context,
                       barrierDismissible: false,
-                      builder: (context) => const FinishModuleDialog(
-                        route: NumbersQuizScreen(),
-                        oldRoute: MathematicsScreen(),
+                      builder: (context) => FinishModuleDialog(
+                        route: QuizStart(
+                          title: 'Add and Substract',
+                          description:
+                              'Tap the correct answer to solve the problem.',
+                          image: Assets.images.mathematics.quizAddSubtract
+                              .instruction.path,
+                          route: const AddSubtractQuizScreen(),
+                          soundPath: "",
+                        ),
+                        oldRoute: const MathematicsScreen(),
                       ),
                     );
                   } else if (widget.carCon != null) {

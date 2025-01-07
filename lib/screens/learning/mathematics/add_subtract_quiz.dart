@@ -9,14 +9,16 @@ import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/helper/confetti_helper.dart';
+import 'package:tinytots/models/mathematics/questions.dart';
 import 'package:tinytots/models/vowels/questions.dart';
+import 'package:tinytots/screens/learning/mathematics/mathematics.dart';
 import 'package:tinytots/screens/learning/phonics/phonics.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tinytots/screens/learning/phonics/vowels.dart';
 
-class VowelsQuizTwoScreen extends StatelessWidget {
-  const VowelsQuizTwoScreen({super.key});
+class AddSubtractQuizScreen extends StatelessWidget {
+  const AddSubtractQuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class AndroidWelcome extends StatefulWidget {
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
   final AudioService _audioService = AudioService();
-  late final List<VowelsQuestion> questions;
+  late final List<MathQuestion> questions;
 
   int currentQuestionIndex = 0;
   List<int> randomizedIndices = [];
@@ -64,202 +66,64 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     _audioService.setOnComplete(() {});
 
     questions = [
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.king.path,
-        questionText: "He is a ___.",
-        audioPath: "sounds/vowels/quiz2/he_is_a.m4a",
-        options: [
-          'king',
-          'bed',
-          'log',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.eightAdd.path,
+        question: "5 + 3 = ?",
+        options: ["8", "2", "5"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.log.path,
-        questionText: "The dog is on the ___.",
-        audioPath: "sounds/vowels/quiz2/the_dog.m4a",
-        options: [
-          'log',
-          'pen',
-          'house',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.fourAdd.path,
+        question: "3 + 1 = ?",
+        options: ["4", "6", "10"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.bread.path,
-        questionText: "This is a hot ___.",
-        audioPath: "sounds/vowels/quiz2/a_hot.m4a",
-        options: [
-          'bread',
-          'bib',
-          'pot',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.tenAdd.path,
+        question: "6 + 4 = ?",
+        options: ["10", "3", "7"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.mug.path,
-        questionText: "This is a ___.",
-        audioPath: "sounds/vowels/quiz2/a_mug.m4a",
-        options: [
-          'mug',
-          'cup',
-          'jug',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.nineAdd.path,
+        question: "7 + 2 = ?",
+        options: ["9", "5", "1"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.bed.path,
-        questionText: "The pen is on the ___.",
-        audioPath: "sounds/vowels/quiz2/the_pen.m4a",
-        options: [
-          'bed',
-          'pad',
-          'mat',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.sevenAdd.path,
+        question: "4 + 3 = ?",
+        options: ["7", "4", "9"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.pen.path,
-        questionText: "This is a ___.",
-        audioPath: "sounds/vowels/quiz2/a_pen.m4a",
-        options: [
-          'pen',
-          'map',
-          'cap',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.twoSub.path,
+        question: "6 - 4 = ?",
+        options: ["2", "8", "6"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.bag.path,
-        questionText: "This is a ___.",
-        audioPath: "sounds/vowels/quiz2/a_bag.m4a",
-        options: [
-          'bag',
-          'tag',
-          'rag',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.threeSub.path,
+        question: "6 - 3 = ?",
+        options: ["3", "5", "9"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.police.path,
-        questionText: "Bob is a ___.",
-        audioPath: "sounds/vowels/quiz2/bob_is_a.m4a",
-        options: [
-          'police',
-          'nurse',
-          'pilot',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.fourSub.path,
+        question: "9 - 5 = ?",
+        options: ["4", "1", "7"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.cap.path,
-        questionText: "This is dad’s ___.",
-        audioPath: "sounds/vowels/quiz2/dads_cap.m4a",
-        options: [
-          'cap',
-          'shoe',
-          'coat',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.oneSub.path,
+        question: "4 - 3 = ?",
+        options: ["1", "6", "10"],
         correctAnswerIndex: 0,
       ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.bib.path,
-        questionText: "He has a ___.",
-        audioPath: "sounds/vowels/quiz2/has_a_bib.m4a",
-        options: [
-          'bib',
-          'nap',
-          'bag',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.cup.path,
-        questionText: "It is a ___.",
-        audioPath: "sounds/vowels/quiz2/it_is_a.m4a",
-        options: [
-          'cup',
-          'cap',
-          'cab',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.rat.path,
-        questionText: "It is a fat ___.",
-        audioPath: "sounds/vowels/quiz2/a_fat_rat.m4a",
-        options: [
-          'rat',
-          'cat',
-          'bat',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.ten.path,
-        questionText: "This is ___.",
-        audioPath: "sounds/vowels/quiz2/this_is_ten.m4a",
-        options: [
-          'ten',
-          'pen',
-          'men',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.pin.path,
-        questionText: "This is ___.",
-        audioPath: "sounds/vowels/quiz2/this_is_pin.m4a",
-        options: [
-          'pin',
-          'bin',
-          'fin',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.mud.path,
-        questionText: "The bus is in the ___.",
-        audioPath: "sounds/vowels/quiz2/in_the_mud.m4a",
-        options: [
-          'mud',
-          'tub',
-          'rub',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.pot.path,
-        questionText: "This is a hot ___.",
-        audioPath: "sounds/vowels/quiz2/a_hot_pot.m4a",
-        options: [
-          'pot',
-          'dot',
-          'cot',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.house.path,
-        questionText: "This is a ___.",
-        audioPath: "sounds/vowels/quiz2/a_house.m4a",
-        options: [
-          'house',
-          'mouse',
-          'grouse',
-        ],
-        correctAnswerIndex: 0,
-      ),
-      VowelsQuestion(
-        imagePath: Assets.images.phonics.quiz.bell.path,
-        questionText: "It is a big ___.",
-        audioPath: "sounds/vowels/quiz2/a_big_bell.m4a",
-        options: [
-          'bell',
-          'shell',
-          'well',
-        ],
+      MathQuestion(
+        imagePath: Assets.images.mathematics.quizAddSubtract.fiveSub.path,
+        question: "8 - 3 = ?",
+        options: ["5", "2", "8"],
         correctAnswerIndex: 0,
       ),
     ];
@@ -374,10 +238,10 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     final score = calculateScore();
     final percentage = (score / questions.length * 100).round();
 
-    final highScore = prefs.getInt('vowels_high_score') ?? 0;
+    final highScore = prefs.getInt('add_subtract_high_score') ?? 0;
 
     if (percentage > highScore) {
-      prefs.setInt('vowels_high_score', percentage);
+      prefs.setInt('add_subtract_high_score', percentage);
     }
 
     Widget star;
@@ -473,7 +337,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                 route: PageTransition(
                                     type: PageTransitionType.scale,
                                     alignment: Alignment.center,
-                                    child: const PhonicsScreen()),
+                                    child: const MathematicsScreen()),
                                 child: NiceButton(
                                   label: "OK",
                                   color: const Color(0xffC16DFE),
@@ -488,7 +352,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                         PageTransition(
                                           type: PageTransitionType.fade,
                                           alignment: Alignment.center,
-                                          child: const PhonicsScreen(),
+                                          child: const MathematicsScreen(),
                                         ),
                                       );
                                     }
@@ -573,7 +437,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   Widget buildQuizScreen() {
-    VowelsQuestion currentQuestion = questions[currentQuestionIndex];
+    MathQuestion currentQuestion = questions[currentQuestionIndex];
     bool hasAnswered = userAnswers.length > currentQuestionIndex &&
         userAnswers[currentQuestionIndex] != null;
 
@@ -581,7 +445,6 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // TopBar(),
           const Spacer(),
           Card(
             margin: EdgeInsets.symmetric(
@@ -598,101 +461,95 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               padding: EdgeInsets.all(widget.constraints.maxWidth * .03),
               child: Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      _play(currentQuestion.audioPath);
-                    },
-                    child: Card(
-                      color: Color(0xff95E9FF),
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          widget.constraints.maxWidth * .04,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Stack(
-                          children: [
-                            Column(
-                              children: [
-                                Image(
-                                  image: AssetImage(currentQuestion.imagePath),
-                                  height: widget.constraints.maxHeight * .2,
-                                  width: widget.constraints.maxWidth,
-                                ),
-                                Text(
-                                  currentQuestion.questionText!,
-                                  style: TextStyle(
-                                    color: const Color(0xffA659FE),
-                                    fontSize:
-                                        widget.constraints.maxHeight * .05,
-                                    height: 1.0,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                )
-                              ],
-                            ),
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: Icon(Icons.volume_up_rounded),
-                            ),
-                          ],
-                        ),
+                  Card(
+                    color: Color(0xff95E9FF),
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        widget.constraints.maxWidth * .04,
                       ),
                     ),
-                  ),
-                  Gap(widget.constraints.maxHeight * .02),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Wrap(
-                      spacing: 10,
-                      children: List.generate(
-                        currentQuestion.options.length,
-                        (index) {
-                          final isSelected = index == selectedAnswer;
-                          return GestureDetector(
-                            onTap: hasChecked
-                                ? null
-                                : () {
-                                    handleAnswer(index);
+                    child: Padding(
+                      padding: const EdgeInsets.all(14.0),
+                      child: Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Image(
+                                image: AssetImage(currentQuestion.imagePath),
+                                height: widget.constraints.maxHeight * .2,
+                                width: widget.constraints.maxWidth,
+                              ),
+                              Wrap(
+                                spacing: 5,
+                                // runSpacing: 20,
+                                children: List.generate(
+                                  currentQuestion.options.length,
+                                  (index) {
+                                    final isSelected = index == selectedAnswer;
+                                    return GestureDetector(
+                                      onTap: hasChecked
+                                          ? null
+                                          : () {
+                                              handleAnswer(index);
+                                            },
+                                      child: Container(
+                                        width: widget.constraints.maxWidth * .2,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                          color: index == 0
+                                              ? Color(0xff67EB00)
+                                              : index == 1
+                                                  ? Color(0xffFFB800)
+                                                  : Color(0xffFF6433),
+                                          border: Border.all(
+                                            color: hasChecked && isSelected
+                                                ? (isCorrect
+                                                    ? Colors.green
+                                                    : Colors.red)
+                                                : hasAnswered && isSelected
+                                                    ? Colors.amber
+                                                    : Colors.grey,
+                                            width: widget.constraints.maxWidth *
+                                                .01,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            currentQuestion.options[
+                                                randomizedIndices[index]],
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize:
+                                                  widget.constraints.maxHeight *
+                                                      .020,
+                                              height: 1.0,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    );
                                   },
-                            child: Container(
-                              width: widget.constraints.maxWidth * .2,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Color(0xff4CDAFE),
-                                border: Border.all(
-                                  color: hasChecked && isSelected
-                                      ? (isCorrect ? Colors.green : Colors.red)
-                                      : hasAnswered && isSelected
-                                          ? Colors.amber
-                                          : Colors.grey,
-                                  width: widget.constraints.maxWidth * .01,
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  currentQuestion
-                                      .options[randomizedIndices[index]],
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:
-                                        widget.constraints.maxHeight * .020,
-                                    height: 1.0,
-                                  ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ),
-                            ),
-                          );
-                        },
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  Gap(widget.constraints.maxHeight * .02),
+                  Gap(widget.constraints.maxHeight * .01),
+                  Text(
+                    currentQuestion.question,
+                    style: TextStyle(
+                        fontSize: widget.constraints.maxHeight * .06,
+                        color: Color(0xffA659FE)),
+                  ),
+                  Gap(widget.constraints.maxHeight * .01),
                   LayoutBuilder(builder: (context, constraints) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),

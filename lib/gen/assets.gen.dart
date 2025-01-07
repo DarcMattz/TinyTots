@@ -473,6 +473,10 @@ class $AssetsImagesMathematicsGen {
   AssetGenImage get numbersPic =>
       const AssetGenImage('assets/images/mathematics/numbers_pic.png');
 
+  /// Directory path: assets/images/mathematics/quiz_add_subtract
+  $AssetsImagesMathematicsQuizAddSubtractGen get quizAddSubtract =>
+      const $AssetsImagesMathematicsQuizAddSubtractGen();
+
   /// Directory path: assets/images/mathematics/quiz_number
   $AssetsImagesMathematicsQuizNumberGen get quizNumber =>
       const $AssetsImagesMathematicsQuizNumberGen();
@@ -1837,6 +1841,69 @@ class $AssetsImagesMathematicsNumbersGen {
       ];
 }
 
+class $AssetsImagesMathematicsQuizAddSubtractGen {
+  const $AssetsImagesMathematicsQuizAddSubtractGen();
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/eight_add.png
+  AssetGenImage get eightAdd => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/eight_add.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/five_sub.png
+  AssetGenImage get fiveSub => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/five_sub.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/four_add.png
+  AssetGenImage get fourAdd => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/four_add.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/four_sub.png
+  AssetGenImage get fourSub => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/four_sub.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/instruction.png
+  AssetGenImage get instruction => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/instruction.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/nine_add.png
+  AssetGenImage get nineAdd => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/nine_add.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/one_sub.png
+  AssetGenImage get oneSub => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/one_sub.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/seven_add.png
+  AssetGenImage get sevenAdd => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/seven_add.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/ten_add.png
+  AssetGenImage get tenAdd => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/ten_add.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/three_sub.png
+  AssetGenImage get threeSub => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/three_sub.png');
+
+  /// File path: assets/images/mathematics/quiz_add_subtract/two_sub.png
+  AssetGenImage get twoSub => const AssetGenImage(
+      'assets/images/mathematics/quiz_add_subtract/two_sub.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        eightAdd,
+        fiveSub,
+        fourAdd,
+        fourSub,
+        instruction,
+        nineAdd,
+        oneSub,
+        sevenAdd,
+        tenAdd,
+        threeSub,
+        twoSub
+      ];
+}
+
 class $AssetsImagesMathematicsQuizNumberGen {
   const $AssetsImagesMathematicsQuizNumberGen();
 
@@ -1974,21 +2041,9 @@ class $AssetsImagesPhonicsQuizGen {
   AssetGenImage get cap =>
       const AssetGenImage('assets/images/phonics/quiz/cap.png');
 
-  /// File path: assets/images/phonics/quiz/ewan (2).png
-  AssetGenImage get ewan2 =>
-      const AssetGenImage('assets/images/phonics/quiz/ewan (2).png');
-
-  /// File path: assets/images/phonics/quiz/ewan (3).png
-  AssetGenImage get ewan3 =>
-      const AssetGenImage('assets/images/phonics/quiz/ewan (3).png');
-
-  /// File path: assets/images/phonics/quiz/ewan (4).png
-  AssetGenImage get ewan4 =>
-      const AssetGenImage('assets/images/phonics/quiz/ewan (4).png');
-
-  /// File path: assets/images/phonics/quiz/ewan.png
-  AssetGenImage get ewan =>
-      const AssetGenImage('assets/images/phonics/quiz/ewan.png');
+  /// File path: assets/images/phonics/quiz/cup.png
+  AssetGenImage get cup =>
+      const AssetGenImage('assets/images/phonics/quiz/cup.png');
 
   /// File path: assets/images/phonics/quiz/house.png
   AssetGenImage get house =>
@@ -2002,9 +2057,21 @@ class $AssetsImagesPhonicsQuizGen {
   AssetGenImage get log =>
       const AssetGenImage('assets/images/phonics/quiz/log.png');
 
+  /// File path: assets/images/phonics/quiz/mud.png
+  AssetGenImage get mud =>
+      const AssetGenImage('assets/images/phonics/quiz/mud.png');
+
+  /// File path: assets/images/phonics/quiz/mug.png
+  AssetGenImage get mug =>
+      const AssetGenImage('assets/images/phonics/quiz/mug.png');
+
   /// File path: assets/images/phonics/quiz/pen.png
   AssetGenImage get pen =>
       const AssetGenImage('assets/images/phonics/quiz/pen.png');
+
+  /// File path: assets/images/phonics/quiz/pin.png
+  AssetGenImage get pin =>
+      const AssetGenImage('assets/images/phonics/quiz/pin.png');
 
   /// File path: assets/images/phonics/quiz/police.png
   AssetGenImage get police =>
@@ -2030,14 +2097,14 @@ class $AssetsImagesPhonicsQuizGen {
         bib,
         bread,
         cap,
-        ewan2,
-        ewan3,
-        ewan4,
-        ewan,
+        cup,
         house,
         king,
         log,
+        mud,
+        mug,
         pen,
+        pin,
         police,
         pot,
         rat,

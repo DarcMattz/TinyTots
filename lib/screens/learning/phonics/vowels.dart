@@ -14,6 +14,7 @@ import 'package:tinytots/screens/learning/phonics/phonics.dart';
 import 'package:tinytots/screens/learning/phonics/vowels_quiz.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tinytots/screens/learning/phonics/vowels_quiz_start_two.dart';
 
 class VowelsScreen extends StatefulWidget {
   const VowelsScreen({super.key});
@@ -316,7 +317,7 @@ class _VowelsScreenState extends State<VowelsScreen> {
                                 context: context,
                                 barrierDismissible: false,
                                 builder: (context) => const FinishModuleDialog(
-                                  route: VowelsQuizScreen(),
+                                  route: VowelsQuizTwoStart(),
                                   oldRoute: PhonicsScreen(),
                                 ),
                               );

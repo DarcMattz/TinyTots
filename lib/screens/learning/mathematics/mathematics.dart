@@ -4,6 +4,7 @@ import 'package:tinytots/components/modules.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
+import 'package:tinytots/screens/learning/mathematics/add_subtract_quiz.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_quiz.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_one.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_two.dart';
@@ -53,12 +54,19 @@ class _MathematicsScreenState extends State<MathematicsScreen> {
           score: _addSubtractScore,
           route: const NumbersStartLessonTwoScreen()),
       Module(
-          type: "quiz",
-          imagePath: Assets.images.quizPic.path,
-          isQuiz: true,
-          isFinished: _isAddSubtractFinished,
-          score: _addSubtractScore,
-          route: const NumbersQuizScreen()),
+        type: "quiz",
+        isQuiz: true,
+        imagePath: Assets.images.quizPic.path,
+        isFinished: _isNumbersFinished,
+        score: _addSubtractScore,
+        route: QuizStart(
+          title: 'Add and Substract',
+          description: 'Tap the correct answer to solve the problem.',
+          image: Assets.images.mathematics.quizAddSubtract.instruction.path,
+          route: const AddSubtractQuizScreen(),
+          soundPath: "",
+        ),
+      ),
     ];
 
     return Scaffold(
