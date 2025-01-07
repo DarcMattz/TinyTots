@@ -161,10 +161,6 @@ class $AssetsImagesGen {
 class $AssetsModelsGen {
   const $AssetsModelsGen();
 
-  /// File path: assets/models/converted_tflite (2)-20241210T145147Z-001.zip
-  String get convertedTflite220241210T145147Z001 =>
-      'assets/models/converted_tflite (2)-20241210T145147Z-001.zip';
-
   /// File path: assets/models/labels.txt
   String get labels => 'assets/models/labels.txt';
 
@@ -172,8 +168,7 @@ class $AssetsModelsGen {
   String get modelUnquant => 'assets/models/model_unquant.tflite';
 
   /// List of all assets
-  List<String> get values =>
-      [convertedTflite220241210T145147Z001, labels, modelUnquant];
+  List<String> get values => [labels, modelUnquant];
 }
 
 class $AssetsSoundsGen {
@@ -3110,13 +3105,13 @@ class $AssetsImagesScienceSensesQuizGen {
   AssetGenImage get hear =>
       const AssetGenImage('assets/images/science/senses/quiz/hear.png');
 
-  /// File path: assets/images/science/senses/quiz/see.png
-  AssetGenImage get see =>
-      const AssetGenImage('assets/images/science/senses/quiz/see.png');
-
   /// File path: assets/images/science/senses/quiz/senses_quiz.png
   AssetGenImage get sensesQuiz =>
       const AssetGenImage('assets/images/science/senses/quiz/senses_quiz.png');
+
+  /// File path: assets/images/science/senses/quiz/sight.png
+  AssetGenImage get sight =>
+      const AssetGenImage('assets/images/science/senses/quiz/sight.png');
 
   /// File path: assets/images/science/senses/quiz/smell.png
   AssetGenImage get smell =>
@@ -3132,7 +3127,7 @@ class $AssetsImagesScienceSensesQuizGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [hear, see, sensesQuiz, smell, taste, touch];
+      [hear, sensesQuiz, sight, smell, taste, touch];
 }
 
 class Assets {

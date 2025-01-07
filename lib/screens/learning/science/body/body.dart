@@ -44,12 +44,12 @@ class _BodyScreenState extends State<BodyScreen> {
       ),
       Body(
         label: 'Neck',
-        imagePath: Assets.images.science.body.body3.path,
+        imagePath: Assets.images.science.body.body4.path,
         soundPath: 'sounds/science/body/neck.m4a',
       ),
       Body(
         label: 'Stomach',
-        imagePath: Assets.images.science.body.body4.path,
+        imagePath: Assets.images.science.body.body3.path,
         soundPath: 'sounds/science/body/stomach.m4a',
       ),
       Body(

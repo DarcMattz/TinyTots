@@ -3,12 +3,36 @@ import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/top_bar.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/screens/learning/science/science.dart';
 import 'package:tinytots/screens/learning/science/sense/senses_quiz.dart';
 import 'package:page_transition/page_transition.dart';
 
-class SensesQuizStart extends StatelessWidget {
+class SensesQuizStart extends StatefulWidget {
   const SensesQuizStart({super.key});
+
+  @override
+  State<SensesQuizStart> createState() => _SensesQuizStartState();
+}
+
+class _SensesQuizStartState extends State<SensesQuizStart> {
+  final AudioService _audioService = AudioService();
+
+  @override
+  void initState() {
+    super.initState();
+    _play();
+  }
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
+
+  void _play() {
+    // _audioService.playFromAssets("sounds/science/senses/senses_quiz.m4a");
+  }
 
   @override
   Widget build(BuildContext context) {
