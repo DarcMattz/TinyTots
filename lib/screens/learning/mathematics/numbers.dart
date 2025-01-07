@@ -1,12 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/components/mathematics/number_card.dart';
 import 'package:tinytots/components/mathematics/number_with_example_card.dart';
 import 'package:tinytots/models/mathematics/number_example.dart';
 import 'package:tinytots/models/mathematics/number_only.dart';
 import 'package:gap/gap.dart';
+import 'package:tinytots/screens/learning/mathematics/mathematics.dart';
 import '../../../components/utils/nice_button.dart';
 
 class NumbersScreen extends StatefulWidget {
@@ -155,9 +159,15 @@ class _NumbersScreenState extends State<NumbersScreen> {
     ],
   ];
 
+  int? colCurIndex = prefs.getInt('numbers_current_column_index') ?? 0;
+  int? rowCurIndex = prefs.getInt('alphabets_current_row_index') ?? 0;
   @override
   void initState() {
     super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _parentCarCon.jumpToPage(colCurIndex!);
+    });
   }
 
   @override
@@ -205,15 +215,31 @@ class _NumbersScreenState extends State<NumbersScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: NiceButton(
-                  label: "Back",
-                  color: Colors.yellow,
-                  shadowColor: Colors.yellow[800]!,
-                  icon: Icons.close,
-                  iconSize: 30,
-                  method: () {
-                    Navigator.pop(context);
-                  },
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.center,
+                    child: const MathematicsScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const MathematicsScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ),
               Expanded(
@@ -229,6 +255,8 @@ class _NumbersScreenState extends State<NumbersScreen> {
                       autoPlay: false,
                       viewportFraction: 0.8,
                       onPageChanged: (index, reason) {
+                        colCurIndex = index;
+                        prefs.setInt('numbers_current_column_index', index);
                         _stop();
                       }),
                   itemBuilder: (context, colIndex, realIndex) {
@@ -248,6 +276,13 @@ class _NumbersScreenState extends State<NumbersScreen> {
                             autoPlay: false,
                             viewportFraction: 0.8,
                             onPageChanged: (index, reason) {
+                              rowCurIndex = index;
+                              prefs.setInt('numbers_current_row_index', index);
+
+                              if (index == 9) {
+                                prefs.setBool("numbers_quiz_unlocked", true);
+                              }
+
                               _stop();
                             }),
                         itemBuilder: (context, rowIndex, cardRealIndex) {

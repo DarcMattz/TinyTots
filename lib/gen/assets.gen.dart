@@ -473,6 +473,10 @@ class $AssetsImagesMathematicsGen {
   AssetGenImage get numbersPic =>
       const AssetGenImage('assets/images/mathematics/numbers_pic.png');
 
+  /// Directory path: assets/images/mathematics/quiz_number
+  $AssetsImagesMathematicsQuizNumberGen get quizNumber =>
+      const $AssetsImagesMathematicsQuizNumberGen();
+
   /// Directory path: assets/images/mathematics/sample
   $AssetsImagesMathematicsSampleGen get sample =>
       const $AssetsImagesMathematicsSampleGen();
@@ -1831,6 +1835,58 @@ class $AssetsImagesMathematicsNumbersGen {
         a8,
         a9
       ];
+}
+
+class $AssetsImagesMathematicsQuizNumberGen {
+  const $AssetsImagesMathematicsQuizNumberGen();
+
+  /// File path: assets/images/mathematics/quiz_number/eight.png
+  AssetGenImage get eight =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/eight.png');
+
+  /// File path: assets/images/mathematics/quiz_number/five.png
+  AssetGenImage get five =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/five.png');
+
+  /// File path: assets/images/mathematics/quiz_number/four.png
+  AssetGenImage get four =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/four.png');
+
+  /// File path: assets/images/mathematics/quiz_number/instruction.png
+  AssetGenImage get instruction => const AssetGenImage(
+      'assets/images/mathematics/quiz_number/instruction.png');
+
+  /// File path: assets/images/mathematics/quiz_number/nine.png
+  AssetGenImage get nine =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/nine.png');
+
+  /// File path: assets/images/mathematics/quiz_number/one.png
+  AssetGenImage get one =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/one.png');
+
+  /// File path: assets/images/mathematics/quiz_number/seven.png
+  AssetGenImage get seven =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/seven.png');
+
+  /// File path: assets/images/mathematics/quiz_number/six.png
+  AssetGenImage get six =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/six.png');
+
+  /// File path: assets/images/mathematics/quiz_number/ten.png
+  AssetGenImage get ten =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/ten.png');
+
+  /// File path: assets/images/mathematics/quiz_number/three.png
+  AssetGenImage get three =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/three.png');
+
+  /// File path: assets/images/mathematics/quiz_number/two.png
+  AssetGenImage get two =>
+      const AssetGenImage('assets/images/mathematics/quiz_number/two.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [eight, five, four, instruction, nine, one, seven, six, ten, three, two];
 }
 
 class $AssetsImagesMathematicsSampleGen {

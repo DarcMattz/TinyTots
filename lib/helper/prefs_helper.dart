@@ -43,11 +43,11 @@ class Storage {
     'care_high_score',
 
     //MATHEMATICS
-    // 'numbers_current_index',
+    'numbers_current_column_index',
     'numbers_quiz_unlocked',
     'numbers_high_score',
     //add_subtract
-    // 'add_subtract_current_index',
+    'add_subtract_current_index',
     'add_subtract_quiz_unlocked',
     'add_subtract_high_score',
 

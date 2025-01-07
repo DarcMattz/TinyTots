@@ -42,3 +42,9 @@
 41 square
 42 rectangle
 43 triangle
+44 red
+45 blue
+46 green
+47 purple
+48 yellow
+49 orange

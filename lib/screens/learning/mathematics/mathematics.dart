@@ -7,6 +7,7 @@ import 'package:tinytots/globals.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_quiz.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_one.dart';
 import 'package:tinytots/screens/learning/mathematics/numbers_start_lesson_two.dart';
+import 'package:tinytots/screens/learning/mathematics/quiz_start.dart';
 
 class MathematicsScreen extends StatefulWidget {
   const MathematicsScreen({super.key});
@@ -33,12 +34,19 @@ class _MathematicsScreenState extends State<MathematicsScreen> {
           score: _numbersScore,
           route: const NumbersStartLessonOneScreen()),
       Module(
-          type: "quiz",
-          isQuiz: true,
-          imagePath: Assets.images.quizPic.path,
-          isFinished: _isNumbersFinished,
-          score: _numbersScore,
-          route: const NumbersQuizScreen()),
+        type: "quiz",
+        isQuiz: true,
+        imagePath: Assets.images.quizPic.path,
+        isFinished: _isNumbersFinished,
+        score: _numbersScore,
+        route: QuizStart(
+          title: 'Recognizing Numbers',
+          description: 'Choose the correct number for each set',
+          image: Assets.images.mathematics.quizNumber.instruction.path,
+          route: const NumbersQuizScreen(),
+          soundPath: "",
+        ),
+      ),
       Module(
           type: "lesson",
           imagePath: Assets.images.mathematics.addsubtrPic.path,
