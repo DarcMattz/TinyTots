@@ -5,11 +5,15 @@ import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/screens/learning/filipino/abakada.dart';
+import 'package:tinytots/screens/learning/filipino/abakada_quiz.dart';
 import 'package:tinytots/screens/learning/filipino/filipino_start_quiz.dart';
 import 'package:tinytots/screens/learning/filipino/filipino_start_lesson.dart';
 import 'package:tinytots/screens/learning/filipino/hugis.dart';
+import 'package:tinytots/screens/learning/filipino/hugis_quiz.dart';
 import 'package:tinytots/screens/learning/filipino/kulay.dart';
+import 'package:tinytots/screens/learning/filipino/kulay_quiz.dart';
 import 'package:tinytots/screens/learning/filipino/pamilya.dart';
+import 'package:tinytots/screens/learning/filipino/pamilya_quiz.dart';
 
 class FilipinoScreen extends StatefulWidget {
   const FilipinoScreen({super.key});
@@ -37,52 +41,47 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
   Widget build(BuildContext context) {
     final List<Module> filipino = [
       Module(
-          type: "lesson",
-          imagePath: Assets.images.filipino.abakadaPic.path,
-          score: _abakadaScore,
-          route: FilipinoStartLessonScreen(
-            imagePath: Assets.images.filipino.learnAbakada.path,
-            route: const AbakadaScreen(
-                quizScreen: FilipinoStartQuizScreen(
-              route: Scaffold(
-                body: Center(
-                  child: Text("Quiz1"),
-                ),
-              ),
-              title: "title1",
-              instruction: "instruction1",
-            )),
+        type: "lesson",
+        imagePath: Assets.images.filipino.abakadaPic.path,
+        score: _abakadaScore,
+        route: FilipinoStartLessonScreen(
+          imagePath: Assets.images.filipino.learnAbakada.path,
+          route: AbakadaScreen(
+              quizScreen: FilipinoStartQuizScreen(
+            route: const AbakadaQuizScreen(),
+            title: "Alamin",
+            instruction:
+                "Pindutin ang tamang mga letra upang punan ang mga patlang.",
+            image: Assets.images.filipino.quiz.abakadaInstruction.path,
           )),
+        ),
+      ),
       Module(
-          type: "quiz",
-          imagePath: Assets.images.quizPic.path,
-          isQuiz: true,
-          isFinished: _isAbakadaFinished,
-          score: _abakadaScore,
-          route: const FilipinoStartQuizScreen(
-            route: Scaffold(
-              body: Center(
-                child: Text("Quiz1"),
-              ),
-            ),
-            title: "title1",
-            instruction: "instruction1",
-          )),
+        type: "quiz",
+        imagePath: Assets.images.quizPic.path,
+        isQuiz: true,
+        isFinished: _isAbakadaFinished,
+        score: _abakadaScore,
+        route: FilipinoStartQuizScreen(
+          route: const AbakadaQuizScreen(),
+          title: "Alamin",
+          instruction:
+              "Pindutin ang tamang mga letra upang punan ang mga patlang.",
+          image: Assets.images.filipino.quiz.abakadaInstruction.path,
+        ),
+      ),
       Module(
           type: "lesson",
           imagePath: Assets.images.filipino.pamilyaPic.path,
           score: _pamilyaScore,
           route: FilipinoStartLessonScreen(
             imagePath: Assets.images.filipino.learnPamilya.path,
-            route: const PamilyaScreen(
+            route: PamilyaScreen(
               quizScreen: FilipinoStartQuizScreen(
-                route: Scaffold(
-                  body: Center(
-                    child: Text("Quiz2"),
-                  ),
-                ),
-                title: "title2",
-                instruction: "instruction2",
+                route: const PamilyaQuizScreen(),
+                title: "Pumili",
+                instruction: "Piliin ang larawan na tumutugma sa tanong",
+                image: Assets.images.filipino.quiz.pamilyaInstruction.path,
               ),
             ),
           )),
@@ -92,14 +91,11 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
           isQuiz: true,
           isFinished: _isPamilyaFinished,
           score: _pamilyaScore,
-          route: const FilipinoStartQuizScreen(
-            route: Scaffold(
-              body: Center(
-                child: Text("Quiz2"),
-              ),
-            ),
-            title: "title2",
-            instruction: "instruction2",
+          route: FilipinoStartQuizScreen(
+            route: const PamilyaQuizScreen(),
+            title: "Pumili",
+            instruction: "Piliin ang larawan na tumutugma sa tanong",
+            image: Assets.images.filipino.quiz.pamilyaInstruction.path,
           )),
       Module(
           type: "lesson",
@@ -107,15 +103,12 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
           score: _kulayScore,
           route: FilipinoStartLessonScreen(
             imagePath: Assets.images.filipino.learnKulay.path,
-            route: const KulayScreen(
+            route: KulayScreen(
               quizScreen: FilipinoStartQuizScreen(
-                route: Scaffold(
-                  body: Center(
-                    child: Text("Quiz3"),
-                  ),
-                ),
-                title: "title3",
-                instruction: "instruction3",
+                route: const KulayQuizScreen(),
+                title: "Tamang Kulay",
+                instruction: "Piliin ang tamang kulay na naayon sa imahe",
+                image: Assets.images.filipino.quiz.kulayInstruction.path,
               ),
             ),
           )),
@@ -125,14 +118,11 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
         isQuiz: true,
         isFinished: _isKulayFinished,
         score: _kulayScore,
-        route: const FilipinoStartQuizScreen(
-          route: Scaffold(
-            body: Center(
-              child: Text("Quiz3"),
-            ),
-          ),
-          title: "title3",
-          instruction: "instruction3",
+        route: FilipinoStartQuizScreen(
+          route: const KulayQuizScreen(),
+          title: "Tamang Kulay",
+          instruction: "Piliin ang tamang kulay na naayon sa imahe",
+          image: Assets.images.filipino.quiz.kulayInstruction.path,
         ),
       ),
       Module(
@@ -141,15 +131,12 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
           score: _hugisScore,
           route: FilipinoStartLessonScreen(
             imagePath: Assets.images.filipino.learnHugis.path,
-            route: const HugisScreen(
+            route: HugisScreen(
               quizScreen: FilipinoStartQuizScreen(
-                route: Scaffold(
-                  body: Center(
-                    child: Text("Quiz4"),
-                  ),
-                ),
-                title: "title4",
-                instruction: "instruction4",
+                route: const HugisQuizScreen(),
+                title: "Pumili",
+                instruction: "Piliin ang larawan na tumutugma sa tanong",
+                image: Assets.images.filipino.quiz.hugisInstruction.path,
               ),
             ),
           )),
@@ -159,14 +146,11 @@ class _FilipinoScreenState extends State<FilipinoScreen> {
         isQuiz: true,
         isFinished: _isHugisFinished,
         score: _hugisScore,
-        route: const FilipinoStartQuizScreen(
-          route: Scaffold(
-            body: Center(
-              child: Text("Quiz4"),
-            ),
-          ),
-          title: "title4",
-          instruction: "instruction4",
+        route: FilipinoStartQuizScreen(
+          route: const HugisQuizScreen(),
+          title: "Pumili",
+          instruction: "Piliin ang larawan na tumutugma sa tanong",
+          image: Assets.images.filipino.quiz.hugisInstruction.path,
         ),
       ),
     ];

@@ -53,7 +53,7 @@ class Storage {
 
     //FILIPINO
     //abakada
-    // 'abakada_current_index',
+    'abakada_current_index',
     'abakada_quiz_unlocked',
     'abakada_high_score',
     //kulay
@@ -65,7 +65,7 @@ class Storage {
     'hugis_quiz_unlocked',
     'hugis_high_score',
     //pamilya
-    // 'pamilya_current_index',
+    'pamilya_current_index',
     'pamilya_quiz_unlocked',
     'pamilya_high_score',
 
@@ -89,11 +89,13 @@ class Storage {
     prefs.setInt('alphabets_current_row_index', 0);
     prefs.setBool('alphabets_quiz_unlocked', false);
     prefs.setInt('alphabets_high_score', 0);
+
     //vowels
     prefs.setInt('vowels_current_column_index', 0);
     prefs.setInt('vowels_current_row_index', 0);
     prefs.setBool('vowels_quiz_unlocked', false);
     prefs.setInt('vowels_high_score', 0);
+
     // body
     prefs.setInt('body_current_column_index', 0);
     prefs.setInt('body_current_row_index', 0);
@@ -107,6 +109,17 @@ class Storage {
     prefs.setInt('care_current_index', 0);
     prefs.setBool('care_quiz_unlocked', false);
     prefs.setInt('care_high_score', 0);
+
+    //numbers
+    prefs.setInt('numbers_current_column_index', 0);
+    prefs.setBool('numbers_quiz_unlocked', false);
+    prefs.setInt('numbers_high_score', 0);
+    //add_subtract
+    prefs.setInt('add_subtract_current_index', 0);
+    prefs.setBool('add_subtract_quiz_unlocked', false);
+    prefs.setInt('add_subtract_high_score', 0);
+
+    //abakada
 
     //explore
     prefs.setInt('time_chase_high_score', 0);

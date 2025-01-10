@@ -8,13 +8,14 @@ import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/helper/confetti_helper.dart';
-import 'package:tinytots/models/mathematics/questions.dart';
+import 'package:tinytots/models/filipino/questions.dart';
+import 'package:tinytots/screens/learning/filipino/filipino.dart';
 import 'package:tinytots/screens/learning/mathematics/mathematics.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
 
-class AddSubtractQuizScreen extends StatelessWidget {
-  const AddSubtractQuizScreen({super.key});
+class AbakadaQuizScreen extends StatelessWidget {
+  const AbakadaQuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class AndroidWelcome extends StatefulWidget {
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
   final AudioService _audioService = AudioService();
-  late final List<MathQuestion> questions;
+  late final List<FilipinoQuestion> questions;
 
   int currentQuestionIndex = 0;
   List<int> randomizedIndices = [];
@@ -62,64 +63,64 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     _audioService.setOnComplete(() {});
 
     questions = [
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.eightAdd.path,
-        question: "5 + 3 = ?",
-        options: ["8", "2", "5"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.apoy.path,
+        question: "_poy",
+        options: ["a", "e", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.fourAdd.path,
-        question: "3 + 1 = ?",
-        options: ["4", "6", "10"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.kuba.path,
+        question: "__ba",
+        options: ["ka", "sa", "ba", "da"],
+        correctAnswerIndex: 2,
+      ),
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.babae.path,
+        question: "__bae",
+        options: ["ba", "ka", "sa", "da"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.tenAdd.path,
-        question: "6 + 4 = ?",
-        options: ["10", "3", "7"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.mani.path,
+        question: "__ni",
+        options: ["ma", "na", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.nineAdd.path,
-        question: "7 + 2 = ?",
-        options: ["9", "5", "1"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.damo.path,
+        question: "__mo",
+        options: ["da", "ma", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.sevenAdd.path,
-        question: "4 + 3 = ?",
-        options: ["7", "4", "9"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.pako.path,
+        question: "__ko",
+        options: ["pa", "ma", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.twoSub.path,
-        question: "6 - 4 = ?",
-        options: ["2", "8", "6"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.laro.path,
+        question: "__ro",
+        options: ["la", "ma", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.threeSub.path,
-        question: "6 - 3 = ?",
-        options: ["3", "5", "9"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.tatay.path,
+        question: "__tay",
+        options: ["ta", "ma", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.fourSub.path,
-        question: "9 - 5 = ?",
-        options: ["4", "1", "7"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.manok.path,
+        question: "__nok",
+        options: ["ma", "na", "ba", "ka"],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.oneSub.path,
-        question: "4 - 3 = ?",
-        options: ["1", "6", "10"],
-        correctAnswerIndex: 0,
-      ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.fiveSub.path,
-        question: "8 - 3 = ?",
-        options: ["5", "2", "8"],
+      FilipinoQuestion(
+        imagePath: Assets.images.filipino.quiz.leeg.path,
+        question: "__eg",
+        options: ["le", "me", "be", "ke"],
         correctAnswerIndex: 0,
       ),
     ];
@@ -234,10 +235,10 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     final score = calculateScore();
     final percentage = (score / questions.length * 100).round();
 
-    final highScore = prefs.getInt('add_subtract_high_score') ?? 0;
+    final highScore = prefs.getInt('abakada_high_score') ?? 0;
 
     if (percentage > highScore) {
-      prefs.setInt('add_subtract_high_score', percentage);
+      prefs.setInt('abakada_high_score', percentage);
     }
 
     Widget star;
@@ -333,7 +334,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                 route: PageTransition(
                                     type: PageTransitionType.scale,
                                     alignment: Alignment.center,
-                                    child: const MathematicsScreen()),
+                                    child: const FilipinoScreen()),
                                 child: NiceButton(
                                   label: "OK",
                                   color: const Color(0xffC16DFE),
@@ -348,7 +349,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                         PageTransition(
                                           type: PageTransitionType.fade,
                                           alignment: Alignment.center,
-                                          child: const MathematicsScreen(),
+                                          child: const FilipinoScreen(),
                                         ),
                                       );
                                     }
@@ -433,7 +434,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   Widget buildQuizScreen() {
-    MathQuestion currentQuestion = questions[currentQuestionIndex];
+    FilipinoQuestion currentQuestion = questions[currentQuestionIndex];
     bool hasAnswered = userAnswers.length > currentQuestionIndex &&
         userAnswers[currentQuestionIndex] != null;
 
@@ -476,76 +477,72 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                 height: widget.constraints.maxHeight * .2,
                                 width: widget.constraints.maxWidth,
                               ),
-                              Wrap(
-                                spacing: 5,
-                                // runSpacing: 20,
-                                children: List.generate(
-                                  currentQuestion.options.length,
-                                  (index) {
-                                    final isSelected = index == selectedAnswer;
-                                    return GestureDetector(
-                                      onTap: hasChecked
-                                          ? null
-                                          : () {
-                                              handleAnswer(index);
-                                            },
-                                      child: Container(
-                                        width: widget.constraints.maxWidth * .2,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: index == 0
-                                              ? Color(0xff67EB00)
-                                              : index == 1
-                                                  ? Color(0xffFFB800)
-                                                  : Color(0xffFF6433),
-                                          border: Border.all(
-                                            color: hasChecked && isSelected
-                                                ? (isCorrect
-                                                    ? Colors.green
-                                                    : Colors.red)
-                                                : hasAnswered && isSelected
-                                                    ? Colors.amber
-                                                    : Colors.grey,
-                                            width: widget.constraints.maxWidth *
-                                                .01,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            currentQuestion.options[
-                                                randomizedIndices[index]],
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize:
-                                                  widget.constraints.maxHeight *
-                                                      .020,
-                                              height: 1.0,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
                             ],
                           ),
                         ],
                       ),
                     ),
                   ),
+                  Gap(widget.constraints.maxHeight * .02),
+                  Wrap(
+                    spacing: 5,
+                    // runSpacing: 20,
+                    children: List.generate(
+                      currentQuestion.options.length,
+                      (index) {
+                        final isSelected = index == selectedAnswer;
+                        return GestureDetector(
+                          onTap: hasChecked
+                              ? null
+                              : () {
+                                  handleAnswer(index);
+                                },
+                          child: Container(
+                            width: widget.constraints.maxWidth * .15,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: index == 0
+                                  ? Color(0xff67EB00)
+                                  : index == 1
+                                      ? Color(0xffFFB800)
+                                      : index == 2
+                                          ? Color(0xff3ECEFE)
+                                          : Color(0xffFF6433),
+                              border: Border.all(
+                                color: hasChecked && isSelected
+                                    ? (isCorrect ? Colors.green : Colors.red)
+                                    : hasAnswered && isSelected
+                                        ? Colors.amber
+                                        : Colors.grey,
+                                width: widget.constraints.maxWidth * .01,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                currentQuestion
+                                    .options[randomizedIndices[index]],
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: widget.constraints.maxHeight * .020,
+                                  height: 1.0,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                   Gap(widget.constraints.maxHeight * .01),
                   Text(
                     currentQuestion.question,
                     style: TextStyle(
-                        fontSize: widget.constraints.maxHeight * .06,
+                        fontSize: widget.constraints.maxHeight * .04,
                         color: Color(0xffA659FE)),
                   ),
-                  Gap(widget.constraints.maxHeight * .01),
                   LayoutBuilder(builder: (context, constraints) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),

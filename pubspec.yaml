@@ -118,6 +118,7 @@ flutter:
     - assets/images/filipino/hugis/
     - assets/images/filipino/kulay/
     - assets/images/filipino/pamilya/
+    - assets/images/filipino/quiz/
     - assets/models/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:tinytots/components/push_replacement.dart';
+import 'package:tinytots/components/utils/nice_button.dart';
 import 'package:tinytots/dialogs/finish_module_dialog.dart';
 import 'package:tinytots/components/lesson_card.dart';
-// import 'package:tinytots/components/letter_card.dart';
-// import 'package:tinytots/components/nice_button.dart';
-// import 'package:tinytots/components/shape_card.dart';
-import 'package:tinytots/components/top_bar.dart';
 import 'package:tinytots/components/utils/circle_button.dart';
 import 'package:tinytots/gen/assets.gen.dart';
+import 'package:tinytots/globals.dart';
 import 'package:tinytots/models/filipino/pamilya.dart';
 import 'package:tinytots/screens/learning/filipino/filipino.dart';
 import 'package:gap/gap.dart';
@@ -22,7 +22,7 @@ class PamilyaScreen extends StatefulWidget {
 
 class _PamilyaScreenState extends State<PamilyaScreen> {
   final CarouselSliderController parentCarCon = CarouselSliderController();
-  int currentIndex = 0;
+  int? currentIndex = prefs.getInt('pamilya_current_index') ?? 0;
 
   final List<Pamilya> pamilyaList = [
     Pamilya(
@@ -52,6 +52,14 @@ class _PamilyaScreenState extends State<PamilyaScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      parentCarCon.jumpToPage(currentIndex!);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -66,7 +74,35 @@ class _PamilyaScreenState extends State<PamilyaScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TopBar(oldScreen: FilipinoScreen()),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: PushReplacement(
+                  route: PageTransition(
+                    type: PageTransitionType.scale,
+                    alignment: Alignment.center,
+                    child: const FilipinoScreen(),
+                  ),
+                  child: NiceButton(
+                    label: "Back",
+                    color: Colors.yellow,
+                    shadowColor: Colors.yellow[800]!,
+                    icon: Icons.close,
+                    iconSize: 30,
+                    method: () {
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            alignment: Alignment.center,
+                            child: const FilipinoScreen(),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
               Expanded(
                 child: CarouselSlider.builder(
                   carouselController: parentCarCon,
@@ -82,6 +118,11 @@ class _PamilyaScreenState extends State<PamilyaScreen> {
                       onPageChanged: (index, reason) {
                         setState(() {
                           currentIndex = index;
+                          prefs.setInt('pamilya_current_index', index);
+
+                          if (pamilyaList.length - 1 == index) {
+                            prefs.setBool('pamilya_quiz_unlocked', true);
+                          }
                         });
                       }),
                   itemBuilder: (context, index, cardRealIndex) {
@@ -90,6 +131,7 @@ class _PamilyaScreenState extends State<PamilyaScreen> {
                         label: pamilyaList[index].label,
                         onNext: () {
                           if (pamilyaList.length - 1 == index) {
+                            prefs.setInt('pamilya_current_index', 0);
                             showDialog(
                               context: context,
                               barrierDismissible: false,

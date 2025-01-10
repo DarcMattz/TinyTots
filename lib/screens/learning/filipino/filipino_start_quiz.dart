@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:tinytots/components/push_replacement.dart';
 import 'package:tinytots/components/top_bar.dart';
 import 'package:tinytots/components/utils/nice_button.dart';
+import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/screens/learning/filipino/filipino.dart';
 
 class FilipinoStartQuizScreen extends StatelessWidget {
   final String title;
   final String instruction;
+  final String image;
   final Widget route;
   const FilipinoStartQuizScreen(
       {super.key,
       required this.title,
       required this.instruction,
+      required this.image,
       required this.route});
 
   @override
@@ -24,44 +29,51 @@ class FilipinoStartQuizScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TopBar(oldScreen: FilipinoScreen()),
-              Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.topCenter,
-                children: [
-                  Container(
-                      margin: const EdgeInsets.fromLTRB(30, 100, 30, 10),
+        child: LayoutBuilder(builder: (context, constraints) {
+          return SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TopBar(oldScreen: const FilipinoScreen()),
+                const Spacer(),
+                Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(30),
                       padding: const EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
+                            color: Colors.grey.withOpacity(1),
                             offset: const Offset(0, 3),
+                          ),
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(.3),
+                            offset: const Offset(0, 6),
                           ),
                         ],
                       ),
                       child: Column(
                         children: [
                           Container(
-                            constraints: const BoxConstraints(
-                              minHeight: 250,
-                              minWidth: double.infinity,
-                            ),
-                            margin: const EdgeInsets.only(top: 15.0),
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(18.0),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF95E9FF),
-                              borderRadius: BorderRadius.circular(7.0),
+                              color: const Color(0xff95E9FF),
+                              borderRadius: BorderRadius.circular(10.0),
+                              boxShadow: [
+                                const BoxShadow(
+                                  color: Color(0xff3ECEFE),
+                                  offset: Offset(0, 3),
+                                ),
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(.3),
+                                  offset: const Offset(0, 6),
+                                ),
+                              ],
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,83 +81,99 @@ class FilipinoStartQuizScreen extends StatelessWidget {
                                 Text(
                                   title,
                                   style: const TextStyle(
-                                    fontFamily: 'Poetsen One',
-                                    fontSize: 20,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.bold,
-                                    color: Color(0xFFA659FE),
+                                    color: Color(0xff6F53FD),
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
                                   instruction,
-                                  textAlign: TextAlign.start,
                                   style: const TextStyle(
-                                    fontFamily: 'Poetsen One',
-                                    fontSize: 15,
+                                    fontSize: 16,
                                     color: Colors.black,
                                   ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 10),
+                                Image.asset(
+                                  image,
+                                  width: constraints.maxWidth * .3,
                                 ),
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(6, 20, 6, 6),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                NiceButton(
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              PushReplacement(
+                                route: PageTransition(
+                                  type: PageTransitionType.scale,
+                                  alignment: Alignment.center,
+                                  child: const FilipinoScreen(),
+                                ),
+                                child: NiceButton(
                                   label: "Back",
                                   color: Colors.yellow,
                                   shadowColor: Colors.yellow[800]!,
                                   icon: Icons.close,
                                   iconSize: 30,
                                   method: () {
-                                    Navigator.pop(context);
+                                    if (context.mounted) {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.fade,
+                                          alignment: Alignment.center,
+                                          child: const FilipinoScreen(),
+                                        ),
+                                      );
+                                    }
                                   },
                                 ),
-                                NiceButton(
-                                  label: "Go",
-                                  color: const Color.fromARGB(255, 87, 210, 91),
-                                  shadowColor: Colors.green[800]!,
-                                  icon: Icons.check_rounded,
-                                  iconSize: 30,
-                                  method: () {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(builder: (_) => route),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
+                              ),
+                              NiceButton(
+                                label: "Go",
+                                color: const Color.fromARGB(255, 87, 210, 91),
+                                shadowColor: Colors.green[800]!,
+                                icon: Icons.check_rounded,
+                                iconSize: 30,
+                                method: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      alignment: Alignment.center,
+                                      child: route,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
                         ],
-                      )),
-                  Positioned(
-                    top: -10,
-                    child: Image.asset(
-                      'assets/images/koala.png',
-                      width: 160,
-                      height: 160,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 60.0),
-                    child: Image.asset(
-                      'assets/images/rabbit.png',
-                      height: 170,
+                  ],
+                ),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20.0, right: 30),
+                      child: Assets.images.cow.image(
+                        height: constraints.maxHeight * .20,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        }),
       ),
     );
   }

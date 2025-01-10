@@ -397,6 +397,9 @@ class $AssetsImagesFilipinoGen {
   AssetGenImage get pamilyaPic =>
       const AssetGenImage('assets/images/filipino/pamilya_pic.png');
 
+  /// Directory path: assets/images/filipino/quiz
+  $AssetsImagesFilipinoQuizGen get quiz => const $AssetsImagesFilipinoQuizGen();
+
   /// List of all assets
   List<AssetGenImage> get values => [
         abakadaPic,
@@ -1644,6 +1647,114 @@ class $AssetsImagesFilipinoPamilyaGen {
         pamilyaLolo,
         pamilyaNanay,
         pamilyaTatay
+      ];
+}
+
+class $AssetsImagesFilipinoQuizGen {
+  const $AssetsImagesFilipinoQuizGen();
+
+  /// File path: assets/images/filipino/quiz/abakada_instruction.png
+  AssetGenImage get abakadaInstruction => const AssetGenImage(
+      'assets/images/filipino/quiz/abakada_instruction.png');
+
+  /// File path: assets/images/filipino/quiz/apoy.png
+  AssetGenImage get apoy =>
+      const AssetGenImage('assets/images/filipino/quiz/apoy.png');
+
+  /// File path: assets/images/filipino/quiz/asul.png
+  AssetGenImage get asul =>
+      const AssetGenImage('assets/images/filipino/quiz/asul.png');
+
+  /// File path: assets/images/filipino/quiz/babae.png
+  AssetGenImage get babae =>
+      const AssetGenImage('assets/images/filipino/quiz/babae.png');
+
+  /// File path: assets/images/filipino/quiz/berde.png
+  AssetGenImage get berde =>
+      const AssetGenImage('assets/images/filipino/quiz/berde.png');
+
+  /// File path: assets/images/filipino/quiz/damo.png
+  AssetGenImage get damo =>
+      const AssetGenImage('assets/images/filipino/quiz/damo.png');
+
+  /// File path: assets/images/filipino/quiz/dilaw.png
+  AssetGenImage get dilaw =>
+      const AssetGenImage('assets/images/filipino/quiz/dilaw.png');
+
+  /// File path: assets/images/filipino/quiz/hugis_instruction.png
+  AssetGenImage get hugisInstruction =>
+      const AssetGenImage('assets/images/filipino/quiz/hugis_instruction.png');
+
+  /// File path: assets/images/filipino/quiz/kahel.png
+  AssetGenImage get kahel =>
+      const AssetGenImage('assets/images/filipino/quiz/kahel.png');
+
+  /// File path: assets/images/filipino/quiz/kuba.png
+  AssetGenImage get kuba =>
+      const AssetGenImage('assets/images/filipino/quiz/kuba.png');
+
+  /// File path: assets/images/filipino/quiz/kulay_instruction.png
+  AssetGenImage get kulayInstruction =>
+      const AssetGenImage('assets/images/filipino/quiz/kulay_instruction.png');
+
+  /// File path: assets/images/filipino/quiz/laro.png
+  AssetGenImage get laro =>
+      const AssetGenImage('assets/images/filipino/quiz/laro.png');
+
+  /// File path: assets/images/filipino/quiz/leeg.png
+  AssetGenImage get leeg =>
+      const AssetGenImage('assets/images/filipino/quiz/leeg.png');
+
+  /// File path: assets/images/filipino/quiz/lila.png
+  AssetGenImage get lila =>
+      const AssetGenImage('assets/images/filipino/quiz/lila.png');
+
+  /// File path: assets/images/filipino/quiz/mani.png
+  AssetGenImage get mani =>
+      const AssetGenImage('assets/images/filipino/quiz/mani.png');
+
+  /// File path: assets/images/filipino/quiz/manok.png
+  AssetGenImage get manok =>
+      const AssetGenImage('assets/images/filipino/quiz/manok.png');
+
+  /// File path: assets/images/filipino/quiz/pako.png
+  AssetGenImage get pako =>
+      const AssetGenImage('assets/images/filipino/quiz/pako.png');
+
+  /// File path: assets/images/filipino/quiz/pamilya_instruction.png
+  AssetGenImage get pamilyaInstruction => const AssetGenImage(
+      'assets/images/filipino/quiz/pamilya_instruction.png');
+
+  /// File path: assets/images/filipino/quiz/pula.png
+  AssetGenImage get pula =>
+      const AssetGenImage('assets/images/filipino/quiz/pula.png');
+
+  /// File path: assets/images/filipino/quiz/tatay.png
+  AssetGenImage get tatay =>
+      const AssetGenImage('assets/images/filipino/quiz/tatay.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        abakadaInstruction,
+        apoy,
+        asul,
+        babae,
+        berde,
+        damo,
+        dilaw,
+        hugisInstruction,
+        kahel,
+        kuba,
+        kulayInstruction,
+        laro,
+        leeg,
+        lila,
+        mani,
+        manok,
+        pako,
+        pamilyaInstruction,
+        pula,
+        tatay
       ];
 }
 

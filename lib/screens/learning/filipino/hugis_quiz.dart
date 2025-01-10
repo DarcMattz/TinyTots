@@ -8,13 +8,15 @@ import 'package:tinytots/gen/assets.gen.dart';
 import 'package:tinytots/globals.dart';
 import 'package:tinytots/helper/audio_service.dart';
 import 'package:tinytots/helper/confetti_helper.dart';
-import 'package:tinytots/models/mathematics/questions.dart';
-import 'package:tinytots/screens/learning/mathematics/mathematics.dart';
+import 'package:tinytots/models/all_aboard/question.dart';
+import 'package:tinytots/models/filipino/questions.dart';
+import 'package:tinytots/screens/learning/all_aboard/all_aboard.dart';
 import 'package:gap/gap.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tinytots/screens/learning/filipino/filipino.dart';
 
-class AddSubtractQuizScreen extends StatelessWidget {
-  const AddSubtractQuizScreen({super.key});
+class HugisQuizScreen extends StatelessWidget {
+  const HugisQuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class AndroidWelcome extends StatefulWidget {
 
 class _AndroidWelcomeState extends State<AndroidWelcome> {
   final AudioService _audioService = AudioService();
-  late final List<MathQuestion> questions;
+  late final List<FilipinoQuestion> questions;
 
   int currentQuestionIndex = 0;
   List<int> randomizedIndices = [];
@@ -62,64 +64,49 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     _audioService.setOnComplete(() {});
 
     questions = [
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.eightAdd.path,
-        question: "5 + 3 = ?",
-        options: ["8", "2", "5"],
+      FilipinoQuestion(
+        // imagePath: Assets.images.filipino.quiz.manok.path,
+        question: "Ano ang hugis ng bola?",
+        options: [
+          Assets.images.allAboard.shapes.circle.path,
+          Assets.images.allAboard.shapes.square.path,
+        ],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.fourAdd.path,
-        question: "3 + 1 = ?",
-        options: ["4", "6", "10"],
+      FilipinoQuestion(
+        // imagePath: Assets.images.filipino.quiz.manok.path,
+        question: "Ano ang hugis ng mesa?",
+        options: [
+          Assets.images.allAboard.shapes.square.path,
+          Assets.images.allAboard.shapes.triangle.path,
+        ],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.tenAdd.path,
-        question: "6 + 4 = ?",
-        options: ["10", "3", "7"],
+      FilipinoQuestion(
+        // imagePath: Assets.images.filipino.quiz.manok.path,
+        question: "Ano ang hugis ng itlog?",
+        options: [
+          Assets.images.allAboard.shapes.oval.path,
+          Assets.images.allAboard.shapes.circle.path,
+        ],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.nineAdd.path,
-        question: "7 + 2 = ?",
-        options: ["9", "5", "1"],
+      FilipinoQuestion(
+        // imagePath: Assets.images.filipino.quiz.manok.path,
+        question: "Ano ang hugis ng pintuan?",
+        options: [
+          Assets.images.allAboard.shapes.rectangle.path,
+          Assets.images.allAboard.shapes.triangle.path,
+        ],
         correctAnswerIndex: 0,
       ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.sevenAdd.path,
-        question: "4 + 3 = ?",
-        options: ["7", "4", "9"],
-        correctAnswerIndex: 0,
-      ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.twoSub.path,
-        question: "6 - 4 = ?",
-        options: ["2", "8", "6"],
-        correctAnswerIndex: 0,
-      ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.threeSub.path,
-        question: "6 - 3 = ?",
-        options: ["3", "5", "9"],
-        correctAnswerIndex: 0,
-      ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.fourSub.path,
-        question: "9 - 5 = ?",
-        options: ["4", "1", "7"],
-        correctAnswerIndex: 0,
-      ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.oneSub.path,
-        question: "4 - 3 = ?",
-        options: ["1", "6", "10"],
-        correctAnswerIndex: 0,
-      ),
-      MathQuestion(
-        imagePath: Assets.images.mathematics.quizAddSubtract.fiveSub.path,
-        question: "8 - 3 = ?",
-        options: ["5", "2", "8"],
+      FilipinoQuestion(
+        // imagePath: Assets.images.filipino.quiz.manok.path,
+        question: "Anong hugis ang may tatlong sulok?",
+        options: [
+          Assets.images.allAboard.shapes.triangle.path,
+          Assets.images.allAboard.shapes.rectangle.path,
+        ],
         correctAnswerIndex: 0,
       ),
     ];
@@ -226,6 +213,16 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     return score;
   }
 
+  void restartQuiz() {
+    setState(() {
+      currentQuestionIndex = 0;
+      userAnswers.clear();
+      showResults = false;
+      randomizeCurrentQuestion();
+      _confettiHelper.stopConfettiLoop(); // Stop confetti when restarting
+    });
+  }
+
   void close() {
     return Navigator.of(context).pop();
   }
@@ -234,10 +231,10 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
     final score = calculateScore();
     final percentage = (score / questions.length * 100).round();
 
-    final highScore = prefs.getInt('add_subtract_high_score') ?? 0;
+    final highScore = prefs.getInt('hugis_high_score') ?? 0;
 
     if (percentage > highScore) {
-      prefs.setInt('add_subtract_high_score', percentage);
+      prefs.setInt('hugis_high_score', percentage);
     }
 
     Widget star;
@@ -333,7 +330,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                 route: PageTransition(
                                     type: PageTransitionType.scale,
                                     alignment: Alignment.center,
-                                    child: const MathematicsScreen()),
+                                    child: const FilipinoScreen()),
                                 child: NiceButton(
                                   label: "OK",
                                   color: const Color(0xffC16DFE),
@@ -348,7 +345,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
                                         PageTransition(
                                           type: PageTransitionType.fade,
                                           alignment: Alignment.center,
-                                          child: const MathematicsScreen(),
+                                          child: const FilipinoScreen(),
                                         ),
                                       );
                                     }
@@ -433,7 +430,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
   }
 
   Widget buildQuizScreen() {
-    MathQuestion currentQuestion = questions[currentQuestionIndex];
+    FilipinoQuestion currentQuestion = questions[currentQuestionIndex];
     bool hasAnswered = userAnswers.length > currentQuestionIndex &&
         userAnswers[currentQuestionIndex] != null;
 
@@ -441,6 +438,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // TopBar(),
           const Spacer(),
           Card(
             margin: EdgeInsets.symmetric(
@@ -457,95 +455,77 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               padding: EdgeInsets.all(widget.constraints.maxWidth * .03),
               child: Column(
                 children: [
-                  Card(
-                    color: Color(0xff95E9FF),
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        widget.constraints.maxWidth * .04,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(14.0),
-                      child: Stack(
-                        children: [
-                          Column(
-                            children: [
-                              Image(
-                                image: AssetImage(currentQuestion.imagePath),
-                                height: widget.constraints.maxHeight * .2,
-                                width: widget.constraints.maxWidth,
-                              ),
-                              Wrap(
-                                spacing: 5,
-                                // runSpacing: 20,
-                                children: List.generate(
-                                  currentQuestion.options.length,
-                                  (index) {
-                                    final isSelected = index == selectedAnswer;
-                                    return GestureDetector(
-                                      onTap: hasChecked
-                                          ? null
-                                          : () {
-                                              handleAnswer(index);
-                                            },
-                                      child: Container(
-                                        width: widget.constraints.maxWidth * .2,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                          color: index == 0
-                                              ? Color(0xff67EB00)
-                                              : index == 1
-                                                  ? Color(0xffFFB800)
-                                                  : Color(0xffFF6433),
-                                          border: Border.all(
-                                            color: hasChecked && isSelected
-                                                ? (isCorrect
-                                                    ? Colors.green
-                                                    : Colors.red)
-                                                : hasAnswered && isSelected
-                                                    ? Colors.amber
-                                                    : Colors.grey,
-                                            width: widget.constraints.maxWidth *
-                                                .01,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            currentQuestion.options[
-                                                randomizedIndices[index]],
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize:
-                                                  widget.constraints.maxHeight *
-                                                      .020,
-                                              height: 1.0,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Gap(widget.constraints.maxHeight * .01),
                   Text(
                     currentQuestion.question,
                     style: TextStyle(
-                        fontSize: widget.constraints.maxHeight * .06,
-                        color: Color(0xffA659FE)),
+                      color: const Color(0xff6F53FD),
+                      fontSize: widget.constraints.maxHeight * .035,
+                      height: 1.0,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                   Gap(widget.constraints.maxHeight * .01),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 65.0),
+                    child: GridView.count(
+                      shrinkWrap: true,
+                      crossAxisCount: 1,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      children: List.generate(
+                        currentQuestion.options.length,
+                        (index) {
+                          final isSelected = index == selectedAnswer;
+                          return GestureDetector(
+                            onTap: hasChecked
+                                ? null
+                                : () {
+                                    _stop();
+                                    handleAnswer(index);
+                                  },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: const Color(0xff95E9FF),
+                                border: Border.all(
+                                  color: hasChecked && isSelected
+                                      ? (isCorrect ? Colors.green : Colors.red)
+                                      : hasAnswered && isSelected
+                                          ? Colors.amber
+                                          : Colors.grey,
+                                  width: hasAnswered &&
+                                          randomizedIndices[index] ==
+                                              userAnswers[currentQuestionIndex]
+                                      ? 4
+                                      : 1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Image.asset(
+                                      currentQuestion
+                                          .options[randomizedIndices[index]],
+                                      fit: BoxFit.cover,
+                                    ),
+                                    if (hasChecked && isSelected)
+                                      Container(
+                                        color: (isCorrect
+                                                ? Colors.green
+                                                : Colors.red)
+                                            .withOpacity(0.1),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                   LayoutBuilder(builder: (context, constraints) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -570,6 +550,7 @@ class _AndroidWelcomeState extends State<AndroidWelcome> {
               ),
             ),
           ),
+
           const Spacer(),
         ],
       ),
