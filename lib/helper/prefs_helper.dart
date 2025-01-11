@@ -57,11 +57,11 @@ class Storage {
     'abakada_quiz_unlocked',
     'abakada_high_score',
     //kulay
-    // 'kulay_current_index',
+    'kulay_current_index',
     'kulay_quiz_unlocked',
     'kulay_high_score',
     //hugis
-    // 'hugis_current_index',
+    'hugis_current_index',
     'hugis_quiz_unlocked',
     'hugis_high_score',
     //pamilya

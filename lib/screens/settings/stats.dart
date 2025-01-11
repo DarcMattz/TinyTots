@@ -82,6 +82,13 @@ class AndroidWelcome extends StatelessWidget {
           'Hugis': prefs.getInt('hugis_high_score') ?? 0,
         },
       ),
+      Book(
+        title: "Explore",
+        lessons: {
+          'Time Chase': prefs.getInt('time_chase_high_score') ?? 0,
+          'Riddle Hunt': prefs.getInt('riddle_hunt_high_score') ?? 0,
+        },
+      ),
     ];
 
     return Container(
@@ -113,17 +120,17 @@ class AndroidWelcome extends StatelessWidget {
                       Navigator.pop(context);
                     },
                   ),
-                  CircleAvatar(
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const DataScreen()));
-                      },
-                      icon: const Icon(Icons.data_array),
-                    ),
-                  )
+                  // CircleAvatar(
+                  //   child: IconButton(
+                  //     onPressed: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //               builder: (context) => const DataScreen()));
+                  //     },
+                  //     icon: const Icon(Icons.data_array),
+                  //   ),
+                  // )
                 ],
               ),
             ),

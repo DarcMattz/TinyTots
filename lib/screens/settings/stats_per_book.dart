@@ -166,7 +166,7 @@ class AndroidWelcome extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Quizes',
+                                book.title == "Explore" ? 'Modes' : 'Quizes',
                                 style: TextStyle(
                                   fontSize: constraints.maxWidth * 0.05,
                                   color: Colors.white,
