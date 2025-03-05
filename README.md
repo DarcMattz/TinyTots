@@ -42,10 +42,6 @@ TinyTots is an interactive and educational Android app designed to help preschoo
    flutter run
    ```
 
-### Credits
-
-Created by **Jibee**
-
 ### Flutter Version
 
 - Flutter 3.24.4 • channel stable • [Flutter GitHub](https://github.com/flutter/flutter.git)
